@@ -1,0 +1,32 @@
+From 705f7ade9dc91e01c393fbfa68e777fe60e31e55 Mon Sep 17 00:00:00 2001
+From: Jeff Horn <jhorn@reachtech.com>
+Date: Fri, 3 May 2013 15:39:37 -0700
+Subject: [PATCH] Add OE markers so we can use sed on build
+
+Signed-off-by: Jeff Horn <jhorn@reachtech.com>
+---
+ linux_ivt.bd | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/linux_ivt.bd b/linux_ivt.bd
+index 516f4f2..a088060 100644
+--- a/linux_ivt.bd
++++ b/linux_ivt.bd
+@@ -4,10 +4,10 @@ options {
+ 	flags = 0x01;
+ }
+ sources {
+-	power_prep="./power_prep/power_prep";
+-	sdram_prep="./boot_prep/boot_prep";
+-	linux_prep="./linux_prep/output-target/linux_prep";
+-	zImage="./zImage";
++	power_prep="imx-bootlets-power_prep-@MACHINE@";
++	sdram_prep="imx-bootlets-boot_prep-@MACHINE@";
++	linux_prep="imx-bootlets-linux_prep-@MACHINE@";
++	zImage="zImage-@MACHINE@.bin@DTB@";
+ }
+ 
+ section (0) {
+-- 
+1.8.2.2
+

@@ -17,11 +17,11 @@ IMAGE_LINK_NAME_linux.sb = ""
 IMAGE_CMD_linux.sb () {
 	kernel_bin="`readlink ${KERNEL_IMAGETYPE}-${MACHINE}.bin`"
 	kernel_dtb="`readlink ${KERNEL_IMAGETYPE}-${MACHINE}.dtb || true`"
-	linux_bd_file=imx-bootlets-linux.bd-${MACHINE}
+	linux_bd_file=imx-bootlets-linux_ivt.bd-${MACHINE}
 	if [ `basename $kernel_bin .bin` = `basename $kernel_dtb .dtb` ]; then
 		# When using device tree we build a zImage with the dtb
 		# appended on the end of the image
-		linux_bd_file=imx-bootlets-linux.bd-dtb-${MACHINE}
+		linux_bd_file=imx-bootlets-linux_ivt.bd-dtb-${MACHINE}
 		cat $kernel_bin $kernel_dtb \
 		    > $kernel_bin-dtb
 		rm -f ${KERNEL_IMAGETYPE}-${MACHINE}.bin-dtb
@@ -30,7 +30,7 @@ IMAGE_CMD_linux.sb () {
 
 	# Ensure the file is generated
 	rm -f ${IMAGE_NAME}.linux.sb
-	elftosb -z -c $linux_bd_file -o ${IMAGE_NAME}.linux.sb
+	elftosb -z -f imx28 -c $linux_bd_file -o ${IMAGE_NAME}.linux.sb
 
 	# Remove the appended file as it is only used here
 	rm -f $kernel_bin-dtb

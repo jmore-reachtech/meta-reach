@@ -182,10 +182,16 @@ generate_mxs_sdcard () {
 		parted -s ${SDCARD} unit KiB mkpart primary $(expr ${IMAGE_ROOTFS_ALIGNMENT} \+ ${BOOT_SPACE_ALIGNED}) $(expr ${IMAGE_ROOTFS_ALIGNMENT} \+ ${BOOT_SPACE_ALIGNED} \+ $ROOTFS_SIZE)
 
 		# Empty 4 bytes from boot partition
-		dd if=/dev/zero of=${SDCARD} conv=notrunc seek=2048 count=4
+		#dd if=/dev/zero of=${SDCARD} conv=notrunc seek=2048 count=4
+		
+		# Create HAD header
+		mxshdr.sh 2048 1 > ${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.sb.header
 
+		# Write bootstream header
+		dd if=${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.sb.header of=${SDCARD} conv=notrunc seek=2048
+		
 		# Write the bootstream in (2048 + 4) bytes
-		dd if=${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.linux.sb of=${SDCARD} conv=notrunc seek=1 seek=2052
+		dd if=${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.linux.sb of=${SDCARD} conv=notrunc seek=2049
 		;;
 		u-boot)
 		# The disk layout used is:
@@ -262,7 +268,7 @@ IMAGE_CMD_sdcard () {
 	BOOT_SPACE_ALIGNED=$(expr ${BOOT_SPACE} + ${IMAGE_ROOTFS_ALIGNMENT} - 1)
 	BOOT_SPACE_ALIGNED=$(expr ${BOOT_SPACE_ALIGNED} - ${BOOT_SPACE_ALIGNED} % ${IMAGE_ROOTFS_ALIGNMENT})
 	SDCARD_SIZE=$(expr ${IMAGE_ROOTFS_ALIGNMENT} + ${BOOT_SPACE_ALIGNED} + $ROOTFS_SIZE + ${IMAGE_ROOTFS_ALIGNMENT})
-
+	
 	# Initialize a sparse file
 	dd if=/dev/zero of=${SDCARD} bs=1 count=0 seek=$(expr 1024 \* ${SDCARD_SIZE})
 

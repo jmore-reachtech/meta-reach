@@ -13,7 +13,7 @@ index 6bc36b9..6cf89a0 100644
 +++ b/linux_prep/cmdlines/iMX28_EVK.txt
 @@ -1 +1 @@
 -console=ttyAM0,115200 root=/dev/mmcblk0p3 rw rootwait
-+console=ttyAMA0,115200 root=/dev/mmcblk0p2 rw rootwait
++console=ttyAM0,115200 root=/dev/mmcblk0p2 rw rootwait
 diff --git a/linux_prep/cmdlines/stmp378x_dev.txt b/linux_prep/cmdlines/stmp378x_dev.txt
 index 9a717eb..fdb7390 100644
 --- a/linux_prep/cmdlines/stmp378x_dev.txt

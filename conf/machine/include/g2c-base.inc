@@ -8,7 +8,7 @@ SOC_FAMILY = "mxs"
 # Disable perf features as 2.6.35.3 fail to build otherwise
 PERF_FEATURES_ENABLE = ""
 
-SERIAL_CONSOLE = "115200 ttyAMA0"
+SERIAL_CONSOLE = "115200 ttyAM0"
 
 PREFERRED_PROVIDER_virtual/kernel ?= "linux-g2c"
 PREFERRED_PROVIDER_u-boot ?= "u-boot-fslc"

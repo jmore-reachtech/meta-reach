@@ -1,0 +1,35 @@
+From 6e49ae883b543574a7a84ce9af8807233e382998 Mon Sep 17 00:00:00 2001
+From: Jeff Horn <jhorn@reachtech.com>
+Date: Tue, 21 May 2013 14:30:09 -0700
+Subject: [PATCH] Fix EV_VERSION to match the Reach Kernel
+
+Signed-off-by: Jeff Horn <jhorn@reachtech.com>
+---
+ plugins/input-raw.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/plugins/input-raw.c b/plugins/input-raw.c
+index 9659eac..b8d68d1 100644
+--- a/plugins/input-raw.c
++++ b/plugins/input-raw.c
+@@ -33,6 +33,8 @@
+ 
+ #include "tslib-private.h"
+ 
++#define EV_VERSION_TSLIB	0x10000
++
+ struct tslib_input {
+ 	struct tslib_module_info module;
+ 
+@@ -52,7 +54,7 @@ static int check_fd(struct tslib_input *i)
+ 	u_int64_t absbit;
+ 
+ 	if (! ((ioctl(ts->fd, EVIOCGVERSION, &version) >= 0) &&
+-		(version == EV_VERSION) &&
++		(version == EV_VERSION_TSLIB) &&
+ 		(ioctl(ts->fd, EVIOCGBIT(0, sizeof(bit) * 8), &bit) >= 0) &&
+ 		(bit & (1 << EV_ABS)) &&
+ 		(ioctl(ts->fd, EVIOCGBIT(EV_ABS, sizeof(absbit) * 8), &absbit) >= 0) &&
+-- 
+1.8.2.2
+

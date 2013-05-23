@@ -13,3 +13,6 @@ SRC_URI[md5sum] = "9fce401b6c90e851f0335b9ca3a649a9"
 SRC_URI[sha256sum] = "ef25f5c9033500c236b1894436bddc4e20b90bc17585fbcdf9fe3bbbd9f15781"
 
 inherit autotools pkgconfig
+
+INCLUDE_DIR = "-I${STAGING_KERNEL_DIR}/include"
+EXTRA_OEMAKE = "INCLUDES=${INCLUDE_DIR}"

@@ -5,10 +5,9 @@ FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
 SRC_URI = "git://github.com/jmore-reachtech/reach-imx-bootlets.git \
 	file://linux-fix-paths.patch \
 	file://linux-fix-paths-ivt.patch \
-	file://linux_prep-fix-cmdlines.patch \
 "
 
-SRCREV = "d0fe9d3e288c5f67c41cf138fa3fc7c1749162de"
+SRCREV = "cdd878f87ea0fd7be7af96c9749f78ceca62f48c"
 
 S = "${WORKDIR}/git"
 

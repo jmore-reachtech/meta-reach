@@ -7,7 +7,7 @@ Index: kobs-ng-10.12.01/src/main.c
  	FILE         *cpuinfo;
  	char         line_buffer[100];
 -	static char  *banner     = "Hardware\t: Freescale MX";
-+	static char  *banner     = "Hardware\t: Reach Technology Canby-i.MX28";
++	static char  *banner     = "Hardware\t: Reach Technology Canby-i.MX";
  	static char  *v0_rom_tag = "23";
  	static char  *v1_rom_tag = "28";
  	static char  *v2_rom_tag = "53";

@@ -10,4 +10,5 @@ PACKAGES = "\
 RDEPENDS_packagegroup-custom-dev-tools = "\
          mtd-utils \
          kobs-ng \
+         flash-installer \
 "

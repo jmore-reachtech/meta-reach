@@ -10,6 +10,7 @@ PACKAGES = "\
 
 RDEPENDS_packagegroup-custom-x11-apps = "\
          tslib \
+         mesa-dri-driver-swrast \
 "
 
 RDEPENDS_packagegroup-custom-x11-tools = "\

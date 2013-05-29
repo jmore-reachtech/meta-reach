@@ -4,6 +4,7 @@ IMAGE_INSTALL += "xserver-xorg-fbdev \
 	packagegroup-custom-x11-apps \
 	packagegroup-custom-x11-tools \
 	packagegroup-custom-dev-tools \
+	packagegroup-custom-core \
 "
 
 export IMAGE_BASENAME = "reach-image-x11"

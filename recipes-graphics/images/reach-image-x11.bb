@@ -1,11 +1,17 @@
-include recipes-graphics/images/core-image-x11.bb
+DESCRIPTION = "A very basic X11 image with a terminal"
 
-IMAGE_INSTALL += "xserver-xorg-fbdev \
+IMAGE_FEATURES += "splash x11-base"
+
+LICENSE = "MIT"
+
+IMAGE_INSTALL_append = " xserver-xorg-fbdev \
 	packagegroup-custom-x11-apps \
 	packagegroup-custom-x11-tools \
 	packagegroup-custom-dev-tools \
 	packagegroup-custom-core \
 "
+
+inherit core-image
 
 export IMAGE_BASENAME = "reach-image-x11"
 

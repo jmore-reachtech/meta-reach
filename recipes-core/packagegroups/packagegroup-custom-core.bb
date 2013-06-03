@@ -10,4 +10,5 @@ PACKAGES = "\
 RDEPENDS_packagegroup-custom-core = "\
          dropbear \
          samba \
+         lighttpd \
 "

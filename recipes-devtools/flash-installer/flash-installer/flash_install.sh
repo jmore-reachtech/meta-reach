@@ -52,10 +52,15 @@ process_ubifs() {
     if [ "$DRY_RUN" == "no" ]
     then
         /usr/sbin/flash_erase $DEV_ENTRY 0 0
+        sleep 2
         /usr/sbin/ubiattach /dev/ubi_ctrl -d 0 -m $UBI_MTD_NUM
+        sleep 2
         /usr/sbin/ubimkvol /dev/ubi0 -N rootfs0 -m
+        sleep 2
         /usr/sbin/ubiupdatevol /dev/ubi0_0 $SRC_FNAME
+        sleep 2
         /usr/sbin/ubidetach /dev/ubi_ctrl -m $UBI_MTD_NUM
+        sleep 2
    fi
 
 }

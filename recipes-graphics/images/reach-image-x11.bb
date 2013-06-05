@@ -4,8 +4,7 @@ IMAGE_FEATURES += "splash x11-base"
 
 LICENSE = "MIT"
 
-IMAGE_INSTALL_append = " xserver-xorg-fbdev \
-	packagegroup-custom-x11-apps \
+IMAGE_INSTALL_append = " packagegroup-custom-x11-apps \
 	packagegroup-custom-x11-tools \
 	packagegroup-custom-dev-tools \
 	packagegroup-custom-core \

@@ -11,6 +11,7 @@ PACKAGES = "\
 RDEPENDS_packagegroup-custom-x11-apps = "\
 		 xserver-xorg-fbdev \
          tslib \
+         tsinit \
          mesa-dri-driver-swrast \
 "
 

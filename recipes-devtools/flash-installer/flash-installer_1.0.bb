@@ -10,5 +10,5 @@ SRC_URI = "file://flash_install.sh \
 
 do_install() {
 	install -d ${D}${sbindir}
-	install -m 644 ${WORKDIR}/flash_install.sh ${D}${sbindir}
+	install -m 755 ${WORKDIR}/flash_install.sh ${D}${sbindir}
 }

@@ -13,7 +13,7 @@ PARALLEL_MAKE = "-j 4"
 
 # These can be share on a per developer workstation like /opt
 DL_DIR ?= "/opt/yocto/downloads"
-SSTATE_DIR ?= "/opt/yocto/sstate"
+#SSTATE_DIR ?= "/opt/yocto/sstate"
 
 # Possibly make these available for download and sstate
 #SSTATE_MIRRORS ?= "\

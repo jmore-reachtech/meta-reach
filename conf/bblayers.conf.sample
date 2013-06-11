@@ -6,9 +6,9 @@ BBPATH = "${TOPDIR}"
 BBFILES ?= ""
 
 BBLAYERS ?= " \
-  /home/reach/yocto/reach-yocto/poky/meta \
-  /home/reach/yocto/reach-yocto/poky/meta-yocto \
-  /home/reach/yocto/reach-yocto/poky/meta-yocto-bsp \
-  /home/reach/yocto/reach-yocto/meta-fsl-arm \
-  /home/reach/yocto/reach-yocto/meta-reach \
+  ##COREBASE##/meta \
+  ##COREBASE##/meta-yocto \
+  ##COREBASE##/meta-yocto-bsp \
+  ##COREBASE##/meta-fsl-arm \
+  ##COREBASE##/meta-reach \
   "

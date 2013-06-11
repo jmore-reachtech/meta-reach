@@ -31,6 +31,7 @@ IMAGE_CMD_linux.sb () {
 	# Ensure the file is generated
 	rm -f ${IMAGE_NAME}.linux.sb
 	elftosb -z -f imx28 -c $linux_bd_file -o ${IMAGE_NAME}.linux.sb
+	ln -s ${IMAGE_NAME}.linux.sb ${IMAGE_BASENAME}-${MACHINE}.linux.sb
 
 	# Remove the appended file as it is only used here
 	rm -f $kernel_bin-dtb
@@ -184,9 +185,10 @@ generate_mxs_sdcard () {
 		# Empty 4 bytes from boot partition
 		#dd if=/dev/zero of=${SDCARD} conv=notrunc seek=2048 count=4
 		
-		# Create HAD header
+		# Create HAB header
 		mxshdr.sh 2048 1 > ${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.sb.header
-
+		ln -s ${IMAGE_NAME}.sb.header ${IMAGE_BASENAME}-${MACHINE}.sb.header
+		
 		# Write bootstream header
 		dd if=${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.sb.header of=${SDCARD} conv=notrunc seek=2048
 		
@@ -274,3 +276,4 @@ IMAGE_CMD_sdcard () {
 
 	${SDCARD_GENERATION_COMMAND}
 }
+

@@ -128,11 +128,14 @@ cp $BOOT_IMAGE $MFG_TEMP_DIR/mtd.0.sb
 cp $ROOTFS_UBIFS $MFG_TEMP_DIR/mtd.1.ubifs
 
 genext2fs -b $MFGFS_SIZE -d $MFG_TEMP_DIR -i 8192 $IMAGE_DIR/$IMAGE-$MACHINE-$SCRIPT_TIME_STAMP.mfg.ext3
+tune2fs -j $IMAGE_DIR/$IMAGE-$MACHINE-$SCRIPT_TIME_STAMP.mfg.ext3
 ln -s $IMAGE_DIR/$IMAGE-$MACHINE-$SCRIPT_TIME_STAMP.mfg.ext3 $IMAGE_DIR/$IMAGE-$MACHINE.mfg.ext3
 
 # clean up
 rm -rf $MFG_TEMP_DIR
 
+# write the mfgfs
+dd if=$IMAGE_DIR/$IMAGE-$MACHINE.mfg.ext3 of=$SDCARD conv=notrunc seek=1 bs=$(expr $BOOT_SPACE_ALIGNED \* 1024 + $IMAGE_ROOTFS_ALIGNMENT \* 1024 + $ROOTFS_SIZE \* 1024) && sync && sync
 
 # Setting partition type to 0x53 as required for mxs' SoC family
 echo -n S | dd of=${SDCARD} bs=1 count=1 seek=450 conv=notrunc

@@ -129,6 +129,9 @@ cp $ROOTFS_UBIFS $MFG_TEMP_DIR/mtd.1.ubifs
 
 genext2fs -b $MFGFS_SIZE -d $MFG_TEMP_DIR -i 8192 $IMAGE_DIR/$IMAGE-$MACHINE-$SCRIPT_TIME_STAMP.mfg.ext3
 tune2fs -j $IMAGE_DIR/$IMAGE-$MACHINE-$SCRIPT_TIME_STAMP.mfg.ext3
+
+# remove the symlink
+rm $IMAGE_DIR/$IMAGE-$MACHINE.mfg.ext3
 ln -s $IMAGE_DIR/$IMAGE-$MACHINE-$SCRIPT_TIME_STAMP.mfg.ext3 $IMAGE_DIR/$IMAGE-$MACHINE.mfg.ext3
 
 # clean up

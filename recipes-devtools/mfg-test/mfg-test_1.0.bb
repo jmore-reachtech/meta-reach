@@ -6,15 +6,16 @@ PR = "r0"
 
 DEPENDS = "i2c-tools"
 
-SRC_URI = "file://mfg_test.c"
+SRC_URI = "git://git@github.com/jmore-reachtech/reach-mfg-test.git;branch=master;protocol=ssh"
+SRCREV = "0694f7db744b69294e90773e0cff8d2f6e44f7bf"
 
-S = "${WORKDIR}"
+S = "${WORKDIR}/git"
 
 do_compile() {
-	${CC} mfg_test.c -o mfg_test
+	make all
 }
 
 do_install() {
 	install -d ${D}${sbindir}
-	install -m 0755 mfg_test ${D}${sbindir}
+	install -m 0755 ${S}/src/mfg-test ${D}${sbindir}
 }

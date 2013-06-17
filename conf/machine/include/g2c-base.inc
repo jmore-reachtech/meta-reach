@@ -15,5 +15,3 @@ PREFERRED_PROVIDER_u-boot ?= "u-boot-fslc"
 
 IMAGE_CLASSES += "image_types_reach"
 
-# Ship kernel modules
-MACHINE_EXTRA_RRECOMMENDS = "kernel-modules"

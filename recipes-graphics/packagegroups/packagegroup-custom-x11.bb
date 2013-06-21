@@ -6,6 +6,7 @@ inherit packagegroup
 PACKAGES = "\
  packagegroup-custom-x11-apps \
  packagegroup-custom-x11-tools \
+ packagegroup-custom-x11-touch-init \
 "
 
 RDEPENDS_packagegroup-custom-x11-apps = "\

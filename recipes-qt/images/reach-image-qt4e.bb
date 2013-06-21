@@ -14,5 +14,5 @@ IMAGE_INSTALL_append = "\
 
 inherit core-image
 
-export IMAGE_BASENAME = "reach-image-qt4e-demo"
+export IMAGE_BASENAME = "reach-image-qt4e"
 

@@ -1,0 +1,26 @@
+#!/bin/sh
+
+SIO_AGENT=/application/bin/sio-agent
+SIO_TTY=#SIOTTY#
+
+case "$1" in
+start)
+	# show this during quiet boot too.
+	echo "starting SIO Agent..." >&2
+	start-stop-daemon -m -p /var/run/sio_agent.pid -b -a $SIO_AGENT -S -- -d -t $SIO_TTY
+	;;
+stop)
+	echo "stoping SIO Agent..."
+	start-stop-daemon -p /var/run/sio_agent.pid -K
+	;;
+restart)
+	$0 stop
+	$0 start
+	;;
+*)
+	echo "Usage: /etc/init.d/sio_agent{start|stop|restart}" >&2
+	exit 1
+	;;
+esac
+
+exit 0

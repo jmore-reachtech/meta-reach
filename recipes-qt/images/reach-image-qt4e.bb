@@ -4,13 +4,13 @@ IMAGE_FEATURES += "splash"
 
 LICENSE = "MIT"
 
-IMAGE_INSTALL_append = "\
+IMAGE_INSTALL_append = " \
 	${CORE_IMAGE_BASE_INSTALL} \
 	reach-version \
 	packagegroup-reach-qt4e \
+        packagegroup-reach-qml-viewer \
         reach-qml-demo \
-        qml-viewer-init \
-"
+       "
 
 inherit core-image
 

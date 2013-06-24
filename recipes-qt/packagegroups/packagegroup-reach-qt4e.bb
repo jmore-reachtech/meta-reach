@@ -36,9 +36,6 @@ RDEPENDS_${PN} = " \
         qt4-embedded-plugin-script-dbus \
         qt4-embedded-plugin-sqldriver-sqlite \
         ${TOUCH} \
-        reach-qml-viewer \
-        reach-sio-agent \
-        reach-tio-agent \
 "
 
 RRECOMMENDS_${PN} = " \

@@ -19,6 +19,7 @@ RDEPENDS_${PN} = " \
         libqt-embeddedsvg4 \
         libqt-embeddedtest4 \
         libqt-embeddedxml4 \
+        qt4-embedded-qml-plugins \
         qt4-embedded-fonts-ttf-dejavu \
         qt4-embedded-fonts-ttf-vera \
         qt4-embedded-plugin-iconengine-svgicon \

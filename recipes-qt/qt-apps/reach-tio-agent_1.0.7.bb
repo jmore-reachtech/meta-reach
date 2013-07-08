@@ -9,8 +9,9 @@ PR = "r2"
 SRCREV = "4ee4e9adce377bb486acd17e132d7015bbdb4877"
 SRC_URI = " \
            git://git@github.com/jmore-reachtech/reach-tio-agent.git;protocol=ssh \
-           file://tio-agent \
           "
+          
+FILES_${PN} += "${sysconfdir}/init.d/tio-agent"
 
 S = "${WORKDIR}/git"
 

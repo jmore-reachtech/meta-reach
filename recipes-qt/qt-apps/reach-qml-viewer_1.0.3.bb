@@ -9,9 +9,9 @@ PR = "r2"
 SRCREV = "f24ed3d96cf4f23d5749eb2719a05578c71fba12"
 SRC_URI = " \
            git://git@github.com/jmore-reachtech/reach-qml-viewer.git;protocol=ssh \
-           file://qml-viewer \
-           file://qml-reset \
           "
+
+FILES_${PN} += "${sysconfdir}/init.d/qml-viewer ${sysconfdir}/init.d/qml-reset"
 
 S = "${WORKDIR}/git"
 

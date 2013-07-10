@@ -9,7 +9,9 @@ SCRIPT_TIME_STAMP=$(date +%Y%d%m%H%m)
 
 MACHINE="g2c1"
 DEFAULT_IMAGE="reach-image-x11"
-
+if [[ -n "$1" ]]; then
+    DEFAULT_IMAGE=$1
+fi
 
 PWD=$(pwd)
 WORK_DIR=$PWD

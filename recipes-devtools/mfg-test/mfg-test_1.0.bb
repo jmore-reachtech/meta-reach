@@ -8,6 +8,10 @@ DEPENDS = "i2c-tools"
 
 SRC_URI = "git://git@github.com/jmore-reachtech/reach-mfg-test.git;branch=master;protocol=ssh \
     file://run-mfg.sh \
+    file://black480x272.bmp \
+    file://white480x272.bmp \
+    file://blackToRGB480x272.bmp \
+    file://pattern480x272.bmp \
 "
 
 SRCREV = "f946d5efe9a8faeb7dcaffb1cd0d03644a5556ae"
@@ -22,4 +26,12 @@ do_install() {
 	install -d ${D}${sbindir}
 	install -m 0755 ${S}/src/mfg-test ${D}${sbindir}
 	install -m 755 ${WORKDIR}/run-mfg.sh ${D}${sbindir}
+
+	install -d ${D}/home/root
+	install -m 644 ${WORKDIR}/black480x272.bmp ${D}/home/root
+	install -m 644 ${WORKDIR}/white480x272.bmp ${D}/home/root
+	install -m 644 ${WORKDIR}/blackToRGB480x272.bmp ${D}/home/root
+	install -m 644 ${WORKDIR}/pattern480x272.bmp ${D}/home/root
 }
+
+FILES_${PN} = "/home/root ${sbindir}"

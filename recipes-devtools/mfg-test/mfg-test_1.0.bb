@@ -10,7 +10,7 @@ SRC_URI = "git://git@github.com/jmore-reachtech/reach-mfg-test.git;branch=master
     file://run-mfg.sh \
 "
 
-SRCREV = "0694f7db744b69294e90773e0cff8d2f6e44f7bf"
+SRCREV = "f946d5efe9a8faeb7dcaffb1cd0d03644a5556ae"
 
 S = "${WORKDIR}/git"
 

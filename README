@@ -2,11 +2,11 @@ This layer depends on:
 
 URI: git://git.yoctoproject.org/poky.git
 branch: danny
-revision: a69769e3b3e7f475e416d3a49d68dab088592851
+revision: c3505828f267ca68aaf454355466f54772545a22
 
 URI: git://github.com/Freescale/meta-fsl-arm.git
 branch: danny
-revision: a0e486a76af5819ee76ac34e966feb72bd3c48bd
+revision: b93c40348cdcb0022f4315edc1b9cb7474253b1e
 
 Main layer maintainer: Jeff Horn <jhorn@reachtech.com>
 

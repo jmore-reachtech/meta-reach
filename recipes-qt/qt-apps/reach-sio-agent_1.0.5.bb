@@ -7,8 +7,8 @@ inherit qt4e
 PR = "r2"
 
 SRCREV = "959646e39339bd4e0af0121b62ad78abcfb332da"
-SRC_URI = " \
-           git://git@github.com/jmore-reachtech/reach-sio-agent.git;protocol=ssh \
+SRC_URI = "git://git@github.com/jmore-reachtech/reach-sio-agent.git;protocol=ssh \
+		   file://sio-agent \
           "
           
 FILES_${PN} += "${sysconfdir}/init.d/sio-agent"

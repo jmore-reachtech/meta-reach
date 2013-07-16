@@ -7,8 +7,9 @@ inherit qt4e
 PR = "r2"
 
 SRCREV = "8411a63dd1c4611edaeb745edb044b400f1babb3"
-SRC_URI = " \
-           git://git@github.com/jmore-reachtech/reach-qml-viewer.git;protocol=ssh \
+SRC_URI = "git://git@github.com/jmore-reachtech/reach-qml-viewer.git;protocol=ssh \
+		   file://qml-viewer \
+		   file://qml-reset \
           "
 
 FILES_${PN} += "${sysconfdir}/init.d/qml-viewer ${sysconfdir}/init.d/qml-reset"

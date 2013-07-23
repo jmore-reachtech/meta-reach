@@ -2,7 +2,7 @@ DESCRIPTION = "udev is a daemon which dynamically creates and removes device nod
 /dev/, handles hotplug events and loads drivers at boot time. It replaces \
 the hotplug package and requires a kernel not older than 2.6.27."
 
-# udev 169 and up require kernel 2.6.36 for ARM: 
+# udev 169 and up require kernel 2.6.36 for ARM:
 # http://git.kernel.org/?p=linux/hotplug/udev.git;a=commit;h=67a77c8bf299f6264f001677becd056316ebce2f
 
 LICENSE = "GPLv2+ & LGPLv2.1+"
@@ -27,6 +27,7 @@ SRC_URI = "${KERNELORG_MIRROR}/linux/utils/kernel/hotplug/udev-${PV}.tar.bz2 \
 SRC_URI += " \
        file://touchscreen.rules \
        file://modprobe.rules \
+       file://75-persistent-net-generator.rules \
        file://default \
        file://init \
        file://cache \
@@ -79,7 +80,7 @@ RRECOMMENDS_${PN} += "util-linux-blkid"
 # is ${prefix}/lib64
 FILES_${PN} += "/lib/udev*"
 FILES_${PN}-dbg += "/lib/udev/.debug"
- 
+
 FILES_${PN}-consolekit += "${libdir}/ConsoleKit"
 RDEPENDS_${PN}-consolekit += "${@base_contains('DISTRO_FEATURES', 'x11', 'consolekit', '', d)}"
 

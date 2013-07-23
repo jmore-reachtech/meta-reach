@@ -8,9 +8,11 @@ IMAGE_INSTALL_append = " \
 	${CORE_IMAGE_BASE_INSTALL} \
 	packagegroup-custom-core \
 	packagegroup-reach-qt4e \
-        packagegroup-reach-qml-viewer \
-        reach-qml-demo \
-       "
+    packagegroup-reach-qml-viewer \
+    reach-qml-demo \
+    packagegroup-custom-dev-apps \
+    packagegroup-custom-dev-tools \
+"
 
 inherit core-image
 

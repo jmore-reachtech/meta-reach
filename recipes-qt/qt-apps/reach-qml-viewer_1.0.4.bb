@@ -10,6 +10,7 @@ SRCREV = "8411a63dd1c4611edaeb745edb044b400f1babb3"
 SRC_URI = "git://git@github.com/jmore-reachtech/reach-qml-viewer.git;protocol=ssh \
 		   file://qml-viewer \
 		   file://qml-reset \
+		   file://reset-app.sh \
           "
 
 FILES_${PN} += "${sysconfdir}/init.d/qml-viewer ${sysconfdir}/init.d/qml-reset"
@@ -23,9 +24,12 @@ do_install() {
 	install -d ${D}${sysconfdir}/init.d/
 	install -m 0755 ${WORKDIR}/qml-viewer ${D}${sysconfdir}/init.d/qml-viewer
 	install -m 0755 ${WORKDIR}/qml-reset ${D}${sysconfdir}/init.d/qml-reset
+	
+	install -d ${D}/home/root
+	install -m 0755 ${WORKDIR}/reset-app.sh ${D}/home/root
 }
 
-FILES_${PN} += "/application/bin"
+FILES_${PN} += "/application/bin /home/root"
 FILES_${PN}-dbg += "/application/bin/.debug /usr/src/debug"
 
 inherit update-rc.d

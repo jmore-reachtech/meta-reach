@@ -2,6 +2,7 @@ DESCRIPTION = "Freescale kobs-ng utility for writing bootstreams to NAND"
 SECTION = "base"
 LICENSE = "GPLv2+"
 LIC_FILES_CHKSUM = "file://COPYING;md5=393a5ca445f6965873eca0259a17f833"
+DEPENDS = "linux-libc-headers"
 
 PR = "r0"
 

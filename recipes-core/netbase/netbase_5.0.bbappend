@@ -1,7 +1,7 @@
 # Append path for freescale layer to include bsp xorg.conf 
 FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}_${PV}:"
 
-PRINC := "${@int(PRINC) + 1}"
+PRINC := "${@int(PRINC) + 2}"
 
 SRC_URI += " file://net-setup.sh \
 "

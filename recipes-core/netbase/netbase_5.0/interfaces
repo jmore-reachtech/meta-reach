@@ -7,3 +7,11 @@ iface lo inet loopback
 # Wired or wireless interfaces
 auto eth0
 iface eth0 inet dhcp
+
+# Wireless interfaces
+iface wlan0 inet dhcp
+	wireless_mode managed
+	wireless_essid any
+	wpa-driver wext
+	wpa-conf /etc/wpa_supplicant.conf
+

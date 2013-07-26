@@ -8,7 +8,7 @@ SRC_URI = "git://github.com/jmore-reachtech/reach-imx-bootlets.git \
 	file://0001-Fix-MMC-boot-partition.patch \
 "
 
-SRCREV = "cdd878f87ea0fd7be7af96c9749f78ceca62f48c"
+SRCREV = "6275258786111e148517a849e6129233d0199c9b"
 
 S = "${WORKDIR}/git"
 

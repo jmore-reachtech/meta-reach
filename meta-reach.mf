@@ -1,0 +1,37 @@
+{
+  "depends":[
+    {
+      "name":"poky",
+      "uri":"git://git-mirror.local/poky.git",
+      "branch":"danny",
+      "rev":"c3505828f267ca68aaf454355466f54772545a22",
+      "layers":[
+        {
+          "name":"meta-fsl-arm",
+          "uri":"git://git-mirror.local/meta-fsl-arm.git",
+          "branch":"danny",
+          "rev":"b93c40348cdcb0022f4315edc1b9cb7474253b1e"
+        },
+        {
+          "name":"meta-reach",
+          "uri":"git://git-mirror.local/meta-reach.git",
+          "branch":"danny",
+          "rev":"9a83cd7e2a0c850aac134f082f7bc3c236b3a9cc"
+        }
+      ]
+    }
+  ],
+  "conf": "TEMPLATECONF=meta-reach/conf",
+  "images":[
+    {
+      "name": "reach-image-qt4e"
+    },
+    {
+      "name": "reach-image-minimal"
+    },
+    {
+      "name": "reach-image-x11"
+    }
+  ],
+  "version": "1.0.0"
+}

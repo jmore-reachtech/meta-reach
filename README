@@ -13,3 +13,5 @@ Main layer maintainer: Jeff Horn <jhorn@reachtech.com>
 Initializing the Yocto environment
 
 $ TEMPLATECONF=meta-reach/conf source ./poky/oe-init-build-env
+
+g2c1 manifest file is meta-reach.mf

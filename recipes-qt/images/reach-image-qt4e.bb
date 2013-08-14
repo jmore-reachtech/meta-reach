@@ -10,7 +10,6 @@ IMAGE_INSTALL_append = " \
 	packagegroup-reach-qt4e \
 	packagegroup-reach-qml-viewer \
 	reach-qml-demo \
-	packagegroup-custom-dev-apps \
 	packagegroup-custom-dev-tools \
 	bc \
 	coreutils \

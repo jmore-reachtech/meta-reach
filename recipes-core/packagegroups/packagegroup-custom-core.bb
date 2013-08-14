@@ -11,5 +11,8 @@ RDEPENDS_packagegroup-custom-core = "\
          dropbear \
          samba \
          lighttpd \
-         reach-version \
+         php \
+		 php-fpm \
+		 lighttpd-module-fastcgi \
+         reach-version \        
 "

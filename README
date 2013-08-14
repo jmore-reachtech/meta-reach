@@ -14,4 +14,4 @@ Initializing the Yocto environment
 
 $ TEMPLATECONF=meta-reach/conf source ./poky/oe-init-build-env
 
-g2c1 manifest file is meta-reach.mf
+g2c1 manifest file is g2c-devkit.mf

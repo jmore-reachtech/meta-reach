@@ -1,5 +1,5 @@
 #! /bin/bash
-# (c) Copyright 2013 Jeff Horn <jhorn@reachtehc.com>
+# (c) Copyright 2013 Jeff Horn <jhorn@reachtech.com>
 # Licensed under terms of GPLv2
 #
 

@@ -1,7 +1,9 @@
-include recipes-core/images/core-image-minimal.bb
+DESCRIPTION = "A minimal console based image used for testing"
+
+LICENSE = "MIT"
 
 
-IMAGE_INSTALL = "\
+IMAGE_INSTALL_append = "\
 	${CORE_IMAGE_BASE_INSTALL} \
 	packagegroup-custom-dev-tools \
 	packagegroup-custom-core \
@@ -10,5 +12,7 @@ IMAGE_INSTALL = "\
 	tslib-tests \
 	tsinit \
 "
+
+inherit core-image
 
 export IMAGE_BASENAME = "reach-image-minimal"

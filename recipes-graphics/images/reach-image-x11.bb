@@ -8,7 +8,6 @@ IMAGE_INSTALL_append = " packagegroup-custom-x11-apps \
 	packagegroup-custom-x11-tools \
 	packagegroup-custom-dev-tools \
 	packagegroup-custom-x11-touch-init \
-	packagegroup-custom-dev-apps \
 	packagegroup-custom-core \
 "
 

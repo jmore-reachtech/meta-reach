@@ -1,24 +1,27 @@
-#!/bin/sh -e
+#!/bin/sh
+
+### BEGIN INIT INFO
+# Provides:          udev-cache
+# Required-Start:    mountall
+# Required-Stop:
+# Default-Start:     S
+# Default-Stop:
+# Short-Description: cache /dev to speedup the udev next boot
+### END INIT INFO
 
 export TZ=/etc/localtime
 
+[ -r /proc/mounts ] || exit 1
+[ -x /sbin/udevd ] || exit 1
+[ -d /sys/class ] || exit 1
+
 [ -f /etc/default/udev ] && . /etc/default/udev
 
-echo "Caching udev devnodes"
-
-if [ "$DEVCACHE" != "" ]; then
-	echo -n "Populating dev cache"
-	(cd /; tar cf $DEVCACHE dev)
-	mv /tmp/uname /etc/udev/saved.uname
-	mv /tmp/cmdline /etc/udev/saved.cmdline
-	mv /tmp/devices /etc/udev/saved.devices
-	mv /tmp/atags /etc/udev/saved.atags
-	echo
-else
-	rm -f /tmp/uname
-	rm -f /tmp/cmdline
-	rm -f /tmp/devices
-	rm -f /tmp/atags
+if [ "$DEVCACHE" != "" -a -e /dev/shm/udev.cache ]; then
+	echo "Populating dev cache"
+	(cd /; tar cf "$DEVCACHE" dev)
+	mv /dev/shm/udev.cache /etc/udev/cache.data
 fi
 
 exit 0
+

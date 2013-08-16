@@ -17,6 +17,16 @@ export TZ=/etc/localtime
 [ -f /etc/default/udev ] && . /etc/default/udev
 [ -f /etc/udev/udev.conf ] && . /etc/udev/udev.conf
 
+readfile () {
+   filename=$1
+   READDATA=""
+   if [ -r $filename ]; then
+       while read line; do
+           READDATA="$READDATA$line"
+       done < $filename
+   fi
+}
+
 kill_udevd() {
 	pid=`pidof -x udevd`
 	[ -n "$pid" ] && kill $pid
@@ -33,19 +43,29 @@ LANG=C awk "\$2 == \"/dev\" && \$3 == \"tmpfs\" { exit 1 }" /proc/mounts && {
 	mkdir -m 1777 /dev/shm
 }
 
+# cache handling
 if [ "$DEVCACHE" != "" ]; then
-	# Invalidate udev cache if the kernel or its bootargs/cmdline have changed
-	[ -x /bin/uname ] && /bin/uname -mrspv > /tmp/uname || touch /tmp/uname
-	[ -r /proc/cmdline ] && cat /proc/cmdline > /tmp/cmdline || touch /tmp/cmdline
-	[ -r /proc/devices ] && cat /proc/devices > /tmp/devices || touch /tmp/devices
-	[ -r /proc/atags ] && cat /proc/atags > /tmp/atags || touch /tmp/atags
-	if [ -e $DEVCACHE ] && \
-		cmp -s /tmp/uname /etc/udev/saved.uname && \
-		cmp -s /tmp/cmdline /etc/udev/saved.cmdline && \
-		cmp -s /tmp/devices /etc/udev/saved.devices && \
-		cmp -s /tmp/atags /etc/udev/saved.atags; then
-		(cd /; tar xf $DEVCACHE > /dev/null 2>&1)
-		not_first_boot=1
+	readfile /proc/version
+	VERSION="$READDATA"
+	readfile /proc/cmdline
+	CMDLINE="$READDATA"
+	readfile /proc/devices
+	DEVICES="$READDATA"
+	readfile /proc/atags
+	ATAGS="$READDATA"
+
+	if [ -e $DEVCACHE ]; then
+		readfile /etc/udev/cache.data
+		if [ "$READDATA" = "$VERSION$CMDLINE$DEVICES$ATAGS" ]; then
+			(cd /; tar xf $DEVCACHE > /dev/null 2>&1)
+			not_first_boot=1
+			[ "$VERBOSE" != "no" ] && echo "udev: using cache file $DEVCACHE"
+			[ -e /dev/shm/udev.cache ] && rm -f /dev/shm/udev.cache
+		else
+			echo "$VERSION$CMDLINE$DEVICES$ATAGS" > /dev/shm/udev.cache
+		fi
+	else
+		echo "$VERSION$CMDLINE$DEVICES$ATAGS" > /dev/shm/udev.cache
 	fi
 fi
 

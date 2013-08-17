@@ -19,7 +19,7 @@
           "uri":"git@github.com:jmore-reachtech/meta-reach.git",
           "mirror":"git://git-mirror.local/meta-reach.git",
           "branch":"danny",
-          "rev":"1a47dd1290c76b8f0384835542ea2d273ec6e717",
+          "rev":"a1c02ee6293a33f1f93d568418bf5690ef86ceac",
           "main": true
         }
       ]
@@ -27,6 +27,9 @@
   ],
   "conf": "TEMPLATECONF=meta-reach/conf",
   "images":[
+    {
+      "name": "reach-image-minimal"
+    },
     {
       "name": "reach-image-qt4e"
     },

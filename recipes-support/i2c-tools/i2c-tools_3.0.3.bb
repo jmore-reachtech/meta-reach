@@ -9,6 +9,9 @@ SRC_URI = "http://dl.lm-sensors.org/i2c-tools/releases/i2c-tools-${PV}.tar.bz2 \
 SRC_URI[md5sum] = "511376eed04455cdb277ef19c5f73bb4"
 SRC_URI[sha256sum] = "23b28e474741834e3f1b35b0686528769a13adc92d2ff5603cbda1d6bd5e5629"
 
+RDEPENDS_${PN} += "perl \
+"
+
 inherit autotools
 
 do_compile_prepend() {

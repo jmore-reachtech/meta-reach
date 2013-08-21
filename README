@@ -1,12 +1,12 @@
 This layer depends on:
 
 URI: git://git.yoctoproject.org/poky.git
-branch: danny
-revision: c3505828f267ca68aaf454355466f54772545a22
+branch: dylan
+revision: d734ab491a30078d43dee5440c03acce2d251425
 
 URI: git://github.com/Freescale/meta-fsl-arm.git
-branch: danny
-revision: b93c40348cdcb0022f4315edc1b9cb7474253b1e
+branch: dylan
+revision: afe2162644544a92a517f1d51211fdcb76bb1a29
 
 Main layer maintainer: Jeff Horn <jhorn@reachtech.com>
 
@@ -14,4 +14,4 @@ Initializing the Yocto environment
 
 $ TEMPLATECONF=meta-reach/conf source ./poky/oe-init-build-env
 
-g2c1 manifest file is g2c-devkit.mf
+g2c1 manifest file is g2-devkit.mf

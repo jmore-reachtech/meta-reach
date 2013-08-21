@@ -4,22 +4,22 @@
       "name":"poky",
       "uri":"git://git.yoctoproject.org/poky.git",
       "mirror":"git://git-mirror.local/poky.git",
-      "branch":"danny",
-      "rev":"c3505828f267ca68aaf454355466f54772545a22",
+      "branch":"dylan",
+      "rev":"d734ab491a30078d43dee5440c03acce2d251425",
       "layers":[
         {
           "name":"meta-fsl-arm",
           "uri":"git://github.com/Freescale/meta-fsl-arm.git",
           "mirror":"git://git-mirror.local/meta-fsl-arm.git",
-          "branch":"danny",
-          "rev":"b93c40348cdcb0022f4315edc1b9cb7474253b1e"
+          "branch":"dylan",
+          "rev":"afe2162644544a92a517f1d51211fdcb76bb1a29"
         },
         {
           "name":"meta-reach",
           "uri":"git@github.com:jmore-reachtech/meta-reach.git",
           "mirror":"git://git-mirror.local/meta-reach.git",
-          "branch":"danny",
-          "rev":"a1c02ee6293a33f1f93d568418bf5690ef86ceac",
+          "branch":"dylan",
+          "rev":"not-sure-yet",
           "main": true
         }
       ]

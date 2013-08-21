@@ -12,7 +12,7 @@ PACKAGES = "\
 RDEPENDS_packagegroup-custom-x11-apps = "\
 		 xserver-xorg-fbdev \
          tslib \
-         mesa-dri-driver-swrast \
+         mesa-driver-swrast \
 "
 
 RDEPENDS_packagegroup-custom-x11-tools = "\

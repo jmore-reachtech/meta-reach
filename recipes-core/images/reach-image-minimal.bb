@@ -11,6 +11,7 @@ IMAGE_INSTALL_append = "\
 	tslib-calibrate \
 	tslib-tests \
 	tsinit \
+	usbutils \
 "
 
 inherit core-image

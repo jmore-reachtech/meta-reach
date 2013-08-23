@@ -8,7 +8,7 @@ PACKAGES = "\
 "
 
 RDEPENDS_packagegroup-custom-dev-tools = "\
-         mtd-utils \
+         mtd-utils-ubifs \
          kobs-ng \
          flash-installer \
          mfg-test \

@@ -6,7 +6,7 @@ inherit qt4e
 
 PR = "r1"
 
-SRCREV = "b79e5d1bbb4d0262d5c98480db6fb98604871fdb"
+SRCREV = "fe1b5c2463483a6709dd328d0e4980a00a1a46ae"
 SRC_URI = "git://git@github.com/jmore-reachtech/reach-qml-demo.git;protocol=ssh"
 
 S = "${WORKDIR}/git/reachdemoplugin"

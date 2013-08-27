@@ -6,7 +6,7 @@ revision: d734ab491a30078d43dee5440c03acce2d251425
 
 URI: git://github.com/Freescale/meta-fsl-arm.git
 branch: dylan
-revision: afe2162644544a92a517f1d51211fdcb76bb1a29
+revision: f2805add77f9e9d5f7a114ee99a632172d8f3ff6
 
 Main layer maintainer: Jeff Horn <jhorn@reachtech.com>
 

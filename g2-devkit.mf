@@ -12,14 +12,14 @@
           "uri":"git://github.com/Freescale/meta-fsl-arm.git",
           "mirror":"git://git-mirror.local/meta-fsl-arm.git",
           "branch":"dylan",
-          "rev":"afe2162644544a92a517f1d51211fdcb76bb1a29"
+          "rev":"f2805add77f9e9d5f7a114ee99a632172d8f3ff6"
         },
         {
           "name":"meta-reach",
           "uri":"git@github.com:jmore-reachtech/meta-reach.git",
           "mirror":"git://git-mirror.local/meta-reach.git",
           "branch":"dylan",
-          "rev":"84e9f9cddbeca8c457f1b7da594400e288379e5a",
+          "rev":"bfde9272c321a731747a7b504ebc81313df0281c",
           "main": true
         }
       ]

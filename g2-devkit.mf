@@ -12,7 +12,7 @@
           "uri":"git://github.com/Freescale/meta-fsl-arm.git",
           "mirror":"git://git-mirror.local/meta-fsl-arm.git",
           "branch":"dylan",
-          "rev":"f2805add77f9e9d5f7a114ee99a632172d8f3ff6"
+          "rev":"afe2162644544a92a517f1d51211fdcb76bb1a29"
         },
         {
           "name":"meta-reach",

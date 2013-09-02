@@ -12,6 +12,7 @@ IMAGE_INSTALL_append = "\
 	tslib-tests \
 	tsinit \
 	usbutils \
+        reach-info \
 "
 
 inherit core-image

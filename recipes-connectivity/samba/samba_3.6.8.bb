@@ -57,3 +57,13 @@ do_configure() {
 do_compile () {
 	base_do_compile
 }
+
+do_install_append () {
+        install -d ${D}/application/bin
+        install -d ${D}/www
+}
+
+FILES_${PN} += "/www \
+  /application/bin \
+"
+

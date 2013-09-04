@@ -51,7 +51,7 @@ CONFFILES_${PN} = "${sysconfdir}/samba/smb.conf"
 do_configure_prepend () {
 	./script/mkversion.sh
 	if [ ! -e acinclude.m4 ]; then
-		touch aclocal.m4	
+		touch aclocal.m4
 		cat aclocal.m4 > acinclude.m4
 	fi
 }
@@ -62,7 +62,7 @@ do_compile () {
 }
 
 do_install_append() {
-	install -d ${D}${libdir}/pkgconfig/
+        install -d ${D}${libdir}/pkgconfig/
 	cp ${WORKDIR}/tdb.pc ${D}${libdir}/pkgconfig/
 	mv ${D}${libdir}/libsmbclient.so ${D}${libdir}/libsmbclient.so.0 || true
 	ln -sf libsmbclient.so.0 ${D}${libdir}/libsmbclient.so
@@ -78,7 +78,7 @@ do_install_append() {
 		ln -sf ${bindir}/smbmount ${D}${base_sbindir}/mount.smb
 		ln -sf ${bindir}/smbmount ${D}${base_sbindir}/mount.smbfs
 	fi
-	
+
         install -D -m 755 ${WORKDIR}/init.samba ${D}${sysconfdir}/init.d/samba
         install -D -m 755 ${WORKDIR}/init.winbind ${D}${sysconfdir}/init.d/winbind
 	install -D -m 644 ${WORKDIR}/smb.conf ${D}${sysconfdir}/samba/smb.conf

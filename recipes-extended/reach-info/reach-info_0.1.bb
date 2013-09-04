@@ -4,7 +4,7 @@ LIC_FILES_CHKSUM = "file://${COREBASE}/LICENSE;md5=3f40d7994397109285ec7b81fdeb3
 
 PR = "r1"
 
-SRCREV = "f6efe2e2c198584a0bbbd4757fc9e2ea5528d3e4"
+SRCREV = "d2a0bc9ed47bc4061886b5af1f4ffcfcec76db1c"
 SRC_URI = "git://git@github.com/jmore-reachtech/reach-info.git;protocol=ssh"
 
 S = "${WORKDIR}"

@@ -15,5 +15,6 @@ RDEPENDS_packagegroup-custom-core = "\
 		 php-fpm \
 		 lighttpd-module-fastcgi \
          reach-version \
-         ntpclient \        
+         ntpclient \
+         reach-info \
 "

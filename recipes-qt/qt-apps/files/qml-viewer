@@ -38,12 +38,7 @@ case "$1" in
 		ln -s /usr/lib/libQtNetworkE.so.4 /usr/lib/libQtNetwork.so.4
 	fi
 
-
 	cd $WORKDIR
-       	rm -f /application/bin/content
-       	rm -f /application/bin/translate.txt
-        ln -s main-content /application/bin/content
-        ln -s content/translate.txt /application/bin/translate.txt
 	QWS_MOUSE_PROTO=tslib:$TSLIB_TSDEVICE ./$QTAPP -qws &> /dev/null &
 	;;
   stop)

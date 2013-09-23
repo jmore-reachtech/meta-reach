@@ -2,7 +2,7 @@ DESCRIPTION = "Reach Manufacturing and Test"
 SECTION = "base"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
-PR = "r0"
+PR = "r1"
 
 DEPENDS = "i2c-tools"
 
@@ -14,7 +14,7 @@ SRC_URI = "git://git@github.com/jmore-reachtech/reach-mfg-test.git;branch=master
     file://pattern480x272.bmp \
 "
 
-SRCREV = "1cccdbca200eeb2ce9cfc278ce672d4d00d9eeb6"
+SRCREV = "4fc2a51f375be4665b034b0749c2c75f02d1403e"
 
 S = "${WORKDIR}/git"
 

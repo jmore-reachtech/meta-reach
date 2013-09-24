@@ -1,0 +1,30 @@
+#!/bin/sh
+
+set -e
+
+export DISPLAY=:0
+
+WORKDIR=/application/bin
+APP=gtk2-demo
+
+case "$1" in
+  start)
+	echo "Starting gtk-demo application"
+	cd $WORKDIR
+	./$APP &> /dev/null &
+	;;
+  stop)
+	echo "Stopping qt application"
+	killall $APP
+	;;
+  restart)
+	$0 stop
+	$0 start
+	;;
+  *)
+	echo "usage: $0 { start | stop | restart }" >&2
+	exit 1
+	;;
+esac
+
+exit 0

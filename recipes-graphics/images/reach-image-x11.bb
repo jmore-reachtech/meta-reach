@@ -9,6 +9,7 @@ IMAGE_INSTALL_append = " packagegroup-custom-x11-apps \
 	packagegroup-custom-dev-tools \
 	packagegroup-custom-x11-touch-init \
 	packagegroup-custom-core \
+	gtk+-demo \
 "
 
 inherit core-image

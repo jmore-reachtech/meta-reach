@@ -22,10 +22,12 @@ case "$1" in
 		# test to see if the sitronix controller is present
 		if i2cget -y 1 0x55 0x00 &> /dev/null; then
 			# if so unload sitronix module
-			rmmod sitronix_i2c_touch
+			#rmmod sitronix_i2c_touch
+			echo "removing sitronix touch"
 		else
 			# otherwise unload mxs module
-			rmmod mxs-ts
+			#rmmod mxs-ts
+			echo "removing mxs-ts touch"
 		fi
 		;;
 	*)

@@ -5,6 +5,7 @@ inherit packagegroup
 
 PACKAGES = "\
  packagegroup-custom-dev-tools \
+ packagegroup-custom-dev-tools-gdb \
 "
 
 RDEPENDS_packagegroup-custom-dev-tools = "\
@@ -12,4 +13,8 @@ RDEPENDS_packagegroup-custom-dev-tools = "\
          kobs-ng \
          flash-installer \
          mfg-test \
+"
+
+RDEPENDS_packagegroup-custom-dev-tools-gdb = "\
+         gdbserver \
 "

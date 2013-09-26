@@ -11,6 +11,7 @@ IMAGE_INSTALL_append = " \
 	packagegroup-reach-qml-viewer \
 	reach-qml-demo \
 	packagegroup-custom-dev-tools \
+	packagegroup-custom-dev-tools-gdb \
 	bc \
 	coreutils \
 	usbutils \
@@ -26,4 +27,3 @@ IMAGE_INSTALL_append = " \
 inherit core-image
 
 export IMAGE_BASENAME = "reach-image-qt4e"
-

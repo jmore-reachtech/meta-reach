@@ -5,12 +5,49 @@
 
 MAC_1=30688C
 TESTS="Ethernet,USBOTG,I2C,CAN0,AUART,RS485,RTC,GPIO,USB1,USB2,Touchscreen,LCD,Backlight"
+TONE=/usr/sbin/tone.sh
+
+ATTR_GREEN='\033[0;32m'
+ATTR_RED='\033[0;31m'
+ATTR_NONE='\033[0m'
+
+PASS_STR=$ATTR_GREEN"[PASS]"$ATTR_NONE
+FAIL_STR=$ATTR_RED"[FAIL]"$ATTR_NONE
 
 clear
 echo "Running the following tests: $TESTS"
 echo ""
 
 /usr/sbin/mfg-test --rtc-if ETHERNET --tests $TESTS
+
+read -p "Press Enter to test the beeper " PASS
+
+# test beeper
+$TONE 3000 50
+sleep 0.50
+$TONE 3000 0
+
+$TONE 3000 100
+sleep 0.50
+$TONE 3000 0
+
+$TONE 3000 50
+sleep 0.50
+$TONE 3000 0
+
+$TONE 3000 100
+sleep 0.50
+$TONE 3000 0
+
+read -p "Did you hear the beeper? [Type Y or N] " PASS
+case $PASS in
+	[Yy]* ) echo ""
+		echo -e "Beeper Test"'\t\t'$PASS_STR 
+	;;
+	[Nn]* ) echo -e "Beeper Test"'\t\t'$FAIL_STR 
+		break
+	;; 
+esac
 
 echo ""
 echo "Scan the mac address: "

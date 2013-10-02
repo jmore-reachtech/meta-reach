@@ -14,8 +14,9 @@ IMAGE_INSTALL_append = "\
 	usbutils \
     reach-info \
     bc \
+    coreutils \
 "
 
 inherit core-image
 
-export IMAGE_BASENAME = "reach-image-minimal"
+export IMAGE_BASENAME = "reach-image-mfg"

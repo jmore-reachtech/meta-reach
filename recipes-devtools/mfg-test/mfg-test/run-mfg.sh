@@ -55,6 +55,15 @@ read MAC_2
 /usr/sbin/mfg-test --mac-address=${MAC_1}${MAC_2}
 echo ""
 
+while true; do
+    read -p "Do you wish to copy the SD Card to NAND? [Type Y or N]: " yn
+    case $yn in
+        [Yy]* ) mkdir -p /images; mount /dev/mmcblk0p3 /images; flash_install.sh; break;;
+        [Nn]* ) break;;
+        * ) echo "Please answer yes or no.";;
+    esac
+done
+
 read -p "Do all the above tests show [Pass]? [Type Y or N] " PASS
 case $PASS in
 	[Yy]* ) echo ""

@@ -74,7 +74,7 @@ fi
 # add the yocto host tools path
 export PATH=$CUR_WD/tmp/sysroots/i686-linux/usr/bin:$PATH
 
-SDCARD="$MACHINE.mfg.sdcard"
+SDCARD="$MACHINE-mfg.sdcard"
 if [ -f $SDCARD ]; then
 	echo "Found SD card image, removing"
 	rm $SDCARD

@@ -6,6 +6,8 @@
 MAC_1=30688C
 TESTS="Ethernet,USBOTG,I2C,CAN0,AUART,RS485,RTC,GPIO,USB1,USB2,Touchscreen,LCD,Backlight"
 TONE=/usr/sbin/tone.sh
+SD_MNT_DIR=/tmp/sdcard
+MTD_NUM=1
 
 ATTR_GREEN='\033[0;32m'
 ATTR_RED='\033[0;31m'
@@ -58,7 +60,27 @@ echo ""
 while true; do
     read -p "Do you wish to copy the SD Card to NAND? [Type Y or N]: " yn
     case $yn in
-        [Yy]* ) mkdir -p /images; mount /dev/mmcblk0p3 /images; flash_install.sh; break;;
+        [Yy]* ) mkdir -p /images; 
+				mount /dev/mmcblk0p3 /images; 
+				flash_install.sh; 
+				
+				# copy over pointer cal
+				echo "Copying calibration file to NAND"
+				mkdir -p $SD_MNT_DIR
+				if [ -c /dev/ubi0_0 ]; then
+					/usr/sbin/ubidetach /dev/ubi_ctrl -m $MTD_NUM
+				fi
+				/usr/sbin/ubiattach /dev/ubi_ctrl -d 0 -m $MTD_NUM
+				sleep 3
+				mount -t ubifs /dev/ubi0_0 $SD_MNT_DIR
+				cp /etc/pointercal $SD_MNT_DIR/etc/
+				sync
+				umount $SD_MNT_DIR
+				/usr/sbin/ubidetach /dev/ubi_ctrl -m $MTD_NUM
+				sleep 3
+				rmdir $SD_MNT_DIR
+				break;;
+				
         [Nn]* ) break;;
         * ) echo "Please answer yes or no.";;
     esac

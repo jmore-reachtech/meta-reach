@@ -6,7 +6,7 @@ inherit qt4e
 
 PR = "r2"
 
-SRCREV = "4ee4e9adce377bb486acd17e132d7015bbdb4877"
+SRCREV = "339dacbfe533bb794bcb2ab5a824e7337183b421"
 SRC_URI = "git://git@github.com/jmore-reachtech/reach-tio-agent.git;protocol=ssh \
 		   file://tio-agent \
           "

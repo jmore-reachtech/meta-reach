@@ -8,6 +8,7 @@ DEPENDS = "i2c-tools"
 
 SRC_URI = "git://git@github.com/jmore-reachtech/reach-mfg-test.git;branch=master;protocol=ssh \
     file://run-mfg.sh \
+    file://run-calibration.sh \
     file://tone.sh \
     file://black480x272.bmp \
     file://white480x272.bmp \
@@ -27,6 +28,7 @@ do_install() {
 	install -d ${D}${sbindir}
 	install -m 0755 ${S}/src/mfg-test ${D}${sbindir}
 	install -m 755 ${WORKDIR}/run-mfg.sh ${D}${sbindir}
+	install -m 755 ${WORKDIR}/run-calibration.sh ${D}${sbindir}
 	install -m 755 ${WORKDIR}/tone.sh ${D}${sbindir}
 
 	install -d ${D}/home/root

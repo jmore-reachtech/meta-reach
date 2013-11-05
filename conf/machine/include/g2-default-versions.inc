@@ -1,0 +1,1 @@
+PREFERRED_VERSION_barebox = "2012.11.0"

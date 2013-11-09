@@ -25,6 +25,7 @@ IMAGE_INSTALL += " \
     qt4-plugin-phonon-backend-gstreamer \
     qt4-demos \
     qt4-examples \
+    fsl-gui-extrafiles \
     "
 
 export IMAGE_BASENAME = "fsl-image-gui"

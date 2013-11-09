@@ -18,7 +18,7 @@ XSERVER_DRIVER = "xf86-video-fbdev"
 XSERVER_DRIVER_mx5 = "xf86-video-imxfb"
 XSERVER_DRIVER_mx6 = "xf86-video-imxfb-vivante"
 XSERVER = "xserver-xorg \
-           xf86-input-evdev \
+           xf86-input-tslib \
            ${XSERVER_DRIVER}"
 
 # Ship kernel modules

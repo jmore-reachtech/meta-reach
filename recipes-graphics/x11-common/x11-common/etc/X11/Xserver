@@ -1,0 +1,18 @@
+#!/bin/sh
+#
+
+XSERVER=/usr/bin/Xorg
+
+. /etc/profile
+
+if [ -e "$TSLIB_TSDEVICE" ]; then
+	if [ ! -f /etc/pointercal ]; then
+		/usr/bin/ts_calibrate
+	fi
+fi
+
+ARGS=" -br -pn -pointer tslib"
+
+DISPLAY=':0'
+
+exec xinit /etc/X11/Xsession -- $XSERVER $DISPLAY $ARGS $*

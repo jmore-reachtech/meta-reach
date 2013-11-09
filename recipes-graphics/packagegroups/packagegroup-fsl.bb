@@ -53,6 +53,9 @@ RDEPENDS_${PN}-tools-testapps = " \
     python-json \
     v4l-utils \
     ethtool \
+    bluez4 \
+    xinput \
+    xinput-calibrator \
 "
 
 RDEPENDS_${PN}-tools-benchmark = " \

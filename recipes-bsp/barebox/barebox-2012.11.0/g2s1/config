@@ -25,7 +25,7 @@ rootfs_part_linux_dev=mmcblk0p2
 rootfsimage=root-${global.hostname}.$rootfs_type
 
 kernel_part=disk0.0
-kernelimage_type=uimage
+kernelimage_type=zimage
 
 kernelimage=linuximage
 #kernelimage=uImage-${global.hostname}

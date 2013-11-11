@@ -19,8 +19,15 @@
           "uri":"git@github.com:jmore-reachtech/meta-reach.git",
           "mirror":"git://git-mirror.local/meta-reach.git",
           "branch":"dylan",
-          "rev":"0503dca24daa1452212cd9cef9e4f5bff6902529",
+          "rev":"f0b399d7860a77fb2b0e929f460aa42cd697568d",
           "main": true
+        },
+        {
+          "name":"meta-openembedded",
+          "uri":"git://git.openembedded.org/meta-openembedded",
+          "mirror":"git://git.openembedded.org/meta-openembedded",
+          "branch":"dylan",
+          "rev":"513e7ca20ddd0a5c3b649bf292a67c3e0473d3a8"
         }
       ]
     }
@@ -38,6 +45,9 @@
     },
     {
       "name": "reach-image-x11"
+    },
+    {
+      "name": "fsl-image-gui"
     }
   ],
   "version": "1.0.2"

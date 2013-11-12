@@ -5,7 +5,7 @@
       "uri":"git://git.yoctoproject.org/poky.git",
       "mirror":"git://git-mirror.local/poky.git",
       "branch":"dylan",
-      "rev":"afe2162644544a92a517f1d51211fdcb76bb1a29",
+      "rev":"4e399f08d596197859214fdb3b06403b87bf8789",
       "layers":[
         {
           "name":"meta-fsl-arm",

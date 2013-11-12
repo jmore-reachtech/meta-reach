@@ -5,7 +5,7 @@
       "uri":"git://git.yoctoproject.org/poky.git",
       "mirror":"git://git-mirror.local/poky.git",
       "branch":"dylan",
-      "rev":"d734ab491a30078d43dee5440c03acce2d251425",
+      "rev":"afe2162644544a92a517f1d51211fdcb76bb1a29",
       "layers":[
         {
           "name":"meta-fsl-arm",
@@ -27,7 +27,7 @@
           "uri":"git://git.openembedded.org/meta-openembedded",
           "mirror":"git://git.openembedded.org/meta-openembedded",
           "branch":"dylan",
-          "rev":"513e7ca20ddd0a5c3b649bf292a67c3e0473d3a8"
+          "rev":"44754206632dd5b0725aeb43e99e4ff9e0245dca"
         }
       ]
     }

@@ -15,6 +15,8 @@ PARALLEL_MAKE = "-j 4"
 DL_DIR ?= "/opt/yocto/downloads"
 #SSTATE_DIR ?= "/opt/yocto/sstate"
 
+ACCEPT_FSL_EULA = "1"
+
 # Possibly make these available for download and sstate
 #SSTATE_MIRRORS ?= "\
 #file://.* http://someserver.tld/share/sstate/PATH \n \

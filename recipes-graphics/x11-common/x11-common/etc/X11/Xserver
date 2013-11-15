@@ -11,8 +11,9 @@ if [ -e "$TSLIB_TSDEVICE" ]; then
 	fi
 fi
 
-ARGS=" -br -pn -pointer tslib"
+ARGS=" -br -pn -verbose -logverbose -noreset"
+APP="/application/bin/qml-viewer"
 
 DISPLAY=':0'
 
-exec xinit /etc/X11/Xsession -- $XSERVER $DISPLAY $ARGS $*
+exec xinit $APP -- $XSERVER $DISPLAY $ARGS $*

@@ -27,7 +27,7 @@ IMAGE_INSTALL += " \
     qt4-examples \
     fsl-gui-extrafiles \
     packagegroup-reach-qml-viewer-qt4x11 \
-	reach-qml-demo \
+	sciton-qml-demo \
     "
 
 export IMAGE_BASENAME = "reach-image-x11-qt4"

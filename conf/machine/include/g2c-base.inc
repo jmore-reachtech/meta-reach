@@ -12,3 +12,4 @@ SERIAL_CONSOLE = "115200 ttyAM0"
 
 IMAGE_CLASSES += "image_types_reach"
 
+SIO_TTY = "/dev/ttySP1"

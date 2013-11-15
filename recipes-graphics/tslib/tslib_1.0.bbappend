@@ -1,5 +1,4 @@
 FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
 
-SRC_URI += "file://0001-Fix-EV_VERSION-to-match-the-Reach-Kernel.patch \
-	file://0001-Fix-for-eGalax-touch.patch \
+SRC_URI_append = "file://0001-Fix-for-eGalax-and-Penmount.patch \
 "

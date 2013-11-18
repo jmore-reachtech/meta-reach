@@ -4,6 +4,7 @@ set -e
 
 WORKDIR=/application/bin
 QTAPP=qml-viewer
+export DISPLAY=:0
 
 case "$1" in
   start)

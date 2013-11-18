@@ -11,9 +11,8 @@ if [ -e "$TSLIB_TSDEVICE" ]; then
 	fi
 fi
 
-ARGS=" -br -pn -verbose -logverbose -noreset"
-APP="/application/bin/qml-viewer"
+ARGS=" -br -pn -verbose -logverbose -s 0 -noreset -nolisten inet6"
 
 DISPLAY=':0'
 
-exec xinit $APP -- $XSERVER $DISPLAY $ARGS $*
+exec $XSERVER $DISPLAY $ARGS $*

@@ -42,7 +42,6 @@ RDEPENDS_${PN}-tools-testapps = " \
     alsa-utils \
     alsa-tools \
     dosfstools \
-    evtest \
     e2fsprogs-mke2fs \
     gst-plugins-base-tcp \
     i2c-tools \
@@ -54,8 +53,6 @@ RDEPENDS_${PN}-tools-testapps = " \
     v4l-utils \
     ethtool \
     bluez4 \
-    xinput \
-    xinput-calibrator \
 "
 
 RDEPENDS_${PN}-tools-benchmark = " \

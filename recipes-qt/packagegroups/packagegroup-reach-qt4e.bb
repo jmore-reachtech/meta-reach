@@ -20,6 +20,10 @@ RDEPENDS_${PN} = " \
         libqt-embeddedtest4 \
         libqt-embeddedxml4 \
         qt4-embedded-qml-plugins \
+        qt4-embedded-plugin-gfxdriver-gfxtransformed \
+        qt4-embedded-plugin-gfxdriver-directfbscreen \
+        qt4-embedded-plugin-gfxdriver-gfxvnc \
+        qt4-embedded-plugin-gfxdriver-screenvfb \
         qt4-embedded-fonts-ttf-dejavu \
         qt4-embedded-fonts-ttf-vera \
         qt4-embedded-plugin-iconengine-svgicon \

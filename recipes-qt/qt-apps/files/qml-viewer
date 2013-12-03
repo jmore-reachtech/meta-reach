@@ -4,6 +4,7 @@ set -e
 
 WORKDIR=/application/bin
 QTAPP=qml-viewer
+#DISPLAY_ROT="-display Transformed:Rot90:0"
 
 case "$1" in
   start)
@@ -39,7 +40,7 @@ case "$1" in
 	fi
 
 	cd $WORKDIR
-	QWS_MOUSE_PROTO=tslib:$TSLIB_TSDEVICE ./$QTAPP -qws &> /dev/null &
+	QWS_MOUSE_PROTO=tslib:$TSLIB_TSDEVICE ./$QTAPP $DISPLAY_ROT -qws &> /dev/null &
 	;;
   stop)
 	echo "Stopping qt application"

@@ -1,7 +1,7 @@
 #!/bin/sh
 
 if [ -e /dev/input/event1 ]; then
-	export TSLIB_TSDEVICE=/dev/input/event1
+	export TSLIB_TSDEVICE=/dev/input/touchscreen0
 	export TSLIB_CONFFILE=/etc/ts.conf
 	export TSLIB_PLUGINDIR=/usr/lib/ts
 	export TSLIB_CALIBFILE=/etc/pointercal

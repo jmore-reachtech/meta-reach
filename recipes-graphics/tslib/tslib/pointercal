@@ -1,0 +1,7 @@
+if [ -f /etc/profile.d/tslib.sh ]; then                      
+        source /etc/profile.d/tslib.sh                       
+fi  
+if [ ! -f /etc/pointercal ]; then
+         /usr/bin/ts_calibrate
+	sync && sync
+fi  

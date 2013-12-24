@@ -5,12 +5,6 @@ XSERVER=/usr/bin/Xorg
 
 . /etc/profile
 
-if [ -e "$TSLIB_TSDEVICE" ]; then
-	if [ ! -f /etc/pointercal ]; then
-		/usr/bin/ts_calibrate
-	fi
-fi
-
 ARGS=" -br -pn -verbose -logverbose -s 0 -noreset -nolisten inet6"
 
 DISPLAY=':0'

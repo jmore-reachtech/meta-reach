@@ -2,9 +2,9 @@
 
 include conf/machine/include/soc-family.inc
 include conf/machine/include/tune-cortexa8.inc
-include conf/machine/include/g2-default-providers.inc
-include conf/machine/include/g2-default-versions.inc
 
+PREFERRED_PROVIDER_virtual/kernel ?= "linux-g2s"
+PREFERRED_VERSION_barebox = "2012.11.0"
 PREFERRED_PROVIDER_virtual/xserver = "xserver-xorg"
 
 IMAGE_CLASSES += "image_types_reach"

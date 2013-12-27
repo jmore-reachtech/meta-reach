@@ -17,4 +17,5 @@ RDEPENDS_packagegroup-custom-core = "\
          reach-version \
          ntpclient \
          reach-info \
+         devregs \
 "

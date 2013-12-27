@@ -1,5 +1,4 @@
 # We need to set these items
-MACHINE ??= "g2c1"
 DISTRO ?= "reach"
 PACKAGE_CLASSES ?= "package_rpm"
 EXTRA_IMAGE_FEATURES = "debug-tweaks"

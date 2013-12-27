@@ -8,7 +8,7 @@ case "$1" in
 start)
 	# show this during quiet boot too.
 	echo "starting SIO Agent..." >&2
-	start-stop-daemon -m -p /var/run/sio_agent.pid -b -a $SIO_AGENT -S -- -d -t $SIO_TTY -b $SIO_BAUD
+	start-stop-daemon -m -p /var/run/sio_agent.pid -b -a $SIO_AGENT -S -- -t $SIO_TTY -b $SIO_BAUD
 	;;
 stop)
 	echo "stoping SIO Agent..."

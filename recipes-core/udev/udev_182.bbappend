@@ -5,6 +5,7 @@ PRINC := "${@int(PRINC) + 2}"
 
 SRC_URI += " file://75-persistent-net-generator.rules \
   file://init \
+  file://local.rules \
   file://udev-cache \
 "
 

@@ -1,6 +1,6 @@
 #!/bin/sh
 
-Xfbdev -mouse tslib,2,device=/dev/input/touchscreen0 -v -s 0 -noreset -nolisten inet6 &
+Xfbdev -mouse tslib,2,device=/dev/input/touchscreen0 -v -s 0 -nocursor -noreset -nolisten inet6 &
 
 sleep 2
 

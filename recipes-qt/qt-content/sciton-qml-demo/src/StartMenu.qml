@@ -23,6 +23,7 @@ Image {
         imageOn: "Images/335_Clear_Scanx.bmp"
         imageOff: "Images/334_Clear_Scan.bmp"
         onButtonClick: {
+			display.beep();
             s1vm.proceedToTestScreen();
         }
     }

@@ -46,4 +46,6 @@ Rectangle {
         y: 672
         visible: false
     }
+    
+    Component.onCompleted: display.beep();
 }

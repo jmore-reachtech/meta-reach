@@ -1,13 +1,13 @@
 require barebox.inc
 
-PR = "r4"
+PR = "r5"
 
 SRC_URI = "git://github.com/jmore-reachtech/reach-barebox.git;branch=reach-2012-11.0;protocol=git \
 	file://defconfig \
 	file://config \
 	"
 
-SRCREV = "da532b7f809296033c923b7cfe6bb354131e9806"
+SRCREV = "d6208d9e84dba38428ac87a80efc23bd94619ab9"
 BOARD = "freescale-mx53-sellwood"
 
 do_configure_prepend() {

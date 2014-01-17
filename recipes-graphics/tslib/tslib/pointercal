@@ -1,7 +1,23 @@
-if [ -f /etc/profile.d/tslib.sh ]; then                      
-        source /etc/profile.d/tslib.sh                       
-fi  
-if [ ! -f /etc/pointercal ]; then
-         /usr/bin/ts_calibrate
-	sync && sync
-fi  
+#!/bin/sh
+
+case "$1" in
+  start)
+	if [ ! -f /etc/pointercal ]; then
+		if [ -f /etc/profile.d/tslib.sh ]; then                      
+			source /etc/profile.d/tslib.sh                       
+		fi
+		echo "running ts_calibrate"
+		/usr/bin/ts_calibrate
+		sync
+	fi
+	;;
+  stop)
+	echo "stopping pointercal - nothing to do"
+	;;
+  *)
+	echo "usage: $0 { start | stop }" >&2
+	exit 1
+	;;
+esac
+
+exit 0

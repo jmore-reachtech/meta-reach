@@ -1,0 +1,33 @@
+#!/bin/sh
+
+set -e
+
+WORKDIR=/application/bin
+QTAPP=qml-viewer
+export DISPLAY=:0
+
+case "$1" in
+  start)
+	echo "Starting qt application"
+	if [ -f /etc/profile.d/tslib.sh ]; then
+		source /etc/profile.d/tslib.sh
+	fi
+
+	cd $WORKDIR
+	QWS_MOUSE_PROTO=tslib:$TSLIB_TSDEVICE ./$QTAPP &> /dev/null &
+	;;
+  stop)
+	echo "Stopping qt application"
+	killall $QTAPP
+	;;
+  restart)
+	$0 stop
+	$0 start
+	;;
+  *)
+	echo "usage: $0 { start | stop | restart }" >&2
+	exit 1
+	;;
+esac
+
+exit 0

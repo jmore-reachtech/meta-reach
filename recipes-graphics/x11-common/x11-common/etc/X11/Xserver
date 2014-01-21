@@ -1,0 +1,12 @@
+#!/bin/sh
+#
+
+XSERVER=/usr/bin/Xorg
+
+. /etc/profile
+
+ARGS=" -br -pn -logverbose -s 0 -noreset -nocursor -nolisten inet6"
+
+DISPLAY=':0'
+
+exec $XSERVER $DISPLAY $ARGS $*

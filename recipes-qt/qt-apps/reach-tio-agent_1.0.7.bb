@@ -2,8 +2,6 @@ DESCRIPTION = "Reach TIO agent"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://${COREBASE}/LICENSE;md5=3f40d7994397109285ec7b81fdeb3b58"
 
-inherit qt4e
-
 PR = "r2"
 
 SRCREV = "339dacbfe533bb794bcb2ab5a824e7337183b421"
@@ -17,9 +15,13 @@ S = "${WORKDIR}/git"
 
 CFLAGS += " -DTIO_VERSION='"${PV}"'"
 
+do_compile() {
+		cd ${S} && ${MAKE}
+}
+
 do_install() {
 	install -d ${D}/application/bin
-	install -m 0755 ${S}/reach-tio-agent ${D}/application/bin/tio-agent
+	install -m 0755 ${S}/src/tio-agent ${D}/application/bin/tio-agent
 
 	install -d ${D}${sysconfdir}/init.d/
 	install -m 0755 ${WORKDIR}/tio-agent ${D}${sysconfdir}/init.d/tio-agent

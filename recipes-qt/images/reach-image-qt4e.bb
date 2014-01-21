@@ -8,7 +8,7 @@ IMAGE_INSTALL_append = " \
 	${CORE_IMAGE_BASE_INSTALL} \
 	packagegroup-custom-core \
 	packagegroup-reach-qt4e \
-	packagegroup-reach-qml-viewer \
+	packagegroup-reach-qml-viewer-qt4e \
 	reach-qml-demo \
 	packagegroup-custom-dev-tools \
 	packagegroup-custom-dev-tools-gdb \

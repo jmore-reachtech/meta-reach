@@ -2,7 +2,7 @@ DESCRIPTION = "Reach Manufacturing and Test"
 SECTION = "base"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
-PR = "r1"
+PR = "r2"
 
 DEPENDS = "i2c-tools"
 
@@ -11,12 +11,16 @@ SRC_URI = "git://git@github.com/jmore-reachtech/reach-mfg-test.git;branch=master
     file://run-calibration.sh \
     file://tone.sh \
     file://black480x272.bmp \
+    file://black800x480.bmp \
     file://white480x272.bmp \
+    file://white800x480.bmp \
     file://blackToRGB480x272.bmp \
+    file://blackToRGB800x480.bmp \
     file://pattern480x272.bmp \
+    file://pattern800x480.bmp \
 "
 
-SRCREV = "79c4d18e934d93dd651ab0db4bdc249209b1a1e6"
+SRCREV = "3f454c7ca25e9cbab70db7be1e10908bca638ee4"
 
 S = "${WORKDIR}/git"
 
@@ -30,12 +34,20 @@ do_install() {
 	install -m 755 ${WORKDIR}/run-mfg.sh ${D}${sbindir}
 	install -m 755 ${WORKDIR}/run-calibration.sh ${D}${sbindir}
 	install -m 755 ${WORKDIR}/tone.sh ${D}${sbindir}
-
-	install -d ${D}/home/root
-	install -m 644 ${WORKDIR}/black480x272.bmp ${D}/home/root
-	install -m 644 ${WORKDIR}/white480x272.bmp ${D}/home/root
-	install -m 644 ${WORKDIR}/blackToRGB480x272.bmp ${D}/home/root
-	install -m 644 ${WORKDIR}/pattern480x272.bmp ${D}/home/root
+	
+        install -d ${D}/home/root
+        if [ "${MACHINE}" = "g2c-43-24" ]
+        then
+	  install -m 644 ${WORKDIR}/black480x272.bmp ${D}/home/root/black.bmp
+	  install -m 644 ${WORKDIR}/white480x272.bmp ${D}/home/root/white.bmp
+	  install -m 644 ${WORKDIR}/blackToRGB480x272.bmp ${D}/home/root/blackToRGB.bmp
+	  install -m 644 ${WORKDIR}/pattern480x272.bmp ${D}/home/root/pattern.bmp
+        else
+	  install -m 644 ${WORKDIR}/black800x480.bmp ${D}/home/root/black.bmp
+	  install -m 644 ${WORKDIR}/white800x480.bmp ${D}/home/root/white.bmp
+	  install -m 644 ${WORKDIR}/blackToRGB800x480.bmp ${D}/home/root/blackToRGB.bmp
+	  install -m 644 ${WORKDIR}/pattern800x480.bmp ${D}/home/root/pattern.bmp
+        fi
 }
 
 FILES_${PN} = "/home/root ${sbindir}"

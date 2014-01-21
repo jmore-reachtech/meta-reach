@@ -1,7 +1,7 @@
-EXTRA_OECONF += "--enable-kdrive \
+EXTRA_OECONF_append_mxs = "--enable-kdrive \
                  --enable-xfbdev \
                  --enable-tslib \
 "
 
-DEPENDS += " tslib \
+DEPENDS_append_mxs = " tslib \
 "

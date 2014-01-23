@@ -15,6 +15,20 @@
           "rev":"afe2162644544a92a517f1d51211fdcb76bb1a29"
         },
         {
+          "name":"meta-fsl-arm-extra",
+          "uri":"git://github.com/Freescale/meta-fsl-arm-extra.git",
+          "mirror":"git://git-mirror.local/meta-fsl-arm-extra.git",
+          "branch":"dylan",
+          "rev":"5f5a9cfcad223f5a1c623346780510ffcdc012ab"
+        },
+        {
+          "name":"meta-oe",
+          "uri":"git://git.openembedded.org/meta-openembedded",
+          "mirror":"git://git-mirror.local/meta-openembedded.git",
+          "branch":"dylan",
+          "rev":"cb182019c4f7485713cb50623240c01882448ffd"
+        },
+        {
           "name":"meta-reach",
           "uri":"git@github.com:jmore-reachtech/meta-reach.git",
           "mirror":"git://git-mirror.local/meta-reach.git",

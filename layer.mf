@@ -22,7 +22,7 @@
           "rev":"5f5a9cfcad223f5a1c623346780510ffcdc012ab"
         },
         {
-          "name":"meta-oe",
+          "name":"meta-openembedded",
           "uri":"git://git.openembedded.org/meta-openembedded",
           "mirror":"git://git-mirror.local/meta-openembedded.git",
           "branch":"dylan",

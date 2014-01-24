@@ -16,7 +16,6 @@ EXTRA_IMAGE_FEATURES += " \
 "
 
 SOC_IMAGE_INSTALL = ""
-SOC_IMAGE_INSTALL_mx5 = "glcubes-demo"
 
 IMAGE_INSTALL += " \
     ${SOC_IMAGE_INSTALL} \
@@ -25,7 +24,6 @@ IMAGE_INSTALL += " \
     qt4-plugin-phonon-backend-gstreamer \
     qt4-demos \
     qt4-examples \
-    fsl-gui-extrafiles \
     reach-qml-viewer-qt4x11 \
     reach-sio-agent \
     reach-tio-agent \

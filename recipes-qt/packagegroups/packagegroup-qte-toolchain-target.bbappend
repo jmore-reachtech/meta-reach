@@ -3,6 +3,7 @@ RDEPENDS_${PN} = " \
         qt4-embedded-mkspecs \
         libqt-embeddedmultimedia4-dev \
         libqt-embeddedcore4-dev \
+        libqt-embeddeddeclarative4-dev \
         libqt-embeddeddesignercomponents4-dev \
         libqt-embeddeddesigner4-dev \
         libqt-embeddeduitools4-dev \

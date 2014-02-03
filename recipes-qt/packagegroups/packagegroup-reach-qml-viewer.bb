@@ -11,6 +11,7 @@ PACKAGES = "\
 
 RDEPENDS_${PN}-qt4e = " \
         reach-qml-viewer-qt4e \
+        reach-qml-plugins-mxs \
         reach-sio-agent \
         reach-tio-agent \
 "

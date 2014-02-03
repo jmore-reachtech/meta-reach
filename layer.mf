@@ -22,6 +22,13 @@
           "rev":"5f5a9cfcad223f5a1c623346780510ffcdc012ab"
         },
         {
+          "name":"meta-fsl-demos",
+          "uri":"git://github.com/Freescale/meta-fsl-demos.git",
+          "mirror":"git://git-mirror.local/meta-fsl-demos.git",
+          "branch":"dylan",
+          "rev":"ef728d5fc8269fbd47f294a448c356842e4f39cc"
+        },
+        {
           "name":"meta-openembedded",
           "uri":"git://git.openembedded.org/meta-openembedded",
           "mirror":"git://git-mirror.local/meta-openembedded.git",

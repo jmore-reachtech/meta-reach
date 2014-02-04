@@ -79,3 +79,7 @@ SERIAL_CONSOLE = "115200 ttymxc0"
 KERNEL_IMAGETYPE = "uImage"
 
 MACHINE_FEATURES = "apm usbgadget usbhost vfat alsa touchscreen"
+
+PREFERRED_VERSION_tslib ?= "1.0"
+PREFERRED_VERSION_xserver-nodm-init ?= "1.0"
+

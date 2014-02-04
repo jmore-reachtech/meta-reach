@@ -14,3 +14,6 @@ PREFERRED_PROVIDER_virtual/kernel ?= "linux-g2c"
 PREFERRED_PROVIDER_u-boot ?= "u-boot-fslc"
 
 IMAGE_CLASSES += "image_types_reach"
+
+PREFERRED_VERSION_tslib ?= "1.0"
+PREFERRED_VERSION_xserver-nodm-init ?= "1.0"

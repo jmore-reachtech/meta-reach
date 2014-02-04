@@ -92,4 +92,4 @@ SRC_URI += "file://drm-vivante-Add-00-sufix-in-returned-bus-Id.patch \
             file://0005-ENGR00264275-GPU-Correct-suspend-resume-calling-afte.patch \
             file://0006-ENGR00265130-gpu-Correct-section-mismatch-in-gpu-ker.patch"
 
-COMPATIBLE_MACHINE = "g2h-7-24"
+COMPATIBLE_MACHINE = "g2h-57-24"

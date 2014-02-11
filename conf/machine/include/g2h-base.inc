@@ -1,4 +1,3 @@
-include conf/machine/include/tune-cortexa9.inc
 IMAGE_CLASSES += "image_types_reach"
 
 # Provides the i.MX common settings

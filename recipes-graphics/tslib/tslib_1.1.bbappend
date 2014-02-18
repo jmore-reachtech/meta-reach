@@ -8,8 +8,7 @@ inherit update-rc.d
 FILES_${PN} += "${sysconfdir}/init.d/pointercal \
 "
 
-SRC_URI_append = "file://0001-Fix-for-eGalax-and-Penmount.patch \
-file://pointercal \
+SRC_URI_append = "file://pointercal \
 "
 
 do_install_append() {

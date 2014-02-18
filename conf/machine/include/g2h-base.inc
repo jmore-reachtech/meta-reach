@@ -1,5 +1,4 @@
 include conf/machine/include/tune-cortexa9.inc
-IMAGE_CLASSES += "image_types_reach"
 
 # Provides the i.MX common settings
 
@@ -8,6 +7,14 @@ include conf/machine/include/fsl-default-versions.inc
 include conf/machine/include/fsl-default-providers.inc
 
 include conf/machine/include/soc-family.inc
+
+# Sub-architecture support
+MACHINE_SOCARCH ?= ""
+MACHINE_SOCARCH_mx3 = "${TUNE_PKGARCH}-mx3"
+MACHINE_SOCARCH_mx5 = "${TUNE_PKGARCH}-mx5"
+MACHINE_SOCARCH_mx6 = "${TUNE_PKGARCH}-mx6"
+MACHINE_SOCARCH_vf60 = "${TUNE_PKGARCH}-vf60"
+PACKAGE_EXTRA_ARCHS_append = " ${MACHINE_SOCARCH}"
 
 # Disable perf features as 2.6.35.3 fail to build otherwise
 PERF_FEATURES_ENABLE = ""
@@ -47,7 +54,7 @@ MACHINE_EXTRA_RRECOMMENDS += "${MACHINE_FIRMWARE}"
 # Extra audio support
 # FIXME: Add support for ALL SoC families
 MACHINE_EXTRA_RRECOMMENDS_append_mx5 = " imx-audio"
-MACHINE_EXTRA_RRECOMMENDS_append_mx6 = " imx-audio"
+MACHINE_EXTRA_RRECOMMENDS_append_mx6 = " fsl-alsa-plugins"
 
 # Extra udev rules
 MACHINE_EXTRA_RRECOMMENDS += "udev-extraconf"
@@ -80,6 +87,6 @@ KERNEL_IMAGETYPE = "uImage"
 
 MACHINE_FEATURES = "apm usbgadget usbhost vfat alsa touchscreen"
 
-PREFERRED_VERSION_tslib ?= "1.0"
+PREFERRED_VERSION_tslib ?= "1.1"
 PREFERRED_VERSION_xserver-nodm-init ?= "1.0"
 

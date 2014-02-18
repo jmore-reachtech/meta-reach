@@ -4,6 +4,8 @@ IMAGE_FEATURES += "splash x11-base package-management"
 
 LICENSE = "MIT"
 
+IMAGE_OVERHEAD_FACTOR = "2.0"
+
 IMAGE_INSTALL_append = " packagegroup-custom-x11-apps \
 	packagegroup-custom-x11-tools \
 	packagegroup-custom-dev-tools \
@@ -11,6 +13,8 @@ IMAGE_INSTALL_append = " packagegroup-custom-x11-apps \
 	packagegroup-custom-x11-touch-init \
 	packagegroup-custom-core \
 	gtk+-demo \
+	cinematicexperience \
+	qtbase-plugins \
 "
 
 inherit core-image

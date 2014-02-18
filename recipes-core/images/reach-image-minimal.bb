@@ -2,6 +2,7 @@ DESCRIPTION = "A minimal console based image used for testing"
 
 LICENSE = "MIT"
 
+IMAGE_OVERHEAD_FACTOR = "2.0"
 
 IMAGE_INSTALL_append = "\
 	${CORE_IMAGE_BASE_INSTALL} \

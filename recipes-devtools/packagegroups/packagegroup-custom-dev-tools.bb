@@ -11,9 +11,9 @@ PACKAGES = "\
 RDEPENDS_packagegroup-custom-dev-tools = "\
          mtd-utils-ubifs \
          mtd-utils \
-         kobs-ng \
          flash-installer \
 "
+#          kobs-ng
 
 RDEPENDS_packagegroup-custom-dev-tools-gdb = "\
          gdbserver \

@@ -46,8 +46,8 @@
           "name":"meta-reach",
           "uri":"git@github.com:jmore-reachtech/meta-reach.git",
           "mirror":"git://git.reachtech.com/meta-reach.git",
-          "branch":"dora",
-          "rev":"ffb4cefedfaa4c9e383de31fc912301ac5cca69c",
+          "branch":"dora-mx6",
+          "rev":"11f5866f6517ccc4c7e747de5510930750f527ce",
           "main": true
         }
       ]

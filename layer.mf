@@ -4,43 +4,50 @@
       "name":"poky",
       "uri":"git://git.yoctoproject.org/poky.git",
       "mirror":"git://git.reachtech.com/poky.git",
-      "branch":"dylan",
-      "rev":"d734ab491a30078d43dee5440c03acce2d251425",
+      "branch":"dora",
+      "rev":"84c2763fa0bf08a83caa2c5ee532b5bef2ff918b",
       "layers":[
         {
           "name":"meta-fsl-arm",
           "uri":"git://github.com/Freescale/meta-fsl-arm.git",
           "mirror":"git://git.reachtech.com/meta-fsl-arm.git",
-          "branch":"dylan",
-          "rev":"afe2162644544a92a517f1d51211fdcb76bb1a29"
+          "branch":"dora",
+          "rev":"fb1681666fac9c096314cd01242be4613b7ff140"
         },
         {
           "name":"meta-fsl-arm-extra",
           "uri":"git://github.com/Freescale/meta-fsl-arm-extra.git",
           "mirror":"git://git.reachtech.com/meta-fsl-arm-extra.git",
-          "branch":"dylan",
-          "rev":"5f5a9cfcad223f5a1c623346780510ffcdc012ab"
+          "branch":"dora",
+          "rev":"a5c93cfa1cef3fb280d64dc8dad10ff15429fdf5"
         },
         {
           "name":"meta-fsl-demos",
           "uri":"git://github.com/Freescale/meta-fsl-demos.git",
           "mirror":"git://git.reachtech.com/meta-fsl-demos.git",
-          "branch":"dylan",
-          "rev":"ef728d5fc8269fbd47f294a448c356842e4f39cc"
+          "branch":"dora",
+          "rev":"5a12677ad000a926d23c444266722a778ea228a7"
         },
         {
           "name":"meta-openembedded",
           "uri":"git://git.openembedded.org/meta-openembedded",
           "mirror":"git://git.reachtech.com/meta-openembedded.git",
-          "branch":"dylan",
-          "rev":"cb182019c4f7485713cb50623240c01882448ffd"
+          "branch":"dora",
+          "rev":"40e0f371f3eb1628655c484feac0cebf810737b4"
+        },
+        {
+          "name":"meta-qt5",
+          "uri":"https://github.com/meta-qt5/meta-qt5.git",
+          "mirror":"git://git-mirror.local/meta-qt5.git",
+          "branch":"dora",
+          "rev":"d7ebb534535a22981dac2af34f4cd9c9b37f0296"
         },
         {
           "name":"meta-reach",
           "uri":"git@github.com:jmore-reachtech/meta-reach.git",
           "mirror":"git://git.reachtech.com/meta-reach.git",
-          "branch":"dylan",
-          "rev":"e13d797bef68eb13e5852314868a4a9aa0258c70",
+          "branch":"dora",
+          "rev":"ffb4cefedfaa4c9e383de31fc912301ac5cca69c",
           "main": true
         }
       ]
@@ -81,7 +88,7 @@
         }
       ]
 	},{
-	  "name": "g2c-7-24",
+	  "name": "g2h-57-24",
 	  "images":[
         {
           "name": "reach-image-minimal"
@@ -90,7 +97,7 @@
           "name": "reach-image-mfg"
         },
         {
-          "name": "reach-image-qt4e"
+          "name": "reach-image-qt5"
         },
         {
           "name": "reach-image-x11"

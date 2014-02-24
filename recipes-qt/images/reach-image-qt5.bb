@@ -1,4 +1,4 @@
-DESCRIPTION = "A very basic X11 image with a terminal"
+DESCRIPTION = "A very basic qt5 image with a demo"
 
 IMAGE_FEATURES += "splash x11-base"
 
@@ -95,5 +95,4 @@ IMAGE_INSTALL += " \
     "
 
 
-export IMAGE_BASENAME = "reach-image-x11"
-
+export IMAGE_BASENAME = "reach-image-qt5"

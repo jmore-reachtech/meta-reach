@@ -1,0 +1,20 @@
+#! /bin/sh
+#
+# shfldemoinit  Initialize the cinematicexperience to run the Shufflemaster demo
+#
+
+case "$1" in
+        start|"")
+                export DISPLAY=:0
+                ./Qt5_CinematicExperience &
+                ;;
+        stop)
+                killall Qt5_CinematicExperience 
+                ;;
+        *)
+                echo "Usage: shfldemoinit {start|stop}" >&2
+                exit 1
+                ;;
+esac
+
+exit 0

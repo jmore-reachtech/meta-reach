@@ -2,11 +2,12 @@
 #
 # shfldemoinit  Initialize the cinematicexperience to run the Shufflemaster demo
 #
+source /etc/profile
+export DISPLAY=:0
 
 case "$1" in
-        start|"")
-                export DISPLAY=:0
-                Qt5_CinematicExperience &
+        start)
+                /usr/bin/Qt5_CinematicExperience &
                 ;;
         stop)
                 killall Qt5_CinematicExperience 

@@ -7,7 +7,11 @@ export DISPLAY=:0
 
 case "$1" in
         start)
-                /usr/bin/Qt5_CinematicExperience &
+                /usr/bin/Qt5_CinematicExperience > /dev/null 2>/dev/null &
+                sleep 1
+                killall Qt5_CinematicExperience
+                sleep 1
+                /usr/bin/Qt5_CinematicExperience > /dev/null 2>/dev/null &
                 ;;
         stop)
                 killall Qt5_CinematicExperience 

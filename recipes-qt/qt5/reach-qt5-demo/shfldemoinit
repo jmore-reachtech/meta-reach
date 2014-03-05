@@ -4,17 +4,20 @@
 #
 source /etc/profile
 export DISPLAY=:0
-
+export QMLVIEWER=/usr/bin/qt5/qmlscene
+export MAINVIEW=/application/src/mainview.qml
 case "$1" in
         start)
-                /usr/bin/Qt5_CinematicExperience > /dev/null 2>/dev/null &
+                echo "Starting QMLViewer: " ${QMLVIEWER} ${MAINVIEW}
+                echo ""
+                ${QMLVIEWER} ${MAINVIEW} > /dev/null 2>/dev/null &
                 sleep 1
-                killall Qt5_CinematicExperience
+                killall qmlscene
                 sleep 1
-                /usr/bin/Qt5_CinematicExperience > /dev/null 2>/dev/null &
+                ${QMLVIEWER} ${MAINVIEW} > /dev/null 2>/dev/null &
                 ;;
         stop)
-                killall Qt5_CinematicExperience 
+                killall qmlscene
                 ;;
         *)
                 echo "Usage: shfldemoinit {start|stop}" >&2

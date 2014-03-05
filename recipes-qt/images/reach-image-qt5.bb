@@ -96,7 +96,7 @@ IMAGE_INSTALL += " \
     qt3d-examples \
     qt3d-qmlplugins \
     qt3d-tools \
-    cinematicexperience \
+    reach-qt5-demo \
     "
 
 

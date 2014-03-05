@@ -11,7 +11,7 @@ Rectangle {
     // this is the background video
     Video{
         id: video
-        source: "Wildlife.m4v"
+        source: "/application/src/Wildlife.m4v"
         width: 800 
         height: 600
         anchors.centerIn: parent

@@ -1,7 +1,7 @@
 ##
 # See cinematicexperience_1.0.bb for video info
 # Use this video setting for uboot:
-# setenv mmcargs setenv bootargs console=${console},${baudrate} root=${mmcroot} fbmem=24M video=mcfb0:dev=ldb,LDB-WVGA,if=RGB666,bpp=32
+# setenv mmcargs setenv bootargs console=${console},${baudrate} root=${mmcroot} fbmem=24M video=mxcfb0:dev=ldb,LDB-WVGA,if=RGB666,bpp=32
 ##
 DESCRIPTION = "A very basic qt5 image with a demo"
 

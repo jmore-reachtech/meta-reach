@@ -15,6 +15,7 @@ IMAGE_INSTALL_append = "\
     reach-info \
     bc \
     coreutils \
+    psplash \
 "
 
 inherit core-image

@@ -16,6 +16,7 @@ IMAGE_INSTALL_append = "\
     bc \
     coreutils \
     psplash \
+    mfg-test \
 "
 
 inherit core-image

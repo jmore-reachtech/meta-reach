@@ -13,7 +13,6 @@ RDEPENDS_packagegroup-custom-dev-tools = "\
          mtd-utils \
          kobs-ng \
          flash-installer \
-         mfg-test \
 "
 
 RDEPENDS_packagegroup-custom-dev-tools-gdb = "\

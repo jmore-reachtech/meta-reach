@@ -9,7 +9,9 @@ PACKAGES = "\
 
 RDEPENDS_packagegroup-custom-core = "\
          dropbear \
-         samba \
+         samba-lite \
+         libsmbclient \
+         libsmbclient-dev \
          lighttpd \
          php \
 		 php-fpm \

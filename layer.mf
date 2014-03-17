@@ -96,6 +96,22 @@
           "name": "reach-image-x11"
         }
       ]
+	},{
+	  "name": "g2c-lite",
+	  "images":[
+        {
+          "name": "reach-image-minimal"
+        },
+        {
+          "name": "reach-image-mfg"
+        },
+        {
+          "name": "reach-image-qt4e"
+        },
+        {
+          "name": "reach-image-x11"
+        }
+      ]
 	}
   ],
   "version": "2.0.2"

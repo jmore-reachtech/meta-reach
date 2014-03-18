@@ -4,6 +4,8 @@ IMAGE_FEATURES += "debug-tweaks"
 DISTRO_FEATURES += "pulseaudio"
 WEB = "web-webkit"
 
+IMAGE_FEATURES += "package-management"
+
 SOC_EXTRA_IMAGE_FEATURES ?= "tools-testapps"
 
 # Add extra image features

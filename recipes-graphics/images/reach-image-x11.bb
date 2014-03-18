@@ -1,6 +1,6 @@
 DESCRIPTION = "A very basic X11 image with a terminal"
 
-IMAGE_FEATURES += "splash x11-base"
+IMAGE_FEATURES += "splash x11-base package-management"
 
 LICENSE = "MIT"
 

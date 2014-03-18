@@ -1,6 +1,6 @@
 DESCRIPTION = "An image that will launch into the demo application for the embedded (not based on X11) version of Qt."
 
-IMAGE_FEATURES += "splash"
+IMAGE_FEATURES += "splash package-management"
 
 LICENSE = "MIT"
 

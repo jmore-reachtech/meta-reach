@@ -40,7 +40,7 @@
           "uri":"git@github.com:jmore-reachtech/meta-reach.git",
           "mirror":"git://git-mirror.local/meta-reach.git",
           "branch":"dylan",
-          "rev":"a71f9078db113983da0c531730a3c2c29038a645",
+          "rev":"7068db5fbb8a8c02cc0188b7090f3b2a6b0db3a0",
           "main": true
         }
       ]
@@ -98,6 +98,22 @@
       ]
 	},{
 	  "name": "g2c-lite",
+	  "images":[
+        {
+          "name": "reach-image-minimal"
+        },
+        {
+          "name": "reach-image-mfg"
+        },
+        {
+          "name": "reach-image-qt4e"
+        },
+        {
+          "name": "reach-image-x11"
+        }
+      ]
+	},{
+	  "name": "g2c-43-24-kyocera",
 	  "images":[
         {
           "name": "reach-image-minimal"

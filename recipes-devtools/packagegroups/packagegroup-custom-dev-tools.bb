@@ -13,7 +13,9 @@ RDEPENDS_packagegroup-custom-dev-tools = "\
          mtd-utils \
          flash-installer \
 "
-#          kobs-ng
+RDEPENDS_packagegroup-custom-dev-tools_g2c = "\
+          kobs-ng \
+"
 
 RDEPENDS_packagegroup-custom-dev-tools-gdb = "\
          gdbserver \

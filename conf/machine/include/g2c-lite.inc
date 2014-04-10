@@ -7,7 +7,7 @@ SOC_FAMILY = "mxs"
 
 # Sub-architecture support
 MACHINE_SOCARCH ?= ""
-MACHINE_SOCARCH_mx28 = "${TUNE_PKGARCH}-mx28"
+MACHINE_SOCARCH_mxs = "${TUNE_PKGARCH}-mx28"
 PACKAGE_EXTRA_ARCHS_append = " ${MACHINE_SOCARCH}"
 
 # Disable perf features as 2.6.35.3 fail to build otherwise

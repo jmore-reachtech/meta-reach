@@ -5,7 +5,7 @@
       "uri":"git://git.yoctoproject.org/poky.git",
       "mirror":"git://git.reachtech.com/poky.git",
       "branch":"dora",
-      "rev":"f1276b066223e7f501f7f711680215ff8edee252",
+      "rev":"609ae3928477294e769b9aee54b818c625723b14",
       "layers":[
         {
           "name":"meta-fsl-arm",

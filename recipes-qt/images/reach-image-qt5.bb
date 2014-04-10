@@ -22,6 +22,8 @@ inherit core-image
 
 #QT5:
 IMAGE_INSTALL += " \
+    strace \
+    ltrace \
     cpufrequtils \
     nano \
     packagegroup-fsl-gstreamer \

@@ -88,7 +88,7 @@
         }
       ]
 	},{
-	  "name": "g2h-57-24",
+	  "name": "g2h-solo",
 	  "images":[
         {
           "name": "reach-image-minimal"

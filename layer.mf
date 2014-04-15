@@ -19,14 +19,14 @@
           "uri":"git://github.com/Freescale/meta-fsl-arm-extra.git",
           "mirror":"git://git.reachtech.com/meta-fsl-arm-extra.git",
           "branch":"dora",
-          "rev":"5a12677ad000a926d23c444266722a778ea228a7"
+          "rev":"251c07f9d868e0100ccf74fd1706269c8d6911fb"
         },
         {
           "name":"meta-fsl-demos",
           "uri":"git://github.com/Freescale/meta-fsl-demos.git",
           "mirror":"git://git.reachtech.com/meta-fsl-demos.git",
           "branch":"dora",
-          "rev":"251c07f9d868e0100ccf74fd1706269c8d6911fb"
+          "rev":"5a12677ad000a926d23c444266722a778ea228a7"
         },
         {
           "name":"meta-openembedded",

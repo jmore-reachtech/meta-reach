@@ -46,7 +46,7 @@ CUR_WD=$(pwd)
 WORK_DIR=$CUR_WD
 if [ -z "$IMAGE_DIR" ]; then
 	echo "IMAGE_DIR not set, using default"
-	IMAGE_DIR="$CUR_WD/tmp/deploy/images"
+	IMAGE_DIR="$CUR_WD/tmp/deploy/images/$MACHINE"
 else
 	echo "IMAGE_DIR set, using env"
 fi

@@ -39,8 +39,8 @@
           "name":"meta-qt5",
           "uri":"https://github.com/meta-qt5/meta-qt5.git",
           "mirror":"git://git-mirror.local/meta-qt5.git",
-          "branch":"dora-next",
-          "rev":"9a48a2940192073771d99daced62ddd8187b1ee6"
+          "branch":"dora",
+          "rev":"5b5616b63bdf163ea3eb2ca8857c56a393435fe3"
         },
         {
           "name":"meta-reach",

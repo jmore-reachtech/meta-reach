@@ -11,10 +11,12 @@ PACKAGES = "\
 RDEPENDS_packagegroup-custom-dev-tools = "\
          mtd-utils-ubifs \
          mtd-utils \
-         flash-installer \
 "
-RDEPENDS_packagegroup-custom-dev-tools_g2c = "\
+RDEPENDS_packagegroup-custom-dev-tools_mxs = "\
+         mtd-utils-ubifs \
+         mtd-utils \
           kobs-ng \
+          flash-installer \
 "
 
 RDEPENDS_packagegroup-custom-dev-tools-gdb = "\

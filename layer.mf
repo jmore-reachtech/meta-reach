@@ -38,7 +38,7 @@
         {
           "name":"meta-qt5",
           "uri":"https://github.com/meta-qt5/meta-qt5.git",
-          "mirror":"git://git-mirror.local/meta-qt5.git",
+          "mirror":"git://git.reachtech.com/meta-qt5.git",
           "branch":"dora",
           "rev":"5b5616b63bdf163ea3eb2ca8857c56a393435fe3"
         },

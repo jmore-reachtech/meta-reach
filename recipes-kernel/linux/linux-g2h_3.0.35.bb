@@ -3,7 +3,7 @@
 
 include linux-g2h.inc
 
-SRCREV = "441452de6ed7921fb0d1c45bc31d090fb4cc5dfe"
+SRCREV = "688b6e5f288ba70a1fb41eaca2b6b6991c544274"
 
 LOCALVERSION = "-3.0.35-reach"
 

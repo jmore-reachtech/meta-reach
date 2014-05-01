@@ -3,9 +3,9 @@
 # Use this video setting for uboot:
 # setenv mmcargs setenv bootargs console=${console},${baudrate} root=${mmcroot} fbmem=24M video=mxcfb0:dev=ldb,LDB-WVGA,if=RGB666,bpp=32
 ##
-DESCRIPTION = "A very basic qt5 image with a demo"
+DESCRIPTION = "A very basic qt5 image with a demo and lacking Xorg"
 
-IMAGE_FEATURES += "splash x11-base"
+IMAGE_FEATURES += "splash"
 
 LICENSE = "MIT"
 
@@ -20,8 +20,16 @@ IMAGE_INSTALL_append = " \
 inherit core-image
 
 IMAGE_INSTALL += " \
+    cinematicexperience \
+    dbus \
     util-linux \
-    imx-test \ 
+    imx-test \              
+    gst-fsl-plugin \
+    gstreamer \
+    gst-fsl-plugin-gplay \
+    gst-plugins-base-app \
+    gst-plugins-base \
+    gst-plugins-good \    
     qtbase-fonts \
     qtbase-plugins \
     qtbase-tools \
@@ -40,8 +48,6 @@ IMAGE_INSTALL += " \
     qtsystems-tools \
     qtsystems-qmlplugins \
     qtscript \
-    qtwebkit \
-    qtwebkit-qmlplugins \
     qt3d \
     qt3d-qmlplugins \
     qt3d-tools \
@@ -49,4 +55,4 @@ IMAGE_INSTALL += " \
     "
 
 
-export IMAGE_BASENAME = "reach-image-qt5"
+export IMAGE_BASENAME = "reach-image-qt5-nox"

@@ -11,10 +11,6 @@ case "$1" in
                 echo "Starting QMLViewer: " ${QMLVIEWER} ${MAINVIEW}
                 echo ""
                 ${QMLVIEWER} ${MAINVIEW} > /dev/null 2>/dev/null &
-                sleep 3 
-                killall qmlscene
-                sleep 3
-                ${QMLVIEWER} ${MAINVIEW} > /dev/null 2>/dev/null &
                 ;;
         stop)
                 killall qmlscene

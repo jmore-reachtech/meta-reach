@@ -19,5 +19,6 @@ RDEPENDS_${PN} = " \
         libsqlite3-dev \
         expat-dev \
         libqt-embeddedwebkit4 \
+        libqt-embeddedwebkit4-dev \
         "
 

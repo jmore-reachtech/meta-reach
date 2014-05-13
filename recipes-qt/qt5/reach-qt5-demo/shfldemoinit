@@ -6,10 +6,15 @@ source /etc/profile
 export DISPLAY=:0
 export QMLVIEWER=/usr/bin/qt5/qmlscene
 export MAINVIEW=/application/src/mainview.qml
+
 case "$1" in
         start)
                 echo "Starting QMLViewer: " ${QMLVIEWER} ${MAINVIEW}
-                echo ""
+	            echo ""
+                ${QMLVIEWER} ${MAINVIEW} > /dev/null 2>/dev/null &
+				sleep 3
+                killall qmlscene
+				sleep 3
                 ${QMLVIEWER} ${MAINVIEW} > /dev/null 2>/dev/null &
                 ;;
         stop)

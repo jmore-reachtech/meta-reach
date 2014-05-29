@@ -11,7 +11,7 @@ require recipes-kernel/linux/linux-imx.inc
 LOCALVERSION ?= "+yocto"
 SCMVERSION ?= "y"
 
-# SRC_URI for wandboard kernel
-SRC_URI = "git://github.com/jmore-reachtech/reach-imx-linux.git;branch=imx-3.0.35-mx6-next;protocol=git \
+# SRC_URI for kernel
+SRC_URI = "git://github.com/jmore-reachtech/reach-imx-linux.git;branch=imx-3.10.17_1.0.0-next;protocol=git \
            file://defconfig \
-"
+           "

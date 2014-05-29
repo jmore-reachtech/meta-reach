@@ -2,9 +2,10 @@
 # Released under the MIT license (see COPYING.MIT for the terms)
 
 include linux-g2h.inc
+require recipes-kernel/linux/linux-dtb.inc
 
-SRCREV = "1eb9fab8c34c4af03782b2b4020f90f56df6ec4d"
+SRCREV = "22220c419db36093e18fed1eb1e190bd60a525f7"
 
-LOCALVERSION = "-3.0.35-reach"
+LOCALVERSION = "-3.10.17-reach"
 
 COMPATIBLE_MACHINE = "(g2h)"

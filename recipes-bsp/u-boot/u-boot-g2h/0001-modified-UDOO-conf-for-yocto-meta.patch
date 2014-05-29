@@ -14,36 +14,35 @@ index 7632bb7..394d0e7 100644
 @@ -124,7 +124,7 @@
  
  #define CONFIG_EXTRA_ENV_SETTINGS \
- 	"script=boot.scr\0" \
--	"uimage=/boot/uImage\0" \
-+	"uimage=uImage\0" \
- 	"console=ttymxc1\0" \
- 	"splashpos=m,m\0" \
- 	"fdt_high=0xffffffff\0" \
+        "script=boot.scr\0" \
+-       "uimage=/boot/uImage\0" \
++       "uimage=uImage\0" \
+        "console=ttymxc1\0" \
+        "splashpos=m,m\0" \
+        "fdt_high=0xffffffff\0" \
 @@ -136,7 +136,7 @@
- 	"hdmi_patch=\0" \
- 	"mmcdev=0\0" \
- 	"mmcpart=1\0" \
--	"mmcroot=/dev/mmcblk0p1 rootwait rw\0" \
-+	"mmcroot=/dev/mmcblk0p2 rootwait rw\0" \
- 	"update_sd_firmware_filename=u-boot.imx\0" \
- 	"update_sd_firmware=" \
- 	 "if test ${ip_dyn} = yes; then " \
+        "hdmi_patch=\0" \
+        "mmcdev=0\0" \
+        "mmcpart=1\0" \
+-       "mmcroot=/dev/mmcblk0p1 rootwait rw\0" \
++       "mmcroot=/dev/mmcblk0p2 rootwait rw\0" \
+        "update_sd_firmware_filename=u-boot.imx\0" \
+        "update_sd_firmware=" \
+         "if test ${ip_dyn} = yes; then " \
 @@ -156,11 +156,11 @@
- 	 "${hdmi_patch} " \
- 	 "fbmem=24M video=mxcfb0:dev=hdmi,1920x1080M@60,bpp=32\0" \
- 	"loadbootscript=" \
--	 "ext2load mmc ${mmcdev}:${mmcpart} ${loadaddr} ${script};\0" \
-+	 "fatload mmc ${mmcdev}:${mmcpart} ${loadaddr} ${script};\0" \
- 	"bootscript=echo Running bootscript from mmc ...; " \
- 	 "source\0" \
--	"loaduimage=ext2load mmc ${mmcdev}:${mmcpart} ${loadaddr} ${uimage}\0" \
--	"loadfdt=ext2load mmc ${mmcdev}:${mmcpart} ${fdt_addr} ${fdt_file}\0" \
-+	"loaduimage=fatload mmc ${mmcdev}:${mmcpart} ${loadaddr} ${uimage}\0" \
-+	"loadfdt=fatload mmc ${mmcdev}:${mmcpart} ${fdt_addr} ${fdt_file}\0" \
- 	"mmcboot=echo Booting from mmc ...; " \
- 	 "run mmcargs; " \
- 	 "if test ${boot_fdt} = yes || test ${boot_fdt} = try; then " \
+         "${hdmi_patch} " \
+         "fbmem=24M video=mxcfb0:dev=hdmi,1920x1080M@60,bpp=32\0" \
+        "loadbootscript=" \
+-        "ext2load mmc ${mmcdev}:${mmcpart} ${loadaddr} ${script};\0" \
++        "fatload mmc ${mmcdev}:${mmcpart} ${loadaddr} ${script};\0" \
+        "bootscript=echo Running bootscript from mmc ...; " \
+         "source\0" \
+-       "loaduimage=ext2load mmc ${mmcdev}:${mmcpart} ${loadaddr} ${uimage}\0" \
+-       "loadfdt=ext2load mmc ${mmcdev}:${mmcpart} ${fdt_addr} ${fdt_file}\0" \
++       "loaduimage=fatload mmc ${mmcdev}:${mmcpart} ${loadaddr} ${uimage}\0" \
++       "loadfdt=fatload mmc ${mmcdev}:${mmcpart} ${fdt_addr} ${fdt_file}\0" \
+        "mmcboot=echo Booting from mmc ...; " \
+         "run mmcargs; " \
+         "if test ${boot_fdt} = yes || test ${boot_fdt} = try; then " \
 -- 
 1.7.9.5
-

@@ -12,7 +12,7 @@
           "uri":"git://github.com/Freescale/meta-fsl-arm.git",
           "mirror":"git://git.reachtech.com/meta-fsl-arm.git",
           "branch":"daisy",
-          "rev":"3336ef362109eef14f9e73cdededb43caefedb2f"
+          "rev":"f5bf277a5a5fba2c3b64ed7d2dbec1903d96386b"
         },
         {
           "name":"meta-fsl-arm-extra",

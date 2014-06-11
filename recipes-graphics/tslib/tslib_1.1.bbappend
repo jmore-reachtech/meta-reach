@@ -1,9 +1,9 @@
 # Copyright (C) 2011-2012 Reach Technology
 # Released under the MIT license (see COPYING.MIT for the terms)
-INCLUDE_DIR = "-I${STAGING_KERNEL_DIR}/include -I${WORKDIR}/${PN}-${PV}/src"
-EXTRA_OEMAKE = "INCLUDES='${INCLUDE_DIR}'"
+#INCLUDE_DIR = "-I${STAGING_KERNEL_DIR}/include -I${WORKDIR}/${PN}-${PV}/src"
+#EXTRA_OEMAKE = "INCLUDES='${INCLUDE_DIR}'"
 
-DEPENDS = "linux-libc-headers"
+#DEPENDS = "linux-libc-headers"
 FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
 
 inherit update-rc.d

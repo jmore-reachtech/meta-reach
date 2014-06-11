@@ -5,7 +5,7 @@
       "uri":"git://git.yoctoproject.org/poky.git",
       "mirror":"git://git.reachtech.com/poky.git",
       "branch":"daisy",
-      "rev":"b8f6c7c794438fcfacef4fed8a9285f5dd2cb663",
+      "rev":"3caae900f327ae67445ece67975862be11d2fde7",
       "layers":[
         {
           "name":"meta-fsl-arm",
@@ -19,7 +19,7 @@
           "uri":"git://github.com/Freescale/meta-fsl-arm-extra.git",
           "mirror":"git://git.reachtech.com/meta-fsl-arm-extra.git",
           "branch":"daisy",
-          "rev":"596e44c6166b8978929433b940a3f277fb200120"
+          "rev":"029f535cfbc5746288c6129babb2d7679927a183"
         },
         {
           "name":"meta-fsl-demos",
@@ -40,7 +40,7 @@
           "uri":"https://github.com/meta-qt5/meta-qt5.git",
           "mirror":"git://git.reachtech.com/meta-qt5.git",
           "branch":"daisy",
-          "rev":"46251050c7d3dca4b2425fea24269c2cd9053f58"
+          "rev":"0137274b13a568718e441f8f1c611a653db9f2f7"
         },
         {
           "name":"meta-reach",

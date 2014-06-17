@@ -50,8 +50,6 @@ IMAGE_INSTALL_append = "\
     strace \
 "
 
-PACKAGECONFIG_append_pn-qtmultimedia = " gstreamer010"
-
 inherit core-image
 
 export IMAGE_BASENAME = "reach-image-qt5"

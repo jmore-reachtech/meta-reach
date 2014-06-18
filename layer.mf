@@ -92,6 +92,9 @@
 	  "images":[
             {
             "name": "reach-image-qt5"
+            },
+            {
+              "name": "reach-image-mfg"
             }
           ]
         },{

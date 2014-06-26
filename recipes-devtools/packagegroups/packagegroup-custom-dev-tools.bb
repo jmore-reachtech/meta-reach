@@ -11,6 +11,7 @@ PACKAGES = "\
 RDEPENDS_packagegroup-custom-dev-tools = "\
          mtd-utils-ubifs \
          mtd-utils \
+         ntpclient \
 "
 RDEPENDS_packagegroup-custom-dev-tools_mxs = "\
          mtd-utils-ubifs \

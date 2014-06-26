@@ -7,7 +7,6 @@ IMAGE_OVERHEAD_FACTOR = "2.0"
 IMAGE_INSTALL_append = "\
 	${CORE_IMAGE_BASE_INSTALL} \
 	packagegroup-custom-dev-tools \
-	packagegroup-custom-core \
 	tslib \
 	tslib-calibrate \
 	tslib-tests \

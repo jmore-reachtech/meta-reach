@@ -6,13 +6,11 @@ LICENSE = "MIT"
 IMAGE_INSTALL_append = "\
 	${CORE_IMAGE_BASE_INSTALL} \
 	packagegroup-custom-dev-tools \
-	packagegroup-custom-core \
 	tslib \
 	tslib-calibrate \
 	tslib-tests \
 	tsinit \
 	usbutils \
-    reach-info \
     bc \
     coreutils \
     psplash \

@@ -56,80 +56,13 @@
   "conf": "TEMPLATECONF=meta-reach/conf",
   "machines":[
     {
-	  "name": "g2c-43-24",
-	  "images":[
-            {
-              "name": "reach-image-minimal"
-            },
-            {
-              "name": "reach-image-mfg"
-            },
-            {
-              "name": "reach-image-qt4e"
-            },
-            {
-              "name": "reach-image-x11"
-            }
-          ]
-	},{
-	  "name": "g2c-7-16",
-	  "images":[
-            {
-              "name": "reach-image-minimal"
-            },
-            {
-              "name": "reach-image-mfg"
-            },
-            {
-              "name": "reach-image-qt4e"
-            },
-            {
-              "name": "reach-image-x11"
-            }
-          ]
-	},{
-	  "name": "g2h-solo",
-	  "images":[
-            {
-            "name": "reach-image-qt5"
-            },
-            {
-              "name": "reach-image-mfg"
-            }
-          ]
-        },{
-	  "name": "g2c-lite",
-	  "images":[
-            {
-              "name": "reach-image-minimal"
-            },
-            {
-              "name": "reach-image-mfg"
-            },
-            {
-              "name": "reach-image-qt4e"
-            },
-            {
-              "name": "reach-image-x11"
-            }
-          ]
-	},{
-	  "name": "g2c-43-24-kyocera",
-	  "images":[
-            {
-              "name": "reach-image-minimal"
-            },
-            {
-              "name": "reach-image-mfg"
-            },
-            {
-              "name": "reach-image-qt4e"
-            },
-            {
-              "name": "reach-image-x11"
-            }
-          ]
-	}
+      "name": "g2c-43-24",
+      "images":[
+        {
+          "name": "reach-image-minimal"
+        },
+      ]
+    }
   ],
   "version": "2.0.2"
 }

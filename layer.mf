@@ -60,7 +60,7 @@
       "images":[
         {
           "name": "reach-image-minimal"
-        },
+        }
       ]
     }
   ],

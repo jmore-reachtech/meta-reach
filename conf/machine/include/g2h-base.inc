@@ -103,4 +103,3 @@ KERNEL_IMAGETYPE = "zImage"
 
 MACHINE_FEATURES = "apm usbgadget usbhost vfat alsa touchscreen"
 
-USE_VT = "0"

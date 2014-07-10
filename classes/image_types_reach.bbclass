@@ -12,37 +12,52 @@ UBOOT_SUFFIX_SDCARD ?= "${UBOOT_SUFFIX}"
 #
 
 # IMX Bootlets Linux bootstream
-IMAGE_DEPENDS_linux.sb = "elftosb-native imx-bootlets virtual/kernel"
+IMAGE_DEPENDS_linux.sb = "elftosb-native:do_populate_sysroot \
+                          imx-bootlets:do_deploy \
+                          virtual/kernel:do_deploy"
 IMAGE_LINK_NAME_linux.sb = ""
 IMAGE_CMD_linux.sb () {
-	kernel_bin="`readlink ${KERNEL_IMAGETYPE}-${MACHINE}.bin`"
-	kernel_dtb="`readlink ${KERNEL_IMAGETYPE}-${MACHINE}.dtb || true`"
-	linux_bd_file=imx-bootlets-linux_ivt.bd-${MACHINE}
-	if [ `basename $kernel_bin .bin` = `basename $kernel_dtb .dtb` ]; then
-		# When using device tree we build a zImage with the dtb
-		# appended on the end of the image
-		linux_bd_file=imx-bootlets-linux_ivt.bd-dtb-${MACHINE}
-		cat $kernel_bin $kernel_dtb \
-		    > $kernel_bin-dtb
-		rm -f ${KERNEL_IMAGETYPE}-${MACHINE}.bin-dtb
-		ln -s $kernel_bin-dtb ${KERNEL_IMAGETYPE}-${MACHINE}.bin-dtb
-	fi
+        kernel_bin="`readlink ${DEPLOY_DIR_IMAGE}/${KERNEL_IMAGETYPE}-${MACHINE}.bin`"
+        kernel_dtb="`readlink ${DEPLOY_DIR_IMAGE}/${KERNEL_IMAGETYPE}-${MACHINE}.dtb || true`"
+        linux_bd_file=imx-bootlets-linux.bd-${MACHINE}
+        if [ `basename $kernel_bin .bin` = `basename $kernel_dtb .dtb` ]; then
+                # When using device tree we build a zImage with the dtb
+                # appended on the end of the image
+                linux_bd_file=imx-bootlets-linux.bd-dtb-${MACHINE}
+                cat $kernel_bin $kernel_dtb \
+                    > $kernel_bin-dtb
+                rm -f ${DEPLOY_DIR_IMAGE}/${KERNEL_IMAGETYPE}-${MACHINE}.bin-dtb
+                ln -s $kernel_bin-dtb ${DEPLOY_DIR_IMAGE}/${KERNEL_IMAGETYPE}-${MACHINE}.bin-dtb
+        fi  
 
-	# Ensure the file is generated
-	rm -f ${IMAGE_NAME}.linux.sb
-	elftosb -z -f imx28 -c $linux_bd_file -o ${IMAGE_NAME}.linux.sb
-	ln -s ${IMAGE_NAME}.linux.sb ${IMAGE_BASENAME}-${MACHINE}.linux.sb
+        # Ensure the file is generated
+        rm -f ${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.linux.sb
+        (cd ${DEPLOY_DIR_IMAGE}; elftosb -z -c $linux_bd_file -o ${IMAGE_NAME}.linux.sb)
 
-	# Remove the appended file as it is only used here
-	rm -f $kernel_bin-dtb
+        # Remove the appended file as it is only used here
+        rm -f ${DEPLOY_DIR_IMAGE}/$kernel_bin-dtb
 }
 
+# IMX Bootlets barebox bootstream
+IMAGE_DEPENDS_barebox.mxsboot-sdcard = "elftosb-native:do_populate_sysroot \
+                                        u-boot-mxsboot-native:do_populate_sysroot \
+                                        imx-bootlets:do_deploy \
+                                        barebox:do_deploy"
+IMAGE_CMD_barebox.mxsboot-sdcard () {
+        barebox_bd_file=imx-bootlets-barebox_ivt.bd-${MACHINE}
+
+        # Ensure the files are generated
+        (cd ${DEPLOY_DIR_IMAGE}; rm -f ${IMAGE_NAME}.barebox.sb ${IMAGE_NAME}.barebox.mxsboot-sdcard; \
+         elftosb -f mx28 -z -c $barebox_bd_file -o ${IMAGE_NAME}.barebox.sb; \
+         mxsboot sd ${IMAGE_NAME}.barebox.sb ${IMAGE_NAME}.barebox.mxsboot-sdcard)
+}
 
 # U-Boot mxsboot generation to SD-Card
 UBOOT_SUFFIX_SDCARD_mxs ?= "mxsboot-sdcard"
-IMAGE_DEPENDS_uboot.mxsboot-sdcard = "u-boot-mxsboot-native u-boot"
+IMAGE_DEPENDS_uboot.mxsboot-sdcard = "u-boot-mxsboot-native:do_populate_sysroot \
+                                      u-boot:do_deploy"
 IMAGE_CMD_uboot.mxsboot-sdcard = "mxsboot sd ${DEPLOY_DIR_IMAGE}/u-boot-${MACHINE}.${UBOOT_SUFFIX} \
-                                             ${DEPLOY_DIR_IMAGE}/u-boot-${MACHINE}.${UBOOT_SUFFIX_SDCARD}"
+                                             ${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.rootfs.uboot.mxsboot-sdcard"
 
 # Boot partition volume id
 BOOTDD_VOLUME_ID ?= "Boot ${MACHINE}"
@@ -166,7 +181,7 @@ generate_mxs_sdcard () {
 		
 		# Create HAB header
 		mxshdr.sh 2048 1 > ${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.sb.header
-		ln -s ${IMAGE_NAME}.sb.header ${IMAGE_BASENAME}-${MACHINE}.sb.header
+		ln -s ${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.sb.header ${DEPLOY_DIR_IMAGE}/${IMAGE_BASENAME}-${MACHINE}.sb.header
 		
 		# Write bootstream header
 		dd if=${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.sb.header of=${SDCARD} conv=notrunc seek=2048

@@ -7,6 +7,7 @@ inherit packagegroup
 TOUCH = "tslib tslib-calibrate tslib-tests tsinit"
 
 RDEPENDS_${PN} = " \
+        libqt-embeddedxmlpatterns4 \
         libqt-embeddedclucene4 \
         libqt-embeddedcore4 \
         libqt-embeddedgui4 \

@@ -16,6 +16,7 @@ RDEPENDS_${PN} = " \
         libqt-embeddedsvg4-dev \
         libqt-embeddedtest4-dev \
         libqt-embeddedxml4-dev \
+        libqt-embeddedxmlpatterns4 \
         libsqlite3-dev \
         expat-dev \
         libqt-embeddedwebkit4 \

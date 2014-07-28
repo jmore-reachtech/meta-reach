@@ -22,4 +22,5 @@ RDEPENDS_packagegroup-custom-core = "\
          openssh-ssh \
          openssh-scp \
          openssh-sftp-server \
+         ethtool \
 "

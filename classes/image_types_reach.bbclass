@@ -65,17 +65,24 @@ BOOTDD_VOLUME_ID ?= "Boot ${MACHINE}"
 # Boot partition size [in KiB]
 BOOT_SPACE ?= "8192"
 
+# Barebox environment size [in KiB]
+BAREBOX_ENV_SPACE ?= "512"
 # Set alignment to 4MB [in KiB]
 IMAGE_ROOTFS_ALIGNMENT = "4096"
 
-IMAGE_DEPENDS_sdcard = "parted-native dosfstools-native mtools-native \
-                        virtual/kernel ${IMAGE_BOOTLOADER}"
+IMAGE_DEPENDS_sdcard = "parted-native:do_populate_sysroot \
+                        dosfstools-native:do_populate_sysroot \
+                        mtools-native:do_populate_sysroot \
+                        virtual/kernel:do_deploy \
+                        ${@d.getVar('IMAGE_BOOTLOADER', True) and d.getVar('IMAGE_BOOTLOADER', True) + ':do_deploy' or ''}"
 
 SDCARD = "${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.rootfs.sdcard"
 
 SDCARD_GENERATION_COMMAND_mxs = "generate_mxs_sdcard"
+SDCARD_GENERATION_COMMAND_mx25 = "generate_imx_sdcard"
 SDCARD_GENERATION_COMMAND_mx5 = "generate_imx_sdcard"
 SDCARD_GENERATION_COMMAND_mx6 = "generate_imx_sdcard"
+SDCARD_GENERATION_COMMAND_vf60 = "generate_imx_sdcard"
 
 #
 # Create an image that can by written onto a SD card using dd for use
@@ -218,12 +225,12 @@ generate_mxs_sdcard () {
 		parted -s ${SDCARD} unit KiB mkpart primary 2048 $(expr ${IMAGE_ROOTFS_ALIGNMENT} \+ ${BOOT_SPACE_ALIGNED})
 		parted -s ${SDCARD} unit KiB mkpart primary $(expr  ${IMAGE_ROOTFS_ALIGNMENT} \+ ${BOOT_SPACE_ALIGNED}) $(expr ${IMAGE_ROOTFS_ALIGNMENT} \+ ${BOOT_SPACE_ALIGNED} \+ $ROOTFS_SIZE)
 
-		dd if=${DEPLOY_DIR_IMAGE}/u-boot-${MACHINE}.${UBOOT_SUFFIX_SDCARD} of=${SDCARD} conv=notrunc seek=1 skip=${UBOOT_PADDING} bs=$(expr 1024 \* 1024)
+		dd if=${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.rootfs.uboot.mxsboot-sdcard of=${SDCARD} conv=notrunc seek=1 skip=${UBOOT_PADDING} bs=$(expr 1024 \* 1024)
 		BOOT_BLOCKS=$(LC_ALL=C parted -s ${SDCARD} unit b print \
 	        | awk '/ 2 / { print substr($4, 1, length($4 -1)) / 1024 }')
 
 		mkfs.vfat -n "${BOOTDD_VOLUME_ID}" -S 512 -C ${WORKDIR}/boot.img $BOOT_BLOCKS
-		mcopy -i ${WORKDIR}/boot.img -s ${DEPLOY_DIR_IMAGE}/uImage-${MACHINE}.bin ::/uImage
+		mcopy -i ${WORKDIR}/boot.img -s ${DEPLOY_DIR_IMAGE}/${KERNEL_IMAGETYPE}-${MACHINE}.bin ::/${KERNEL_IMAGETYPE}
 		if test -n "${KERNEL_DEVICETREE}"; then
 			for DTS_FILE in ${KERNEL_DEVICETREE}; do
 				DTS_BASE_NAME=`basename ${DTS_FILE} | awk -F "." '{print $1}'`
@@ -238,6 +245,15 @@ generate_mxs_sdcard () {
 		fi
 
 		dd if=${WORKDIR}/boot.img of=${SDCARD} conv=notrunc seek=2 bs=$(expr 1024 \* 1024)
+		;;
+		barebox)
+		# BAREBOX_ENV_SPACE is taken on BOOT_SPACE_ALIGNED but it doesn't really matter as long as the rootfs is aligned
+		parted -s ${SDCARD} unit KiB mkpart primary 1024 $(expr ${IMAGE_ROOTFS_ALIGNMENT} \+ ${BOOT_SPACE_ALIGNED} - ${BAREBOX_ENV_SPACE})
+		parted -s ${SDCARD} unit KiB mkpart primary $(expr ${IMAGE_ROOTFS_ALIGNMENT} \+ ${BOOT_SPACE_ALIGNED} - ${BAREBOX_ENV_SPACE}) $(expr ${IMAGE_ROOTFS_ALIGNMENT} \+ ${BOOT_SPACE_ALIGNED})
+		parted -s ${SDCARD} unit KiB mkpart primary $(expr ${IMAGE_ROOTFS_ALIGNMENT} \+ ${BOOT_SPACE_ALIGNED}) $(expr ${IMAGE_ROOTFS_ALIGNMENT} \+ ${BOOT_SPACE_ALIGNED} \+ $ROOTFS_SIZE)
+
+		dd if=${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.barebox.mxsboot-sdcard of=${SDCARD} conv=notrunc seek=1 bs=$(expr 1024 \* 1024)
+		dd if=${DEPLOY_DIR_IMAGE}/bareboxenv-${MACHINE}.bin of=${SDCARD} conv=notrunc seek=$(expr ${IMAGE_ROOTFS_ALIGNMENT} \+ ${BOOT_SPACE_ALIGNED} - ${BAREBOX_ENV_SPACE}) bs=1024
 		;;
 		*)
 		bberror "Unkown IMAGE_BOOTLOADER value"
@@ -271,3 +287,6 @@ IMAGE_CMD_sdcard () {
 	${SDCARD_GENERATION_COMMAND}
 }
 
+# The sdcard requires the rootfs filesystem to be built before using
+# it so we must make this dependency explicit.
+IMAGE_TYPEDEP_sdcard = "${@d.getVar('SDCARD_ROOTFS', 1).split('.')[-1]}"

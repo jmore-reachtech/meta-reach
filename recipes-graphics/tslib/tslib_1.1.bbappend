@@ -11,7 +11,8 @@ inherit update-rc.d
 FILES_${PN} += "${sysconfdir}/init.d/pointercal \
 "
 
-SRC_URI_append = "file://pointercal \
+SRC_URI_append = "file://0001-Fix-for-g2c-kernel-EV_VERSION.patch \
+  file://pointercal \
 "
 
 do_install_append() {

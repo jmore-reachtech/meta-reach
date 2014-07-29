@@ -14,9 +14,11 @@ IMAGE_INSTALL_append = "\
     bc \
     coreutils \
     psplash \
-    mfg-test \
+    mfg-test-g2c-lite \
 "
 
 inherit core-image
 
 export IMAGE_BASENAME = "reach-image-mfg"
+
+COMPATIBLE_MACHINE = "(g2c)"

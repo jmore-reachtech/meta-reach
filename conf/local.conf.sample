@@ -1,5 +1,4 @@
 # We need to set these items
-DISTRO ?= "reach"
 PACKAGE_CLASSES ?= "package_ipk"
 EXTRA_IMAGE_FEATURES = "debug-tweaks"
 USER_CLASSES ?= "buildstats image-mklibs image-prelink"

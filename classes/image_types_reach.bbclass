@@ -32,7 +32,7 @@ IMAGE_CMD_linux.sb () {
 
         # Ensure the file is generated
         rm -f ${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.linux.sb
-        (cd ${DEPLOY_DIR_IMAGE}; elftosb -z -f imx28 -c $linux_bd_file -o ${IMAGE_NAME}.linux.sb)
+        (cd ${DEPLOY_DIR_IMAGE}; elftosb -z -f imx28 -c $linux_bd_file -o ${IMAGE_NAME}.linux.sb; ln -s ${IMAGE_NAME}.linux.sb ${IMAGE_BASENAME}-${MACHINE}.linux.sb;)
 
         # Remove the appended file as it is only used here
         rm -f ${DEPLOY_DIR_IMAGE}/$kernel_bin-dtb

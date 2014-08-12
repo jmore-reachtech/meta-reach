@@ -1,0 +1,30 @@
+#!/bin/sh
+
+set -e
+
+export DISPLAY=:0
+
+WORKDIR=/application/bin
+APP=python-demo.py
+
+case "$1" in
+  start)
+	echo "Starting python-demo application"
+	cd $WORKDIR
+	python $APP &
+	;;
+  stop)
+	echo "Stopping qt application"
+	killall python
+	;;
+  restart)
+	$0 stop
+	$0 start
+	;;
+  *)
+	echo "usage: $0 { start | stop | restart }" >&2
+	exit 1
+	;;
+esac
+
+exit 0

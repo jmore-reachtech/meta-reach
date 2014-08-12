@@ -1,4 +1,4 @@
-DESCRIPTION = "A very basic X11 image with a terminal"
+DESCRIPTION = "A very basic python image with a terminal"
 
 IMAGE_FEATURES += "splash x11-base package-management"
 
@@ -21,9 +21,11 @@ IMAGE_INSTALL_append = " packagegroup-custom-x11-apps \
         python-misc \
         python-docutils \
         python-distribute \
+        python-pygtk \
         gcc \
         gdb \
         curl \
+        python-demo \
 "
 
 inherit core-image

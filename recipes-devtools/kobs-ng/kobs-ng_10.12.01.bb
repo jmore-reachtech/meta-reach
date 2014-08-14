@@ -2,18 +2,17 @@ DESCRIPTION = "Freescale kobs-ng utility for writing bootstreams to NAND"
 SECTION = "base"
 LICENSE = "GPLv2+"
 LIC_FILES_CHKSUM = "file://COPYING;md5=393a5ca445f6965873eca0259a17f833"
-DEPENDS = "linux-libc-headers"
-
-PR = "r0"
+DEPENDS = "virtual/kernel"
 
 SRC_URI = "http://repository.timesys.com/buildsources/k/kobs-ng/kobs-ng-${PV}/kobs-ng-${PV}.tar.gz \
-	file://0001-add-canby-mach.patch \
+           file://0001-add-canby-mach.patch \
 "
 
 SRC_URI[md5sum] = "9fce401b6c90e851f0335b9ca3a649a9"
 SRC_URI[sha256sum] = "ef25f5c9033500c236b1894436bddc4e20b90bc17585fbcdf9fe3bbbd9f15781"
 
-inherit autotools pkgconfig
+inherit autotools-brokensep pkgconfig
 
-INCLUDE_DIR = "-I${STAGING_KERNEL_DIR}/include"
-EXTRA_OEMAKE = "INCLUDES=${INCLUDE_DIR}"
+EXTRA_OEMAKE += "INCLUDES=-I${STAGING_KERNEL_DIR}/include"
+
+PACKAGE_ARCH = "${MACHINE_ARCH}"

@@ -1,8 +1,6 @@
 # Append path for freescale layer to include bsp xorg.conf 
 FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
 
-PRINC := "${@int(PRINC) + 1}"
-
 do_install_basefilesissue_append () {
 		echo "*******************************************************************" >> ${D}${sysconfdir}/issue
 		echo "* Type root to login" >> ${D}${sysconfdir}/issue

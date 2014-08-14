@@ -1,7 +1,5 @@
 FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
 
-PRINC = "1"
-
 PACKAGES =+ "samba-lite"
 
 FILES_samba-lite = "${sbindir}/* \

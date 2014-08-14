@@ -8,6 +8,6 @@ RDEPENDS_${PN} += "bash \
 "
 
 do_install_append () {
-	install -d ${D}${sbindir}
-	install -m 755 ${WORKDIR}/net-setup.sh ${D}${sbindir}
+    install -d ${D}${sbindir}
+    install -m 755 ${WORKDIR}/net-setup.sh ${D}${sbindir}
 }

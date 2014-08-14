@@ -1,11 +1,11 @@
 FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
 
 SRC_URI = "git://github.com/jmore-reachtech/reach-imx-bootlets.git \
-	file://linux-fix-paths.patch \
-	file://linux-fix-paths-ivt.patch \
-	file://0001-Fix-MMC-boot-partition.patch \
-	file://quiet-boot.patch \
-        file://add-command-script-for-barebox.patch \
+           file://linux-fix-paths.patch \
+           file://linux-fix-paths-ivt.patch \
+           file://0001-Fix-MMC-boot-partition.patch \
+           file://quiet-boot.patch \
+           file://add-command-script-for-barebox.patch \
 "
 
 SRCREV = "6275258786111e148517a849e6129233d0199c9b"
@@ -23,7 +23,7 @@ do_install_append () {
 }
 
 do_deploy_append () {
-	for f in linux_ivt.bd linux_ivt.bd-dtb; do
+    for f in linux_ivt.bd linux_ivt.bd-dtb; do
         full_name="imx-bootlets-`basename $f`-${MACHINE}-${PV}-${PR}"
         symlink_name="imx-bootlets-`basename $f`-${MACHINE}"
 

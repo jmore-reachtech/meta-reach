@@ -1,7 +1,5 @@
 FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
 
-PRINC := "${@int(PRINC) + 1}"
-
 SRC_URI_append_g2c = " file://X0.hosts \
 "
 

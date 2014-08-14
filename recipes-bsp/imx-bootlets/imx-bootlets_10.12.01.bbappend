@@ -1,5 +1,3 @@
-PRINC := "${@int(PRINC) + 3}"
-
 FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
 
 SRC_URI = "git://github.com/jmore-reachtech/reach-imx-bootlets.git \

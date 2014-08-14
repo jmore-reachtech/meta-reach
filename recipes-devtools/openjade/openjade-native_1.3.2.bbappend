@@ -1,5 +1,3 @@
-PRINC := "${@int(PRINC) + 3}"
-
 FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}-${PV}:"
 
 EXTRA_OECONF = "--enable-spincludedir=${STAGING_INCDIR}/OpenSP \

@@ -1,7 +1,6 @@
 #add file to keep udev from caching the mac address
 FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
 RRECOMMENDS_${PN} += "udev-cache"
-PRINC := "${@int(PRINC) + 2}"
 
 SRC_URI += " file://75-persistent-net-generator.rules \
   file://init \

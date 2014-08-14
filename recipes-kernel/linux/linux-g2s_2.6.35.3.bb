@@ -7,7 +7,7 @@ include linux-g2s.inc
 
 COMPATIBLE_MACHINE = "(g2s)"
 
-SRC_URI_append_g2s = "git://github.com/jmore-reachtech/reach-imx-linux.git;branch=imx-2.6.35-mx53-next;protocol=git \
+SRC_URI_append_g2s = "git://github.com/jmore-reachtech/reach-imx-linux.git;branch=imx-2.6.35-mx53-master;protocol=git \
 "
 
 SRCREV_g2s = "ea6615758dfd7d1ea0b9646424f9051efaa7173c"

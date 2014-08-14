@@ -13,7 +13,7 @@ inherit kernel
 LOCALVERSION ?= "+yocto"
 SCMVERSION ?= "y"
 
-SRC_URI = "git://github.com/jmore-reachtech/reach-imx-linux.git;branch=imx-2.6.35-mx28-next;protocol=git \
+SRC_URI = "git://github.com/jmore-reachtech/reach-imx-linux.git;branch=imx-2.6.35-mx28-master;protocol=git \
                    file://defconfig \
                    file://0003-ARM-7668-1-fix-memset-related-crashes-caused-by-rece.patch \
                    file://0004-ARM-7670-1-fix-the-memset-fix.patch \

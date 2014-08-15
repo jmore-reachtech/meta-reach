@@ -29,8 +29,8 @@ IMAGE_INSTALL += " \
     reach-qml-viewer-qt4x11 \
     reach-sio-agent \
     reach-tio-agent \
-	sciton-qml-demo \
-	packagegroup-custom-core \
+    sciton-qml-demo \
+    packagegroup-custom-core \
     "
 
 export IMAGE_BASENAME = "reach-image-x11-qt4"

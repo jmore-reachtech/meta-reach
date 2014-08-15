@@ -2,7 +2,6 @@ DESCRIPTION = "ntpclient"
 SECTION = "iotproduct"
 LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://README;md5=098a6a289094e42f974b11e2151f5644"
-PR = "r0"
 PV = "2010_365"
 
 

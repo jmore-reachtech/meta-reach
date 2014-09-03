@@ -1,11 +1,26 @@
 # Copyright (C) 2011-2012 Freescale Semiconductor
+# Copyright (C) 2014 O.S. Systems Software LTDA.
 # Released under the MIT license (see COPYING.MIT for the terms)
 
-PR = "${INC_PR}.23"
+SUMMARY = "Linux Kernel for Reach Tech platforms"
+LICENSE = "GPLv2"
+LIC_FILES_CHKSUM = "file://COPYING;md5=d7810fab7487fb0aad327b76f1be7cd7"
 
-include linux-g2c.inc
+PR = "r32.23"
+
+require recipes-kernel/linux/linux-imx.inc
+
+SRCBRANCH = "imx-2.6.35-mx28-master"
+SRCREV = "fad856ff65e8c24c6c5fc8b2b225c8a3bd5c973b"
+SRC_URI = "git://github.com/jmore-reachtech/reach-imx-linux.git;protocol=git;branch=${SRCBRANCH} \
+           file://0003-ARM-7668-1-fix-memset-related-crashes-caused-by-rece.patch \
+           file://0004-ARM-7670-1-fix-the-memset-fix.patch \
+           file://defconfig"
+
+LOCALVERSION = "-10.12.01+reach"
+
+S = "${WORKDIR}/git"
+
+inherit kernel
 
 COMPATIBLE_MACHINE = "(g2c)"
-
-SRCREV = "fad856ff65e8c24c6c5fc8b2b225c8a3bd5c973b"
-LOCALVERSION = "-10.12.01+yocto"

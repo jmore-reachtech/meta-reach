@@ -17,7 +17,7 @@ IMAGE_INSTALL_append = " \
 	usbutils \
 	wireless-tools \
 	wpa-supplicant \
-	linux-firmware-ar9271 \
+	linux-firmware-ath9k \
 	linux-firmware-sd8686 \
 	linux-firmware-rtl8192cu \
 	linux-firmware-rtl8192ce \

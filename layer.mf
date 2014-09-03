@@ -33,7 +33,7 @@
           "uri":"git://git.openembedded.org/meta-openembedded",
           "mirror":"git://git.reachtech.com/meta-openembedded.git",
           "branch":"daisy",
-          "rev":"d02cdf3ee88c7bbb93cecf094008858782deec3f"
+          "rev":"662cf409c1175450699d498085f3c894e0fe81d0"
         },
         {
           "name":"meta-qt5",

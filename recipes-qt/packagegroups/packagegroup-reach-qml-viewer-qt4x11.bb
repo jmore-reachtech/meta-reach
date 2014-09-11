@@ -12,4 +12,5 @@ RDEPENDS_${PN} = " \
         reach-qml-viewer-qt4x11 \
         reach-sio-agent \
         reach-tio-agent \
+        reach-eio-agent \
 "

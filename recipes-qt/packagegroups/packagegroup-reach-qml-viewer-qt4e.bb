@@ -13,4 +13,5 @@ RDEPENDS_${PN} = " \
         reach-qml-plugins-mxs \
         reach-sio-agent \
         reach-tio-agent \
+        reach-eio-agent \
 "

@@ -22,7 +22,7 @@ do_install() {
     install -m 0755 ${WORKDIR}/python-demo ${D}${sysconfdir}/init.d/python-demo
 }
 
-FILES_${PN} += "${APP_DIR} /home/root"
+FILES_${PN} += "${APP_DIR} ${ROOT_HOME}"
 FILES_${PN}-dbg += "${APP_DIR}/.debug /usr/src/debug"
 
 inherit update-rc.d

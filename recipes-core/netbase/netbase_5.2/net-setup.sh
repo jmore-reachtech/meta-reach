@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 USE_DHCP=1
 STATIC_ADDRESS=

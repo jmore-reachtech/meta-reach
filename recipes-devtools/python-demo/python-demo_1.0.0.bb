@@ -7,18 +7,19 @@ DEPENDS = "python gtk+"
 PR = "r1"
 
 SRC_URI = "file://python-demo.py \
-	file://python-demo \
+           file://python-demo \
 "
+
 S = "${WORKDIR}"
 
 APP_DIR="/application/bin"
 
 do_install() {
-	install -d ${D}${APP_DIR}
-	install -m 0755 ${S}/python-demo.py ${D}${APP_DIR}
-	
-	install -d ${D}${sysconfdir}/init.d/
-	install -m 0755 ${WORKDIR}/python-demo ${D}${sysconfdir}/init.d/python-demo
+    install -d ${D}${APP_DIR}
+    install -m 0755 ${S}/python-demo.py ${D}${APP_DIR}
+
+    install -d ${D}${sysconfdir}/init.d/
+    install -m 0755 ${WORKDIR}/python-demo ${D}${sysconfdir}/init.d/python-demo
 }
 
 FILES_${PN} += "${APP_DIR} /home/root"

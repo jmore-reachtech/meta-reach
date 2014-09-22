@@ -19,7 +19,7 @@ EXTRA_IMAGE_FEATURES += " \
 
 SOC_IMAGE_INSTALL = ""
 
-IMAGE_INSTALL += " \
+IMAGE_INSTALL_append " \
     ${SOC_IMAGE_INSTALL} \
     packagegroup-fsl-gstreamer \
     packagegroup-fsl-tools-testapps \

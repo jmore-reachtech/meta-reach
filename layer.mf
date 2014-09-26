@@ -47,7 +47,7 @@
           "uri":"git@github.com:jmore-reachtech/meta-reach.git",
           "mirror":"git://git.reachtech.com/meta-reach.git",
           "branch":"daisy",
-          "rev":"c69005687fb30825065fbdf1d3b99c449823948c",
+          "rev":"903283d3f1f93ee30d132ea995368c5c3329c7a5",
           "main": true
         }
       ]

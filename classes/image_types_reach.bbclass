@@ -1,22 +1,9 @@
-inherit image_types
-
-IMAGE_BOOTLOADER ?= "u-boot"
-
-# Handle u-boot suffixes
-UBOOT_SUFFIX ?= "bin"
-UBOOT_PADDING ?= "0"
-UBOOT_SUFFIX_SDCARD ?= "${UBOOT_SUFFIX}"
-
-#
-# Handles i.MX mxs bootstream generation
-#
-
-# IMX Bootlets Linux bootstream
-IMAGE_DEPENDS_linux.sb = "elftosb-native:do_populate_sysroot \
+# IMX Bootlets Linux bootstream with HAB support
+IMAGE_DEPENDS_linux.hab.sb = "elftosb-native:do_populate_sysroot \
                           imx-bootlets:do_deploy \
                           virtual/kernel:do_deploy"
-IMAGE_LINK_NAME_linux.sb = ""
-IMAGE_CMD_linux.sb () {
+IMAGE_LINK_NAME_linux.hab.sb = ""
+IMAGE_CMD_linux.hab.sb () {
         kernel_bin="`readlink ${DEPLOY_DIR_IMAGE}/${KERNEL_IMAGETYPE}-${MACHINE}.bin`"
         kernel_dtb="`readlink ${DEPLOY_DIR_IMAGE}/${KERNEL_IMAGETYPE}-${MACHINE}.dtb || true`"
         linux_bd_file=imx-bootlets-linux_ivt.bd-${MACHINE}
@@ -38,51 +25,9 @@ IMAGE_CMD_linux.sb () {
         rm -f ${DEPLOY_DIR_IMAGE}/$kernel_bin-dtb
 }
 
-# IMX Bootlets barebox bootstream
-IMAGE_DEPENDS_barebox.mxsboot-sdcard = "elftosb-native:do_populate_sysroot \
-                                        u-boot-mxsboot-native:do_populate_sysroot \
-                                        imx-bootlets:do_deploy \
-                                        barebox:do_deploy"
-IMAGE_CMD_barebox.mxsboot-sdcard () {
-        barebox_bd_file=imx-bootlets-barebox_ivt.bd-${MACHINE}
-
-        # Ensure the files are generated
-        (cd ${DEPLOY_DIR_IMAGE}; rm -f ${IMAGE_NAME}.barebox.sb ${IMAGE_NAME}.barebox.mxsboot-sdcard; \
-         elftosb -f mx28 -z -c $barebox_bd_file -o ${IMAGE_NAME}.barebox.sb; \
-         mxsboot sd ${IMAGE_NAME}.barebox.sb ${IMAGE_NAME}.barebox.mxsboot-sdcard)
-}
-
-# U-Boot mxsboot generation to SD-Card
-UBOOT_SUFFIX_SDCARD_mxs ?= "mxsboot-sdcard"
-IMAGE_DEPENDS_uboot.mxsboot-sdcard = "u-boot-mxsboot-native:do_populate_sysroot \
-                                      u-boot:do_deploy"
-IMAGE_CMD_uboot.mxsboot-sdcard = "mxsboot sd ${DEPLOY_DIR_IMAGE}/u-boot-${MACHINE}.${UBOOT_SUFFIX} \
-                                             ${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.rootfs.uboot.mxsboot-sdcard"
-
-# Boot partition volume id
-BOOTDD_VOLUME_ID ?= "Boot ${MACHINE}"
-
-# Boot partition size [in KiB]
-BOOT_SPACE ?= "8192"
-
-# Barebox environment size [in KiB]
-BAREBOX_ENV_SPACE ?= "512"
-# Set alignment to 4MB [in KiB]
-IMAGE_ROOTFS_ALIGNMENT = "4096"
-
-IMAGE_DEPENDS_sdcard = "parted-native:do_populate_sysroot \
-                        dosfstools-native:do_populate_sysroot \
-                        mtools-native:do_populate_sysroot \
-                        virtual/kernel:do_deploy \
-                        ${@d.getVar('IMAGE_BOOTLOADER', True) and d.getVar('IMAGE_BOOTLOADER', True) + ':do_deploy' or ''}"
-
-SDCARD = "${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.rootfs.sdcard"
-
-SDCARD_GENERATION_COMMAND_mxs = "generate_mxs_sdcard"
-SDCARD_GENERATION_COMMAND_mx25 = "generate_imx_sdcard"
-SDCARD_GENERATION_COMMAND_mx5 = "generate_imx_sdcard"
-SDCARD_GENERATION_COMMAND_mx6 = "generate_imx_sdcard"
-SDCARD_GENERATION_COMMAND_vf60 = "generate_imx_sdcard"
+SDCARD_GENERATION_COMMAND_g2c = "generate_g2c_sdcard"
+SDCARD_GENERATION_COMMAND_g2s = "generate_g2sh_sdcard"
+SDCARD_GENERATION_COMMAND_g2h = "generate_g2sh_sdcard"
 
 #
 # Create an image that can by written onto a SD card using dd for use
@@ -109,7 +54,7 @@ SDCARD_GENERATION_COMMAND_vf60 = "generate_imx_sdcard"
 # ^                        ^            ^                        ^                               ^
 # |                        |            |                        |                               |
 # 0                      4096     4MiB +  8MiB       4MiB +  8Mib + SDIMG_ROOTFS   4MiB +  8MiB + SDIMG_ROOTFS + 4MiB
-generate_imx_sdcard () {
+generate_g2hs_sdcard () {
         PART1_START=1024
         PART1_SIZE=$(expr $IMAGE_ROOTFS_ALIGNMENT \+ $BOOT_SPACE_ALIGNED)
         PART2_START=$(expr $IMAGE_ROOTFS_ALIGNMENT \+ $BOOT_SPACE_ALIGNED)
@@ -157,7 +102,7 @@ generate_imx_sdcard () {
 #   ${SDCARD_ROOTFS}    - the rootfs image to incorporate
 #   ${IMAGE_BOOTLOADER} - bootloader to use {imx-bootlets, u-boot}
 #
-generate_mxs_sdcard () {
+generate_g2c_sdcard () {
 	# Create partition table
 	parted -s ${SDCARD} mklabel msdos
 
@@ -269,24 +214,3 @@ generate_mxs_sdcard () {
 
 	dd if=${SDCARD_ROOTFS} of=${SDCARD} conv=notrunc seek=1 bs=$(expr ${BOOT_SPACE_ALIGNED} \* 1024 + ${IMAGE_ROOTFS_ALIGNMENT} \* 1024) && sync && sync
 }
-
-IMAGE_CMD_sdcard () {
-	if [ -z "${SDCARD_ROOTFS}" ]; then
-		bberror "SDCARD_ROOTFS is undefined. To use sdcard image from Freescale's BSP it needs to be defined."
-		exit 1
-	fi
-
-	# Align boot partition and calculate total SD card image size
-	BOOT_SPACE_ALIGNED=$(expr ${BOOT_SPACE} + ${IMAGE_ROOTFS_ALIGNMENT} - 1)
-	BOOT_SPACE_ALIGNED=$(expr ${BOOT_SPACE_ALIGNED} - ${BOOT_SPACE_ALIGNED} % ${IMAGE_ROOTFS_ALIGNMENT})
-	SDCARD_SIZE=$(expr ${IMAGE_ROOTFS_ALIGNMENT} + ${BOOT_SPACE_ALIGNED} + $ROOTFS_SIZE + ${IMAGE_ROOTFS_ALIGNMENT})
-	
-	# Initialize a sparse file
-	dd if=/dev/zero of=${SDCARD} bs=1 count=0 seek=$(expr 1024 \* ${SDCARD_SIZE})
-
-	${SDCARD_GENERATION_COMMAND}
-}
-
-# The sdcard requires the rootfs filesystem to be built before using
-# it so we must make this dependency explicit.
-IMAGE_TYPEDEP_sdcard = "${@d.getVar('SDCARD_ROOTFS', 1).split('.')[-1]}"

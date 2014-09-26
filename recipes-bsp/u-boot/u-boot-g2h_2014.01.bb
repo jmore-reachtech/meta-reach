@@ -22,3 +22,9 @@ EXTRA_OEMAKE += 'HOSTCC="${BUILD_CC} ${BUILD_CPPFLAGS}" \
                  HOSTSTRIP=true'
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
+
+do_configure_prepend () {
+    sed -i s/imx6sdl-hawthorne.dtb/${KERNEL_DEVICETREE}/ include/configs/g2h_solo.h
+}
+
+

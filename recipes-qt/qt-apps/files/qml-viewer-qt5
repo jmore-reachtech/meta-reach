@@ -19,7 +19,7 @@ case "$1" in
 	fi
 
 	cd $WORKDIR
-	QWS_MOUSE_PROTO=tslib:$TSLIB_TSDEVICE ./$QTAPP $DISPLAY_ROT -platform eglfs &> /dev/null &
+	./$QTAPP $DISPLAY_ROT -platform eglfs -plugin tslib &> /dev/null &
 	;;
   stop)
 	echo "Stopping qt application"

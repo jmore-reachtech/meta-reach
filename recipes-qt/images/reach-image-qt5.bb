@@ -4,12 +4,12 @@ LICENSE = "MIT"
 
 include qt5-versions.inc
 
+TOUCH = "tslib tslib-calibrate tslib-tests"
+
 IMAGE_INSTALL_append = "\
     ${CORE_IMAGE_BASE_INSTALL} \
-    firmware-imx-vpu-imx6q \
+    ${TOUCH} \
     firmware-imx-vpu-imx6d \
-    gdb \
-    dropbear \
     packagegroup-fsl-gstreamer \
     gstreamer \
     gst-plugins-base-app \
@@ -44,10 +44,11 @@ IMAGE_INSTALL_append = "\
     qt3d-tools \
     qtwebkit \
     qtwebkit-qmlplugins \
-    cinematicexperience \
-    util-linux \
     imx-test \    
-    strace \
+    reach-qml-viewer-qt5 \
+    reach-sio-agent \
+    reach-tio-agent \
+    reach-eio-agent \
 "
 
 inherit core-image

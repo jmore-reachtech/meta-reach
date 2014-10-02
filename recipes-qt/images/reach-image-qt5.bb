@@ -9,6 +9,7 @@ TOUCH = "tslib tslib-calibrate tslib-tests"
 IMAGE_INSTALL_append = "\
     ${CORE_IMAGE_BASE_INSTALL} \
     ${TOUCH} \
+    packagegroup-custom-core \
     firmware-imx-vpu-imx6d \
     packagegroup-fsl-gstreamer \
     gstreamer \

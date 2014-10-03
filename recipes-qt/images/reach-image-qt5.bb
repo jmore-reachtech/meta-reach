@@ -10,6 +10,8 @@ IMAGE_INSTALL_append = "\
     ${CORE_IMAGE_BASE_INSTALL} \
     ${TOUCH} \
     packagegroup-custom-core \
+    packagegroup-custom-dev-tools-gdb \
+    packagegroup-custom-dev-tools \
     firmware-imx-vpu-imx6d \
     packagegroup-fsl-gstreamer \
     gstreamer \

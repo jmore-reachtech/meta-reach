@@ -52,6 +52,9 @@ IMAGE_INSTALL_append = "\
     reach-sio-agent \
     reach-tio-agent \
     reach-eio-agent \
+    alsa-utils \
+    alsa-state \
+    psplash \
 "
 
 inherit core-image

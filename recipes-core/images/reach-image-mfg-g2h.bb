@@ -9,12 +9,12 @@ IMAGE_INSTALL_append = "\
 	tslib \
 	tslib-calibrate \
 	tslib-tests \
-	tsinit \
 	usbutils \
     bc \
     coreutils \
     psplash \
     mfg-test-g2h \
+    openssh \
 "
 
 inherit core-image

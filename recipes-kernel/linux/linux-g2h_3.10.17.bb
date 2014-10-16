@@ -4,7 +4,7 @@
 include linux-g2h.inc
 require recipes-kernel/linux/linux-dtb.inc
 
-SRCREV = "acc419e3b32cdfc7cd79c9792bd6f63cef110bf9"
+SRCREV = "729da0bf9ba41a55077a124dc45bad227fc9e0d4"
 
 LOCALVERSION = "-3.10.17-reach"
 

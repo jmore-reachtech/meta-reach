@@ -1,24 +1,7 @@
-DESCRIPTION = "A minimal console based image used for testing"
+require recipes-core/images/reach-image-mfg.inc
 
-LICENSE = "MIT"
+REACH_MFG_TEST_PACKAGE = "mfg-test-g2h"
 
-
-IMAGE_INSTALL_append = "\
-	${CORE_IMAGE_BASE_INSTALL} \
-	packagegroup-custom-dev-tools \
-	tslib \
-	tslib-calibrate \
-	tslib-tests \
-	usbutils \
-    bc \
-    coreutils \
-    psplash \
-    mfg-test-g2h \
-    openssh \
-"
-
-inherit core-image
-
-export IMAGE_BASENAME = "reach-image-mfg"
+CORE_IMAGE_EXTRA_INSTALL += "openssh"
 
 COMPATIBLE_MACHINE = "(g2h)"

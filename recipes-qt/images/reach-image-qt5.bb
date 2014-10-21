@@ -55,6 +55,7 @@ IMAGE_INSTALL_append = "\
     alsa-utils \
     alsa-state \
     psplash \
+    reach-qml-plugins-imx \
     reach-qml-demo-qt5 \
 "
 

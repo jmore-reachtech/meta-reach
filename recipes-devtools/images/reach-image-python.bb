@@ -1,17 +1,18 @@
 DESCRIPTION = "A very basic python image with a terminal"
 
-IMAGE_FEATURES += "splash x11-base package-management"
+IMAGE_FEATURES += "splash x11 package-management"
 
 LICENSE = "MIT"
 
 IMAGE_OVERHEAD_FACTOR = "2.0"
 
-IMAGE_INSTALL_append = " packagegroup-custom-x11-apps \
-	packagegroup-custom-x11-tools \
+TOUCH = "tslib tslib-tests tslib-calibrate"
+
+IMAGE_INSTALL_append = " ${TOUCH} \
 	packagegroup-custom-dev-tools \
 	packagegroup-custom-dev-tools-gdb \
-	packagegroup-custom-x11-touch-init \
 	packagegroup-custom-core \
+        xf86-input-tslib \
         python-pyserial \
         python-numpy \
         python-pip \
@@ -26,6 +27,8 @@ IMAGE_INSTALL_append = " packagegroup-custom-x11-apps \
         gdb \
         curl \
         python-demo \
+        xterm \
+        xeyes \
 "
 
 inherit core-image

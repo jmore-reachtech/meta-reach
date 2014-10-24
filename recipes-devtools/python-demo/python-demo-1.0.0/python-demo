@@ -2,19 +2,14 @@
 
 set -e
 
-export DISPLAY=:0
+export DISPLAY=':0'
 
 WORKDIR=/application/bin
 APP=python-demo.py
-XSERVER=/usr/bin/Xorg
-ARGS=" -br -pn -logverbose -s 0 -noreset -nocursor -nolisten inet6"
 
 
 case "$1" in
   start)
-        echo "Starting X11 server"
-        $XSERVER $DISPLAY $ARGS &
-                    
 	echo "Starting python-demo application"
 	cd $WORKDIR
 	python $APP &
@@ -22,7 +17,6 @@ case "$1" in
   stop)
 	echo "Stopping python demo"
 	killall python
-	killall Xorg
         ;;
   restart)
 	$0 stop

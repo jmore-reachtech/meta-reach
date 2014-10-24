@@ -1,6 +1,7 @@
 DESCRIPTION = "A very basic python image with a terminal"
 
-IMAGE_FEATURES += "splash x11 package-management"
+IMAGE_FEATURES += " x11 splash package-management"
+IMAGE_FEATURES_g2c += " x11-base"
 
 LICENSE = "MIT"
 
@@ -12,7 +13,6 @@ IMAGE_INSTALL_append = " ${TOUCH} \
 	packagegroup-custom-dev-tools \
 	packagegroup-custom-dev-tools-gdb \
 	packagegroup-custom-core \
-        xf86-input-tslib \
         python-pyserial \
         python-numpy \
         python-pip \
@@ -29,6 +29,15 @@ IMAGE_INSTALL_append = " ${TOUCH} \
         python-demo \
         xterm \
         xeyes \
+"
+IMAGE_INSTALL_append_g2h += " \
+        xf86-input-tslib \
+"
+
+IMAGE_INSTALL_append_g2c += " \
+  xserver-xorg-fbdev \
+  tsinit \
+         mesa-driver-swrast \
 "
 
 inherit core-image

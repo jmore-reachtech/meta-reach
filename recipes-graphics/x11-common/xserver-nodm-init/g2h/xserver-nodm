@@ -1,0 +1,30 @@
+#!/bin/sh
+
+set -e
+
+export DISPLAY=:0
+
+XSERVER=/usr/bin/Xorg
+ARGS=" -br -pn -logverbose -s 0 -noreset -nocursor -nolisten inet6"
+
+
+case "$1" in
+  start)
+        echo "Starting X11 server"
+        $XSERVER $DISPLAY $ARGS &
+	;;
+  stop)
+	echo "Stopping X11 server"
+	killall Xorg
+        ;;
+  restart)
+	$0 stop
+	$0 start
+	;;
+  *)
+	echo "usage: $0 { start | stop | restart }" >&2
+	exit 1
+	;;
+esac
+
+exit 0

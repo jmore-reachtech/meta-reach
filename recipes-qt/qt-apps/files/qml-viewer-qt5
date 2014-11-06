@@ -6,6 +6,9 @@ WORKDIR=/application/bin
 QTAPP=qml-viewer
 #DISPLAY_ROT="-display Transformed:Rot90:0"
 
+export QT_QPA_EGLFS_HIDECURSOR=1
+export QT_QPA_EGLFS_DISABLE_INPUT=1
+
 case "$1" in
   start)
 	echo "Starting qt application"

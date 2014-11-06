@@ -5,49 +5,49 @@
       "uri":"git://git.yoctoproject.org/poky.git",
       "mirror":"git://git.reachtech.com/poky.git",
       "branch":"daisy",
-      "rev":"b2f045c400fa8bd20b319c60137b1575f967cef1",
+      "rev":"895c86d71d7c6c65c719b147b32c057de6057c48",
       "layers":[
         {
           "name":"meta-fsl-arm",
           "uri":"git://github.com/Freescale/meta-fsl-arm.git",
           "mirror":"git://git.reachtech.com/meta-fsl-arm.git",
           "branch":"daisy",
-          "rev":"e9bf647e10ff1e31f911d3236dbb22a1ad7ace9f"
+          "rev":"9bc540eec9a7e280af13371ea70650fcc47ea627"
         },
         {
           "name":"meta-fsl-arm-extra",
           "uri":"git://github.com/Freescale/meta-fsl-arm-extra.git",
           "mirror":"git://git.reachtech.com/meta-fsl-arm-extra.git",
           "branch":"daisy",
-          "rev":"e041d9a118c5eecf4010bcb41bb5c554636090ab"
+          "rev":"e1085deb3d915d2a95a65cceadc77c6de0dadfb6"
         },
         {
           "name":"meta-fsl-demos",
           "uri":"git://github.com/Freescale/meta-fsl-demos.git",
           "mirror":"git://git.reachtech.com/meta-fsl-demos.git",
           "branch":"daisy",
-          "rev":"b336d40d517636ed40d64635805152e9e5f1a6eb"
+          "rev":"f141c7d1158b8addbd6f1ed047a1b47c2ed85f8f"
         },
         {
           "name":"meta-openembedded",
           "uri":"git://git.openembedded.org/meta-openembedded",
           "mirror":"git://git.reachtech.com/meta-openembedded.git",
           "branch":"daisy",
-          "rev":"662cf409c1175450699d498085f3c894e0fe81d0"
+          "rev":"8065dd8456913457a0114ddb2b4bd4842847b2a3"
         },
         {
           "name":"meta-qt5",
           "uri":"https://github.com/meta-qt5/meta-qt5.git",
           "mirror":"git://git.reachtech.com/meta-qt5.git",
           "branch":"daisy",
-          "rev":"520c7458e65b395fa071bbbe9a3c576ddf1e926c"
+          "rev":"c29c317e0f22202bfaa85329a580564bbc179089"
         },
         {
           "name":"meta-reach",
           "uri":"git@github.com:jmore-reachtech/meta-reach.git",
           "mirror":"git://git.reachtech.com/meta-reach.git",
           "branch":"daisy",
-          "rev":"dba9fe6bc8e3cd799a2c751921bcd0a0489bba0d",
+          "rev":"8cbb5d34018856184210be73024149524c3a1eb3",
           "main": true
         }
       ]

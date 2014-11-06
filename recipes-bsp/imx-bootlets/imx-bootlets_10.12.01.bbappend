@@ -27,7 +27,7 @@ do_deploy_append () {
         full_name="imx-bootlets-`basename $f`-${MACHINE}-${PV}-${PR}"
         symlink_name="imx-bootlets-`basename $f`-${MACHINE}"
 
-        install -m 644 ${S}/$f ${DEPLOY_DIR_IMAGE}/$full_name
-        (cd ${DEPLOY_DIR_IMAGE} ; rm -f $symlink_nake ; ln -sf $full_name $symlink_name)
+        install -m 644 ${S}/$f ${DEPLOYDIR}/$full_name
+        (cd ${DEPLOYDIR} ; rm -f $symlink_nake ; ln -sf $full_name $symlink_name)
     done
 }

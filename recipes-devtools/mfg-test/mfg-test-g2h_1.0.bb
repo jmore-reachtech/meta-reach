@@ -13,7 +13,7 @@ SRC_URI = "git://git@github.com/jmore-reachtech/reach-mfg-test.git;branch=g2h;pr
     file://fruit_girl.bmp \
 "
 
-SRCREV = "a9cb09f453ab7a7ed2b93b1444443fc43e7cd493"
+SRCREV = "95ca157120a7752098f4c2eda635eb02bc154538"
 
 S = "${WORKDIR}/git"
 

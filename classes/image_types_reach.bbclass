@@ -1,3 +1,5 @@
+inherit image_types
+
 # IMX Bootlets Linux bootstream with HAB support
 IMAGE_DEPENDS_linux.hab.sb = "elftosb-native:do_populate_sysroot \
                           imx-bootlets:do_deploy \

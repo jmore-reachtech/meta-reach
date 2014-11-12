@@ -9,7 +9,7 @@ PR = "r2"
 SRC_URI = "git://git@github.com/jmore-reachtech/reach-qml-plugins-mxs.git;branch=master;protocol=ssh \
     file://qmldir \
 "
-SRCREV = "cd5dc17dfa9194f55ee5cf245ba0d346d3f93311" 
+SRCREV = "8d44823cfe7df74ee819099e54c046ca9100894a" 
 
 S = "${WORKDIR}/git"
 

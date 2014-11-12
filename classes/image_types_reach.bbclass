@@ -56,7 +56,7 @@ SDCARD_GENERATION_COMMAND_g2h = "generate_g2sh_sdcard"
 # ^                        ^            ^                        ^                               ^
 # |                        |            |                        |                               |
 # 0                      4096     4MiB +  8MiB       4MiB +  8Mib + SDIMG_ROOTFS   4MiB +  8MiB + SDIMG_ROOTFS + 4MiB
-generate_g2hs_sdcard () {
+generate_g2sh_sdcard () {
         PART1_START=1024
         PART1_SIZE=$(expr $IMAGE_ROOTFS_ALIGNMENT \+ $BOOT_SPACE_ALIGNED)
         PART2_START=$(expr $IMAGE_ROOTFS_ALIGNMENT \+ $BOOT_SPACE_ALIGNED)

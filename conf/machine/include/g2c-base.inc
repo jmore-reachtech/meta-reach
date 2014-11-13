@@ -19,8 +19,6 @@ SDCARD_ROOTFS ?= "${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.rootfs.ext3"
 MKUBIFS_ARGS = "-m 2KiB -e 124KiB -c 1866"
 UBINIZE_ARGS = "-m 2KiB -p 128KiB -s 2KiB"
 
-PREFERRED_VERSION_xserver-nodm-init ?= "1.0"
-
 USE_VT = "0"
 
 # Override the SoC family

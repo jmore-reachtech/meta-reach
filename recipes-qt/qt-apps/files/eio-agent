@@ -1,0 +1,26 @@
+#!/bin/sh
+
+EIO_AGENT=/application/bin/eio-agent
+EIO_ARGS="-v -s 8080"
+
+case "$1" in
+start)
+        # show this during quiet boot too.
+        echo "starting EIO Agent..." >&2
+        start-stop-daemon -m -p /var/run/eio_agent.pid -b -a $EIO_AGENT -S -- $TIO_ARGS
+        ;;
+stop)
+        echo "stoping TIO Agent..."
+        start-stop-daemon -p /var/run/eio_agent.pid -K
+        ;;
+restart)
+        $0 stop
+        $0 start
+        ;;
+*)
+        echo "Usage: /etc/init.d/eio_agent{start|stop|restart}" >&2
+        exit 1
+        ;;
+esac
+
+exit 0

@@ -10,7 +10,7 @@ export QT_QPA_EGLFS_HIDECURSOR=1
 export QT_QPA_EGLFS_DISABLE_INPUT=1
 
 case "$1" in
-  start)
+  start | debug)
 	echo "Starting qt application"
 	if [ -f /etc/profile.d/tslib.sh ]; then
 		source /etc/profile.d/tslib.sh
@@ -22,8 +22,12 @@ case "$1" in
 	fi
 
 	cd $WORKDIR
-	./$QTAPP $DISPLAY_ROT -platform eglfs -plugin tslib &> /dev/null &
-	;;
+	if [ "$1" = "start" ]; then
+          ./$QTAPP $DISPLAY_ROT -platform eglfs -plugin tslib &> /dev/null &
+        else
+          ./$QTAPP $DISPLAY_ROT -platform eglfs -plugin tslib &
+        fi
+        ;;
   stop)
 	echo "Stopping qt application"
 	killall $QTAPP

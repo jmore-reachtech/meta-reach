@@ -10,9 +10,9 @@ start)
 	start-stop-daemon -m -p /var/run/eio_agent.pid -b -a $EIO_AGENT -S -- $TIO_ARGS
 	;;
 stop)
-	echo "stoping TIO Agent..."
-	start-stop-daemon -p /var/run/eio_agent.pid -K
-	;;
+        echo "stoping EIO Agent..."
+        start-stop-daemon -p /var/run/eio_agent.pid -K
+        ;;
 restart)
 	$0 stop
 	$0 start

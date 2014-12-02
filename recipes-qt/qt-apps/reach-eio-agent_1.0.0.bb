@@ -1,6 +1,6 @@
 DESCRIPTION = "Reach TIO agent"
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://${COREBASE}/LICENSE;md5=4d92cd373abda3937c2bc47fbc49d690"
+LIC_FILES_CHKSUM = "file://${COREBASE}/LICENSE;md5=3f40d7994397109285ec7b81fdeb3b58"
 
 PR = "r1"
 
@@ -9,7 +9,7 @@ SRC_URI = "git://git@github.com/jmore-reachtech/reach-eio-agent.git;protocol=ssh
 		   file://eio-agent \
           "
           
-FILES_${PN} += "${sysconfdir}/init.d/tio-agent"
+FILES_${PN} += "${sysconfdir}/init.d/eio-agent"
 
 S = "${WORKDIR}/git"
 

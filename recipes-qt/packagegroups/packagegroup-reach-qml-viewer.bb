@@ -14,6 +14,8 @@ RDEPENDS_${PN}-qt4e = " \
         reach-qml-plugins-mxs \
         reach-sio-agent \
         reach-tio-agent \
+        reach-eio-agent \
+        reach-io-demo \
 "
 
 RDEPENDS_${PN}-qt4x11 = " \

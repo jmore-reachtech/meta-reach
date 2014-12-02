@@ -1,0 +1,25 @@
+#!/bin/sh
+
+IO_DEMO=/application/bin/io-agent
+
+case "$1" in
+start)
+        # show this during quiet boot too.
+        echo "starting IO Demo..." >&2
+        $IO_DEMO &
+        ;;
+stop)
+        echo "stoping IO Demo..."
+        killall io-demo
+        ;;
+restart)
+        $0 stop
+        $0 start
+        ;;
+*)
+        echo "Usage: /etc/init.d/io_demo{start|stop|restart}" >&2
+        exit 1
+        ;;
+esac
+
+exit 0

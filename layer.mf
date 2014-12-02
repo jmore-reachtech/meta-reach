@@ -43,6 +43,13 @@
           "rev":"c29c317e0f22202bfaa85329a580564bbc179089"
         },
         {
+          "name":"meta-ossystems-base",
+          "uri":"http://code.ossystems.com.br/meta-ossystems-base",
+          "mirror":"git://git.reachtech.com/meta-ossystems-base.git",
+          "branch":"daisy",
+          "rev":"7648eb8fd7f7da12d08f6ea9def15840b88b4743"
+        },
+        {
           "name":"meta-reach",
           "uri":"git@github.com:jmore-reachtech/meta-reach.git",
           "mirror":"git://git.reachtech.com/meta-reach.git",

@@ -22,4 +22,4 @@ ACCEPT_FSL_EULA = "1"
 INHERIT += "own-mirrors"
 SOURCE_MIRROR_URL = "http://git.reachtech.com/downloads"
 
-#SDKMACHINE ?= "i686"
+SDKMACHINE ?= "i686"

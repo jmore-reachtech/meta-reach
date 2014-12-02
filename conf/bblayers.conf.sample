@@ -13,6 +13,7 @@ BBLAYERS ?= " \
   ##COREBASE##/meta-fsl-demos \
   ##COREBASE##/meta-fsl-arm-extra \
   ##COREBASE##/meta-reach \
+  ##COREBASE##/meta-ossystems-base \
   ##COREBASE##/meta-openembedded/meta-oe \
   ##COREBASE##/meta-openembedded/meta-ruby \
   ##COREBASE##/meta-qt5 \

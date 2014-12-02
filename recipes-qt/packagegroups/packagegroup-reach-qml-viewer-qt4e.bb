@@ -14,4 +14,11 @@ RDEPENDS_${PN} = " \
         reach-sio-agent \
         reach-tio-agent \
         reach-eio-agent \
+        reach-io-demo \
+"
+
+RDEPENDS_${PN}-qt4x11 = " \
+        reach-qml-viewer-qt4x11 \
+        reach-sio-agent \
+        reach-tio-agent \
 "

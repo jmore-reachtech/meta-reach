@@ -3,6 +3,17 @@
 # Licensed under terms of GPLv2
 #
 
+clear
+echo "Testing vertical USBs"
+echo ""
+
+/usr/sbin/mfg-test --tests USB1,USB2
+
+echo ""
+echo ""
+read -p "Switch to horizontal USB ports and press enter "
+
+
 MAC_1=30688C
 TESTS="Ethernet,USBOTG,I2C,CAN0,AUART,RS485,RTC,GPIO,USB1,USB2,Touchscreen,LCD,Backlight"
 TONE=/usr/sbin/tone.sh

@@ -5,11 +5,16 @@ SIO_TTY=#SIOTTY#
 SIO_BAUD="115200"
 
 case "$1" in
-start)
+start | debug)
 	# show this during quiet boot too.
 	echo "starting SIO Agent..." >&2
-	start-stop-daemon -m -p /var/run/sio_agent.pid -b -a $SIO_AGENT -S -- -t $SIO_TTY -b $SIO_BAUD
-	;;
+        if ["$1" = "start"]; then
+	  start-stop-daemon -m -p /var/run/sio_agent.pid -b -a $SIO_AGENT -S -- -t $SIO_TTY -b $SIO_BAUD
+        else
+          $SIO_AGENT -t $SIO_TTY -b $SIO_BAUD &
+          echo $! > /var/run/io_agent.pid
+        fi
+        ;;
 stop)
 	echo "stoping SIO Agent..."
 	start-stop-daemon -p /var/run/sio_agent.pid -K
@@ -19,7 +24,7 @@ restart)
 	$0 start
 	;;
 *)
-	echo "Usage: /etc/init.d/sio_agent{start|stop|restart}" >&2
+	echo "Usage: /etc/init.d/sio_agent{start|debug|stop|restart}" >&2
 	exit 1
 	;;
 esac

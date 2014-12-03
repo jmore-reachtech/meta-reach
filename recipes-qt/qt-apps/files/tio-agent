@@ -4,11 +4,16 @@ TIO_AGENT=/application/bin/tio-agent
 TIO_ARGS="-v -r"
 
 case "$1" in
-start)
+start | debug)
 	# show this during quiet boot too.
 	echo "starting TIO Agent..." >&2
-	start-stop-daemon -m -p /var/run/tio_agent.pid -b -a $TIO_AGENT -S -- $TIO_ARGS
-	;;
+	if ["$1" = "start"]; then
+          start-stop-daemon -m -p /var/run/tio_agent.pid -b -a $TIO_AGENT -S -- $TIO_ARGS
+        else
+          $TIO_AGENT $TIO_ARGS &
+          echo $! > /var/run/tio_agent.pid
+        fi
+        ;;
 stop)
 	echo "stoping TIO Agent..."
 	start-stop-daemon -p /var/run/tio_agent.pid -K
@@ -18,7 +23,7 @@ restart)
 	$0 start
 	;;
 *)
-	echo "Usage: /etc/init.d/tio_agent{start|stop|restart}" >&2
+	echo "Usage: /etc/init.d/tio_agent{start|debug|stop|restart}" >&2
 	exit 1
 	;;
 esac

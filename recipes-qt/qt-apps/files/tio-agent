@@ -7,7 +7,7 @@ case "$1" in
 start | debug)
 	# show this during quiet boot too.
 	echo "starting TIO Agent..." >&2
-	if ["$1" = "start"]; then
+	if [ "$1" = "start" ]; then
           start-stop-daemon -m -p /var/run/tio_agent.pid -b -a $TIO_AGENT -S -- $TIO_ARGS
         else
           $TIO_AGENT $TIO_ARGS &

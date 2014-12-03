@@ -8,7 +8,7 @@ case "$1" in
 start | debug)
 	# show this during quiet boot too.
 	echo "starting SIO Agent..." >&2
-        if ["$1" = "start"]; then
+        if [ "$1" = "start" ]; then
 	  start-stop-daemon -m -p /var/run/sio_agent.pid -b -a $SIO_AGENT -S -- -t $SIO_TTY -b $SIO_BAUD
         else
           $SIO_AGENT -t $SIO_TTY -b $SIO_BAUD &

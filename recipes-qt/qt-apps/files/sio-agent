@@ -11,7 +11,7 @@ start | debug)
         if [ "$1" = "start" ]; then
 	  start-stop-daemon -m -p /var/run/sio_agent.pid -b -a $SIO_AGENT -S -- -t $SIO_TTY -b $SIO_BAUD
         else
-          $SIO_AGENT -t $SIO_TTY -b $SIO_BAUD &
+          $SIO_AGENT -v -t $SIO_TTY -b $SIO_BAUD &
           echo $! > /var/run/io_agent.pid
         fi
         ;;

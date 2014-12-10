@@ -7,7 +7,7 @@ PR = "r1"
 inherit qmake5
 DEPENDS = "qtbase qtquick1"
 
-SRCREV ="2edbb7275e5b34ecc98480a3787ce301bafe7d59" 
+SRCREV ="5615037080484c274bd53c6e4859a2b82f7aa09e" 
 SRC_URI = "git://git@github.com/jmore-reachtech/reach-qml-viewer.git;branch=qt5;protocol=ssh \
 "
 

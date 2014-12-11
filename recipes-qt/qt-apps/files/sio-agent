@@ -14,6 +14,10 @@ stop)
 	echo "stoping SIO Agent..."
 	start-stop-daemon -p /var/run/sio_agent.pid -K
 	;;
+debug)
+	echo "starting SIO Agent in verbose mode..."
+	$SIO_AGENT -t $SIO_TTY -b $SIO_BAUD -v &
+	;;
 restart)
 	$0 stop
 	$0 start

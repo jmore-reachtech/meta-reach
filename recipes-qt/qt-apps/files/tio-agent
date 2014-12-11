@@ -1,7 +1,7 @@
 #!/bin/sh
 
 TIO_AGENT=/application/bin/tio-agent
-TIO_ARGS="-v -r"
+TIO_ARGS="-r"
 
 case "$1" in
 start)
@@ -12,6 +12,11 @@ start)
 stop)
 	echo "stoping TIO Agent..."
 	start-stop-daemon -p /var/run/tio_agent.pid -K
+	;;
+debug)
+	# show this during quiet boot too.
+	echo "starting TIO Agent in verbose mode..." >&2
+	$TIO_AGENT $TIO_ARGS -v &
 	;;
 restart)
 	$0 stop

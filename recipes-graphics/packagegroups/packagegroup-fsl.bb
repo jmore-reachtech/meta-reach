@@ -8,6 +8,8 @@ LIC_FILES_CHKSUM = "file://${COREBASE}/LICENSE;md5=4d92cd373abda3937c2bc47fbc49d
 
 PR = "r5"
 
+PACKAGE_ARCH = "${MACHINE_ARCH}"
+
 inherit packagegroup
 
 PROVIDES = "${PACKAGES}"
@@ -64,5 +66,3 @@ ALLOW_EMPTY_${PN} = "1"
 ALLOW_EMPTY_${PN}-gstreamer = "1"
 ALLOW_EMPTY_${PN}-tools-testapps = "1"
 ALLOW_EMPTY_${PN}-tools-benchmark = "1"
-
-PACKAGE_ARCH = "${MACHINE_ARCH}"

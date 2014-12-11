@@ -4,57 +4,57 @@
       "name":"poky",
       "uri":"git://git.yoctoproject.org/poky.git",
       "mirror":"git://git.reachtech.com/poky.git",
-      "branch":"daisy",
-      "rev":"895c86d71d7c6c65c719b147b32c057de6057c48",
+      "branch":"dizzy",
+      "rev":"ecf1e3d1b1c9ea676b385b1df99621dd148af88b",
       "layers":[
         {
           "name":"meta-fsl-arm",
           "uri":"git://github.com/Freescale/meta-fsl-arm.git",
           "mirror":"git://git.reachtech.com/meta-fsl-arm.git",
-          "branch":"daisy",
-          "rev":"9bc540eec9a7e280af13371ea70650fcc47ea627"
+          "branch":"dizzy",
+          "rev":"6d9cbabc49ae40ccf1ff80893c07790a25ef91b1"
         },
         {
           "name":"meta-fsl-arm-extra",
           "uri":"git://github.com/Freescale/meta-fsl-arm-extra.git",
           "mirror":"git://git.reachtech.com/meta-fsl-arm-extra.git",
-          "branch":"daisy",
-          "rev":"e1085deb3d915d2a95a65cceadc77c6de0dadfb6"
+          "branch":"dizzy",
+          "rev":"0bf4fe6ea5b6493601412a44de850a82dc3f91d1"
         },
         {
           "name":"meta-fsl-demos",
           "uri":"git://github.com/Freescale/meta-fsl-demos.git",
           "mirror":"git://git.reachtech.com/meta-fsl-demos.git",
-          "branch":"daisy",
-          "rev":"f141c7d1158b8addbd6f1ed047a1b47c2ed85f8f"
+          "branch":"dizzy",
+          "rev":"48cb0bcdd226d2e7eee1fdc222713e1dff93342c"
         },
         {
           "name":"meta-openembedded",
           "uri":"git://git.openembedded.org/meta-openembedded",
           "mirror":"git://git.reachtech.com/meta-openembedded.git",
-          "branch":"daisy",
-          "rev":"8065dd8456913457a0114ddb2b4bd4842847b2a3"
+          "branch":"dizzy",
+          "rev":"510b7a9d8d5dda07120df5866507742a626478c1"
         },
         {
           "name":"meta-qt5",
           "uri":"https://github.com/meta-qt5/meta-qt5.git",
           "mirror":"git://git.reachtech.com/meta-qt5.git",
-          "branch":"daisy",
-          "rev":"c29c317e0f22202bfaa85329a580564bbc179089"
+          "branch":"dizzy",
+          "rev":"0732e184acef5e0200f46d7f95702774e5de1904"
         },
         {
           "name":"meta-ossystems-base",
           "uri":"http://code.ossystems.com.br/meta-ossystems-base",
           "mirror":"git://git.reachtech.com/meta-ossystems-base.git",
-          "branch":"daisy",
-          "rev":"7648eb8fd7f7da12d08f6ea9def15840b88b4743"
+          "branch":"dizzy",
+          "rev":"c27870978b57baaae90023e092b92943796c21ff"
         },
         {
           "name":"meta-reach",
           "uri":"git@github.com:jmore-reachtech/meta-reach.git",
           "mirror":"git://git.reachtech.com/meta-reach.git",
-          "branch":"daisy",
-          "rev":"eb3b0690002054df571ca727136a97eae8cd23f0",
+          "branch":"dizzy",
+          "rev":"2fcd286cd86709d6f81ff658aa94031d87be5ef2",
           "main": true
         }
       ]

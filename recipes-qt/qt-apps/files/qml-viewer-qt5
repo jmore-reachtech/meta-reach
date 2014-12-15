@@ -8,6 +8,7 @@ QTAPP=qml-viewer
 
 export QT_QPA_EGLFS_HIDECURSOR=1
 export QT_QPA_EGLFS_DISABLE_INPUT=1
+export QT_QPA_PLATFORM=eglfs
 
 case "$1" in
   start | debug)

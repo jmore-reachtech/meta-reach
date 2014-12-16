@@ -1,0 +1,25 @@
+From 56052267a9a94f8b3b9fbf2f365f3e71a5af0d68 Mon Sep 17 00:00:00 2001
+From: Stephano Cetola <scetola@reachtech.com>
+Date: Mon, 24 Nov 2014 10:55:47 -0800
+Subject: [PATCH 1/1] update psplash to full screen
+
+Signed-off-by: Stephano Cetola <scetola@reachtech.com>
+---
+ psplash-config.h |    2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/psplash-config.h b/psplash-config.h
+index 82bb76d..18e9635 100644
+--- a/psplash-config.h
++++ b/psplash-config.h
+@@ -23,7 +23,7 @@
+ #define PSPLASH_STARTUP_MSG ""
+ 
+ /* Bool indicating if the image is fullscreen, as opposed to split screen */
+-#define PSPLASH_IMG_FULLSCREEN 0
++#define PSPLASH_IMG_FULLSCREEN 1 
+ 
+ /* Position of the image split from top edge, numerator of fraction */
+ #define PSPLASH_IMG_SPLIT_NUMERATOR 5
+-- 
+1.7.10.4

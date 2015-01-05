@@ -1,7 +1,6 @@
 include recipes-graphics/images/core-image-x11.bb
 
 IMAGE_FEATURES += "debug-tweaks"
-DISTRO_FEATURES += "pulseaudio"
 WEB = "web-webkit"
 
 IMAGE_FEATURES += "package-management"

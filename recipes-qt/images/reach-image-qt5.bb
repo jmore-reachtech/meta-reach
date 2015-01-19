@@ -57,6 +57,7 @@ IMAGE_INSTALL_append = "\
     psplash \
     reach-qml-plugins-imx \
     reach-qml-demo-qt5 \
+    i2c-tools \
 "
 
 inherit core-image

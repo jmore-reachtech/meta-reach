@@ -10,7 +10,7 @@ PROVIDES += "u-boot"
 SRC_URI[md5sum] = "36c5e6b6e91ac4b2dc9071f06875be87"
 SRC_URI[sha256sum] = "710269ce456597628b990b90d65ab335bfe4e3cd3741471c5333053b84300d25"
 
-SRCREV = "ea838b76715bef3606d4307cee5bee60adbe94b4"
+SRCREV = "cbf6874952234337769ebc50e5f5c1c355af7c15"
 
 SRC_URI = "git://github.com/jmore-reachtech/reach-imx-u-boot.git;branch=reach-2014.07;protocol=git \
 "

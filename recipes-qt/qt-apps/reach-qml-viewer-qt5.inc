@@ -9,6 +9,7 @@ DEPENDS = "qtbase qtquick1"
 
 SRCREV ="5615037080484c274bd53c6e4859a2b82f7aa09e" 
 SRC_URI = "git://git@github.com/jmore-reachtech/reach-qml-viewer.git;branch=qt5;protocol=ssh \
+          file://qml-viewer.sh \
 "
 
 S = "${WORKDIR}/git"
@@ -18,7 +19,9 @@ APP_DIR="/application/bin"
 
 do_install() {
 	install -d ${D}${APP_DIR}
+        install -d ${D}${sysconfdir}/profile.d/
 	install -m 0755 ${BUILDDIR}/qml-viewer ${D}${APP_DIR}
+        install -m 0755 ${WORKDIR}/qml-viewer.sh ${D}${sysconfdir}/profile.d/
 }
 
 FILES_${PN} += "${APP_DIR} /home/root"

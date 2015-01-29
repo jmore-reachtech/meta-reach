@@ -6,27 +6,29 @@ WORKDIR=/application/bin
 QTAPP=qml-viewer
 #DISPLAY_ROT="-display Transformed:Rot90:0"
 
-export QT_QPA_EGLFS_HIDECURSOR=1
-export QT_QPA_EGLFS_DISABLE_INPUT=1
-export QT_QPA_PLATFORM=eglfs
-
 case "$1" in
   start | debug)
 	echo "Starting qt application"
 	if [ -f /etc/profile.d/tslib.sh ]; then
 		source /etc/profile.d/tslib.sh
 	fi
+
 	if [ -e "$TSLIB_TSDEVICE" ]; then
 		if [ ! -f /etc/pointercal ]; then
 			/usr/bin/ts_calibrate
 		fi
 	fi
 
+        if [ -f /etc/profile.d/qml-viewer.sh ]; then
+                source /etc/profile.d/qml-viewer.sh
+        fi
+
+
 	cd $WORKDIR
 	if [ "$1" = "start" ]; then
-          ./$QTAPP $DISPLAY_ROT -platform eglfs -plugin tslib &> /dev/null &
+          ./$QTAPP $DISPLAY_ROT -plugin tslib &> /dev/null &
         else
-          ./$QTAPP $DISPLAY_ROT -platform eglfs -plugin tslib &
+          ./$QTAPP $DISPLAY_ROT -plugin tslib &
         fi
         ;;
   stop)

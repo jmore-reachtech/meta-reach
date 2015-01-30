@@ -58,6 +58,9 @@ IMAGE_INSTALL_append = "\
     reach-qml-plugins-imx \
     reach-qml-demo-qt5 \
     i2c-tools \
+    strace \
+    wireless-tools \
+    canutils \
 "
 
 inherit core-image

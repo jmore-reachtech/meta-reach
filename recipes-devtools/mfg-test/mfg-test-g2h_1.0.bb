@@ -11,9 +11,10 @@ SRC_URI = "git://git@github.com/jmore-reachtech/reach-mfg-test.git;branch=g2h;pr
     file://run-calibration.sh \
     file://tone.sh \
     file://fruit_girl.bmp \
+    file://beep.wav \
 "
 
-SRCREV = "95ca157120a7752098f4c2eda635eb02bc154538"
+SRCREV = "ffff50adf2a164fa1473b39df3f163a2a19a3a74"
 
 S = "${WORKDIR}/git"
 
@@ -25,10 +26,10 @@ do_install() {
 	install -d ${D}${sbindir}
 	install -m 0755 ${S}/src/mfg-test ${D}${sbindir}
 	install -m 755 ${WORKDIR}/run-calibration.sh ${D}${sbindir}
-	install -m 755 ${WORKDIR}/tone.sh ${D}${sbindir}
 	
     install -d ${D}/home/root
     install -m 644 ${WORKDIR}/fruit_girl.bmp ${D}/home/root/fruit_girl.bmp
+    install -m 644 ${WORKDIR}/beep.wav ${D}/home/root/beep.wav
     install -m 755 ${WORKDIR}/run-mfg_g2h.sh ${D}${sbindir}/run-mfg.sh
 }
 

@@ -37,10 +37,10 @@
         },
         {
           "name":"meta-qt5",
-          "uri":"https://github.com/meta-qt5/meta-qt5.git",
+          "uri":"git@github.com:jmore-reachtech/meta-qt5.git",
           "mirror":"git://git.reachtech.com/meta-qt5.git",
           "branch":"dizzy",
-          "rev":"8b0ffbd849203d07164ccfad2535bdb107eecd08"
+          "rev":"1361d860453b4e4f794010810b9598cf005a5e60"
         },
         {
           "name":"meta-ossystems-base",

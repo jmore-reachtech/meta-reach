@@ -9,7 +9,6 @@ CORE_IMAGE_EXTRA_INSTALL += "\
     tslib \
     tslib-calibrate \
     tslib-tests \
-    tsinit \
     usbutils \
     bc \
     coreutils \

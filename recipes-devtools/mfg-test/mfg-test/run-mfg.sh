@@ -7,7 +7,7 @@ clear
 echo "Testing vertical USBs"
 echo ""
 
-/usr/sbin/mfg-test --tests USB1,USB2
+/usr/sbin/mfg-test --tests USB1,USB2,USBOTG
 
 echo ""
 echo ""

@@ -4,7 +4,7 @@ LIC_FILES_CHKSUM = "file://${COREBASE}/LICENSE;md5=4d92cd373abda3937c2bc47fbc49d
 
 PR = "r1"
 
-SRCREV = "cb6a25074049dbb33ca70744a4cb61876b5b8636"
+SRCREV = "920786fd88df41a97934b6d94a5da7d8f6a85804"
 SRC_URI = "git://git@github.com/jmore-reachtech/reach-qml-demo-qt5.git;protocol=http \
           file://0001-remove-web-demo-for-800-by-480.patch \
 "

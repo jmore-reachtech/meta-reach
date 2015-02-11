@@ -103,3 +103,6 @@ KERNEL_IMAGETYPE = "zImage"
 
 MACHINE_FEATURES = "apm usbgadget usbhost vfat alsa touchscreen"
 
+UBOOT_ENV_OFFET = "768"
+
+IMAGE_CLASSES += "image_types_reach"

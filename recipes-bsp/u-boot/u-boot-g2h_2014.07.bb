@@ -13,6 +13,7 @@ SRC_URI[sha256sum] = "710269ce456597628b990b90d65ab335bfe4e3cd3741471c5333053b84
 SRCREV = "ea838b76715bef3606d4307cee5bee60adbe94b4"
 
 SRC_URI = "git://github.com/jmore-reachtech/reach-imx-u-boot.git;branch=reach-2014.07;protocol=git \
+	file://env.txt \
 "
 
 S = "${WORKDIR}/git"
@@ -25,6 +26,13 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 do_configure_prepend () {
     sed -i s/imx6sdl-hawthorne.dtb/${KERNEL_DEVICETREE}/ include/configs/g2h_solo.h
+    sed -i s/devicetree.dtb/${KERNEL_DEVICETREE}/ ${WORKDIR}/env.txt
 }
 
+do_compile_append () {
+	${S}/tools/mkenvimage -s 0x2000 -o u-boot-env.bin ${WORKDIR}/env.txt
+}
 
+do_install_append () {
+	cp ${S}/u-boot-env.bin ${DEPLOY_DIR_IMAGE}/u-boot-env.bin
+}

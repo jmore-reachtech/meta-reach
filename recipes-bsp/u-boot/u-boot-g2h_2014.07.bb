@@ -35,5 +35,5 @@ do_compile_append () {
 
 do_install_append () {
 	cp ${S}/u-boot-env.bin ${DEPLOY_DIR_IMAGE}/u-boot-env-${DATETIME}.bin
-        ln -s ${DEPLOY_DIR_IMAGE}/u-boot-env-${DATETIME}.bin ${DEPLOY_DIR_IMAGE}/u-boot-env.bin
+        ln -sf ${DEPLOY_DIR_IMAGE}/u-boot-env-${DATETIME}.bin ${DEPLOY_DIR_IMAGE}/u-boot-env.bin
 }

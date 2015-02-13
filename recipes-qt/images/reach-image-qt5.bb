@@ -90,6 +90,9 @@ multi_part () {
         mkfs.ubifs -r ${IMAGE_ROOTFS}/application/ -m $APP_DIR_SIZE -o ${IMAGE_LOC}.app.ubifs ${MKUBIFS_ARGS}
         ubinize -o ${IMAGE_LOC}.app.ubi ${UBINIZE_ARGS} ubinize.cfg 
 
+        # remove from rootfs
+        rm -r ${IMAGE_ROOTFS}/application/*
+
 }
 
 ROOTFS_POSTPROCESS_COMMAND += " multi_part ; "

@@ -5,28 +5,14 @@
       "uri":"git://git.yoctoproject.org/poky.git",
       "mirror":"git://git.reachtech.com/poky.git",
       "branch":"dizzy",
-      "rev":"9fc095a439c36014c73b3a8f240afba09fe0e4d7",
+      "rev":"b630f2f53645fa8f5890b4732f251c354ad525a7",
       "layers":[
         {
           "name":"meta-fsl-arm",
           "uri":"git://github.com/Freescale/meta-fsl-arm.git",
           "mirror":"git://git.reachtech.com/meta-fsl-arm.git",
           "branch":"dizzy",
-          "rev":"4500b58848393fd0aada4894510369d0a33d4ca8"
-        },
-        {
-          "name":"meta-fsl-arm-extra",
-          "uri":"git://github.com/Freescale/meta-fsl-arm-extra.git",
-          "mirror":"git://git.reachtech.com/meta-fsl-arm-extra.git",
-          "branch":"dizzy",
-          "rev":"b32528c10caac5e85f2b5efe0e5b95322dd68ace"
-        },
-        {
-          "name":"meta-fsl-demos",
-          "uri":"git://github.com/Freescale/meta-fsl-demos.git",
-          "mirror":"git://git.reachtech.com/meta-fsl-demos.git",
-          "branch":"dizzy",
-          "rev":"48cb0bcdd226d2e7eee1fdc222713e1dff93342c"
+          "rev":"3c1dfb7661cc527311da2af6003fa24b02e8636e"
         },
         {
           "name":"meta-openembedded",
@@ -54,7 +40,7 @@
           "uri":"git@github.com:jmore-reachtech/meta-reach.git",
           "mirror":"git://git.reachtech.com/meta-reach.git",
           "branch":"dizzy",
-          "rev":"2a920a0a48e6a45b8776b3805953115d42e910a7",
+          "rev":"98a07ab8817d8dd56f3c92e8c6ba99973f1ebc63",
           "main": true
         }
       ]

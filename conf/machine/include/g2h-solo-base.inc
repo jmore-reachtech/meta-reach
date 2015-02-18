@@ -14,3 +14,6 @@ SIO_TTY = "/dev/ttymxc1"
 
 MKUBIFS_ARGS = "-m 2KiB -e 124KiB -c 1866"
 UBINIZE_ARGS = "-m 2KiB -p 128KiB -s 2KiB"
+
+QPA_EVDEV_ROTATE ?= "0"
+QPA_TOUCH_PLUGIN ?= "Tslib"

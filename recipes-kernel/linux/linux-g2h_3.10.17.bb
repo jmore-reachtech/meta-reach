@@ -5,14 +5,14 @@ require recipes-kernel/linux/linux-imx.inc
 require recipes-kernel/linux/linux-dtb.inc
 
 # SRC_URI for kernel
-SRC_URI = "git://github.com/jmore-reachtech/reach-imx-linux.git;branch=imx-3.10.17_1.0.0-next;protocol=git \
+SRC_URI = "git://github.com/jmore-reachtech/reach-imx-linux.git;branch=reach-imx-3.10.17_1.0.2;protocol=git \
            file://0001-update-linux-kernel-logo.patch \
            file://defconfig \
 "
 
-SRCREV = "ab0a635b1187c22f2f99d520bfe426b80c6f16dd"
+SRCREV = "9d1c0dd99e440eac46d21e21780aefe0688b7cfe"
 
-LOCALVERSION = "-1.0.0-reach"
+LOCALVERSION = "-1.0.2-reach"
 
 DEPENDS += "lzop-native bc-native"
 

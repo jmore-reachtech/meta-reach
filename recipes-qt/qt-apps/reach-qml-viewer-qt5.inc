@@ -19,9 +19,16 @@ APP_DIR="/application/bin"
 
 do_install() {
 	install -d ${D}${APP_DIR}
-        install -d ${D}${sysconfdir}/profile.d/
+	install -d ${D}${sysconfdir}/profile.d/
 	install -m 0755 ${BUILDDIR}/qml-viewer ${D}${APP_DIR}
-        install -m 0755 ${WORKDIR}/qml-viewer.sh ${D}${sysconfdir}/profile.d/
+    install -m 0755 ${WORKDIR}/qml-viewer.sh ${D}${sysconfdir}/profile.d/
+
+    # for PCAP panels add EvdevPlugin rotation
+    case "${MACHINE}" in
+		g2h-solo-7)
+			echo 'export QT_QPA_EVDEV_TOUCHSCREEN_PARAMETERS="rotate=${QPA_EVDEV_ROTATE}"' >> ${D}${sysconfdir}/profile.d/qml-viewer.sh
+        ;;
+	esac
 }
 
 FILES_${PN} += "${APP_DIR} /home/root"

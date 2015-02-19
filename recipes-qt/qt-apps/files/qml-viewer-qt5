@@ -6,6 +6,10 @@ if [ -f /etc/profile.d/qml-viewer.sh ]; then
 	source /etc/profile.d/qml-viewer.sh
 fi
 
+if [ -f /etc/profile.d/tslib.sh ]; then
+        source /etc/profile.d/tslib.sh
+fi
+
 WORKDIR=/application/bin
 QTAPP=qml-viewer
 #DISPLAY_ROT="-display Transformed:Rot90:0"

@@ -8,14 +8,17 @@ PACKAGES = "\
 "
 
 RDEPENDS_packagegroup-custom-core = "\
-         dropbear \
+         openssh-sshd \
+         openssh-ssh \
+         openssh-scp \
+         openssh-sftp-server \
          samba-lite \
          libsmbclient \
          libsmbclient-dev \
          lighttpd \
          php \
-		 php-fpm \
-		 lighttpd-module-fastcgi \
+	 php-fpm \
+	 lighttpd-module-fastcgi \
          reach-version \
          ntpclient \
          reach-info \

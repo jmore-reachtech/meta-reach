@@ -7,7 +7,7 @@ start)
         ;;
 stop)
         echo "stoping the LCD panel..."
-        echo 1 > /sys/devices/soc0/fb.24/graphics/fb0/blank
+        echo 1 > /sys/devices/soc0/fb.25/graphics/fb0/blank
         ;;
 *)
         echo "Usage: /etc/init.d/lcd{start|stop}" >&2

@@ -70,7 +70,7 @@ do_rootfs[depends] += " mtd-utils-native:do_populate_sysroot "
 export IMAGE_BASENAME="reach-image-qt5"
 export UBI_VOLNAME="${MACHINE}-app"
 export IMAGE_LOC="${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}"
-export APP_DIR_SIZE="51200"
+export APP_DIR_SIZE="512000"
 
 multi_part () {
         # do ext3

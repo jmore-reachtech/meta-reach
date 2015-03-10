@@ -4,7 +4,7 @@
 #
 MAC_1=30688C
 
-TESTS="Ethernet,USB1,USB2,LCD,Backlight,AUART,GPIO,CAN0"
+TESTS="Ethernet,USB1,USB2,Touchscreen,LCD,Backlight,AUART,GPIO,CAN0"
 SD_MNT_DIR=/tmp/sdcard
 MTD_NUM=1
 

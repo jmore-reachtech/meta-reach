@@ -57,8 +57,10 @@ TOTAL_ROOTFS_SIZE = "$(expr ${IMAGE_ROOTFS_ALIGNMENT} \+ ${BOOT_SPACE_ALIGNED} \
 # 0                      4096     4MiB +  8MiB       4MiB +  8Mib + SDIMG_ROOTFS   4MiB +  8MiB + SDIMG_ROOTFS + 4MiB
 generate_g2h_sdcard () {
 	# Create partition table
-        dd if=/dev/zero of=${SDCARD} bs=1M count=1280
-	parted -s ${SDCARD} mklabel msdos
+        if [ -n "$APP_DIR_SIZE" ]; then
+          dd if=/dev/zero of=${SDCARD} bs=1M count=1280
+        fi
+        parted -s ${SDCARD} mklabel msdos
 	parted -s ${SDCARD} unit KiB mkpart primary fat32 ${IMAGE_ROOTFS_ALIGNMENT} $(expr ${IMAGE_ROOTFS_ALIGNMENT} \+ ${BOOT_SPACE_ALIGNED})
 	parted -s ${SDCARD} unit KiB mkpart primary $(expr  ${IMAGE_ROOTFS_ALIGNMENT} \+ ${BOOT_SPACE_ALIGNED}) $(expr ${IMAGE_ROOTFS_ALIGNMENT} \+ ${BOOT_SPACE_ALIGNED} \+ $ROOTFS_SIZE)
         if [ -n "$APP_DIR_SIZE" ]; then

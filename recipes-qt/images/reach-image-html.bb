@@ -1,4 +1,4 @@
-DESCRIPTION = "An image that will launch into the embedded Qt browser for EmpowerRF."
+DESCRIPTION = "An image that will launch into the embedded Qt browser for Reach Technology."
 
 IMAGE_FEATURES += "splash"
 

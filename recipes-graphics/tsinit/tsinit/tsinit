@@ -11,6 +11,10 @@ case "$1" in
 			# if so load sitronix module
 			test "$VERBOSE" != no && echo Using sitronix touchscreen
 			modprobe sitronix_i2c_touch
+                elif i2cget -y 1 0x38 0x00 &> /dev/null; then
+			# if so load evervision module
+			test "$VERBOSE" != no && echo Using evervision touchscreen
+			modprobe evervision
 		else
 			# otherwise load mxs module
 			test "$VERBOSE" != no && echo Using mxs touchscreen module

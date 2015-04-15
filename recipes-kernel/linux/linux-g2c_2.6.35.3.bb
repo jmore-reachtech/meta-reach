@@ -7,5 +7,5 @@ include linux-g2c.inc
 
 COMPATIBLE_MACHINE = "(g2c)"
 
-SRCREV = "4694fcf37f98ff6b3ee66d7d4167d4838f25cab6"
+SRCREV = "d250d383e7c1c577703b6f8586c79bde566c9839"
 LOCALVERSION = "-10.12.01+yocto"

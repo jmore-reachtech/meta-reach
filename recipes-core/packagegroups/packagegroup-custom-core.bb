@@ -23,4 +23,5 @@ RDEPENDS_packagegroup-custom-core = "\
          ntpclient \
          reach-info \
          devregs \
+         ifplugd-init \
 "

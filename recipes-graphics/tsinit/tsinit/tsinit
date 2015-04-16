@@ -10,14 +10,17 @@ case "$1" in
 		if i2cget -y 1 0x55 0x00 &> /dev/null; then
 			# if so load sitronix module
 			test "$VERBOSE" != no && echo Using sitronix touchscreen
+                        ln -sf /etc/ts.conf.pcap /etc/ts.conf
 			modprobe sitronix_i2c_touch
                 elif i2cget -y 1 0x38 0x00 &> /dev/null; then
 			# if so load evervision module
 			test "$VERBOSE" != no && echo Using evervision touchscreen
+                        ln -sf /etc/ts.conf.pcap /etc/ts.conf
 			modprobe evervision
 		else
 			# otherwise load mxs module
 			test "$VERBOSE" != no && echo Using mxs touchscreen module
+                        ln -sf /etc/ts.conf.resistive /etc/ts.conf
 			modprobe mxs-ts
 		fi
 		;;

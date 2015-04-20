@@ -1,0 +1,10 @@
+#!/bin/sh
+mount -t proc proc /proc
+mount -t sysfs sys /sys
+echo /sbin/mdev > /proc/sys/kernel/hotplug
+mdev -s
+/etc/init.d/tsinit start
+/etc/init.d/qml-viewer start
+/etc/init.d/sio-agent start
+/etc/init.d/tio-agent start
+ifup eth0

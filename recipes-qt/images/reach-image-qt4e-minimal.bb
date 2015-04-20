@@ -8,7 +8,7 @@ BASE_REACH = "busybox \
     busybox-mdev \
     base-passwd \
     base-files \
-    reach-overlay \
+    reach-overlay-qt4e \
     reach-info \
     netbase \
     php-cgi \

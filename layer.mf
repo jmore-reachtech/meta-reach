@@ -26,7 +26,7 @@
           "uri":"git@github.com:jmore-reachtech/meta-qt5.git",
           "mirror":"git://git.reachtech.com/meta-qt5.git",
           "branch":"dizzy",
-          "rev":"2aaba8b97f63149fda3c24e1002c8034387c0feb"
+          "rev":"adeca0db212d61a933d7952ad44ea1064cfca747"
         },
         {
           "name":"meta-ossystems-base",

@@ -62,6 +62,7 @@ IMAGE_INSTALL_append = "\
     strace \
     wireless-tools \
     canutils \
+    ifplugd-init \
 "
 
 inherit core-image

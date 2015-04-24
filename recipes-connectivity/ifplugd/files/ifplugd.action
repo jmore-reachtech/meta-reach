@@ -1,0 +1,16 @@
+#!/bin/bash
+set -e 
+
+if [ -z "$1" ] || [ -z "$2" ] ; then
+echo "Wrong arguments" > /dev/stderr
+exit 1
+fi 
+
+[ "$2" = "up" ] && exec ifup $1 
+
+if [ "$2" = "down" ]
+then
+ifdown $1
+fi 
+
+exit 1

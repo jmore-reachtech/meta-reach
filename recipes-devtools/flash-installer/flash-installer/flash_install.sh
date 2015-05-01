@@ -51,7 +51,7 @@ process_ubifs() {
 
     if [ "$DRY_RUN" == "no" ]
     then
-        /usr/sbin/flash_erase $DEV_ENTRY 0 0
+        /usr/sbin/ubiformat $DEV_ENTRY -s 2048 -y
         sleep 2
         /usr/sbin/ubiattach /dev/ubi_ctrl -d 0 -m $UBI_MTD_NUM
         sleep 2
@@ -89,6 +89,33 @@ process_bin() {
     then
         /usr/sbin/flash_erase $DEV_ENTRY 0 0
         dd of=$DEV_ENTRY if=$SRC_FNAME
+        #/usr/sbin/flash_write -q -p $DEV_ENTRY $SRC_FNAME
+    fi
+}
+process_bin_imx() {
+
+    SRC_FNAME=$IMAGE_DIR/$1
+
+    case $DEVICE_TYPE in
+        "mtd" )
+            DEV_ENTRY="/dev/mtd$3"
+            ;;
+        "*" )
+            DEV_ENTRY="unknown"
+            ;;
+    esac
+
+    if [ "$VERBOSE_FLAG" == "yes" ]
+    then
+        echo "process_bin(): Filename <$SRC_FNAME>"
+        echo "process_bin(): Device Type <$2>, Device Entry <$3>"
+        echo "process_bin(): Device Entry <$DEV_ENTRY>"
+    fi
+
+    if [ "$DRY_RUN" == "no" ]
+    then
+        /usr/sbin/flash_erase $DEV_ENTRY 0 0
+        dd of=$DEV_ENTRY if=$SRC_FNAME bs=512 seek=2
         #/usr/sbin/flash_write -q -p $DEV_ENTRY $SRC_FNAME
     fi
 }
@@ -145,6 +172,9 @@ processFileList() {
                    ;;
                "sb" )
                    process_sb $file $DEVICE_TYPE $DEVICE_ENTRY
+                   ;;
+               "imx" )
+                   process_bin_imx $file $DEVICE_TYPE $DEVICE_ENTRY
                    ;;
                "*" )
                    echo "processFileList(): Unknown Type <$IMAGE_TYPE>, igonore"

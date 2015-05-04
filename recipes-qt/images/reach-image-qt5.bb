@@ -63,6 +63,7 @@ IMAGE_INSTALL_append = "\
     wireless-tools \
     canutils \
     ifplugd-init \
+    flash-installer \
 "
 
 inherit core-image

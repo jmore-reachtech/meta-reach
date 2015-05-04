@@ -91,10 +91,10 @@ do_install () {
     install ${S}/u-boot-env.bin ${D}/boot/u-boot-env-nor.bin
     
     cp ${S}/u-boot-env.bin ${DEPLOY_DIR_IMAGE}/u-boot-env-nor-${DATETIME}.bin
-    ln -sf ${DEPLOY_DIR_IMAGE}/u-boot-env-nor-${DATETIME}.bin ${DEPLOY_DIR_IMAGE}/u-boot-env-nor.bin
+    cd ${DEPLOY_DIR_IMAGE} && ln -sf u-boot-env-nor-${DATETIME}.bin u-boot-env-nor.bin
     
     cp ${S}/${UBOOT_BINARY} ${DEPLOY_DIR_IMAGE}/u-boot-nor-${DATETIME}.${UBOOT_SUFFIX}
-    ln -sf ${DEPLOY_DIR_IMAGE}/u-boot-nor-${DATETIME}.${UBOOT_SUFFIX} ${DEPLOY_DIR_IMAGE}/u-boot-nor.${UBOOT_SUFFIX}
+    cd ${DEPLOY_DIR_IMAGE} && ln -sf u-boot-nor-${DATETIME}.${UBOOT_SUFFIX} u-boot-nor.${UBOOT_SUFFIX}
 }
 
 FILES_${PN} = "/boot ${sysconfdir}"

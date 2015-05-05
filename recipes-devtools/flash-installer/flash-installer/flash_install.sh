@@ -31,6 +31,11 @@ dumpVariables() {
 process_ubifs() {
 
     SRC_FNAME=$IMAGE_DIR/$1
+    FS_NAME=$4
+
+    if [ -z "$FS_NAME" ]; then
+		FS_NAME="rootfs0"
+    fi
 
     case $DEVICE_TYPE in
         "mtd" )
@@ -47,6 +52,7 @@ process_ubifs() {
         echo "process_ubifs(): Filename <$SRC_FNAME>"
         echo "process_ubifs(): Device Type <$2>, Device Entry <$3>"
         echo "process_ubifs(): Device Entry <$DEV_ENTRY>"
+        echo "process_ubifs(): FS Name <$4>"
     fi
 
     if [ "$DRY_RUN" == "no" ]
@@ -55,7 +61,7 @@ process_ubifs() {
         sleep 2
         /usr/sbin/ubiattach /dev/ubi_ctrl -d 0 -m $UBI_MTD_NUM
         sleep 2
-        /usr/sbin/ubimkvol /dev/ubi0 -N rootfs0 -m
+        /usr/sbin/ubimkvol /dev/ubi0 -N $4 -m
         sleep 2
         /usr/sbin/ubiupdatevol /dev/ubi0_0 $SRC_FNAME
         sleep 2
@@ -162,10 +168,11 @@ processFileList() {
            DEVICE_TYPE=`echo $file | awk -F . '{print $1}'`
            DEVICE_ENTRY=`echo $file | awk -F . '{print $2}'`
            IMAGE_TYPE=`echo $file | awk -F . '{print $3}'`
+           UBIFS_NAME=`echo $file | awk -F . '{print $4}'`
 
            case $IMAGE_TYPE in
                "ubifs" )
-                   process_ubifs $file $DEVICE_TYPE $DEVICE_ENTRY
+                   process_ubifs $file $DEVICE_TYPE $DEVICE_ENTRY $UBIFS_NAME
                    ;;
                "bin" )
                    process_bin $file $DEVICE_TYPE $DEVICE_ENTRY

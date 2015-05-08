@@ -61,7 +61,7 @@ process_ubifs() {
         sleep 2
         /usr/sbin/ubiattach /dev/ubi_ctrl -d 0 -m $UBI_MTD_NUM
         sleep 2
-        /usr/sbin/ubimkvol /dev/ubi0 -N $4 -m
+        /usr/sbin/ubimkvol /dev/ubi0 -N $FS_NAME -m
         sleep 2
         /usr/sbin/ubiupdatevol /dev/ubi0_0 $SRC_FNAME
         sleep 2

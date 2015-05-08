@@ -78,6 +78,7 @@ export APP_DIR_SIZE="512000"
 multi_part () {
         # do ext3
         dd if=/dev/zero of=${IMAGE_LOC}.app.ext3 seek=${APP_DIR_SIZE} count=0 bs=1k
+        cd ${DEPLOY_DIR_IMAGE} && ln -sf ${IMAGE_NAME}.app.ext3 ${IMAGE_BASENAME}.app.ext3
         mkfs.ext3 -F ${IMAGE_LOC}.app.ext3 -d ${IMAGE_ROOTFS}/application/
 
         # do config
@@ -91,6 +92,7 @@ multi_part () {
         
         # do ubifs & ubi
         mkfs.ubifs -r ${IMAGE_ROOTFS}/application/ -m $APP_DIR_SIZE -o ${IMAGE_LOC}.app.ubifs ${MKUBIFS_ARGS}
+        cd ${DEPLOY_DIR_IMAGE} && ln -sf ${IMAGE_NAME}.app.ubifs ${IMAGE_BASENAME}.app.ubifs
         ubinize -o ${IMAGE_LOC}.app.ubi ${UBINIZE_ARGS} ubinize.cfg 
 
         # remove from rootfs

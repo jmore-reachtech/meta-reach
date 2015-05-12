@@ -66,6 +66,10 @@ IMAGE_INSTALL_append = "\
     flash-installer \
 "
 
+IMAGE_INSTALL_append_g2h = "\
+	u-boot-g2h \
+"
+
 inherit core-image
 
 do_rootfs[depends] += " mtd-utils-native:do_populate_sysroot "

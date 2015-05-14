@@ -4,7 +4,7 @@ LIC_FILES_CHKSUM = "file://${COREBASE}/LICENSE;md5=4d92cd373abda3937c2bc47fbc49d
 
 PR = "r1"
 
-SRCREV = "d0c39f8de930ce7b52093819d33faed662a82bd0"
+SRCREV = "457485761b0de80cc8c5d17768dd8dc7456e3f71"
 SRC_URI = "git://git@github.com/jmore-reachtech/reach-qml-demo-qt5.git;protocol=http \
 "
 
@@ -20,11 +20,11 @@ do_install() {
             cp -rf ${S_BASE}640_480/*   ${D}${APP_DIR}
             ;;
 
-           g2h-solo-2 | g2h-solo-7)
+           g2h-solo-2 | g2h-solo-7 | g2h-solo-9 | g2h-solo-6)
             cp -rf ${S_BASE}1024_768/*   ${D}${APP_DIR}
             ;;
          
-		   g2h-solo-4 | g2h-solo-3)
+	   g2h-solo-4 | g2h-solo-3)
             cp -rf ${S_BASE}800_480/*   ${D}${APP_DIR}
 			;;
 

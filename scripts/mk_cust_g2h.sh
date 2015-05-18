@@ -94,7 +94,7 @@ BOOT_BLOCKS=$(LC_ALL=C parted -s ${SDCARD} unit b print \
 # Generate FAT filesystem and write kernel
 mkfs.vfat -n "boot" -S 512 -C ${BOOTIMAGE} $BOOT_BLOCKS
 mcopy -i ${BOOTIMAGE} -s ${BASE_DIR}/zImage  ::/zImage
-mcopy -i ${BOOTIMAGE} -s ${BASE_DIR}/zImage-imx6dl-g2h-1.dtb  ::/imx6dl-g2h-1.dtb
+mcopy -i ${BOOTIMAGE} -s ${BASE_DIR}/zImage-imx6dl-g2h-${MACHINE}.dtb  ::/imx6dl-g2h-${MACHINE}.dtb
 
 dd if=${BOOTIMAGE} of=${SDCARD} conv=notrunc seek=1 bs=$(expr ${PART1_START})
 

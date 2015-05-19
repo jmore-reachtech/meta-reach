@@ -18,17 +18,21 @@ do_install() {
         case "${MACHINE}" in
           g2h-solo-1)
             cp -rf ${S_BASE}640_480/*   ${D}${APP_DIR}
-            ;;
+          ;;
 
-           g2h-solo-2 | g2h-solo-7 | g2h-solo-9 | g2h-solo-6)
+          g2h-solo-8)
+            cp -rf ${S_BASE}1280_800/*   ${D}${APP_DIR}
+          ;;
+
+          g2h-solo-2 | g2h-solo-7 | g2h-solo-9 | g2h-solo-6)
             cp -rf ${S_BASE}1024_768/*   ${D}${APP_DIR}
-            ;;
+          ;;
          
-	   g2h-solo-4 | g2h-solo-3)
+	  g2h-solo-4 | g2h-solo-3)
             cp -rf ${S_BASE}800_480/*   ${D}${APP_DIR}
-			;;
+	  ;;
 
-           *)
+          *)
             cp -rf ${S_BASE}800_480/*   ${D}${APP_DIR}
         esac
 }

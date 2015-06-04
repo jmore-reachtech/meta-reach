@@ -5,7 +5,7 @@ require recipes-kernel/linux/linux-imx.inc
 require recipes-kernel/linux/linux-dtb.inc
 
 # SRC_URI for kernel
-SRC_URI = "git://github.com/jmore-reachtech/reach-imx-linux.git;branch=reach-imx-3.10.17_1.0.2;protocol=git \
+SRC_URI = "git://github.com/jmore-reachtech/reach-imx-linux.git;branch=reach-imx_3.10.17_1.0.2_ga;protocol=git \
            file://0001-update-linux-kernel-logo.patch \
            file://defconfig \
 "

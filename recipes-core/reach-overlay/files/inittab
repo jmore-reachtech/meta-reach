@@ -1,0 +1,24 @@
+# Boot-time system configuration/initialization script.
+# This is run first except when booting in single-user mode.
+#
+::sysinit:/etc/init.d/rcS
+
+# Start an "askfirst" shell on the console (whatever that may be)
+::respawn:/sbin/getty 115200 ttymxc0
+# Start an "askfirst" shell on /dev/tty2-4
+tty2::askfirst:-/bin/sh
+tty3::askfirst:-/bin/sh
+tty4::askfirst:-/bin/sh
+
+# /sbin/getty invocations for selected ttys
+tty4::respawn:/sbin/getty 38400 tty5
+tty5::respawn:/sbin/getty 38400 tty6
+
+
+# Stuff to do when restarting the init process
+::restart:/sbin/init
+
+# Stuff to do before rebooting
+::ctrlaltdel:/sbin/reboot
+::shutdown:/bin/umount -a -r
+::shutdown:/sbin/swapoff -a

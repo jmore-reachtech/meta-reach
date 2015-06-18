@@ -15,6 +15,7 @@ BASE_REACH = "busybox \
     netbase \
     php-cgi \
     reach-version \
+    kernel-modules \
 "
 
 QT_REACH = "reach-qml-viewer-qt5 \
@@ -60,4 +61,4 @@ inherit image
 
 do_rootfs[depends] += " mtd-utils-native:do_populate_sysroot "
 
-export IMAGE_BASENAME="reach-image-qt5-tiny"
+export IMAGE_BASENAME="reach-image-qt5"

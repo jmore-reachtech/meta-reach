@@ -6,6 +6,7 @@ mkdir /dev/shm
 chmod 777 /dev/shm
 mount -t tmpfs shm /dev/shm
 mount -t tmpfs run /run
+mkdir /run/lock
 dbus-uuidgen --ensure
 echo /sbin/mdev > /proc/sys/kernel/hotplug
 mdev -s

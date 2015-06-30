@@ -6,7 +6,8 @@ include qt5-versions.inc
 
 TOUCH = "tslib tslib-calibrate tslib-tests"
 
-BASE_REACH = "busybox \
+BASE_REACH = " \
+    busybox \
     busybox-mdev \
     base-passwd \
     base-files \
@@ -16,6 +17,9 @@ BASE_REACH = "busybox \
     php-cgi \
     reach-version \
     kernel-modules \
+    samba-lite \
+    wpa-supplicant \
+    wireless-tools \
 "
 
 QT_REACH = "reach-qml-viewer-qt5 \
@@ -59,6 +63,6 @@ IMAGE_INSTALL_append = "\
 
 inherit image
 
-do_rootfs[depends] += " mtd-utils-native:do_populate_sysroot "
-
 export IMAGE_BASENAME="reach-image-qt5"
+
+do_rootfs[depends] += " mtd-utils-native:do_populate_sysroot "

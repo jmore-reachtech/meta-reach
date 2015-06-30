@@ -11,5 +11,5 @@ inherit update-rc.d
 
 INITSCRIPT_PACKAGES += " samba-lite "
 INITSCRIPT_NAME_samba-lite = "samba"
-INITSCRIPT_PARAMS = "start 98 5 2 . stop 19 0 1 6 ."
+INITSCRIPT_PARAMS = "start 98 S ."
 CONFFILES = "${sysconfdir}/samba/smb.conf"

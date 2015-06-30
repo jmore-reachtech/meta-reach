@@ -20,6 +20,8 @@ BASE_REACH = " \
     samba-lite \
     wpa-supplicant \
     wireless-tools \
+    kmod \
+    linux-firmware-ralink \
 "
 
 QT_REACH = "reach-qml-viewer-qt5 \

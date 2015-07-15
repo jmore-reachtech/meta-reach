@@ -25,7 +25,7 @@ do
 done
 
 
-
+modprobe rt2800usb
 ifup -a
 httpd -p 80 -h /www/pages/
 

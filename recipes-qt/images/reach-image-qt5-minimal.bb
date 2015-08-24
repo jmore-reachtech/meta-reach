@@ -15,7 +15,6 @@ BASE_REACH = " \
     reach-info \
     netbase \
     php-cgi \
-    reach-version \
     kernel-modules \
     samba-lite \
     wpa-supplicant \

@@ -16,7 +16,7 @@ do_install() {
         install -d ${D}${APP_DIR}
 
         case "${MACHINE}" in
-          g2h-solo-1)
+          g2h-solo-1 | g2h-solo-13)
             cp -rf ${S_BASE}640_480/*   ${D}${APP_DIR}
           ;;
 

@@ -4,6 +4,8 @@ if type psplash-write >/dev/null 2>&1; then
         TMPDIR=/mnt/.psplash psplash-write "QUIT" || true
 fi
 
+dbus-uuidgen > /etc/machine-id
+
 set -e
 
 if [ -f /etc/profile.d/qml-viewer.sh ]; then

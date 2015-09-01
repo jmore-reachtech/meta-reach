@@ -5,7 +5,7 @@
       "uri":"git://git.yoctoproject.org/poky.git",
       "mirror":"git://git.reachtech.com/poky.git",
       "branch":"dizzy",
-      "rev":"d098f7ed0543f491bf8d183aef265e1ab1d07266",
+      "rev":"137f52ac3a3cf6dc9eed27178c37e9ce235341d8",
       "layers":[
         {
           "name":"meta-fsl-arm",
@@ -19,7 +19,7 @@
           "uri":"git://git.openembedded.org/meta-openembedded",
           "mirror":"git://git.reachtech.com/meta-openembedded.git",
           "branch":"dizzy",
-          "rev":"2ebb8752f378c9987b0ece5a14915d703b872c1d"
+          "rev":"5b6f39ce325d490fc382d5d59c5b8b9d5fa38b38"
         },
         {
           "name":"meta-qt5",
@@ -40,7 +40,7 @@
           "uri":"git@github.com:jmore-reachtech/meta-reach.git",
           "mirror":"git://git.reachtech.com/meta-reach.git",
           "branch":"dizzy",
-          "rev":"b760200d46a27c8799387623b4fa955d9f3fcbc3",
+          "rev":"95285ba4f5c377b1243311826ad67e69be141b60",
           "main": true
         }
       ]

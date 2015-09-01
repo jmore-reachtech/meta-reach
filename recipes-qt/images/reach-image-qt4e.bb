@@ -22,6 +22,7 @@ IMAGE_INSTALL_append = " \
 	linux-firmware-rtl8192cu \
 	linux-firmware-rtl8192ce \
 	linux-firmware-rtl8192su \
+        tzdata \
 "
 
 inherit core-image

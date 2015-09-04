@@ -10,7 +10,7 @@ SRC_URI = "git://github.com/jmore-reachtech/reach-imx-linux.git;branch=reach-imx
            file://defconfig \
 "
 
-SRCREV = "dd2cf34fa894559b76e8ca9e186a9fdf7b966c26"
+SRCREV = "ef3517a1d4ff687d67f104aabb021493a37d3d9f"
 
 LOCALVERSION = "-1.0.2-reach"
 

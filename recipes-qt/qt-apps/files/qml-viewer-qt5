@@ -19,10 +19,16 @@ fi
 WORKDIR=/application/bin
 QTAPP=qml-viewer
 #DISPLAY_ROT="-display Transformed:Rot90:0"
+SOUND="$(cat /proc/asound/cards)"     
 
 case "$1" in
   start | debug)
-	echo "Starting qt application" 
+        if [[ "$SOUND" =~ "no soundcards" ]]; then
+        echo "Using dummy audio module."    
+          modprobe snd_dummy;   
+        fi
+    
+        echo "Starting qt application" 
 	cd $WORKDIR
 	if [ "$1" = "start" ]; then
           ./$QTAPP $DISPLAY_ROT -plugin TOUCH_PLUGIN &> /dev/null &

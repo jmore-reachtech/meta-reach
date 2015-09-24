@@ -55,80 +55,10 @@
           "name": "reach-image-minimal"
         },
         {
-          "name": "reach-image-mfg"
-        },
-        {
           "name": "reach-image-qt4e"
-        },
-        {
-          "name": "reach-image-x11"
         }
       ]
-	},{
-	  "name": "g2c-7-16",
-	  "images":[
-        {
-          "name": "reach-image-minimal"
-        },
-        {
-          "name": "reach-image-mfg"
-        },
-        {
-          "name": "reach-image-qt4e"
-        },
-        {
-          "name": "reach-image-x11"
-        }
-      ]
-	},{
-	  "name": "g2c-7-24",
-	  "images":[
-        {
-          "name": "reach-image-minimal"
-        },
-        {
-          "name": "reach-image-mfg"
-        },
-        {
-          "name": "reach-image-qt4e"
-        },
-        {
-          "name": "reach-image-x11"
-        }
-      ]
-	},{
-	  "name": "g2c-lite",
-	  "images":[
-        {
-          "name": "reach-image-minimal"
-        },
-        {
-          "name": "reach-image-mfg"
-        },
-        {
-          "name": "reach-image-qt4e"
-        },
-        {
-          "name": "reach-image-x11"
-        }
-      ]
-	},{
-	  "name": "g2c-43-24-kyocera",
-	  "images":[
-        {
-          "name": "reach-image-minimal"
-        },
-        {
-          "name": "reach-image-mfg"
-        },
-        {
-          "name": "reach-image-qt4e"
-        },
-        {
-          "name": "reach-image-x11"
-        }
-      ]
-	}
+    }
   ],
-  "version": "2.0.2"
+  "version": "2.0.3"
 }

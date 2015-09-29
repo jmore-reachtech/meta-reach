@@ -14,7 +14,7 @@ IMAGE_INSTALL_append = "\
     packagegroup-custom-dev-tools \
     firmware-imx-vpu-imx6d \
     linux-firmware \
-    packagegroup-fsl-gstreamer \
+    packagegroup-fslc-gstreamer1.0 \
     gstreamer \
     gst-plugins-base-app \
     gst-plugins-base \

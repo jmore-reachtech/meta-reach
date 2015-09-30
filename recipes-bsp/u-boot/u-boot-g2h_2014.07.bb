@@ -33,12 +33,12 @@ do_configure_prepend () {
 }
 
 do_compile_append () {
-	${S}/tools/mkenvimage -s 0x2000 -o u-boot-env.bin ${WORKDIR}/env.txt
+	${S}/tools/mkenvimage -s 0x2000 -o ${B}/u-boot-env.bin ${WORKDIR}/env.txt
 	${MAKE} CROSS_COMPILE=${HOST_SYS}- CC="${CC}" env
 }
 
 do_install_append () {
-	cp ${S}/u-boot-env.bin ${DEPLOY_DIR_IMAGE}/u-boot-env-${DATETIME}.bin
+	cp ${B}/u-boot-env.bin ${DEPLOY_DIR_IMAGE}/u-boot-env-${DATETIME}.bin
     cd ${DEPLOY_DIR_IMAGE} && ln -sf u-boot-env-${DATETIME}.bin u-boot-env.bin
 
     install -d ${D}${base_sbindir}

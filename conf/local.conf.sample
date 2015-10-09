@@ -21,6 +21,7 @@ ACCEPT_FSL_EULA = "1"
 #file://.* file:///some/local/dir/sstate/PATH"
 INHERIT += "own-mirrors"
 SOURCE_MIRROR_URL = "http://git.reachtech.com/downloads"
+LICENSE_FLAGS_WHITELIST += "commercial"
 
 SDKMACHINE ?= "i686"
 DISTRO ?= "reach"

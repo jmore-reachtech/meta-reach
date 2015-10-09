@@ -20,3 +20,8 @@ inherit core-image
 
 export IMAGE_BASENAME = "reach-image-x11-chrome"
 
+# Add these layers for chromium:
+# meta-browser 
+# openembedded/meta-gnome 
+#
+# https://github.com/OSSystems/meta-browser

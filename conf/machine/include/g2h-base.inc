@@ -6,3 +6,5 @@ include conf/machine/include/tune-cortexa9.inc
 IMAGE_CLASSES += "image_types_reach"
 
 USE_VT = "0"
+
+UBOOT_ENV_OFFET = "768"

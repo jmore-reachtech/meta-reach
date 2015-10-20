@@ -64,6 +64,6 @@ IMAGE_INSTALL_append = "\
 
 inherit image
 
-export IMAGE_BASENAME="reach-image-qt5"
+export IMAGE_BASENAME="reach-image-qt5-tiny"
 
 do_rootfs[depends] += " mtd-utils-native:do_populate_sysroot "

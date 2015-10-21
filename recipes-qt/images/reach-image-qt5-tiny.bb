@@ -21,6 +21,7 @@ BASE_REACH = " \
     wireless-tools \
     kmod \
     linux-firmware-ralink \
+    bash \
 "
 
 QT_REACH = "reach-qml-viewer-qt5 \

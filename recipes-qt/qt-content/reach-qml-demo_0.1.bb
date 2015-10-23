@@ -4,7 +4,7 @@ LIC_FILES_CHKSUM = "file://${COREBASE}/LICENSE;md5=4d92cd373abda3937c2bc47fbc49d
 
 PR = "r3"
 
-SRCREV = "c52ad081a1d3aec1d739f41f4beca7b1a1a841d3"
+SRCREV = "f6867de5ad776d3b8f00aea105f6e12898d52135"
 SRC_URI = "git://git@github.com/jmore-reachtech/reach-qml-demo.git;protocol=ssh"
 
 S_BASE = "${WORKDIR}/git/src"

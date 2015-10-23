@@ -4,43 +4,43 @@
       "name":"poky",
       "uri":"git://git.yoctoproject.org/poky.git",
       "mirror":"git://git.reachtech.com/poky.git",
-      "branch":"dizzy",
-      "rev":"137f52ac3a3cf6dc9eed27178c37e9ce235341d8",
+      "branch":"fido",
+      "rev":"6b421cd7fee71aa7e01288b8b1ab3bfd348c741d",
       "layers":[
         {
           "name":"meta-fsl-arm",
           "uri":"git://github.com/Freescale/meta-fsl-arm.git",
           "mirror":"git://git.reachtech.com/meta-fsl-arm.git",
-          "branch":"dizzy",
-          "rev":"db1571f40c375a398a8cdbb42de4c4f272ab0cd1"
+          "branch":"fido",
+          "rev":"7da1a08f1f4ad34ff8678346e8d4bb95d195b0c1"
         },
         {
           "name":"meta-openembedded",
           "uri":"git://git.openembedded.org/meta-openembedded",
           "mirror":"git://git.reachtech.com/meta-openembedded.git",
-          "branch":"dizzy",
-          "rev":"5b6f39ce325d490fc382d5d59c5b8b9d5fa38b38"
+          "branch":"fido",
+          "rev":"df2f700d66bace65f5d802225232d01cf511fe81"
         },
         {
           "name":"meta-qt5",
           "uri":"git@github.com:jmore-reachtech/meta-qt5.git",
           "mirror":"git://git.reachtech.com/meta-qt5.git",
-          "branch":"dizzy",
-          "rev":"adeca0db212d61a933d7952ad44ea1064cfca747"
+          "branch":"fido",
+          "rev":"90919b9d86988e7da01fa2c0a07246b5b5600a5d"
         },
         {
           "name":"meta-ossystems-base",
           "uri":"http://code.ossystems.com.br/meta-ossystems-base",
           "mirror":"git://git.reachtech.com/meta-ossystems-base.git",
           "branch":"dizzy",
-          "rev":"09f7f995e82bdcdfeb2bb0fdae5d6c120dcfbc60"
+          "rev":"eb86d559932afb80304398254d5e81e1664deeba"
         },
         {
           "name":"meta-reach",
           "uri":"git@github.com:jmore-reachtech/meta-reach.git",
           "mirror":"git://git.reachtech.com/meta-reach.git",
-          "branch":"dizzy",
-          "rev":"4aafc05c92ced00eb2b98a2133492f3c03011be0",
+          "branch":"fido",
+          "rev":"d0cb5e1d10afe6c4956c208845a5ac44f1758e1b",
           "main": true
         }
       ]
@@ -68,16 +68,6 @@
             }
           ]
         },{
-          "name": "g2c-7-16",
-          "images":[
-            {
-              "name": "reach-image-mfg"
-            },
-            {
-              "name": "reach-image-qt4e"
-            }
-          ]
-        },{
           "name": "g2h-solo-1",
           "images":[
             {
@@ -88,65 +78,6 @@
             },
             {
               "name": "reach-image-x11-remote"
-            }
-          ]
-        },{
-          "name": "g2h-solo-2",
-          "images":[
-            {
-            "name": "reach-image-qt5"
-            },
-            {
-              "name": "reach-image-mfg"
-            },
-            {
-              "name": "reach-image-x11-remote"
-            }
-          ]
-        },{
-          "name": "g2h-solo-3",
-          "images":[
-            {
-            "name": "reach-image-qt5"
-            },
-            {
-              "name": "reach-image-mfg"
-            },
-            {
-              "name": "reach-image-x11-remote"
-            }
-          ]
-        },{
-          "name": "g2h-solo-4",
-          "images":[
-            {
-            "name": "reach-image-qt5"
-            },
-            {
-              "name": "reach-image-mfg"
-            },
-            {
-              "name": "reach-image-x11-remote"
-            }
-          ]
-        },{
-          "name": "g2c-lite",
-          "images":[
-            {
-              "name": "reach-image-mfg"
-            },
-            {
-              "name": "reach-image-qt4e"
-            }
-          ]
-        },{
-          "name": "g2c-43-24-kyocera",
-          "images":[
-            {
-              "name": "reach-image-mfg"
-            },
-            {
-              "name": "reach-image-qt4e"
             }
           ]
         }

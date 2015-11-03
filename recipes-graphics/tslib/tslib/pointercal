@@ -9,6 +9,8 @@ case "$1" in
                 if [ "`cat /proc/device-tree/soc/aips-bus\@02100000/i2c\@021a0000/touch\@38/status`" = "okay" ]; then
                   echo "Using pcap ts conf"
                   ln -sf /etc/ts.conf.pcap /etc/ts.conf
+                elif [ "`lsusb | grep D-WAV`" != "" ]; then
+                  ln -sf /etc/ts.conf.pcap /etc/ts.conf
                 else
                   echo "Using resistive ts conf"
                   ln -sf /etc/ts.conf.resistive /etc/ts.conf

@@ -8,13 +8,12 @@ SRCREV = "e83db8af93da4371293272978a8ef6db3b611381"
 SRC_URI = "git://git@github.com/jmore-reachtech/rotary-encoder-qml.git;protocol=ssh \
 "
 
-APP_DIR = "/application/src"
 S = "${WORKDIR}/git"
 
-do_install() {
-        install -d ${D}${APP_DIR}
-        cp -rf ${S}/*   ${D}${APP_DIR}
-}
+inherit reach-application-package
 
-FILES_${PN} = "${APP_DIR}"
+do_install() {
+        install -d ${D}${APP_SRC_DESTDIR}
+        cp -rf ${S}/*   ${D}${APP_SRC_DESTDIR}
+}
 

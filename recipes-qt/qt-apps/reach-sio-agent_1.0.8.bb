@@ -9,32 +9,22 @@ SRC_URI = "git://git@github.com/jmore-reachtech/reach-sio-agent.git;protocol=ssh
 		   file://sio-agent \
           "
           
-FILES_${PN} += "${sysconfdir}/init.d/sio-agent"
-
 S = "${WORKDIR}/git"
 
 CFLAGS += " -DSIO_VERSION='"${PV}"'"
 
-# You can override SIO_TTY in machine.conf or local.conf
-SIO_TTY ?= "/dev/ttySP1"
-
-do_compile() {
-		cd ${S} && ${MAKE}
-}
-
-do_install() {
-	install -d ${D}/application/bin
-	install -m 0755 ${S}/src/sio-agent ${D}/application/bin/sio-agent
-
-	install -d ${D}${sysconfdir}/init.d/
-	install -m 0755 ${WORKDIR}/sio-agent ${D}${sysconfdir}/init.d/sio-agent
-	sed -i s:#SIOTTY#:${SIO_TTY}:  ${D}${sysconfdir}/init.d/sio-agent
-}
-
-FILES_${PN} += "/application/bin"
-FILES_${PN}-dbg += "/application/bin/.debug /usr/src/debug"
-
-inherit update-rc.d
+inherit update-rc.d reach-application-package
 
 INITSCRIPT_NAME = "sio-agent"
 INITSCRIPT_PARAMS = "start 99 S ."
+
+# You can override SIO_TTY in machine.conf or local.conf
+SIO_TTY ?= "/dev/ttySP1"
+
+do_install() {
+	install -Dm 0755 ${S}/src/sio-agent ${D}${APP_BIN_DESTDIR}/sio-agent
+
+	install -Dm 0755 ${WORKDIR}/sio-agent ${D}${sysconfdir}/init.d/sio-agent
+	sed -i s:#SIOTTY#:${SIO_TTY}:  ${D}${sysconfdir}/init.d/sio-agent
+}
+

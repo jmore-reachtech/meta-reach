@@ -9,23 +9,13 @@ SRC_URI = "git://git@github.com/jmore-reachtech/reach-eio-agent.git;protocol=ssh
 		   file://eio-agent \
           "
           
-FILES_${PN} += "${sysconfdir}/init.d/eio-agent"
-
 S = "${WORKDIR}/git"
+
+inherit reach-application-package
 
 CFLAGS += " -DiEIO_VERSION='"${PV}"'"
 
-do_compile() {
-		cd ${S} && ${MAKE}
-}
-
 do_install() {
-	install -d ${D}/application/bin
-	install -m 0755 ${S}/src/eio-agent ${D}/application/bin/eio-agent
-
-	install -d ${D}${sysconfdir}/init.d/
-	install -m 0755 ${WORKDIR}/eio-agent ${D}${sysconfdir}/init.d/eio-agent
+	install -Dm 0755 ${S}/src/eio-agent ${D}${APP_BIN_DESTDIR}/eio-agent
+	install -Dm 0755 ${WORKDIR}/eio-agent ${D}${sysconfdir}/init.d/eio-agent
 }
-
-FILES_${PN} += "/application/bin"
-FILES_${PN}-dbg += "/application/bin/.debug /usr/src/debug"

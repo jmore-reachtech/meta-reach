@@ -9,21 +9,11 @@ SRC_URI = "git://git@github.com/jmore-reachtech/reach-io-demo.git;protocol=ssh \
                    file://io-demo \
           "
           
-FILES_${PN} += "${sysconfdir}/init.d/io-demo"
-
 S = "${WORKDIR}/git"
 
-do_compile() {
-                cd ${S} && ${MAKE}
-}
+inherit reach-application-package
 
 do_install() {
-        install -d ${D}/application/bin
-        install -m 0755 ${S}/src/io-agent ${D}/application/bin/io-agent
-
-        install -d ${D}${sysconfdir}/init.d/
-        install -m 0755 ${WORKDIR}/io-demo ${D}${sysconfdir}/init.d/io-demo
+        install -Dm 0755 ${S}/src/io-agent ${D}${APP_BIN_DESTDIR}/io-agent
+        install -Dm 0755 ${WORKDIR}/io-demo ${D}${sysconfdir}/init.d/io-demo
 }
-
-FILES_${PN} += "/application/bin"
-FILES_${PN}-dbg += "/application/bin/.debug /usr/src/debug"

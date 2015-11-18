@@ -11,24 +11,17 @@ SRC_URI = "file://main.c \
 "
 S = "${WORKDIR}"
 
-APP_DIR="/application/bin"
+inherit update-rc.d reach-application-package
+
+INITSCRIPT_NAME = "gtk-demo"
+INITSCRIPT_PARAMS = "start 10 5 2 . stop 19 0 1 6 ."
 
 do_compile() {
 	${CC} `pkg-config --cflags gtk+-2.0` -o gtk2-demo main.c `pkg-config --libs gtk+-2.0`
 }
 
 do_install() {
-	install -d ${D}${APP_DIR}
-	install -m 0755 ${S}/gtk2-demo ${D}${APP_DIR}
-	
-	install -d ${D}${sysconfdir}/init.d/
-	install -m 0755 ${WORKDIR}/gtk-demo ${D}${sysconfdir}/init.d/gtk-demo
+	install -Dm 0755 ${S}/gtk2-demo ${D}${APP_BIN_DESTDIR}/gtk2-demo
+	install -Dm 0755 ${WORKDIR}/gtk-demo ${D}${sysconfdir}/init.d/gtk-demo
 }
 
-FILES_${PN} += "${APP_DIR} /home/root"
-FILES_${PN}-dbg += "${APP_DIR}/.debug /usr/src/debug"
-
-inherit update-rc.d
-
-INITSCRIPT_NAME = "gtk-demo"
-INITSCRIPT_PARAMS = "start 10 5 2 . stop 19 0 1 6 ."

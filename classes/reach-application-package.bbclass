@@ -8,3 +8,5 @@ APP_BIN_DESTDIR = "/application/bin"
 
 FILES_${PN} += "${APP_SRC_DESTDIR} \
                 ${APP_BIN_DESTDIR}"
+FILES_${PN}-dbg += "${APP_SRC_DESTDIR} \
+                    ${APP_BIN_DESTDIR}/.debug"

@@ -13,15 +13,10 @@ SRCREV = "05794819b8fb2a0ae039684373ac366f97589a24"
 
 S = "${WORKDIR}/git"
 
-PLUGIN_DIR="/application/plugins"
+inherit reach-application-package
 
 do_install() {
-	install -d ${D}${PLUGIN_DIR}
-
-	install -m 0755 ${S}/lib/libsystemplugin.so ${D}${PLUGIN_DIR}
-	install -m 0755 ${WORKDIR}/qmldir ${D}${PLUGIN_DIR}
+	install -Dm 0644 ${S}/lib/libsystemplugin.so ${D}${PLUGIN_DESTDIR}/libsystemplugin.so
+	install -m 0755 ${WORKDIR}/qmldir ${D}${PLUGIN_DESTDIR}
 }
-
-FILES_${PN} += "${PLUGIN_DIR}"
-FILES_${PN}-dbg += "${PLUGIN_DIR}/.debug /usr/src/debug"
 

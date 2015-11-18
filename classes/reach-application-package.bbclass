@@ -5,8 +5,11 @@
 
 APP_SRC_DESTDIR = "/application/src"
 APP_BIN_DESTDIR = "/application/bin"
+PLUGIN_DESTDIR = "/application/plugins"
 
 FILES_${PN} += "${APP_SRC_DESTDIR} \
-                ${APP_BIN_DESTDIR}"
-FILES_${PN}-dbg += "${APP_SRC_DESTDIR} \
-                    ${APP_BIN_DESTDIR}/.debug"
+                ${APP_BIN_DESTDIR} \
+                ${PLUGIN_DESTDIR}"
+FILES_${PN}-dbg += "${APP_SRC_DESTDIR}.debug \
+                    ${APP_BIN_DESTDIR}/.debug \
+                    ${PLUGIN_DESTDIR}/.debug"

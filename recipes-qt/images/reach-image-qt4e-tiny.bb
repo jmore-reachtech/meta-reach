@@ -4,7 +4,10 @@ LICENSE = "MIT"
 
 TOUCH = "tslib tslib-calibrate tslib-tests tsinit"
 
-BASE_REACH = "busybox \
+TOUCH = "tslib tslib-calibrate tslib-tests"
+
+BASE_REACH = " \
+    busybox \
     busybox-mdev \
     base-passwd \
     base-files \
@@ -12,7 +15,13 @@ BASE_REACH = "busybox \
     reach-info \
     netbase \
     php-cgi \
-    reach-version \
+    kernel-modules \
+    samba-lite \
+    wpa-supplicant \
+    wireless-tools \
+    kmod \
+    linux-firmware-ralink \
+    bash \
 "
 
 QT_REACH = "\
@@ -29,14 +38,6 @@ IMAGE_INSTALL_append = "\
 
 inherit image
 
+export IMAGE_BASENAME="reach-image-qt4e-tiny"
+
 do_rootfs[depends] += " mtd-utils-native:do_populate_sysroot "
-
-export IMAGE_BASENAME="reach-image-qt4e-minimal"
-
-add_mods () {
-  tar -x -C ${IMAGE_ROOTFS} -f ${DEPLOY_DIR_IMAGE}/modules--2.6.35.3-r32.23-g2c-43-24-20150417195411.tgz
-  KERNEL_VERSION=`cat ${STAGING_KERNEL_DIR}/kernel-abiversion`
-  depmodwrapper -a -b ${IMAGE_ROOTFS} $KERNEL_VERSION
-}
-
-ROOTFS_POSTPROCESS_COMMAND += " add_mods ; "

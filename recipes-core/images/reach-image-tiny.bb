@@ -18,4 +18,4 @@ IMAGE_INSTALL_append = "\
 # Create /etc/timestamp during image construction to give a reasonably sane default time setting
 ROOTFS_POSTPROCESS_COMMAND += "rootfs_update_timestamp ; "
 
-export IMAGE_BASENAME = "reach-image-minimal"
+export IMAGE_BASENAME = "reach-image-tiny"

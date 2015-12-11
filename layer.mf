@@ -28,6 +28,13 @@
           "branch":"dizzy",
           "rev":"adeca0db212d61a933d7952ad44ea1064cfca747"
         },
+				{
+          "name":"meta-nodejs",
+          "uri":"git@github.com:imyller/meta-nodejs.git",
+          "mirror":"git@github.com:imyller/meta-nodejs.git",
+          "branch":"master",
+          "rev":"6ff55f55a4b63c8e0737fff52b37a2e64832d811"
+        },
         {
           "name":"meta-ossystems-base",
           "uri":"http://code.ossystems.com.br/meta-ossystems-base",

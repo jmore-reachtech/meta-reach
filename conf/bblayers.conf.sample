@@ -15,4 +15,5 @@ BBLAYERS ?= " \
   ##COREBASE##/meta-openembedded/meta-oe \
   ##COREBASE##/meta-openembedded/meta-ruby \
   ##COREBASE##/meta-qt5 \
+  ##COREBASE##/meta-nodejs \
   "

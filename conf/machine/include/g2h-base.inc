@@ -92,6 +92,11 @@ PREFERRED_PROVIDER_virtual/libgl_mx6 ?= "gpu-viv-bin-mx6q"
 PREFERRED_PROVIDER_virtual/libgles1_mx6 ?= "gpu-viv-bin-mx6q"
 PREFERRED_PROVIDER_virtual/libgles2_mx6 ?= "gpu-viv-bin-mx6q"
 
+# node provider
+PREFERRED_VERSION_nodejs = "4.2.%"
+PREFERRED_PROVIDER_node = "nodejs"
+PREFERRED_PROVIDER_node-native = "nodejs-native"
+
 PREFERRED_PROVIDER_virtual/kernel_mx3 ?= "linux-fslc"
 
 SDCARD_ROOTFS ?= "${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.rootfs.ext3"

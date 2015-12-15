@@ -9,8 +9,6 @@ PACKAGES = "\
 
 RDEPENDS_packagegroup-custom-core = "\
          samba-lite \
-         libsmbclient \
-         libsmbclient-dev \
          lighttpd \
          php \
 	 php-fpm \

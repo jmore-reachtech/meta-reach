@@ -57,7 +57,7 @@ IMAGE_INSTALL_append = "\
 "
 
 IMAGE_INSTALL_append_g2h = "\
-        u-boot-g2h \
+        u-boot-reach \
 "
 
 inherit core-image

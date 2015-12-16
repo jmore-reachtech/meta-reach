@@ -85,7 +85,7 @@ pushd ${BASE_DIR} && ln -sf g2h-solo-${MACHINE}-${SCRIPT_TIME_STAMP}.mfg.ext3 g2
 rm -rf $MFG_TEMP_DIR
 
 # Write bootload and env
-dd if=${BASE_DIR}/u-boot-g2h-solo-${MACHINE}.imx of=${SDCARD} conv=notrunc seek=2 bs=512
+dd if=${BASE_DIR}/u-boot-reach-solo-${MACHINE}.imx of=${SDCARD} conv=notrunc seek=2 bs=512
 dd if=${BASE_DIR}/u-boot-env.bin of=${SDCARD} bs=512 seek=768 conv=notrunc
 
 BOOT_BLOCKS=$(LC_ALL=C parted -s ${SDCARD} unit b print \
@@ -115,7 +115,7 @@ dd if=${BASE_DIR}/g2h-solo-${MACHINE}.mfg.ext3 of=${SDCARD} \
 
 sync && sync
 
-#tmp/deploy/images/g2h-solo-1/u-boot-g2h-solo-1.imx
+#tmp/deploy/images/g2h-solo-1/u-boot-reach-solo-1.imx
 #tmp/deploy/images/g2h-solo-1/u-boot-env.bin
 #tmp/deploy/images/g2h-solo-1/reach-image-qt5-g2h-solo-1.ext3 - need symlink
 #tmp/deploy/images/g2h-solo-1/reach-image-qt5-g2h-solo-1.app.ext3

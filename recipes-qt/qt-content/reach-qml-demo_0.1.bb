@@ -9,8 +9,14 @@ SRC_URI = "git://git@github.com/jmore-reachtech/reach-qml-demo.git;protocol=ssh"
 
 inherit reach-application-package
 
+S = "${WORKDIR}/git"
+
+DEMO_SRC = "Invalid"
+DEMO_SRC_g2c-4_3-inch      = "src-43-24"
+DEMO_SRC_g2c-4_3-inch-lite = "src-43-24"
+
 do_install() {
         install -d ${D}${APP_SRC_DESTDIR}
 
-        cp -rf src/`echo "${MACHINE}" | cut -c4-`/*   ${D}${APP_SRC_DESTDIR}
+        cp -rf ${DEMO_SRC}/*   ${D}${APP_SRC_DESTDIR}
 }

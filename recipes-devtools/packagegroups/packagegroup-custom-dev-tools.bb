@@ -19,7 +19,7 @@ RDEPENDS_packagegroup-custom-dev-tools = "\
 RDEPENDS_packagegroup-custom-dev-tools_mxs = "\
          mtd-utils-ubifs \
          mtd-utils \
-          kobs-ng \
+         imx-kobs \
           flash-installer \
 "
 

@@ -45,7 +45,6 @@ IMAGE_INSTALL_append = "\
     qt3d \
     qt3d-examples \
     qt3d-qmlplugins \
-    qt3d-tools \
     qtwebkit \
     qtwebkit-qmlplugins \
     imx-test \    

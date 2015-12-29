@@ -57,15 +57,9 @@ TOTAL_ROOTFS_SIZE = "$(expr ${IMAGE_ROOTFS_ALIGNMENT} \+ ${BOOT_SPACE_ALIGNED} \
 # 0                      4096     4MiB +  8MiB       4MiB +  8Mib + SDIMG_ROOTFS   4MiB +  8MiB + SDIMG_ROOTFS + 4MiB
 generate_g2h_sdcard () {
 	# Create partition table
-        if [ -n "$APP_DIR_SIZE" ]; then
-          dd if=/dev/zero of=${SDCARD} bs=1M count=1280
-        fi
         parted -s ${SDCARD} mklabel msdos
 	parted -s ${SDCARD} unit KiB mkpart primary fat32 ${IMAGE_ROOTFS_ALIGNMENT} $(expr ${IMAGE_ROOTFS_ALIGNMENT} \+ ${BOOT_SPACE_ALIGNED})
 	parted -s ${SDCARD} unit KiB mkpart primary $(expr  ${IMAGE_ROOTFS_ALIGNMENT} \+ ${BOOT_SPACE_ALIGNED}) $(expr ${IMAGE_ROOTFS_ALIGNMENT} \+ ${BOOT_SPACE_ALIGNED} \+ $ROOTFS_SIZE)
-        if [ -n "$APP_DIR_SIZE" ]; then
-	  parted -s ${SDCARD} unit KiB mkpart primary ${TOTAL_ROOTFS_SIZE} $(expr ${TOTAL_ROOTFS_SIZE} \+ ${APP_DIR_SIZE}) 
-	fi
         parted ${SDCARD} print
 
 	# Burn bootloader
@@ -126,9 +120,6 @@ generate_g2h_sdcard () {
 	# Burn Partition
 	dd if=${WORKDIR}/boot.img of=${SDCARD} conv=notrunc seek=1 bs=$(expr ${IMAGE_ROOTFS_ALIGNMENT} \* 1024) && sync && sync
 	dd if=${SDCARD_ROOTFS} of=${SDCARD} conv=notrunc seek=1 bs=$(expr ${BOOT_SPACE_ALIGNED} \* 1024 + ${IMAGE_ROOTFS_ALIGNMENT} \* 1024) && sync && sync
-        if [ -n "$APP_DIR_SIZE" ]; then
-          dd if=${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.app.ext3 of=${SDCARD} seek=1 bs=$(expr ${TOTAL_ROOTFS_SIZE} \* 1024) && sync && sync
-        fi
 }
 
 #

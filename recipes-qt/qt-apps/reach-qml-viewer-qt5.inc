@@ -12,26 +12,16 @@ SRC_URI = "git://git@github.com/jmore-reachtech/reach-qml-viewer.git;branch=qt5;
           file://qml-viewer.sh \
 "
 
+inherit update-rc.d reach-application-package
+
 S = "${WORKDIR}/git"
 BUILDDIR = "${WORKDIR}/build"
 
-APP_DIR="/application/bin"
-
 do_install() {
-	install -d ${D}${APP_DIR}
-	install -d ${D}${sysconfdir}/profile.d/
-	install -m 0755 ${BUILDDIR}/qml-viewer ${D}${APP_DIR}
-    install -m 0755 ${WORKDIR}/qml-viewer.sh ${D}${sysconfdir}/profile.d/
-
-    # for PCAP panels add EvdevPlugin rotation
-    case "${MACHINE}" in
-		g2h-solo-7)
-			echo 'export QT_QPA_EVDEV_TOUCHSCREEN_PARAMETERS="rotate=${QPA_EVDEV_ROTATE}"' >> ${D}${sysconfdir}/profile.d/qml-viewer.sh
-        ;;
-	esac
+	install -Dm 0755 ${BUILDDIR}/qml-viewer ${D}${APP_BIN_DESTDIR}/qml-viewer
+        install -Dm 0755 ${WORKDIR}/qml-viewer.sh ${D}${sysconfdir}/profile.d/qml-viewer.sh
 }
 
-FILES_${PN} += "${APP_DIR} /home/root"
-FILES_${PN}-dbg += "${APP_DIR}/.debug /usr/src/debug"
+FILES_${PN} += "${APP_BIN_DESTDIR} /home/root"
+FILES_${PN}-dbg += "${APP_BIN_DESTDIR}/.debug /usr/src/debug"
 
-inherit update-rc.d

@@ -18,10 +18,13 @@ S = "${WORKDIR}/git"
 BUILDDIR = "${WORKDIR}/build"
 
 do_install() {
+        install -d ${D}/application
 	install -Dm 0755 ${BUILDDIR}/qml-viewer ${D}${APP_BIN_DESTDIR}/qml-viewer
         install -Dm 0755 ${WORKDIR}/qml-viewer.sh ${D}${sysconfdir}/profile.d/qml-viewer.sh
+        ln -sf ${APP_BIN_DESTDIR} ${D}/application/bin
+        ln -sf ${APP_SRC_DESTDIR} ${D}/application/src
 }
 
-FILES_${PN} += "${APP_BIN_DESTDIR} /home/root"
+FILES_${PN} += "${APP_BIN_DESTDIR} /home/root /application"
 FILES_${PN}-dbg += "${APP_BIN_DESTDIR}/.debug /usr/src/debug"
 

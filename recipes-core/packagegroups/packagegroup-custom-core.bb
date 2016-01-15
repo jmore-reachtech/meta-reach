@@ -8,7 +8,7 @@ PACKAGES = "\
 "
 
 RDEPENDS_packagegroup-custom-core = "\
-         samba-lite \
+         samba \
          lighttpd \
          php \
 	 php-fpm \

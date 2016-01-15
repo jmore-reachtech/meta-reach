@@ -1,15 +1,10 @@
 FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
 
-PACKAGES =+ "samba-lite"
-
-FILES_samba-lite = "${sbindir}/* \
-              ${sysconfdir}/init.d/* \
-              ${sysconfdir}/default/* \
-              ${sysconfdir}/samba/* \
+SRC_URI += "file://smb.conf \
+            file://init.samba \
 "
-inherit update-rc.d
 
-INITSCRIPT_PACKAGES += " samba-lite "
-INITSCRIPT_NAME_samba-lite = "samba"
-INITSCRIPT_PARAMS = "start 98 S ."
-CONFFILES = "${sysconfdir}/samba/smb.conf"
+do_install_append() {
+  install -m644 ${WORKDIR}/smb.conf ${D}${sysconfdir}/samba/smb.conf
+  install -m644 ${WORKDIR}/init.samba ${D}${sysconfdir}/init.d/samba.sh
+}

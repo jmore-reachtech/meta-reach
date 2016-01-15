@@ -14,7 +14,7 @@ S = "${WORKDIR}/git"
 inherit update-rc.d reach-application-package
 
 INITSCRIPT_NAME = "tio-agent"
-INITSCRIPT_PARAMS = "start 99 S ."
+INITSCRIPT_PARAMS = "start 98 5 2 . stop 19 0 1 6 ."
 
 CFLAGS += " -DTIO_VERSION='"${PV}"'"
 

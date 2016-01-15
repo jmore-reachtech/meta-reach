@@ -16,7 +16,7 @@ CFLAGS += " -DSIO_VERSION='"${PV}"'"
 inherit update-rc.d reach-application-package
 
 INITSCRIPT_NAME = "sio-agent"
-INITSCRIPT_PARAMS = "start 99 S ."
+INITSCRIPT_PARAMS = "start 97 5 2 . stop 19 0 1 6 ."
 
 # You can override SIO_TTY in machine.conf or local.conf
 SIO_TTY ?= "/dev/ttySP1"

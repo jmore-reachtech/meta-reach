@@ -36,7 +36,6 @@ IMAGE_INSTALL_append_g2h += " \
 
 IMAGE_INSTALL_append_g2c += " \
   xserver-xorg-fbdev \
-  tsinit \
          mesa-driver-swrast \
 "
 

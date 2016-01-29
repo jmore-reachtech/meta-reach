@@ -4,7 +4,7 @@ LICENSE = "MIT"
 
 inherit packagegroup
 
-TOUCH = "tslib tslib-calibrate tslib-tests tsinit"
+TOUCH = "tslib tslib-calibrate tslib-tests"
 
 RDEPENDS_${PN} = " \
         libqt-embeddedxmlpatterns4 \

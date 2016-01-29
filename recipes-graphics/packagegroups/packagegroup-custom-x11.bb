@@ -6,7 +6,6 @@ inherit packagegroup
 PACKAGES = "\
  packagegroup-custom-x11-apps \
  packagegroup-custom-x11-tools \
- packagegroup-custom-x11-touch-init \
 "
 
 RDEPENDS_packagegroup-custom-x11-apps = "\
@@ -20,8 +19,4 @@ RDEPENDS_packagegroup-custom-x11-apps_mxs = "\
 RDEPENDS_packagegroup-custom-x11-tools = "\
          tslib-tests \
          tslib-calibrate \
-"
-
-RDEPENDS_packagegroup-custom-x11-touch-init = "\
-         tsinit \
 "

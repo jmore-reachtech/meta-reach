@@ -11,7 +11,6 @@ IMAGE_INSTALL_append = "\
     tslib \
     tslib-calibrate \
     tslib-tests \
-    tsinit \
     usbutils \
     bc \
     devregs \

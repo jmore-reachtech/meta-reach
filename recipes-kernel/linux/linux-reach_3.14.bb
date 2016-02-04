@@ -8,7 +8,7 @@ PV .= "+git${SRCPV}"
 FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}-3.14:"
 
 SRCBRANCH = "reach-fslc-3.14-1.0.x-mx6"
-SRCREV = "871afb915c86939fdf4cc5d62db025815e26534e"
+SRCREV = "fba779928033367e8df88d942fe3de6462dbce14"
 SRC_URI = "git://github.com/jmore-reachtech/reach-imx-linux.git;branch=${SRCBRANCH} \
            file://0001-update-linux-kernel-logo.patch \
            file://defconfig"

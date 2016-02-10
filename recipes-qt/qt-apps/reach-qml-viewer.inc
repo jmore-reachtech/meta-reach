@@ -8,16 +8,17 @@ SRCREV ="fbaef0829d5db26784d8bdf94b3534c07471eaf8"
 SRC_URI = "git://git@github.com/jmore-reachtech/reach-qml-viewer.git;branch=master;protocol=ssh \
 "
 
+inherit update-rc.d reach-application-package
+
 S = "${WORKDIR}/git"
 
-APP_DIR="/application/bin"
-
 do_install() {
-	install -d ${D}${APP_DIR}
-	install -m 0755 ${S}/qml-viewer ${D}${APP_DIR}
+        install -d ${D}/application
+	install -Dm 0755 ${S}/qml-viewer ${D}${APP_BIN_DESTDIR}/qml-viewer
+        ln -sf ${APP_BIN_DESTDIR} ${D}/application/bin
+        ln -sf ${APP_SRC_DESTDIR} ${D}/application/src
 }
 
-FILES_${PN} += "${APP_DIR} /home/root"
-FILES_${PN}-dbg += "${APP_DIR}/.debug /usr/src/debug"
+FILES_${PN} += "${APP_BIN_DESTDIR} /home/root /application"
+FILES_${PN}-dbg += "${APP_BIN_DESTDIR}/.debug /usr/src/debug"
 
-inherit update-rc.d

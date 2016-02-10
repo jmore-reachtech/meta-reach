@@ -16,7 +16,10 @@ S = "${WORKDIR}/git"
 inherit reach-application-package
 
 do_install() {
+        install -d ${D}/application
 	install -Dm 0644 ${S}/lib/libsystemplugin.so ${D}${PLUGIN_DESTDIR}/libsystemplugin.so
 	install -m 0755 ${WORKDIR}/qmldir ${D}${PLUGIN_DESTDIR}
+        ln -sf ${PLUGIN_DESTDIR} ${D}/application/plugins
 }
 
+FILES_${PN} += " /application"

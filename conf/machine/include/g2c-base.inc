@@ -21,8 +21,6 @@ KERNEL_DEVICETREE = "imx28-g2c1.dtb"
 MACHINE_FEATURES = "touchscreen"
 MACHINE_EXTRA_RRECOMMENDS = " kernel-modules"
 
-SDCARD_ROOTFS ?= "${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.rootfs.ext3"
-
 MKUBIFS_ARGS = "-m 2KiB -e 124KiB -c 1866"
 UBINIZE_ARGS = "-m 2KiB -p 128KiB -s 2KiB"
 

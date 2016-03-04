@@ -10,7 +10,6 @@ IMAGE_INSTALL_append = " packagegroup-custom-x11-apps \
 	packagegroup-custom-x11-tools \
 	packagegroup-custom-dev-tools \
 	packagegroup-custom-dev-tools-gdb \
-	packagegroup-custom-x11-touch-init \
 	packagegroup-custom-core \
 	gtk+-demo \
 "

@@ -9,7 +9,6 @@ PACKAGES = "\
 "
 
 RDEPENDS_packagegroup-custom-x11-apps = "\
-         tslib \
          mesa-driver-swrast \
 "
 RDEPENDS_packagegroup-custom-x11-apps_mxs = "\
@@ -17,6 +16,4 @@ RDEPENDS_packagegroup-custom-x11-apps_mxs = "\
 "
 
 RDEPENDS_packagegroup-custom-x11-tools = "\
-         tslib-tests \
-         tslib-calibrate \
 "

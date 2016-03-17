@@ -1,0 +1,37 @@
+#! /bin/sh
+# -*- shell-script -*-
+#
+# /dev/mtd0 - dtb partion     (NAND)
+# /dev/mtd1 - kernel partion  (NAND)
+# /dev/mtd2 - rootfs partion  (NAND)
+# /dev/mtd3 - boot partion    (NOR)
+# /dev/mtd4 - bootenv partion (NOR)
+#
+UBOOT="/installer-data/u-boot.imx"
+ZIMAGE="/installer-data/zImage"
+UBI="/installer-data/rootfs.ubifs"
+
+# Get device tree name
+get_fdt_name(){
+    FDTFILE=`fw_printenv fdtfile | cut -d "=" -f 2`
+    DTB="/installer-data/$FDTFILE"
+}
+
+flash_erase /dev/mtd3 0 0
+nandwrite -p /dev/mtd3 -s 0x400 "$UBOOT"
+
+get_fdt_name
+flash_erase /dev/mtd0 0 0
+nandwrite -p /dev/mtd0 "$DTB"
+
+flash_erase /dev/mtd1 0 0
+nandwrite -p /dev/mtd1 "$ZIMAGE"
+
+flash_erase /dev/mtd2 0 0
+ubiformat /dev/mtd2 -s 2048 -y
+ubiattach /dev/ubi_ctrl -d 0 -m 2
+ubimkvol /dev/ubi0 -N rootfs -m
+ubiupdatevol /dev/ubi0_0 $UBI
+ubidetach /dev/ubi_ctrl -m 2
+
+halt

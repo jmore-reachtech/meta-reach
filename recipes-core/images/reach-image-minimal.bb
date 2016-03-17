@@ -24,3 +24,5 @@ IMAGE_INSTALL_append = "\
 inherit core-image
 
 export IMAGE_BASENAME = "reach-image-minimal"
+
+IMAGE_FSTYPES += "ubifs"

@@ -1,4 +1,4 @@
 require recipes-bsp/u-boot/u-boot-fslc.inc
 
-SRCREV = "15e0a400c9385c56cad6f10156243def1f8ef45f"
+SRCREV = "8aae72c2f04e9ba692ad846b4fbdd5fd4c248801"
 SRC_URI = "git://github.com/jmore-reachtech/reach-imx-u-boot.git;branch=reach-${PV};protocol=git"

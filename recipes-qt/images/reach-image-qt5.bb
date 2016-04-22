@@ -55,6 +55,7 @@ IMAGE_INSTALL_append = "\
     canutils \
     ifplugd-init \
     flash-installer \
+    evtest \
 "
 
 IMAGE_INSTALL_append_g2h = "\

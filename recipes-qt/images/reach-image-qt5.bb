@@ -51,7 +51,7 @@ IMAGE_INSTALL_append = "\
     reach-qml-demo-qt5 \
     i2c-tools \
     strace \
-    wireless-tools \
+    iw \
     canutils \
     ifplugd-init \
     flash-installer \

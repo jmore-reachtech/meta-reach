@@ -27,6 +27,6 @@ SIO_TTY = "/dev/ttymxc1"
 MKUBIFS_ARGS = "-m 2KiB -e 124KiB -c 4096"
 UBINIZE_ARGS = "-m 2KiB -p 128KiB -s 2KiB"
 
-QPA_TOUCH_PLUGIN ?= "Tslib"
+QPA_TOUCH_PLUGIN ?= "evdevtouch"
 
 MACHINE_FEATURES_BACKFILL_CONSIDERED = "rtc"

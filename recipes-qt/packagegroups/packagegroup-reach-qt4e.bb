@@ -4,7 +4,6 @@ LICENSE = "MIT"
 
 inherit packagegroup
 
-TOUCH = "tslib tslib-calibrate tslib-tests"
 
 RDEPENDS_${PN} = " \
         libqt-embeddedxmlpatterns4 \
@@ -36,7 +35,6 @@ RDEPENDS_${PN} = " \
         qt4-embedded-plugin-imageformat-tiff \
         qt4-embedded-plugin-mousedriver-tslib \
         qt4-embedded-plugin-sqldriver-sqlite \
-        ${TOUCH} \
 		libicui18n \
 "
 

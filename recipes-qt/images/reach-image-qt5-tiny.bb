@@ -4,8 +4,6 @@ LICENSE = "MIT"
 
 include qt5-versions.inc
 
-TOUCH = "tslib tslib-calibrate tslib-tests"
-
 BASE_REACH = " \
     busybox \
     busybox-mdev \
@@ -57,7 +55,6 @@ GSTREAMER_REACH = "packagegroup-fsl-gstreamer \
 "
 
 IMAGE_INSTALL_append = "\
-    ${TOUCH} \
     ${BASE_REACH} \
     ${QT_REACH} \
     ${GSTREAMER_REACH} \

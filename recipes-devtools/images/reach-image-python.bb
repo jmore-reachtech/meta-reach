@@ -7,9 +7,7 @@ LICENSE = "MIT"
 
 IMAGE_OVERHEAD_FACTOR = "2.0"
 
-TOUCH = "tslib tslib-tests tslib-calibrate"
-
-IMAGE_INSTALL_append = " ${TOUCH} \
+IMAGE_INSTALL_append = " \
 	packagegroup-custom-dev-tools \
 	packagegroup-custom-dev-tools-gdb \
 	packagegroup-custom-core \
@@ -29,9 +27,6 @@ IMAGE_INSTALL_append = " ${TOUCH} \
         python-demo \
         xterm \
         xeyes \
-"
-IMAGE_INSTALL_append_g2h += " \
-        xf86-input-tslib \
 "
 
 IMAGE_INSTALL_append_g2c += " \

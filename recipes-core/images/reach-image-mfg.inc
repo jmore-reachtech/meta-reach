@@ -6,9 +6,6 @@ LICENSE = "MIT"
 
 CORE_IMAGE_EXTRA_INSTALL += "\
     packagegroup-custom-dev-tools \
-    tslib \
-    tslib-calibrate \
-    tslib-tests \
     usbutils \
     bc \
     coreutils \

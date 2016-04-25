@@ -6,13 +6,10 @@ LICENSE = "MIT"
 
 IMAGE_OVERHEAD_FACTOR = "2.0"
 
-TOUCH = "tslib tslib-tests tslib-calibrate"
-
-IMAGE_INSTALL_append = " ${TOUCH} \
+IMAGE_INSTALL_append = " \
 	packagegroup-custom-dev-tools \
 	packagegroup-custom-dev-tools-gdb \
 	packagegroup-custom-core \
-        xf86-input-tslib \
         x11-remote-demo \
         xterm \
         xeyes \

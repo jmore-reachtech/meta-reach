@@ -1,0 +1,26 @@
+From 2186b92f1fc64c5995992ad4ca639ec158122e8b Mon Sep 17 00:00:00 2001
+From: Jeff Horn <jeff@everlook.net>
+Date: Thu, 17 Mar 2016 09:27:38 -0700
+Subject: [PATCH] Fix sound enable
+
+Signed-off-by: Jeff Horn <jeff@everlook.net>
+---
+ arch/arm/mach-imx/mach-imx6q.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/arch/arm/mach-imx/mach-imx6q.c b/arch/arm/mach-imx/mach-imx6q.c
+index 83d6ad6..694bebe 100644
+--- a/arch/arm/mach-imx/mach-imx6q.c
++++ b/arch/arm/mach-imx/mach-imx6q.c
+@@ -159,7 +159,7 @@ static int __init imx6q_audio_fixup(void)
+     struct device_node *np;
+     int audio;
+ 
+-    np = of_find_node_by_path("/sound");
++    np = of_find_node_by_path("/sound@0");
+     if (!np) {
+         pr_err("sound of node not found! \n");
+         return -ENODEV;
+-- 
+1.9.1
+

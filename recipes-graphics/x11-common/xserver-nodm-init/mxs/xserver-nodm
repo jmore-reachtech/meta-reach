@@ -16,6 +16,17 @@ killproc() {            # kill the named process(es)
 
 case "$1" in
   start)
+       . /etc/profile
+       
+       if [ -f /etc/profile.d/tslib.sh ]; then
+		source /etc/profile.d/tslib.sh
+	   fi
+	   if [ -e "$TSLIB_TSDEVICE" ]; then
+			if [ ! -f /etc/pointercal ]; then
+				/usr/bin/ts_calibrate
+			fi
+		fi
+       
        username=root
        echo "Starting Xserver"
        /usr/bin/startx&

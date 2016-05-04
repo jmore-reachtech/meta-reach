@@ -9,6 +9,14 @@ QTAPP=qml-viewer
 case "$1" in
   start | debug)
 	echo "Starting qt application"
+	if [ -f /etc/profile.d/tslib.sh ]; then
+		source /etc/profile.d/tslib.sh
+	fi
+	if [ -e "$TSLIB_TSDEVICE" ]; then
+		if [ ! -f /etc/pointercal ]; then
+			/usr/bin/ts_calibrate
+		fi
+	fi
 
 # create links for non-QtE lib names so old Qt code will run
 	if [ ! -e /usr/lib/libQtCore.so.4 ]; then
@@ -33,9 +41,9 @@ case "$1" in
 
 	cd $WORKDIR
         if [ "$1" = "start" ]; then
-        ./$QTAPP $DISPLAY_ROT -qws &> /dev/null &
+         QWS_MOUSE_PROTO=tslib:$TSLIB_TSDEVICE ./$QTAPP $DISPLAY_ROT -qws &> /dev/null &
         else
-        ./$QTAPP $DISPLAY_ROT -qws &
+         QWS_MOUSE_PROTO=tslib:$TSLIB_TSDEVICE ./$QTAPP $DISPLAY_ROT -qws &
         fi
         ;;
   stop)

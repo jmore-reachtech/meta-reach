@@ -8,6 +8,9 @@ IMAGE_INSTALL_append = "\
     ${CORE_IMAGE_BASE_INSTALL} \
     packagegroup-custom-dev-tools \
     packagegroup-custom-dev-tools-gdb \
+    tslib \
+    tslib-calibrate \
+    tslib-tests \
     usbutils \
     bc \
     devregs \

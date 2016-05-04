@@ -4,10 +4,13 @@ LICENSE = "MIT"
 
 include qt5-versions.inc
 
+TOUCH = "tslib tslib-calibrate tslib-tests"
+
 E2FS = "e2fsprogs-e2fsck e2fsprogs-mke2fs e2fsprogs-tune2fs e2fsprogs-resize2fs"
 
 IMAGE_INSTALL_append = "\
     ${CORE_IMAGE_BASE_INSTALL} \
+    ${TOUCH} \
     ${E2FS} \
     mtd-utils \
     packagegroup-custom-core \

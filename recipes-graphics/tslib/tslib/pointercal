@@ -1,0 +1,33 @@
+#!/bin/sh
+
+case "$1" in
+  start)
+	if [ ! -f /etc/pointercal ]; then
+		if [ -f /etc/profile.d/tslib.sh ]; then                      
+			source /etc/profile.d/tslib.sh                       
+		fi
+                if [ "`cat /proc/device-tree/soc/aips-bus\@02100000/i2c\@021a0000/touch\@38/status`" = "okay" ]; then
+                  echo "Using pcap ts conf"
+                  ln -sf /etc/ts.conf.pcap /etc/ts.conf
+                elif [ "`lsusb | grep D-WAV`" != "" ]; then
+                  ln -sf /etc/ts.conf.pcap /etc/ts.conf
+                else
+                  echo "Using resistive ts conf"
+                  ln -sf /etc/ts.conf.resistive /etc/ts.conf
+                fi
+                sync
+		echo "running ts_calibrate"
+		/usr/bin/ts_calibrate
+		sync
+	fi
+	;;
+  stop)
+	echo "stopping pointercal - nothing to do"
+	;;
+  *)
+	echo "usage: $0 { start | stop }" >&2
+	exit 1
+	;;
+esac
+
+exit 0

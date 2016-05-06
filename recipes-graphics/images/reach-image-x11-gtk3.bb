@@ -14,6 +14,7 @@ IMAGE_INSTALL_append = "\
     packagegroup-custom-core \
     gtk+3 \
     gtk+3-demo \
+    i2c-tools \
 "
 
 inherit core-image

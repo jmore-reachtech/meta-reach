@@ -70,3 +70,5 @@ inherit core-image
 do_rootfs[depends] += " mtd-utils-native:do_populate_sysroot "
 
 export IMAGE_BASENAME="reach-image-qt5"
+
+IMAGE_FSTYPES += "ubifs"

@@ -8,7 +8,7 @@ PV .= "+git${SRCPV}"
 FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}-3.14:"
 
 SRCBRANCH = "reach-fslc-3.14-1.0.x-mx6"
-SRCREV = "86da6dd33f6c5e11bb2573d20a5efc96288084f2"
+SRCREV = "17762951a696b5ecbdcd6f30ef53ebe1d60e3c69"
 SRC_URI = "git://github.com/jmore-reachtech/reach-imx-linux.git;branch=${SRCBRANCH} \
            file://defconfig"
 

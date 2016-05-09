@@ -54,7 +54,6 @@ IMAGE_INSTALL_append = "\
     reach-eio-agent \
     alsa-utils \
     alsa-state \
-    psplash \
     reach-qml-plugins-imx \
     rotary-encoder-plugin \
     rotary-encoder-qml \

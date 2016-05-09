@@ -12,7 +12,6 @@ CORE_IMAGE_EXTRA_INSTALL += "\
     usbutils \
     bc \
     coreutils \
-    psplash \
     ${REACH_MFG_TEST_PACKAGE} \
 "
 

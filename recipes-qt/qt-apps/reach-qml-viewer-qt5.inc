@@ -5,10 +5,10 @@ LIC_FILES_CHKSUM = "file://${COREBASE}/LICENSE;md5=4d92cd373abda3937c2bc47fbc49d
 PR = "r1"
 
 inherit qmake5
-DEPENDS = "qtbase qtquick1"
+DEPENDS = "qtbase qtquick1 qtserialport"
 
-SRCREV ="33c0e91a8087f46297cc10bf45ffa86a71d0b177" 
-SRC_URI = "git://git@github.com/jmore-reachtech/reach-qml-viewer.git;branch=qt5;protocol=ssh \
+SRCREV ="95f02a30ad2ab86d05d7eaeb7277154c5533f6d0"
+SRC_URI = "git://git@github.com/jmore-reachtech/reach-qml-viewer-v2.git;branch=master;protocol=ssh \
           file://qml-viewer.sh \
 "
 

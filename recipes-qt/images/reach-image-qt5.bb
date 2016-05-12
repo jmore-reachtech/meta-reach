@@ -44,9 +44,6 @@ IMAGE_INSTALL_append = "\
     qtwebkit-qmlplugins \
     imx-test \    
     reach-qml-viewer-qt5 \
-    reach-sio-agent \
-    reach-tio-agent \
-    reach-eio-agent \
     alsa-utils \
     alsa-state \
     reach-qml-plugins-imx \

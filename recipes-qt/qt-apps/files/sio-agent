@@ -1,0 +1,45 @@
+#!/bin/sh
+
+SIO_AGENT=/application/bin/sio-agent
+SIO_TTY=#SIOTTY#
+SIO_BAUD="115200"
+
+# this is for legacy support from kernel 2.6.35
+if [ -c /dev/ttyAPP0 ]; then
+    ln -s /dev/ttyAPP0 /dev/ttySP0
+fi
+if [ -c /dev/ttyAPP1 ]; then
+    ln -s /dev/ttyAPP1 /dev/ttySP1
+fi
+if [ -c /dev/ttyAPP2 ]; then
+    ln -s /dev/ttyAPP2 /dev/ttySP2
+fi
+if [ -c /dev/ttyAPP4 ]; then
+    ln -s /dev/ttyAPP04 /dev/ttySP4
+fi
+
+case "$1" in
+start)
+	# show this during quiet boot too.
+	echo "starting SIO Agent..." >&2
+	start-stop-daemon -m -p /var/run/sio_agent.pid -b -a $SIO_AGENT -S -- -t $SIO_TTY -b $SIO_BAUD
+	;;
+stop)
+	echo "stoping SIO Agent..."
+	start-stop-daemon -p /var/run/sio_agent.pid -K
+	;;
+debug)
+	echo "starting SIO Agent in verbose mode..."
+	$SIO_AGENT -t $SIO_TTY -b $SIO_BAUD -v &
+	;;
+restart)
+	$0 stop
+	$0 start
+	;;
+*)
+	echo "Usage: /etc/init.d/sio_agent{start|stop|restart}" >&2
+	exit 1
+	;;
+esac
+
+exit 0

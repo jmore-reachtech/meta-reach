@@ -17,6 +17,30 @@ get_fdt_name(){
     DTB="/installer-data/$FDTFILE"
 }
 
+# Run custom installer script
+run_custom_installer() {
+    echo "Running custom installer"
+    mkdir -p /mnt/installer
+    mount /dev/mmcblk2p3 /mnt/installer
+    if [ ! -f /mnt/installer/custom.sh ]; then
+        echo "Custom install script missing"
+        umount /mnt/installer
+        return 0
+    fi
+
+    echo "Attachinig NAND"
+    ubiattach /dev/ubi_ctrl -d 0 -m 2
+    mkdir -p /tmp/rootfs
+    mount -t ubifs /dev/ubi0_0 /tmp/rootfs
+    cd /tmp/rootfs
+    /mnt/installer/custom.sh
+    cd /
+    umount /tmp/rootfs
+    rmdir /tmp/rootfs
+    echo "Detachinig NAND"
+    ubidetach /dev/ubi_ctrl -m 2
+}
+
 flash_erase /dev/mtd3 0 0
 nandwrite -p /dev/mtd3 -s 0x400 "$UBOOT"
 
@@ -34,4 +58,5 @@ ubimkvol /dev/ubi0 -N rootfs -m
 ubiupdatevol /dev/ubi0_0 $UBI
 ubidetach /dev/ubi_ctrl -m 2
 
+run_custom_installer
 halt

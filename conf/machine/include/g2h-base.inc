@@ -21,6 +21,8 @@ PREFERRED_VERSION_linux-reach = "3.14+%"
 
 KERNEL_IMAGETYPE = "zImage"
 
+IMAGE_FSTYPES = "wic.gz"
+
 IMAGE_BOOT_FILES = "\
     zImage \
     u-boot.imx \

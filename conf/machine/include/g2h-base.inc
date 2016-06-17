@@ -23,6 +23,7 @@ KERNEL_IMAGETYPE = "zImage"
 
 IMAGE_FSTYPES = "wic.gz"
 WKS_FILES_append = " g2h-base.wks"
+IMAGE_DEPENDS_wic_append = " virtual/bootloader"
 
 IMAGE_BOOT_FILES = "\
     zImage \

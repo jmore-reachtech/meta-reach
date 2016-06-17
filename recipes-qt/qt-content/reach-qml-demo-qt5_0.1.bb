@@ -20,7 +20,7 @@ do_install() {
             cp -rf ${S_BASE}640_480/*   ${D}${APP_DIR}
           ;;
 
-          g2h-solo-8 | g2h-solo-11 | g2h-solo-12)
+          g2h-solo-8 | g2h-solo-11 | g2h-solo-12 | g2h-solo-18)
             cp -rf ${S_BASE}1280_800/*   ${D}${APP_DIR}
           ;;
 

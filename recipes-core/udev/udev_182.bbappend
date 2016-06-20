@@ -7,10 +7,12 @@ SRC_URI += "\
     file://init \
     file://local.rules \
     file://udev-cache \
+    file://11-media-auto-mount.rules \
 "
 
 do_install_append () {
     install -m 0644 ${WORKDIR}/75-persistent-net-generator.rules ${D}${sysconfdir}/udev/rules.d/
+    install -m 0644 ${WORKDIR}/11-media-auto-mount.rules ${D}${sysconfdir}/udev/rules.d/
 }
 
 # Create the cache after checkroot has run

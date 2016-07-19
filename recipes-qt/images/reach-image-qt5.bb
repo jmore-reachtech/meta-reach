@@ -56,6 +56,7 @@ IMAGE_INSTALL_append = "\
     flash-installer \
     evtest \
     u-boot-fw-utils \
+    reach-g2link \
 "
 
 IMAGE_INSTALL_append_g2h = "\

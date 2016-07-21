@@ -19,8 +19,12 @@ do_install_append() {
 		cp -rf src_640_480/*   ${D}${APP_SRC_DESTDIR}
 		;;
 
-		g2h-10_1-inch | g2h-10_4-inch)
+		g2h-10_4-inch)
 		cp -rf src_1024_768/*   ${D}${APP_SRC_DESTDIR}
+		;;
+
+		g2h-10_1-inch)
+		cp -rf src_1280_800/*   ${D}${APP_SRC_DESTDIR}
 		;;
 
 		g2h-7-inch)

@@ -15,6 +15,8 @@ UBOOT_CONFIG[g2h-7_sd] = "g2h_7_defconfig,sdcard"
 UBOOT_CONFIG[g2h-7_spi_nor] = "g2h_7_spi_nor_defconfig,ubifs"
 UBOOT_CONFIG[g2h-5_7_sd] = "g2h_5_7_defconfig,sdcard"
 UBOOT_CONFIG[g2h-5_7_spi_nor] = "g2h_5_7_spi_nor_defconfig,ubifs"
+UBOOT_CONFIG[g2h-10_4_sd] = "g2h_10_4_defconfig,sdcard"
+UBOOT_CONFIG[g2h-10_4_spi_nor] = "g2h_10_4_spi_nor_defconfig,ubifs"
 
 PREFERRED_PROVIDER_virtual/kernel = "linux-reach"
 PREFERRED_VERSION_linux-reach = "3.14+%"

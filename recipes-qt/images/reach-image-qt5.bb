@@ -57,6 +57,7 @@ IMAGE_INSTALL_append = "\
     evtest \
     u-boot-fw-utils \
     reach-g2link \
+    libfslcodec-aac \
 "
 
 IMAGE_INSTALL_append_g2h = "\

@@ -2,7 +2,7 @@ DESCRIPTION = "Reach qml-viewer demo content and plugin"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://${COREBASE}/LICENSE;md5=4d92cd373abda3937c2bc47fbc49d690"
 
-SRCREV = "2eca123fd218c6e4bd3367bd8ce1a5fa0f3f3fb6"
+SRCREV = "4d14283a2ac4c6454a5036caea443d5f88558f3e"
 SRC_URI = "git://github.com/jmore-reachtech/reach-qml-demo-qt5.git \
            file://settings.json \
 "

@@ -15,7 +15,7 @@ do_install_append() {
 	install -d ${D}${APP_SRC_DESTDIR}
 
 	case "${MACHINE}" in
-		g2h-5_7-inch)
+		g2h-5_7-inch | g2h-5_7_f-inch)
 		cp -rf src_640_480/*   ${D}${APP_SRC_DESTDIR}
 		;;
 
@@ -27,7 +27,7 @@ do_install_append() {
 		cp -rf src_1280_800/*   ${D}${APP_SRC_DESTDIR}
 		;;
 
-		g2h-7-inch)
+		g2h-7-inch | g2h-7_f-inch)
 		cp -rf src_800_480/*   ${D}${APP_SRC_DESTDIR}
 		;;
 

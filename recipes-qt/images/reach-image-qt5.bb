@@ -58,6 +58,7 @@ IMAGE_INSTALL_append = "\
     psplash \
     reach-qml-plugins-imx \
     reach-qml-demo-qt5 \
+    reach-gpio \
     i2c-tools \
     strace \
     wireless-tools \

@@ -48,6 +48,7 @@ IMAGE_INSTALL_append = "\
     alsa-state \
     reach-qml-plugins-imx \
     reach-qml-demo-qt5 \
+    reach-gpio \
     i2c-tools \
     strace \
     iw \

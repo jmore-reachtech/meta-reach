@@ -1,0 +1,28 @@
+#!/bin/bash
+
+GPIO_EXPORT="/sys/class/gpio/export"
+GPIO_UNEXPORT="/sys/class/gpio/unexport"
+
+PIN_J21_3=175
+PIN_J21_4=42
+
+
+case "$1" in
+start)
+        # show this during quiet boot too.
+        echo "exporting GPIO on J21..." >&2
+        echo $PIN_J21_3 > $GPIO_EXPORT
+        echo $PIN_J21_4 > $GPIO_EXPORT
+        ;;
+stop)
+        echo "unexporting GPIO on J21..." >&2
+        echo $PIN_J21_3 > $GPIO_UNEXPORT
+        echo $PIN_J21_4 > $GPIO_UNEXPORT
+        ;;
+*)
+        echo "Usage: /etc/init.d/gpio{start|stop}" >&2
+        exit 1
+        ;;
+esac
+
+exit 0

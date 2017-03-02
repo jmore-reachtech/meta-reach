@@ -4,7 +4,7 @@ LIC_FILES_CHKSUM = "file://${COREBASE}/LICENSE;md5=4d92cd373abda3937c2bc47fbc49d
 
 PR = "r1"
 
-SRCREV = "6f7ad50028e381d410c227e2ff2c605b609ee395"
+SRCREV = "62434ff49ad3d62c44c58eb5674faacb3ed8b28c"
 SRC_URI = "git://git@github.com/jmore-reachtech/reach-tio-agent.git;protocol=ssh \
 		   file://tio-agent \
           "

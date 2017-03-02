@@ -1,0 +1,42 @@
+From 2fdb456b64c84f64a7d3e51e8d4e1f962de70699 Mon Sep 17 00:00:00 2001
+From: Jeff Horn <jeff@everlook.net>
+Date: Thu, 2 Mar 2017 13:23:48 -0800
+Subject: [PATCH] Pear version 1.10.3 breaks php install
+
+Use cached installed for dizzy builds
+
+Signed-off-by: Jeff Horn <jeff@everlook.net>
+---
+ pear/Makefile.frag | 7 ++++---
+ 1 file changed, 4 insertions(+), 3 deletions(-)
+
+diff --git a/pear/Makefile.frag b/pear/Makefile.frag
+index 00bacae..8b86b10 100644
+--- a/pear/Makefile.frag
++++ b/pear/Makefile.frag
+@@ -9,6 +9,7 @@ WGET = `which wget 2>/dev/null`
+ FETCH = `which fetch 2>/dev/null`
+ PEAR_PREFIX = -dp a${program_prefix}
+ PEAR_SUFFIX = -ds a$(program_suffix)
++PEAR_INSTALL_PHAR = "https://s3-us-west-2.amazonaws.com/reach-yocto/dizzy/install-pear-nozlib.phar"
+ 
+ install-pear-installer: $(SAPI_CLI_PATH)
+ 	@$(top_builddir)/sapi/cli/php $(PEAR_INSTALL_FLAGS) pear/install-pear-nozlib.phar -d "$(peardir)" -b "$(bindir)" ${PEAR_PREFIX} ${PEAR_SUFFIX}
+@@ -20,11 +21,11 @@ install-pear:
+ 			cp $(srcdir)/install-pear-nozlib.phar $(builddir)/install-pear-nozlib.phar; \
+ 		else \
+ 			if test ! -z "$(WGET)" && test -x "$(WGET)"; then \
+-				"$(WGET)" http://pear.php.net/install-pear-nozlib.phar -nd -P $(builddir)/; \
++				"$(WGET)" $(PEAR_INSTALL_PHAR) -nd -P $(builddir)/; \
+ 			elif test ! -z "$(FETCH)" && test -x "$(FETCH)"; then \
+-				"$(FETCH)" -o $(builddir)/ http://pear.php.net/install-pear-nozlib.phar; \
++				"$(FETCH)" -o $(builddir)/ $(PEAR_INSTALL_PHAR); \
+ 			else \
+-				$(top_builddir)/sapi/cli/php -n $(srcdir)/fetch.php http://pear.php.net/install-pear-nozlib.phar $(builddir)/install-pear-nozlib.phar; \
++				$(top_builddir)/sapi/cli/php -n $(srcdir)/fetch.php $(PEAR_INSTALL_PHAR) $(builddir)/install-pear-nozlib.phar; \
+ 			fi \
+ 		fi \
+ 	fi
+-- 
+2.7.4
+

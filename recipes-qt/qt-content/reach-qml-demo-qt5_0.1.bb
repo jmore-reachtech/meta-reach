@@ -16,11 +16,11 @@ do_install() {
         install -d ${D}${APP_DIR}
 
         case "${MACHINE}" in
-          g2h-solo-1 | g2h-solo-13 | g2h-solo-14)
+          g2h-solo-1 | g2h-solo-13 | g2h-solo-14 | g2h-solo-13f | g2h-solo-14f)
             cp -rf ${S_BASE}640_480/*   ${D}${APP_DIR}
           ;;
 
-          g2h-solo-8 | g2h-solo-11 | g2h-solo-12 | g2h-solo-18)
+          g2h-solo-8 | g2h-solo-11f | g2h-solo-12f | g2h-solo-18f)
             cp -rf ${S_BASE}1280_800/*   ${D}${APP_DIR}
           ;;
 
@@ -28,7 +28,7 @@ do_install() {
             cp -rf ${S_BASE}1024_768/*   ${D}${APP_DIR}
           ;;
          
-	  g2h-solo-4 | g2h-solo-3)
+	  g2h-solo-4 | g2h-solo-3 | g2h-solo-4f | g2h-solo-3f)
             cp -rf ${S_BASE}800_480/*   ${D}${APP_DIR}
 	  ;;
 

@@ -65,6 +65,7 @@ IMAGE_INSTALL_append = "\
     canutils \
     ifplugd-init \
     flash-installer \
+    reach-fb2image-qt5 \
 "
 
 IMAGE_INSTALL_append_g2h = "\

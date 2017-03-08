@@ -61,6 +61,7 @@ IMAGE_INSTALL_append = "\
     u-boot-fw-utils \
     reach-g2link \
     libfslcodec-aac \
+    reach-fb2image-qt5 \
 "
 
 IMAGE_INSTALL_append_g2h = "\

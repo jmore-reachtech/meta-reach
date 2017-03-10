@@ -6,12 +6,10 @@ require recipes-kernel/linux/linux-dtb.inc
 
 # SRC_URI for kernel
 SRC_URI = "git://github.com/jmore-reachtech/reach-imx-linux.git;branch=reach-imx_3.10.17_1.0.2_ga;protocol=git \
-           file://0001-update-linux-kernel-logo.patch \
-           file://0001-Fix-sound-enable.patch \
            file://defconfig \
 "
 
-SRCREV = "a553d85bfb71534284d08908bd5d89a61353212f"
+SRCREV = "6ff57b66fc9a10c8b0d410f3eb5aecfa0c18309e"
 
 LOCALVERSION = "-1.0.2-reach"
 

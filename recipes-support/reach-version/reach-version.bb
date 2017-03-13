@@ -6,6 +6,8 @@ PR = "r1"
 
 SRC_URI="file://version.sh \
 "
+# we want to build this package each time
+do_configure[nostamp] = "1"
 
 PACKAGES = "${PN}"
 PACKAGE_ARCH = "${MACHINE_ARCH}"

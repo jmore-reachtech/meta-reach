@@ -8,7 +8,7 @@ inherit qmake5
 DEPENDS = "qtbase"
 
 SRCREV ="7af4e31750d4b13da30adaea88baa5bb530d3479" 
-SRC_URI = "git://git@github.com/jmore-reachtech/fb2image.git;protocol=ssh"
+SRC_URI = "git://github.com/jmore-reachtech/fb2image.git;protocol=git"
 
 S = "${WORKDIR}/git"
 BUILDDIR = "${WORKDIR}/build"

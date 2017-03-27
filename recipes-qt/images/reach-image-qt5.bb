@@ -101,6 +101,9 @@ multi_part () {
         cd ${DEPLOY_DIR_IMAGE} && ln -sf ${IMAGE_NAME}.app.ubifs ${IMAGE_BASENAME}.app.ubifs
         ubinize -o ${IMAGE_LOC}.app.ubi ${UBINIZE_ARGS} ubinize.cfg 
 
+        # add reach partnumber
+        echo ${REACH_PN} > ${IMAGE_ROOTFS}/etc/reach-pn
+
         # remove from rootfs
         rm -r ${IMAGE_ROOTFS}/application/*
 

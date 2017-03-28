@@ -4,6 +4,8 @@ LICENSE = "MIT"
 
 include qt5-versions.inc
 
+IMAGE_OVERHEAD_FACTOR = "1.5"
+
 TOUCH = "tslib tslib-calibrate tslib-tests"
 
 E2FS = "e2fsprogs-e2fsck e2fsprogs-mke2fs e2fsprogs-tune2fs e2fsprogs-resize2fs"
@@ -72,3 +74,12 @@ do_rootfs[depends] += " mtd-utils-native:do_populate_sysroot "
 export IMAGE_BASENAME="reach-image-qt5"
 
 IMAGE_FSTYPES += "ubifs"
+
+write_reach_part_number() {
+    # add reach partnumber
+    echo ${REACH_PN} > ${IMAGE_ROOTFS}/etc/reach-pn
+}
+
+ROOTFS_POSTPROCESS_COMMAND_append = " \
+    write_reach_part_number; \
+"

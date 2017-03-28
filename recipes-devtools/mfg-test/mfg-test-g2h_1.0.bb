@@ -6,7 +6,7 @@ PR = "r2"
 
 DEPENDS = "i2c-tools"
 
-SRC_URI = "git://git@github.com/jmore-reachtech/reach-mfg-test.git;branch=g2h;protocol=ssh \
+SRC_URI = "git://github.com/jmore-reachtech/reach-mfg-test.git;branch=g2h;protocol=git \
     file://run-mfg_g2h.sh \
     file://run-calibration.sh \
     file://tone.sh \

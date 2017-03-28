@@ -9,7 +9,7 @@ PR = "r1"
 
 SRC_URI = "git://github.com/jmore-reachtech/reach-qml-plugins-imx.git;branch=master;protocol=git \
 "
-SRCREV = "40b4f7ab13c1fdf8d9886b2dbd5c4c8c84f0f017" 
+SRCREV = "e9f21c5f58307489dc9e1eacac04a75c46b0a44e" 
 
 S = "${WORKDIR}/git"
 BUILD_DIR = "${WORKDIR}/build"

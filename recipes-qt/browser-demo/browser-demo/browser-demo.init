@@ -1,0 +1,43 @@
+#!/bin/sh
+#
+### BEGIN INIT INFO
+# Provides: weston
+# Required-Start: $local_fs $remote_fs
+# Required-Stop: $local_fs $remote_fs
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+### END INIT INFO
+
+killproc() {
+        pid=`/bin/pidof $1`
+        [ "$pid" != "" ] && kill $pid
+}
+
+is_mounted() {
+    local mount_point=$1
+    awk '{print $2}' /proc/mounts | grep -q "^${mount_point}"'$'
+    return $?
+}
+
+case "$1" in
+  start)
+      . /etc/profile
+      /usr/bin/qt5/qmlscene -platform eglfs /usr/share/reach/browser-demo.qml > /dev/null 2>&1 &
+  ;;
+
+  stop)
+        killproc qmlscene
+  ;;
+
+  restart)
+        $0 stop
+        sleep 1
+        $0 start
+  ;;
+
+  *)
+        echo "usage: $0 { start | stop | restart }"
+  ;;
+esac
+
+exit 0

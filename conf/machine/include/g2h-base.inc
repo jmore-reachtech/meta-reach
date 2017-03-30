@@ -4,7 +4,7 @@ include conf/machine/include/tune-cortexa9.inc
 
 USE_VT = "0"
 
-SOC_FAMILY = "mx6:mx6dl:g2h"
+MACHINEOVERRIDES =. "mx6:mx6dl:g2h:"
 
 PREFERRED_PROVIDER_u-boot = "u-boot-reach"
 PREFERRED_PROVIDER_virtual/bootloader = "u-boot-reach"

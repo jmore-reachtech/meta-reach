@@ -21,7 +21,6 @@ IMAGE_INSTALL_append = "\
     firmware-imx-vpu-imx6d \
     linux-firmware \
     packagegroup-fsl-gstreamer1.0 \
-    qtbase-fonts \
     qtbase-plugins \
     qtbase-tools \
     qtdeclarative \

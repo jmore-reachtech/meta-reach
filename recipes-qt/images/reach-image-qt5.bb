@@ -60,7 +60,7 @@ IMAGE_INSTALL_append = "\
     evtest \
     u-boot-fw-utils \
     reach-g2link \
-    libfslcodec-aac \
+    imx-codec \
     reach-fb2image-qt5 \
 "
 

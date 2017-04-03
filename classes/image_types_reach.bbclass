@@ -29,7 +29,6 @@ IMAGE_CMD_linux.hab.sb () {
 
 SDCARD_GENERATION_COMMAND_g2c = "generate_g2c_sdcard"
 SDCARD_GENERATION_COMMAND_g2h = "generate_g2h_sdcard"
-TOTAL_ROOTFS_SIZE = "$(expr ${IMAGE_ROOTFS_ALIGNMENT} \+ ${BOOT_SPACE_ALIGNED} \+ $ROOTFS_SIZE)"
 #
 # Create an image that can by written onto a SD card using dd for use
 # with i.MX SoC family
@@ -57,16 +56,10 @@ TOTAL_ROOTFS_SIZE = "$(expr ${IMAGE_ROOTFS_ALIGNMENT} \+ ${BOOT_SPACE_ALIGNED} \
 # 0                      4096     4MiB +  8MiB       4MiB +  8Mib + SDIMG_ROOTFS   4MiB +  8MiB + SDIMG_ROOTFS + 4MiB
 generate_g2h_sdcard () {
 	# Create partition table
-        if [ -n "$APP_DIR_SIZE" ]; then
-          dd if=/dev/zero of=${SDCARD} bs=1M count=1280
-        fi
-        parted -s ${SDCARD} mklabel msdos
+    parted -s ${SDCARD} mklabel msdos
 	parted -s ${SDCARD} unit KiB mkpart primary fat32 ${IMAGE_ROOTFS_ALIGNMENT} $(expr ${IMAGE_ROOTFS_ALIGNMENT} \+ ${BOOT_SPACE_ALIGNED})
 	parted -s ${SDCARD} unit KiB mkpart primary $(expr  ${IMAGE_ROOTFS_ALIGNMENT} \+ ${BOOT_SPACE_ALIGNED}) $(expr ${IMAGE_ROOTFS_ALIGNMENT} \+ ${BOOT_SPACE_ALIGNED} \+ $ROOTFS_SIZE)
-        if [ -n "$APP_DIR_SIZE" ]; then
-	  parted -s ${SDCARD} unit KiB mkpart primary ${TOTAL_ROOTFS_SIZE} $(expr ${TOTAL_ROOTFS_SIZE} \+ ${APP_DIR_SIZE}) 
-	fi
-        parted ${SDCARD} print
+    parted ${SDCARD} print
 
 	# Burn bootloader
 	case "${IMAGE_BOOTLOADER}" in
@@ -126,9 +119,6 @@ generate_g2h_sdcard () {
 	# Burn Partition
 	dd if=${WORKDIR}/boot.img of=${SDCARD} conv=notrunc seek=1 bs=$(expr ${IMAGE_ROOTFS_ALIGNMENT} \* 1024) && sync && sync
 	dd if=${SDCARD_ROOTFS} of=${SDCARD} conv=notrunc seek=1 bs=$(expr ${BOOT_SPACE_ALIGNED} \* 1024 + ${IMAGE_ROOTFS_ALIGNMENT} \* 1024) && sync && sync
-        if [ -n "$APP_DIR_SIZE" ]; then
-          dd if=${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.app.ext3 of=${SDCARD} seek=1 bs=$(expr ${TOTAL_ROOTFS_SIZE} \* 1024) && sync && sync
-        fi
 }
 
 #

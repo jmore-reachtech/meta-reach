@@ -4,12 +4,8 @@ LIC_FILES_CHKSUM = "file://${COREBASE}/LICENSE;md5=4d92cd373abda3937c2bc47fbc49d
 PV = "${DISTRO_VERSION}"
 PR = "r1"
 
-SRC_URI="file://version.sh \
-"
 PACKAGES = "${PN}"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
-
-inherit update-rc.d
 
 def get_layers(bb, d):
         layers = (bb.data.getVar("BBLAYERS", d, 1) or "").split()
@@ -46,11 +42,4 @@ do_install() {
 	echo "TUNE_FEATURES     = ${TUNE_FEATURES}" >> ${D}${sysconfdir}/reach-version
 	echo "TARGET_FPU        = ${TARGET_FPU}" >> ${D}${sysconfdir}/reach-version
 	echo "${@get_layers(bb, d)}" >> ${D}${sysconfdir}/reach-version
-
-   	install -d ${D}${sysconfdir}/init.d/
-        install -m 0755 ${WORKDIR}/version.sh ${D}${sysconfdir}/init.d/version.sh
- 
 }
-
-INITSCRIPT_NAME = "version.sh"
-INITSCRIPT_PARAMS = "start 1 S ."

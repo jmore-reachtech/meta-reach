@@ -57,7 +57,6 @@ IMAGE_INSTALL_append = "\
     reach-eio-agent \
     alsa-utils \
     alsa-state \
-    psplash \
     reach-qml-plugins-imx \
     reach-qml-demo-qt5 \
     reach-gpio \

@@ -2,9 +2,7 @@ DESCRIPTION = "Reach SIO agent"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://${COREBASE}/LICENSE;md5=4d92cd373abda3937c2bc47fbc49d690"
 
-PR = "r1"
-
-SRCREV = "d776121374a2f279ed71b33d690514d9d61df79c"
+SRCREV = "dce8a864c93083d12d89981c11f0834548b04b8a"
 SRC_URI = "git://git@github.com/jmore-reachtech/reach-sio-agent.git;protocol=ssh \
 		   file://sio-agent \
           "

@@ -5,11 +5,9 @@ LIC_FILES_CHKSUM = "file://${COREBASE}/LICENSE;md5=4d92cd373abda3937c2bc47fbc49d
 inherit qmake5
 DEPENDS += "qtbase qtdeclarative"
 
-PR = "r1"
-
 SRC_URI = "git://github.com/jmore-reachtech/reach-qml-plugins-imx.git;branch=master \
 "
-SRCREV = "d88ed6962a4bb7b41247e29b7d98a80ae2270b58" 
+SRCREV = "e9f21c5f58307489dc9e1eacac04a75c46b0a44e"
 
 S = "${WORKDIR}/git"
 BUILD_DIR = "${WORKDIR}/build"

@@ -2,12 +2,10 @@ DESCRIPTION = "Reach QML Viewer and init"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://${COREBASE}/LICENSE;md5=4d92cd373abda3937c2bc47fbc49d690"
 
-PR = "r1"
-
 inherit qmake5
 DEPENDS = "qtbase qtquick1 qtserialport"
 
-SRCREV = "7c93c24f4285713dfb06792558ad93b3fbc0432c"
+SRCREV = "eed9a3176163faf7a4187c141c4a9e852c4ae899"
 SRC_URI = "git://github.com/jmore-reachtech/reach-qml-viewer-v2.git;branch=master \
           file://qml-viewer.sh \
 "

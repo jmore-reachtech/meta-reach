@@ -10,6 +10,7 @@ SRC_URI = "git://git@github.com/jmore-reachtech/reach-sio-agent.git;protocol=ssh
 S = "${WORKDIR}/git"
 
 CFLAGS += " -DSIO_VERSION='"${PV}"'"
+TARGET_CC_ARCH += "${LDFLAGS}"
 
 inherit update-rc.d reach-application-package
 

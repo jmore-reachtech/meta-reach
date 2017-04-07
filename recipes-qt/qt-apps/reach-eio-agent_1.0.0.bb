@@ -12,6 +12,7 @@ S = "${WORKDIR}/git"
 inherit reach-application-package
 
 CFLAGS += " -DiEIO_VERSION='"${PV}"'"
+TARGET_CC_ARCH += "${LDFLAGS}"
 
 do_install() {
 	install -Dm 0755 ${S}/src/eio-agent ${D}${APP_BIN_DESTDIR}/eio-agent

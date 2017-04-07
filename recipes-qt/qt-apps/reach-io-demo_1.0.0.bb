@@ -10,6 +10,7 @@ SRC_URI = "git://git@github.com/jmore-reachtech/reach-io-demo.git;protocol=ssh \
           "
           
 S = "${WORKDIR}/git"
+TARGET_CC_ARCH += "${LDFLAGS}"
 
 inherit reach-application-package
 

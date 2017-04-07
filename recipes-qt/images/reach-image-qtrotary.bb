@@ -46,6 +46,7 @@ IMAGE_INSTALL_append = "\
     qt3d-qmlplugins \
     qtwebkit \
     qtwebkit-qmlplugins \
+    liberation-fonts \
     imx-test \    
     reach-qml-viewer-qt5 \
     reach-sio-agent \

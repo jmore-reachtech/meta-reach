@@ -29,7 +29,6 @@ IMAGE_CMD_linux.hab.sb () {
 
 SDCARD_GENERATION_COMMAND_g2c = "generate_g2c_sdcard"
 SDCARD_GENERATION_COMMAND_g2h = "generate_g2h_sdcard"
-TOTAL_ROOTFS_SIZE = "$(expr ${IMAGE_ROOTFS_ALIGNMENT} \+ ${BOOT_SPACE_ALIGNED} \+ $ROOTFS_SIZE)"
 #
 # Create an image that can by written onto a SD card using dd for use
 # with i.MX SoC family

@@ -16,7 +16,7 @@ if [ -f /etc/profile.d/tslib.sh ]; then
         source /etc/profile.d/tslib.sh
 fi
 
-WORKDIR=/application/bin
+WORKDIR=/usr/share/reach/bin
 QTAPP=qml-viewer
 #DISPLAY_ROT="-display Transformed:Rot90:0"
 SOUND="$(cat /proc/asound/cards)"     

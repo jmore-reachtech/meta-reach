@@ -14,16 +14,16 @@ IMAGE_INSTALL_append = "\
     packagegroup-custom-dev-tools \
     firmware-imx-vpu-imx6d \
     linux-firmware \
-    packagegroup-fsl-gstreamer \
-    gstreamer \
-    gst-plugins-base-app \
-    gst-plugins-base \
-    gst-plugins-good \
-    gst-plugins-good-rtsp \
-    gst-plugins-good-udp \
-    gst-plugins-good-rtpmanager \
-    gst-plugins-good-rtp \
-    gst-plugins-good-video4linux2 \
+    packagegroup-fsl-gstreamer1.0 \
+    gstreamer1.0 \
+    gstreamer1.0-plugins-base-app \
+    gstreamer1.0-plugins-base \
+    gstreamer1.0-plugins-good \
+    gstreamer1.0-plugins-good-rtsp \
+    gstreamer1.0-plugins-good-udp \
+    gstreamer1.0-plugins-good-rtpmanager \
+    gstreamer1.0-plugins-good-rtp \
+    gstreamer1.0-plugins-good-video4linux2 \
     qtbase-plugins \
     qtbase-tools \
     qtdeclarative \

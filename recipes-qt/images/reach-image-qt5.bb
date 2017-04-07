@@ -61,6 +61,7 @@ IMAGE_INSTALL_append = "\
     reach-g2link \
     imx-codec \
     reach-fb2image-qt5 \
+    liberation-fonts \
 "
 
 IMAGE_INSTALL_append_g2h = "\

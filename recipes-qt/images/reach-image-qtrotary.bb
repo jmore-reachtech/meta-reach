@@ -24,7 +24,6 @@ IMAGE_INSTALL_append = "\
     gst-plugins-good-rtpmanager \
     gst-plugins-good-rtp \
     gst-plugins-good-video4linux2 \
-    qtbase-fonts \
     qtbase-plugins \
     qtbase-tools \
     qtdeclarative \

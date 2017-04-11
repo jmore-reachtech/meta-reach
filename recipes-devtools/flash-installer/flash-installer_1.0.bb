@@ -14,6 +14,5 @@ do_install() {
 }
 
 do_install_prepend_g2h() {
-	sed -i s/MTD_NUM=1/MTD_NUM=0/ ${WORKDIR}/upgrade-flash.sh
-	sed -i s/mmcblk0p3/mmcblk0p4/ ${WORKDIR}/upgrade-flash.sh
+	sed -i s/MTD_NUM=1/MTD_NUM=2/ ${WORKDIR}/upgrade-flash.sh
 }

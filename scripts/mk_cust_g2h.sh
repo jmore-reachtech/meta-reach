@@ -24,6 +24,7 @@ SDCARD="g2h-${MACHINE}-CUST.img"
 if [ -f ${SDCARD} ]; then
 	echo "Found SD card image, removing"
 	rm ${SDCARD}
+	sync && sync
 fi
 
 # boot partition
@@ -34,7 +35,7 @@ PART2_SIZE=$(expr 1024 \* 1024 \* 768)
 PART3_SIZE=$(expr 1024 \* 1024 \* 768)
 
 # SD card layout
-PART1_START=$(expr 1024 \* 1024)
+PART1_START=$(expr 1024 \* 1024 \* 5)
 PART1_END=$(expr ${PART1_START} \+ ${PART1_SIZE} \- 512)
 
 PART2_START=$(expr ${PART1_END} \+ 512)
@@ -84,14 +85,14 @@ pushd ${BASE_DIR} && ln -sf g2h-solo-${MACHINE}-${SCRIPT_TIME_STAMP}.mfg.ext3 g2
 # clean up
 rm -rf $MFG_TEMP_DIR
 
-# Write bootload and env
-dd if=${BASE_DIR}/u-boot-g2h-solo-${MACHINE}.imx of=${SDCARD} conv=notrunc seek=2 bs=512
-dd if=${BASE_DIR}/u-boot-env.bin of=${SDCARD} bs=512 seek=768 conv=notrunc
-
 BOOT_BLOCKS=$(LC_ALL=C parted -s ${SDCARD} unit b print \
 	                  | awk '/ 1 / { print substr($4, 1, length($4 -1)) / 1024 }')
 
 # Generate FAT filesystem and write kernel
+if [ -f "${BOOTIMAGE}" ]; then
+	echo "removing BOOTIMAGE ${BOOTIMAGE}"
+	rm ${BOOTIMAGE}
+fi
 mkfs.vfat -n "boot" -S 512 -C ${BOOTIMAGE} $BOOT_BLOCKS
 mcopy -i ${BOOTIMAGE} -s ${BASE_DIR}/zImage  ::/zImage
 if [ "${MACHINE}" == "11f-r" ]; then
@@ -100,17 +101,28 @@ else
 	mcopy -i ${BOOTIMAGE} -s ${BASE_DIR}/zImage-imx6dl-g2h-${MACHINE}.dtb  ::/imx6dl-g2h-${MACHINE}.dtb
 fi
 
-dd if=${BOOTIMAGE} of=${SDCARD} conv=notrunc seek=1 bs=$(expr ${PART1_START})
+# Write bootloader
+BOOTLOADER=${BASE_DIR}/u-boot-g2h-solo-${MACHINE}.imx
+echo "Writing bootloader ${BOOTLOADER}"
+dd if=${BOOTLOADER} of=${SDCARD} conv=notrunc seek=2 bs=512
 
-# Delete our FAT image
-rm ${BOOTIMAGE}
+# Write boot env
+BOOTENV=${BASE_DIR}/u-boot-env.bin
+echo "Writing boot env ${BOOTENV}"
+dd if=${BOOTENV} of=${SDCARD} bs=512 seek=1536 conv=notrunc
+
+# Write kernel and device tree
+echo "Writing kernel ${BOOTIMAGE}"
+dd if=${BOOTIMAGE} of=${SDCARD} conv=notrunc seek=$(expr ${PART1_START} / 512) bs=512
 
 # Write the rootfs
-dd if=${BASE_DIR}/reach-image-qt5-g2h-solo-${MACHINE}.ext3 of=${SDCARD} \
-	conv=notrunc seek=1 bs=$(expr ${PART2_START})
+ROOTFS=${BASE_DIR}/reach-image-qt5-g2h-solo-${MACHINE}.ext3
+echo "Writing rootfs ${ROOTFS}"
+dd if=${ROOTFS} of=${SDCARD} conv=notrunc seek=$(expr ${PART2_START} / 512) bs=512
 
 # Write the factoryfs
-dd if=${BASE_DIR}/g2h-solo-${MACHINE}.mfg.ext3 of=${SDCARD} \
-	conv=notrunc seek=1 bs=$(expr ${PART3_START})
+FACTORYFS=${BASE_DIR}/g2h-solo-${MACHINE}.mfg.ext3
+echo "Writing factoryfs ${FACTORYFS}"
+dd if=${FACTORYFS} of=${SDCARD} conv=notrunc seek=$(expr ${PART3_START} / 512) bs=512
 
 sync && sync

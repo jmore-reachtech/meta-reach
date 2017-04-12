@@ -3,7 +3,7 @@
 require conf/machine/include/imx-base.inc
 include conf/machine/include/tune-arm926ejs.inc
 
-SOC_FAMILY = "mxs:mx28:g2c"
+MACHINEOVERRIDES =. "mxs:mx28:g2c:"
 
 PREFERRED_PROVIDER_u-boot = "u-boot-reach"
 PREFERRED_PROVIDER_virtual/bootloader = "u-boot-reach"

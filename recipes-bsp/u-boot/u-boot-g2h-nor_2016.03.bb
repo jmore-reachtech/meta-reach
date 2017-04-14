@@ -109,6 +109,9 @@ do_compile () {
     g2h-solo-11f-r)
 	    oe_runmake g2h_solo_11f_spi_nor_defconfig
     ;;
+    g2h-solo-12f)
+	    oe_runmake g2h_solo_12f_spi_nor_defconfig
+    ;;
     esac
 
 	oe_runmake ${UBOOT_MAKE_TARGET}

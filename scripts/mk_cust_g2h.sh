@@ -44,14 +44,6 @@ PART2_END=$(expr ${PART2_START} \+ ${PART2_SIZE} \- 512)
 PART3_START=$(expr ${PART2_END} \+ 512)
 PART3_END=$(expr ${PART3_START} \+ ${PART3_SIZE} \- 512)
 
-# Create image file
-dd if=/dev/zero of=${SDCARD} bs=1M count=2048
-
-# Create partition table
-parted -s ${SDCARD} mklabel msdos
-parted -s ${SDCARD} unit B mkpart primary fat32 ${PART1_START} ${PART1_END}
-parted -s ${SDCARD} unit B mkpart primary ${PART2_START} ${PART2_END}
-parted -s ${SDCARD} unit B mkpart primary ${PART3_START} ${PART3_END}
 
 # Flash install bins
 if [ "${MACHINE}" == "11f-r" ]; then
@@ -63,6 +55,37 @@ MTD_1=${BASE_DIR}/zImage
 MTD_2=${BASE_DIR}/reach-image-qt5-g2h-solo-${MACHINE}.ubifs
 MTD_3=${BASE_DIR}/u-boot-nor.imx
 MTD_4=${BASE_DIR}/u-boot-env-nor.bin
+
+# Make all the files exist
+if [ ! -f ${MTD_0} ]; then
+    echo "Cannot find ${MTD_0}"
+    exit 1
+fi
+if [ ! -f ${MTD_1} ]; then
+    echo "Cannot find ${MTD_1}"
+    exit 1
+fi
+if [ ! -f ${MTD_2} ]; then
+    echo "Cannot find ${MTD_2}"
+    exit 1
+fi
+if [ ! -f ${MTD_3} ]; then
+    echo "Cannot find ${MTD_3}"
+    exit 1
+fi
+if [ ! -f ${MTD_4} ]; then
+    echo "Cannot find ${MTD_4}"
+    exit 1
+fi
+
+# Create image file
+dd if=/dev/zero of=${SDCARD} bs=1M count=2048
+
+# Create partition table
+parted -s ${SDCARD} mklabel msdos
+parted -s ${SDCARD} unit B mkpart primary fat32 ${PART1_START} ${PART1_END}
+parted -s ${SDCARD} unit B mkpart primary ${PART2_START} ${PART2_END}
+parted -s ${SDCARD} unit B mkpart primary ${PART3_START} ${PART3_END}
 
 # create tmp for for factory partition
 MFG_TEMP_DIR="/tmp/$RANDOM"

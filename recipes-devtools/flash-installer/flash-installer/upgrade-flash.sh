@@ -42,6 +42,7 @@ fi
 sleep 3
 mount -t ubifs /dev/ubi0_0 $SD_MNT_DIR
 cp /etc/pointercal $SD_MNT_DIR/etc/
+cp /etc/ts.* $SD_MNT_DIR/etc/
 sync
 umount $SD_MNT_DIR
 /usr/sbin/ubidetach /dev/ubi_ctrl -m $MTD_NUM

@@ -82,6 +82,9 @@ do_compile () {
     g2h-solo-3f)
 	    oe_runmake g2h_solo_3f_spi_nor_defconfig
     ;;
+    g2h-solo-3-r)
+	    oe_runmake g2h_solo_3_spi_nor_defconfig
+    ;;
     g2h-solo-4)
 	    oe_runmake g2h_solo_4_spi_nor_defconfig
     ;;

@@ -48,6 +48,8 @@ PART3_END=$(expr ${PART3_START} \+ ${PART3_SIZE} \- 512)
 # Flash install bins
 if [ "${MACHINE}" == "11f-r" ]; then
 	MTD_0=${BASE_DIR}/zImage-imx6dl-g2h-11f.dtb
+elif [ "${MACHINE}" == "3-r" ]; then
+	MTD_0=${BASE_DIR}/zImage-imx6dl-g2h-3.dtb
 else
 	MTD_0=${BASE_DIR}/zImage-imx6dl-g2h-${MACHINE}.dtb
 fi
@@ -120,6 +122,8 @@ mkfs.vfat -n "boot" -S 512 -C ${BOOTIMAGE} $BOOT_BLOCKS
 mcopy -i ${BOOTIMAGE} -s ${BASE_DIR}/zImage  ::/zImage
 if [ "${MACHINE}" == "11f-r" ]; then
 	mcopy -i ${BOOTIMAGE} -s ${BASE_DIR}/zImage-imx6dl-g2h-11f.dtb  ::/imx6dl-g2h-11f.dtb
+elif [ "${MACHINE}" == "3-r" ]; then
+	mcopy -i ${BOOTIMAGE} -s ${BASE_DIR}/zImage-imx6dl-g2h-3.dtb  ::/imx6dl-g2h-3.dtb
 else
 	mcopy -i ${BOOTIMAGE} -s ${BASE_DIR}/zImage-imx6dl-g2h-${MACHINE}.dtb  ::/imx6dl-g2h-${MACHINE}.dtb
 fi

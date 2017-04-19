@@ -50,6 +50,7 @@ IMAGE_INSTALL_append = "\
     qt3d-tools \
     qtwebkit \
     qtwebkit-qmlplugins \
+    qtserialport \
     imx-test \    
     reach-qml-viewer-qt5 \
     reach-sio-agent \

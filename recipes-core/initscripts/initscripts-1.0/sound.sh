@@ -1,18 +1,18 @@
 #!/bin/sh
 
-SOUND="$(cat /proc/asound/cards)"     
+SOUND="$(cat /proc/asound/cards)"
 
 case "$1" in
   start)
-    if [[ "$SOUND" =~ "no soundcards" ]]; then
-        echo "Loading dummy sound module."    
-        modprobe snd_dummy;   
+    if [[ "$SOUND" == "--- no soundcards ---" ]]; then
+        echo "Loading dummy sound module."
+        modprobe snd_dummy;
     fi
     ;;
   stop)
-    if [[ "$SOUND" =~ "no soundcards" ]]; then
-        echo "Unloading dummy sound module."    
-        modprobe -r snd_dummy;   
+    if [[ "$SOUND" == "--- no soundcards ---" ]]; then
+        echo "Unloading dummy sound module."
+        modprobe -r snd_dummy;
     fi
 	;;
   restart)

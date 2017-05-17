@@ -1,0 +1,19 @@
+#!/bin/sh
+#
+# Splash image to fb
+#
+
+case "$1" in
+  start)
+        /usr/sbin/mfg-test --splash
+        ;;
+  stop)
+        ;;
+  restart|reload)
+        ;;
+  *)
+        echo "Usage: $0 {start|stop|restart}"
+        exit 1
+esac
+
+exit $?

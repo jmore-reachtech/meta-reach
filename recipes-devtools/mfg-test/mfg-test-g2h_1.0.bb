@@ -7,16 +7,34 @@ PR = "r2"
 DEPENDS = "i2c-tools"
 
 SRC_URI = "git://github.com/jmore-reachtech/reach-mfg-test.git;branch=g2h;protocol=git \
-    file://run-mfg_g2h.sh \
+    file://run-mfg.sh \
     file://run-calibration.sh \
     file://tone.sh \
     file://fruit_girl.bmp \
     file://beep.wav \
+    file://splash \
+    file://printk \
 "
+inherit update-rc.d
 
-SRCREV = "ffff50adf2a164fa1473b39df3f163a2a19a3a74"
+SRCREV = "2c7789c91c7c36213dc1f1017dfb2be9c64190bf"
 
 S = "${WORKDIR}/git"
+
+PACKAGES =+ "${PN}-splash ${PN}-printk"
+
+FILES_${PN} += "/usr/share/mfg-test ${sbindir}"
+
+FILES_${PN}-splash = "${sysconfdir}/init.d/splash"
+FILES_${PN}-printk = "${sysconfdir}/init.d/printk"
+
+INITSCRIPT_PACKAGES = "${PN}-splash ${PN}-printk"
+
+INITSCRIPT_NAME_${PN}-splash = "splash"
+INITSCRIPT_PARAMS_${PN}-splash = "start 60 S ."
+
+INITSCRIPT_NAME_${PN}-printk = "printk"
+INITSCRIPT_PARAMS_${PN}-printk = "start 10 S ."
 
 do_compile() {
 	make all
@@ -26,11 +44,13 @@ do_install() {
 	install -d ${D}${sbindir}
 	install -m 0755 ${S}/src/mfg-test ${D}${sbindir}
 	install -m 755 ${WORKDIR}/run-calibration.sh ${D}${sbindir}
-	
-    install -d ${D}/home/root
-    install -m 644 ${WORKDIR}/fruit_girl.bmp ${D}/home/root/fruit_girl.bmp
-    install -m 644 ${WORKDIR}/beep.wav ${D}/home/root/beep.wav
-    install -m 755 ${WORKDIR}/run-mfg_g2h.sh ${D}${sbindir}/run-mfg.sh
-}
 
-FILES_${PN} = "/home/root ${sbindir}"
+    install -d ${D}/usr/share/mfg-test
+    install -m 644 ${WORKDIR}/fruit_girl.bmp ${D}/usr/share/mfg-test/fruit_girl.bmp
+    install -m 644 ${WORKDIR}/beep.wav ${D}/usr/share/mfg-test/beep.wav
+    install -m 755 ${WORKDIR}/run-mfg.sh ${D}${sbindir}/run-mfg.sh
+
+    install -d ${D}${sysconfdir}/init.d/
+	install -m 0755 ${WORKDIR}/splash ${D}${sysconfdir}/init.d/splash
+    install -m 0755 ${WORKDIR}/printk ${D}${sysconfdir}/init.d/printk
+}

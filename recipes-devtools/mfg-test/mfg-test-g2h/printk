@@ -1,0 +1,21 @@
+#!/bin/sh
+#
+# Create /dev/[stdin,stdout,stderr]
+#
+
+case "$1" in
+  start)
+        echo "Setting kernel printk to KERN_ERR..."
+        echo 4 > /proc/sys/kernel/printk
+        ;;
+  stop)
+        ;;
+  restart|reload)
+        ;;
+  *)
+        echo "Usage: $0 {start|stop|restart}"
+        exit 1
+esac
+
+exit $?
+

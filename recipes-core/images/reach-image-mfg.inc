@@ -4,15 +4,14 @@ inherit core-image
 
 LICENSE = "MIT"
 
-CORE_IMAGE_EXTRA_INSTALL += "\
+IMAGE_INSTALL_append += "\
+    ${CORE_IMAGE_BASE_INSTALL} \
     packagegroup-custom-dev-tools \
     tslib \
     tslib-calibrate \
     tslib-tests \
     usbutils \
     bc \
-    coreutils \
-    psplash \
     ${REACH_MFG_TEST_PACKAGE} \
 "
 

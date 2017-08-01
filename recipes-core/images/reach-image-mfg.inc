@@ -13,6 +13,13 @@ IMAGE_INSTALL_append += "\
     usbutils \
     bc \
     ${REACH_MFG_TEST_PACKAGE} \
+    devregs \
+    openssh-sshd \
+    openssh-ssh \
+    openssh-scp \
+    openssh-sftp-server \
+    packagegroup-custom-dev-tools-gdb \
+    i2c-tools \
 "
 
 export IMAGE_BASENAME = "reach-image-mfg"

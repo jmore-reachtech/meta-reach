@@ -23,3 +23,12 @@ IMAGE_INSTALL_append += "\
 "
 
 export IMAGE_BASENAME = "reach-image-mfg"
+
+write_reach_part_number() {
+    # add reach partnumber
+    echo ${REACH_PN} > ${IMAGE_ROOTFS}/etc/reach-pn
+}
+
+ROOTFS_POSTPROCESS_COMMAND_append = " \
+    write_reach_part_number; \
+"

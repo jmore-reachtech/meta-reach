@@ -1,0 +1,43 @@
+From 19ee15f16404839a914879c6b5822162062590f1 Mon Sep 17 00:00:00 2001
+From: Jeff Horn <outforaride@gmail.com>
+Date: Mon, 11 Sep 2017 13:39:04 -0700
+Subject: [PATCH] Fix libuboot env link error
+
+Signed-off-by: Jeff Horn <outforaride@gmail.com>
+---
+ tools/env/fw_env.c      | 4 ++++
+ tools/env/fw_env_main.c | 3 ---
+ 2 files changed, 4 insertions(+), 3 deletions(-)
+
+diff --git a/tools/env/fw_env.c b/tools/env/fw_env.c
+index ee17a69..2533dc4 100644
+--- a/tools/env/fw_env.c
++++ b/tools/env/fw_env.c
+@@ -34,6 +34,10 @@
+ 
+ #include "fw_env.h"
+ 
++struct common_args common_args;
++struct printenv_args printenv_args;
++struct setenv_args setenv_args;
++
+ #define DIV_ROUND_UP(n, d)	(((n) + (d) - 1) / (d))
+ 
+ #define WHITESPACE(c) ((c == '\t') || (c == ' '))
+diff --git a/tools/env/fw_env_main.c b/tools/env/fw_env_main.c
+index 4bd4216..0564d90 100644
+--- a/tools/env/fw_env_main.c
++++ b/tools/env/fw_env_main.c
+@@ -49,9 +49,6 @@ static struct option long_options[] = {
+ 	{NULL, 0, NULL, 0}
+ };
+ 
+-struct common_args common_args;
+-struct printenv_args printenv_args;
+-struct setenv_args setenv_args;
+ 
+ void usage_printenv(void)
+ {
+-- 
+2.7.4
+

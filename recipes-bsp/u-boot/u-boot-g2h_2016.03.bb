@@ -39,8 +39,4 @@ do_compile_append () {
 do_install_append () {
 	cp ${S}/u-boot-env.bin ${DEPLOY_DIR_IMAGE}/u-boot-env-${DATETIME}.bin
     cd ${DEPLOY_DIR_IMAGE} && ln -sf u-boot-env-${DATETIME}.bin u-boot-env.bin
-
-    install -d ${D}${base_sbindir}
-	install -m 755 ${S}/tools/env/fw_printenv ${D}${base_sbindir}/fw_printenv
-	install -m 755 ${S}/tools/env/fw_printenv ${D}${base_sbindir}/fw_setenv
 }

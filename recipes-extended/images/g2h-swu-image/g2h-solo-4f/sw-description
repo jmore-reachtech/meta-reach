@@ -1,0 +1,15 @@
+software =
+{
+	version = "0.1.0";
+
+	hardware-compatibility: [ "revC"];
+
+	images: (
+		{
+			filename = "core-image-minimal-g2h-solo-4f.ext3";
+			device = "/dev/mmcblk0p2";
+			type = "raw";
+		}
+	);
+}
+

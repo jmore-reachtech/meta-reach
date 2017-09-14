@@ -68,6 +68,7 @@ IMAGE_INSTALL_append = "\
     ifplugd-init \
     flash-installer \
     reach-fb2image-qt5 \
+    u-boot-fw-utils \
 "
 
 IMAGE_INSTALL_append_g2h = "\

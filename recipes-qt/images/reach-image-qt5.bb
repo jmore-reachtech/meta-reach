@@ -4,6 +4,10 @@ LICENSE = "MIT"
 
 include qt5-versions.inc
 
+DEPENDS = "u-boot-g2h-nor"
+
+IMAGE_DEPENDS += "swupdate-image g2h-swu-image"
+
 IMAGE_OVERHEAD_FACTOR = "1.5"
 
 TOUCH = "tslib tslib-calibrate tslib-tests"

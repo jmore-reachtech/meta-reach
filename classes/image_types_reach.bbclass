@@ -27,8 +27,17 @@ IMAGE_CMD_linux.hab.sb () {
         rm -f ${DEPLOY_DIR_IMAGE}/$kernel_bin-dtb
 }
 
+# Boot partition volume id
+BOOTDD_VOLUME_ID ?= "Boot ${MACHINE}"
+
+# Barebox environment size [in KiB]
+BAREBOX_ENV_SPACE ?= "512"
+
+SDCARD = "${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.rootfs.sdcard"
+
 SDCARD_GENERATION_COMMAND_g2c = "generate_g2c_sdcard"
 SDCARD_GENERATION_COMMAND_g2h = "generate_g2h_sdcard"
+
 #
 # Create an image that can by written onto a SD card using dd for use
 # with i.MX SoC family
@@ -39,26 +48,13 @@ SDCARD_GENERATION_COMMAND_g2h = "generate_g2h_sdcard"
 #
 # The disk layout used is:
 #
-#    0                      -> IMAGE_ROOTFS_ALIGNMENT         - reserved to bootloader (not partitioned)
-#    IMAGE_ROOTFS_ALIGNMENT -> BOOT_SPACE                     - kernel and other data
-#    BOOT_SPACE             -> SDIMG_SIZE                     - rootfs
-#
-#                                                     Default Free space = 1.3x
-#                                                     Use IMAGE_OVERHEAD_FACTOR to add more space
-#                                                     <--------->
-#            4MiB               8MiB           SDIMG_ROOTFS                    4MiB
-# <-----------------------> <----------> <----------------------> <------------------------------>
-#  ------------------------ ------------ ------------------------ -------------------------------
-# | IMAGE_ROOTFS_ALIGNMENT | BOOT_SPACE | ROOTFS_SIZE            |     IMAGE_ROOTFS_ALIGNMENT    |
-#  ------------------------ ------------ ------------------------ -------------------------------
-# ^                        ^            ^                        ^                               ^
-# |                        |            |                        |                               |
-# 0                      4096     4MiB +  8MiB       4MiB +  8Mib + SDIMG_ROOTFS   4MiB +  8MiB + SDIMG_ROOTFS + 4MiB
+
 generate_g2h_sdcard () {
 	# Create partition table
     parted -s ${SDCARD} mklabel msdos
-	parted -s ${SDCARD} unit KiB mkpart primary fat32 ${IMAGE_ROOTFS_ALIGNMENT} $(expr ${IMAGE_ROOTFS_ALIGNMENT} \+ ${BOOT_SPACE_ALIGNED})
-	parted -s ${SDCARD} unit KiB mkpart primary $(expr  ${IMAGE_ROOTFS_ALIGNMENT} \+ ${BOOT_SPACE_ALIGNED}) $(expr ${IMAGE_ROOTFS_ALIGNMENT} \+ ${BOOT_SPACE_ALIGNED} \+ $ROOTFS_SIZE)
+	parted -s ${SDCARD} unit B mkpart primary fat32 ${PART1_START} ${PART1_END}
+	parted -s ${SDCARD} unit B mkpart primary ${PART2_START} ${PART2_END}
+	parted -s ${SDCARD} unit B mkpart primary ${PART3_START} ${PART3_END}
     parted ${SDCARD} print
 
 	# Burn bootloader
@@ -94,6 +90,9 @@ generate_g2h_sdcard () {
 	mkfs.vfat -n "${BOOTDD_VOLUME_ID}" -S 512 -C ${WORKDIR}/boot.img $BOOT_BLOCKS
 	mcopy -i ${WORKDIR}/boot.img -s ${DEPLOY_DIR_IMAGE}/${KERNEL_IMAGETYPE}-${MACHINE}.bin ::/${KERNEL_IMAGETYPE}
 
+	# Copy over rescue rootfs
+	mcopy -i ${WORKDIR}/boot.img -s ${DEPLOY_DIR_IMAGE}/swupdate-image-${MACHINE}.ext3.gz ::/swupdate.ext3.gz
+
 	# Copy boot scripts
 	for item in ${BOOT_SCRIPTS}; do
 		src=`echo $item | awk -F':' '{ print $1 }'`
@@ -117,8 +116,8 @@ generate_g2h_sdcard () {
 	fi
 
 	# Burn Partition
-	dd if=${WORKDIR}/boot.img of=${SDCARD} conv=notrunc seek=1 bs=$(expr ${IMAGE_ROOTFS_ALIGNMENT} \* 1024) && sync && sync
-	dd if=${SDCARD_ROOTFS} of=${SDCARD} conv=notrunc seek=1 bs=$(expr ${BOOT_SPACE_ALIGNED} \* 1024 + ${IMAGE_ROOTFS_ALIGNMENT} \* 1024) && sync && sync
+	dd if=${WORKDIR}/boot.img of=${SDCARD} conv=notrunc seek=$(expr ${PART1_START} / 512) bs=512 && sync && sync
+	dd if=${SDCARD_ROOTFS} of=${SDCARD} conv=notrunc seek=$(expr ${PART2_START} / 512) bs=512
 }
 
 #
@@ -241,3 +240,40 @@ generate_g2c_sdcard () {
 
 	dd if=${SDCARD_ROOTFS} of=${SDCARD} conv=notrunc seek=1 bs=$(expr ${BOOT_SPACE_ALIGNED} \* 1024 + ${IMAGE_ROOTFS_ALIGNMENT} \* 1024) && sync && sync
 }
+
+IMAGE_CMD_sdcard () {
+	if [ -z "${SDCARD_ROOTFS}" ]; then
+		bberror "SDCARD_ROOTFS is undefined. To use sdcard image from Freescale's BSP it needs to be defined."
+		exit 1
+	fi
+
+	# boot partition
+	PART1_SIZE=$(expr 1024 \* 1024 \* 16)
+	# rootfs partition
+	PART2_SIZE=$(expr 1024 \* 1024 \* 768)
+	# factory partition
+	PART3_SIZE=$(expr 1024 \* 1024 \* 768)
+	# sdcard size
+	SDCARD_SIZE=$(expr ${PART1_SIZE} \+ ${PART2_SIZE} \+ ${PART3_SIZE})
+	bbnote "SD card size set to ${SDCARD_SIZE}"
+
+	# SD card layout
+	PART1_START=$(expr 1024 \* 1024 \* 8)
+	PART1_END=$(expr ${PART1_START} \+ ${PART1_SIZE} \- 512)
+
+	PART2_START=$(expr ${PART1_END} \+ 512)
+	PART2_END=$(expr ${PART2_START} \+ ${PART2_SIZE} \- 512)
+
+	PART3_START=$(expr ${PART2_END} \+ 512)
+	PART3_END=$(expr ${PART3_START} \+ ${PART3_SIZE} \- 512)
+
+	# Initialize a sparse file
+	# TODO: calculate SDCARD_SIZE correctly and use here
+	dd if=/dev/zero of=${SDCARD} bs=1M count=2048
+
+	${SDCARD_GENERATION_COMMAND}
+}
+
+# The sdcard requires the rootfs filesystem to be built before using
+# it so we must make this dependency explicit.
+IMAGE_TYPEDEP_sdcard = "${@d.getVar('SDCARD_ROOTFS', 1).split('.')[-1]}"

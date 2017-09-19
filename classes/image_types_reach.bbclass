@@ -115,9 +115,28 @@ generate_g2h_sdcard () {
 		done
 	fi
 
+	# create tmp for for factory partition
+	FACTORY_TEMP_DIR="${WORKDIR}/factory"
+	mkdir -p ${FACTORY_TEMP_DIR}
+
+	# copy bins to factory partition
+	cp -L ${DEPLOY_DIR_IMAGE}/${KERNEL_IMAGETYPE}-${DTS_BASE_NAME}.dtb ${FACTORY_TEMP_DIR}/mtd.0.nand
+	cp -L ${DEPLOY_DIR_IMAGE}/${KERNEL_IMAGETYPE}-${MACHINE}.bin ${FACTORY_TEMP_DIR}/mtd.1.nand
+	cp -L ${DEPLOY_DIR_IMAGE}/${IMAGE_BASENAME}-${MACHINE}.ubifs ${FACTORY_TEMP_DIR}/mtd.2.ubifs.rootfs0
+	cp -L ${DEPLOY_DIR_IMAGE}/u-boot-nor.${UBOOT_SUFFIX_SDCARD} ${FACTORY_TEMP_DIR}/mtd.3.imx
+	cp -L ${DEPLOY_DIR_IMAGE}/u-boot-env-nor.bin ${FACTORY_TEMP_DIR}/mtd.4.bin
+
+	genext2fs -b $(expr 512 \* 1024) -d ${FACTORY_TEMP_DIR} -i 8192 ${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.factory.ext3
+	tune2fs -j ${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.factory.ext3
+	cd ${DEPLOY_DIR_IMAGE} && ln -s ${IMAGE_NAME}.factory.ext3 ${IMAGE_BASENAME}-${MACHINE}.factory.ext3
+
+	# clean up factory tmp dir
+	rm -rf ${FACTORY_TEMP_DIR}
+
 	# Burn Partition
 	dd if=${WORKDIR}/boot.img of=${SDCARD} conv=notrunc seek=$(expr ${PART1_START} / 512) bs=512 && sync && sync
 	dd if=${SDCARD_ROOTFS} of=${SDCARD} conv=notrunc seek=$(expr ${PART2_START} / 512) bs=512
+	dd if=${DEPLOY_DIR_IMAGE}/${IMAGE_BASENAME}-${MACHINE}.factory.ext3 of=${SDCARD} conv=notrunc seek=$(expr ${PART3_START} / 512) bs=512
 }
 
 #

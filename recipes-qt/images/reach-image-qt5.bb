@@ -4,7 +4,7 @@ LICENSE = "MIT"
 
 include qt5-versions.inc
 
-DEPENDS = "u-boot-g2h-nor swupdate-image g2h-swu-image"
+DEPENDS = "u-boot-g2h-nor"
 
 IMAGE_OVERHEAD_FACTOR = "1.5"
 

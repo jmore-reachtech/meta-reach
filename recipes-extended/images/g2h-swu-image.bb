@@ -15,16 +15,16 @@ LIC_FILES_CHKSUM = "file://${COREBASE}/LICENSE;md5=4d92cd373abda3937c2bc47fbc49d
 
 # IMAGE_DEPENDS: list of Yocto images that contains a root filesystem
 # it will be ensured they are built before creating swupdate image
-IMAGE_DEPENDS = "core-image-minimal"
+IMAGE_DEPENDS = "reach-image-qt5"
 
 # SWUPDATE_IMAGES: list of images that will be part of the compound image
 # the list can have any binaries - images must be in the DEPLOY directory
 SWUPDATE_IMAGES = " \
-                core-image-minimal \
+                reach-image-qt5 \
                 "
 
 # Images can have multiple formats - define which image must be
 # taken to be put in the compound image
-SWUPDATE_IMAGES_FSTYPES[core-image-minimal] = ".ext3"
+SWUPDATE_IMAGES_FSTYPES[reach-image-qt5] = ".ext3"
 
 COMPATIBLE = "g2h"

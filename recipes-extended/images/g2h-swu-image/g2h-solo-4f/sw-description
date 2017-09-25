@@ -6,7 +6,7 @@ software =
 
 	images: (
 		{
-			filename = "core-image-minimal-g2h-solo-4f.ext3";
+			filename = "reach-image-qt5-g2h-solo-4f.ext3";
 			device = "/dev/mmcblk0p2";
 			type = "raw";
 		}

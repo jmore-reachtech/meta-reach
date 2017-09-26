@@ -11,6 +11,7 @@ SRC_URI = "git://github.com/sbabic/swupdate.git;protocol=git \
      file://defconfig \
      file://swupdate \
      file://swupdate.service \
+     file://hwrevision \
      "
 
 SRCREV = "${AUTOREV}"
@@ -101,6 +102,7 @@ do_install () {
 
   install -d ${D}${sysconfdir}/init.d
   install -m 755 ${WORKDIR}/swupdate ${D}${sysconfdir}/init.d
+  install -m 755 ${WORKDIR}/hwrevision ${D}${sysconfdir}
 
   install -d ${D}${systemd_unitdir}/system
   install -m 644 ${WORKDIR}/swupdate.service ${D}${systemd_unitdir}/system

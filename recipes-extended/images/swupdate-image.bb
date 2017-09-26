@@ -10,10 +10,10 @@ IMAGE_INSTALL = "base-files \
 		mtd-utils-ubifs \
 		libconfig \
 		swupdate \
-		swupdate-www \
         ${@bb.utils.contains('SWUPDATE_INIT', 'tiny', 'initscripts-swupdate', 'initscripts sysvinit', d)} \
 		util-linux-sfdisk \
 		u-boot-fw-utils \
+		lua \
 "
 
 USE_DEVFS = "1"

@@ -9,7 +9,8 @@ SRCREV = "9207512c4747410b6d74f1c2e6c2af30a36290a2"
 
 SRC_URI = "git://github.com/jmore-reachtech/reach-imx-u-boot.git;branch=2016.03+reach-dizzy;protocol=git \
     file://001-libuboot-env-link-error.patch \
-    file://fw_env.config \
+    file://fw_env_mmc.config \
+    file://fw_env_nor.config \
 "
 
 S = "${WORKDIR}/git"
@@ -30,7 +31,8 @@ do_install () {
 	install -d ${D}${sysconfdir}
 	install -m 755 ${S}/tools/env/fw_printenv ${D}${base_sbindir}/fw_printenv
 	install -m 755 ${S}/tools/env/fw_printenv ${D}${base_sbindir}/fw_setenv
-	install -m 0644 ${WORKDIR}/fw_env.config ${D}${sysconfdir}/fw_env.config
+	install -m 0644 ${WORKDIR}/fw_env_mmc.config ${D}${sysconfdir}/fw_env_mmc.config
+	install -m 0644 ${WORKDIR}/fw_env_nor.config ${D}${sysconfdir}/fw_env_nor.config
 
         install -d ${D}${libdir}
         install -m 644  ${S}/tools/env/lib.a ${D}${libdir}/libubootenv.a

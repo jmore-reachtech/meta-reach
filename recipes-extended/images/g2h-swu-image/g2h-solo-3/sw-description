@@ -1,0 +1,15 @@
+software =
+{
+	version = "0.1.0";
+
+	hardware-compatibility: [ "revC"];
+
+	images: (
+		{
+			filename = "reach-image-qt5-g2h-solo-3.ext3";
+			device = "/dev/mmcblk0p2";
+			type = "raw";
+		}
+	);
+}
+

@@ -125,6 +125,7 @@ generate_g2h_sdcard () {
 	cp -L ${DEPLOY_DIR_IMAGE}/${IMAGE_BASENAME}-${MACHINE}.ubifs ${FACTORY_TEMP_DIR}/mtd.2.ubifs.rootfs0
 	cp -L ${DEPLOY_DIR_IMAGE}/u-boot-nor.${UBOOT_SUFFIX_SDCARD} ${FACTORY_TEMP_DIR}/mtd.3.imx
 	cp -L ${DEPLOY_DIR_IMAGE}/u-boot-env-nor.bin ${FACTORY_TEMP_DIR}/mtd.4.bin
+	cp -L ${DEPLOY_DIR_IMAGE}/swupdate-image-${MACHINE}.ext3.gz ${FACTORY_TEMP_DIR}/mtd.6.bin
 
 	genext2fs -b $(expr 512 \* 1024) -d ${FACTORY_TEMP_DIR} -i 8192 ${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.factory.ext3
 	tune2fs -j ${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.factory.ext3

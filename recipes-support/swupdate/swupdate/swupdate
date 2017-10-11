@@ -51,8 +51,8 @@ do_start() {
     /sbin/fw_setenv swupdate false
 
     echo "Rebooting the system!"
-    sleep 5
-    reboot
+    #sleep 5
+    #reboot
 }
 
 do_stop() {

@@ -21,10 +21,14 @@ IMAGE_DEPENDS = "reach-image-qt5"
 # the list can have any binaries - images must be in the DEPLOY directory
 SWUPDATE_IMAGES = " \
                 reach-image-qt5 \
+                zImage-imx6dl \
+                zImage \
                 "
 
 # Images can have multiple formats - define which image must be
 # taken to be put in the compound image
 SWUPDATE_IMAGES_FSTYPES[reach-image-qt5] = ".ext3"
+SWUPDATE_IMAGES_FSTYPES[zImage-imx6dl] = ".dtb"
+SWUPDATE_IMAGES_FSTYPES[zImage] = ".bin"
 
 COMPATIBLE = "g2h"

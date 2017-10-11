@@ -4,12 +4,69 @@ software =
 
 	hardware-compatibility: [ "revC"];
 
-	images: (
-		{
-			filename = "reach-image-qt5-g2h-solo-4f.ext3";
-			device = "/dev/mmcblk0p2";
-			type = "raw";
-		}
-	);
+    partitions: (
+        {
+            name = "rootfs";
+            device = "mtd2";
+            size = "525860864";
+        },
+        {
+            name = "kernel";
+            device = "mtd1";
+            size = "10485760";
+        },
+        {
+            name = "dtb";
+            device = "mtd0";
+            size = "524288";
+        }
+    );
+
+    mmc = {
+        stable:
+        {
+	        images: (
+		        {
+			        filename = "reach-image-qt5-g2h-solo-4f.ext3";
+			        device = "/dev/mmcblk0p2";
+			        type = "raw";
+		        },
+                {
+			        filename = "zImage-imx6dl-g2h-4f.dtb";
+                    path = "/";
+			        device = "/dev/mmcblk0p1";
+			        type = "vfat";
+		        },
+                {
+			        filename = "zImage-g2h-solo-4f.bin";
+                    path = "/zImage";
+			        device = "/dev/mmcblk0p1";
+			        type = "vfat";
+		        }
+
+	        );
+        };
+    };
+
+    mtd = {
+        stable:
+        {
+	        images: (
+		        {
+			        filename = "reach-image-qt5-g2h-solo-4f.ext3";
+			        volume = "rootfs";
+		        },
+                {
+			        filename = "zImage-imx6dl-g2h-4f.dtb";
+			        volume = "dtb";
+		        },
+                {
+			        filename = "zImage";
+			        volume = "kernel";
+		        }
+
+	        );
+        };
+    };
 }
 

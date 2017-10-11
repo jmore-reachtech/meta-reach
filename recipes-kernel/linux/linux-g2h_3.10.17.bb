@@ -16,3 +16,7 @@ LOCALVERSION = "-1.0.2-reach"
 DEPENDS += "lzop-native bc-native"
 
 COMPATIBLE_MACHINE = "(g2h)"
+
+do_install_append() {
+    bbnote "Make symlink"
+}

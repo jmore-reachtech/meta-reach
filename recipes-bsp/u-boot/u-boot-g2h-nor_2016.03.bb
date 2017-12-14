@@ -94,6 +94,9 @@ do_compile () {
     g2h-solo-6)
 	    oe_runmake g2h_solo_6_spi_nor_defconfig
     ;;
+    g2h-solo-7f)
+	    oe_runmake g2h_solo_11f_spi_nor_defconfig
+    ;;
     g2h-solo-13)
 	    oe_runmake g2h_solo_13_spi_nor_defconfig
     ;;
@@ -113,6 +116,12 @@ do_compile () {
 	    oe_runmake g2h_solo_11f_spi_nor_defconfig
     ;;
     g2h-solo-12f)
+	    oe_runmake g2h_solo_12f_spi_nor_defconfig
+    ;;
+    g2h-solo-18f)
+	    oe_runmake g2h_solo_11f_spi_nor_defconfig
+    ;;
+    g2h-solo-19f)
 	    oe_runmake g2h_solo_12f_spi_nor_defconfig
     ;;
     esac

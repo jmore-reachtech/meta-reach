@@ -6,7 +6,7 @@ case "$1" in
 		if [ -f /etc/profile.d/tslib.sh ]; then                      
 			source /etc/profile.d/tslib.sh                       
 		fi
-                if [ "`cat /proc/device-tree/soc/aips-bus\@02100000/i2c\@021a0000/touch\@38/status`" = "okay" ]; then
+                if [ "`cat /proc/device-tree/soc/aips-bus\@02100000/i2c\@021a0000/evr_ft5x06_ts\@38/status`" = "okay" ]; then
                   echo "Using pcap ts conf"
                   ln -sf /etc/ts.conf.pcap /etc/ts.conf
                 elif [ "`lsusb | grep D-WAV`" != "" ]; then

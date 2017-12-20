@@ -1,18 +1,18 @@
 #!/bin/sh
 
 EIO_AGENT=/application/bin/eio-agent
-EIO_ARGS="-v -s 8080"
+EIO_PORT=7880
 
 case "$1" in
 start)
 	# show this during quiet boot too.
 	echo "starting EIO Agent..." >&2
-	start-stop-daemon -m -p /var/run/eio_agent.pid -b -a $EIO_AGENT -S -- $TIO_ARGS
+	start-stop-daemon -m -p /var/run/eio_agent.pid -b -a $EIO_AGENT -S -- -s $EIO_PORT
 	;;
 stop)
-        echo "stoping EIO Agent..."
-        start-stop-daemon -p /var/run/eio_agent.pid -K
-        ;;
+	echo "stoping EIO Agent..."
+	start-stop-daemon -p /var/run/eio_agent.pid -K
+	;;
 restart)
 	$0 stop
 	$0 start

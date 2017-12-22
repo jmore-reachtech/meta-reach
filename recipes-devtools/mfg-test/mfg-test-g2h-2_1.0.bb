@@ -17,7 +17,7 @@ SRC_URI = "git://github.com/jmore-reachtech/reach-mfg-test-2.git;branch=master;p
 "
 inherit update-rc.d
 
-SRCREV = "4701fc6c2e7c0cbcaa25d001a0e2f9e7eaed4174"
+SRCREV = "69ed48e8c23a717c3aa713a41cdb43bdfcefe171"
 
 S = "${WORKDIR}/git"
 

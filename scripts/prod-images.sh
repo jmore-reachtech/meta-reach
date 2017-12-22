@@ -13,6 +13,9 @@ function build_mfg() {
     M=$1
     P=$2
     MACHINE=$M REACH_PN=$P bitbake reach-version -c cleansstate
+    # u-boot-g2h-nor does not create the deploy/images dir so build
+    # the kernel first so the dir exists
+    MACHINE=$M REACH_PN=$P bitbake virtual/kernel
     MACHINE=$M REACH_PN=$P bitbake u-boot-g2h-nor reach-image-qt5
     cp -L ${DEPLOY_DIR}/${M}/${IMG_PREFIX}${M}${IMG_EXT} ${P}.img
     zip ${P}.img.zip ${P}.img

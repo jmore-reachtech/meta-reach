@@ -5,7 +5,7 @@ LIC_FILES_CHKSUM = "file://${COREBASE}/LICENSE;md5=3f40d7994397109285ec7b81fdeb3
 PR = "r1"
 
 SRCREV = "937c064225024b6a5830721a4f7fe8cca419477a"
-SRC_URI = "git://git@github.com/jmore-reachtech/reach-eio-agent.git;protocol=ssh \
+SRC_URI = "git://github.com/jmore-reachtech/reach-eio-agent.git;protocol=git \
                    file://eio-agent \
           "
           

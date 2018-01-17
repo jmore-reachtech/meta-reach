@@ -15,3 +15,10 @@ LOCALVERSION = "-1.0.2-reach"
 DEPENDS += "lzop-native bc-native"
 
 COMPATIBLE_MACHINE = "(g2h)"
+
+# Our device tree names do not match the machine names, create a symlink so swupdate can find
+# the device tree
+do_deploy_append() {
+    bbnote "Create device tree symlink"
+    cd ${DEPLOYDIR} && ln -sf ${KERNEL_IMAGETYPE}-${KERNEL_DEVICETREE} ${KERNEL_IMAGETYPE}-${MACHINE}.dtb
+}

@@ -13,10 +13,10 @@ IMAGE_INSTALL = "base-files \
 		libconfig \
 		util-linux-sfdisk \
 		u-boot-g2h \
-		lua \
         openssh-sshd \
         openssh-ssh \
         psplash \
+        swupdate-installer \
 "
 
 USE_DEVFS = "1"

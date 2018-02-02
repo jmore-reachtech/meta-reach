@@ -4,19 +4,20 @@ DESCRIPTION = "Root FS to start swupdate in rescue mode"
 DEPENDS = "u-boot-g2h-nor"
 
 IMAGE_INSTALL = "base-files \
-		base-passwd \
-		busybox \
-        initscripts \
-        sysvinit \
-		mtd-utils \
-		mtd-utils-ubifs \
-		libconfig \
-		util-linux-sfdisk \
-		u-boot-g2h \
-        openssh-sshd \
-        openssh-ssh \
-        psplash \
-        swupdate-installer \
+    base-passwd \
+    busybox \
+    initscripts \
+    sysvinit \
+    mtd-utils \
+    mtd-utils-ubifs \
+    libconfig \
+    curl \
+    util-linux-sfdisk \
+    u-boot-g2h \
+    openssh-sshd \
+    openssh-ssh \
+    psplash \
+    swupdate-installer \
 "
 
 USE_DEVFS = "1"

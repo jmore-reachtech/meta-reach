@@ -39,14 +39,14 @@ do_install () {
     oe_libinstall -a libscan ${D}${libdir}/
 }
 
-PACKAGES =+ "mtd-utils-jffs2 mtd-utils-ubifs mtd-utils-misc lib${BPN}-dev lib${BPN}-staticdev"
+PACKAGES =+ "${PN}-jffs2 ${PN}-ubifs ${PN}-misc lib${PN}-dev lib${PN}-staticdev"
 
-FILES_lib${BPN}-staticdev = "${libdir}/lib*.a"
-FILES_lib${BPN}-dev = "${includedir}"
+FILES_lib${PN}-dev = "${includedir}"
+FILES_lib${PN}-staticdev = "${libdir}/lib*.a"
 
-FILES_mtd-utils-jffs2 = "${sbindir}/mkfs.jffs2 ${sbindir}/jffs2dump ${sbindir}/jffs2reader ${sbindir}/sumtool"
-FILES_mtd-utils-ubifs = "${sbindir}/mkfs.ubifs ${sbindir}/ubi*"
-FILES_mtd-utils-misc = "${sbindir}/nftl* ${sbindir}/ftl* ${sbindir}/rfd* ${sbindir}/doc* ${sbindir}/serve_image ${sbindir}/recv_image"
+FILES_${PN}-jffs2 = "${sbindir}/mkfs.jffs2 ${sbindir}/jffs2dump ${sbindir}/jffs2reader ${sbindir}/sumtool"
+FILES_${PN}-ubifs = "${sbindir}/mkfs.ubifs ${sbindir}/ubi*"
+FILES_${PN}-misc = "${sbindir}/nftl* ${sbindir}/ftl* ${sbindir}/rfd* ${sbindir}/doc* ${sbindir}/serve_image ${sbindir}/recv_image"
 
 BBCLASSEXTEND = "native nativesdk"
 

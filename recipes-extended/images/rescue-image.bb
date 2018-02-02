@@ -3,6 +3,8 @@ DESCRIPTION = "Root FS to start swupdate in rescue mode"
 
 DEPENDS = "u-boot-g2h-nor"
 
+inherit image
+
 IMAGE_INSTALL = "base-files \
     base-passwd \
     busybox \
@@ -34,8 +36,6 @@ LICENSE = "MIT"
 IMAGE_FSTYPES = "ext3.gz"
 
 IMAGE_ROOTFS_SIZE = "8192"
-
-inherit image
 
 remove_locale_data_files() {
 	printf "Post processing local %s\n" ${IMAGE_ROOTFS}${libdir}/locale

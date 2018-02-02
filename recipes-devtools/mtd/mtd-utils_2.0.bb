@@ -36,11 +36,13 @@ do_install () {
     install -m 0644 ${S}/include/mtd/ubi-media.h ${D}${includedir}/mtd/
     oe_libinstall -a libubi ${D}${libdir}/
     oe_libinstall -a libmtd ${D}${libdir}/
+    oe_libinstall -a libscan ${D}${libdir}/
 }
 
-PACKAGES =+ "mtd-utils-jffs2 mtd-utils-ubifs mtd-utils-misc"
+PACKAGES =+ "mtd-utils-jffs2 mtd-utils-ubifs mtd-utils-misc lib${BPN}-dev lib${BPN}-staticdev"
 
-FILES_${PN}-staticdev += "ubi-utils/libubi.a ${libdir}/*.a"
+FILES_lib${BPN}-staticdev = "${libdir}/lib*.a"
+FILES_lib${BPN}-dev = "${includedir}"
 
 FILES_mtd-utils-jffs2 = "${sbindir}/mkfs.jffs2 ${sbindir}/jffs2dump ${sbindir}/jffs2reader ${sbindir}/sumtool"
 FILES_mtd-utils-ubifs = "${sbindir}/mkfs.ubifs ${sbindir}/ubi*"

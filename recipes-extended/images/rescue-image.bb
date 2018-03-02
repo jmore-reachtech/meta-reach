@@ -18,8 +18,9 @@ IMAGE_INSTALL = "base-files \
     u-boot-g2h \
     openssh-sshd \
     openssh-ssh \
+    openssh-scp \
     psplash \
-    swupdate-installer \
+    reach-swupgrade \
 "
 
 USE_DEVFS = "1"

@@ -6,7 +6,7 @@ LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda
 SRC_URI[md5sum] = "36c5e6b6e91ac4b2dc9071f06875be87"
 SRC_URI[sha256sum] = "710269ce456597628b990b90d65ab335bfe4e3cd3741471c5333053b84300d25"
 
-SRCREV = "a998b5843bf0410feda5e50674541a9f28ccb1f6"
+SRCREV = "401b589b2ca08838eb1a2ca96464923db8527e8a"
 
 SRC_URI = "git://github.com/jmore-reachtech/reach-imx-u-boot.git;branch=2016.03+reach-dizzy;protocol=git \
 	file://env.txt \

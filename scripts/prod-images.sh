@@ -25,11 +25,12 @@ rm -f *.img
 rm -f *.zip
 
 # this matches the list below
-IMG_COUNT=16
+IMG_COUNT=17
 
 #         Machine name      Part number
 build_mfg "g2h-solo-3"      "S016-006"
 build_mfg "g2h-solo-3-r"    "S054-002"
+build_mfg "g2h-solo-3-c"    "S065-001"
 build_mfg "g2h-solo-3f"     "S058-002"
 build_mfg "g2h-solo-4"      "S017-006"
 build_mfg "g2h-solo-4f"     "S057-002"

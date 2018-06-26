@@ -6,7 +6,6 @@ inherit packagegroup
 
 PACKAGES = "\
  packagegroup-reach-qml-viewer-qt4e \
- packagegroup-reach-qml-viewer-qt4x11 \
 "
 
 RDEPENDS_${PN}-qt4e = " \
@@ -16,10 +15,4 @@ RDEPENDS_${PN}-qt4e = " \
         reach-tio-agent \
         reach-eio-agent \
         reach-io-demo \
-"
-
-RDEPENDS_${PN}-qt4x11 = " \
-        reach-qml-viewer-qt4x11 \
-        reach-sio-agent \
-        reach-tio-agent \
 "

@@ -1,0 +1,31 @@
+From 365622870d8f1fe6c975a3a84c089676e28ebed9 Mon Sep 17 00:00:00 2001
+From: Jeff Horn <jeff.horn@reachtech.com>
+Date: Thu, 1 Nov 2018 14:22:57 -0700
+Subject: [PATCH 2/3] fbmem.c: Add call to FB_BLANK_UNBLANK
+
+* We need to blank the panel after the boot logo is set
+
+Signed-off-by: Jeff Horn <jeff.horn@reachtech.com>
+---
+ drivers/video/fbdev/core/fbmem.c | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/drivers/video/fbdev/core/fbmem.c b/drivers/video/fbdev/core/fbmem.c
+index 76c1ad9..f1c33a1 100644
+--- a/drivers/video/fbdev/core/fbmem.c
++++ b/drivers/video/fbdev/core/fbmem.c
+@@ -450,6 +450,11 @@ static void fb_do_show_logo(struct fb_info *info, struct fb_image *image,
+ 			image->dy -= image->height + 8;
+ 		}
+ 	}
++
++    /* now the logo is in the framebuffer, blank the panel */
++    if (info->fbops->fb_blank) {
++        info->fbops->fb_blank(FB_BLANK_UNBLANK, info);
++    }
+ }
+ 
+ static int fb_show_logo_line(struct fb_info *info, int rotate,
+-- 
+2.7.4
+

@@ -28,6 +28,7 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     packagegroup-fsl-gstreamer1.0-full \
     imx-codec-aac \
     reach-qml-app \
+    i2c-tools \
 "
 
 def get_layers(bb, d):
@@ -66,6 +67,11 @@ write_meta_layers() {
     echo "${@get_layers(bb, d)}" >> ${IMAGE_ROOTFS}/etc/reach-version
 }
 
+write_software_release() {
+    echo ${REACH_RELEASE} > ${IMAGE_ROOTFS}/etc/reach-release
+}
+
 ROOTFS_POSTPROCESS_COMMAND_append = " \
     write_meta_layers; \
+    write_software_release; \
 "

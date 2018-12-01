@@ -4,8 +4,6 @@ LICENSE = "CLOSED"
 
 inherit core-image
 
-IMAGE_FEATURES += "ssh-server-openssh"
-
 TOUCH = "tslib tslib-calibrate tslib-tests"
 
 CORE_IMAGE_EXTRA_INSTALL += " \
@@ -29,6 +27,9 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     imx-codec-aac \
     reach-qml-app \
     i2c-tools \
+    openssh\
+    openssh-scp\
+    openssh-sftp-server \
 "
 
 def get_layers(bb, d):

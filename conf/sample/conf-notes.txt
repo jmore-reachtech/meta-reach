@@ -1,0 +1,4 @@
+Common targets are:
+    reach-core-image-minimal
+    reach-image-qt5
+

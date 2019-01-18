@@ -11,6 +11,7 @@ PV = "v2016.03+git${SRCPV}"
 SRCREV = "05eb6d29956f85f3a7161f5d66d1f65661ac75a8"
 SRCBRANCH = "2016.03.02"
 SRC_URI = "git://github.com/jmore-reachtech/reach-imx-u-boot.git;branch=${SRCBRANCH} \
+	   file://0001-include-configs-g2h.h-Change-dtb-name-for-new-test-b.patch \
 "
 
 S = "${WORKDIR}/git"

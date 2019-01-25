@@ -11,7 +11,7 @@ PV = "v2019.01+git${SRCPV}"
 
 SRCREV = "a085bdd6fec577c649c8e3238ff6eb0357c82325"
 SRCBRANCH = "2019.01+reach-thud"
-SRC_URI = "git://github.com/sakoman/reach-imx-u-boot.git;branch=${SRCBRANCH} \
+SRC_URI = "git://github.com/jmore-reachtech/reach-imx-u-boot.git;branch=${SRCBRANCH} \
 "
 
 S = "${WORKDIR}/git"

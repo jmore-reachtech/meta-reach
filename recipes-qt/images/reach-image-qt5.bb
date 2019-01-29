@@ -30,6 +30,7 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     openssh\
     openssh-scp\
     openssh-sftp-server \
+    splash \
 "
 
 def get_layers(bb, d):

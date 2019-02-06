@@ -19,7 +19,7 @@ start() {
     fi
     
 	printf "Starting Qml Application: "
-	start-stop-daemon -b -S -q -m -p /var/run/qmlapp.pid --exec /usr/bin/qt5/qmlscene -- $QML_APP_ARGS $QML_APP_PATH
+	start-stop-daemon -b -S -q -m -p /var/run/qmlapp.pid --exec /usr/bin/qmlscene -- $QML_APP_ARGS $QML_APP_PATH
 	echo "OK"
 }
 

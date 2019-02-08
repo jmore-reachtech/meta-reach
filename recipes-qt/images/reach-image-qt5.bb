@@ -70,7 +70,7 @@ write_meta_layers() {
 }
 
 write_software_release() {
-    echo ${REACH_RELEASE} > ${IMAGE_ROOTFS}/etc/reach-release
+    echo ${MENDER_ARTIFACT_NAME} > ${IMAGE_ROOTFS}/etc/reach-release
 }
 
 ROOTFS_POSTPROCESS_COMMAND_append = " \

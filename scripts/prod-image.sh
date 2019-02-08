@@ -1,33 +1,41 @@
 #!/bin/bash
 
-# we need this in order to set /etc/reach-release
-export BB_ENV_EXTRAWHITE="$BB_ENV_EXTRAWHITE REACH_PN"
-
 clear
 
 DEPLOY_DIR="./tmp/deploy/images"
-IMG="sciton-image-qt5"
-IMG_EXT=".wic"
-IMG_COMPRESS=".gz"
+IMG="reach-image-qt5"
+IMG_EXT=".sdimg"
+IMG_EXT2=".mender"
 
 function build_img() {
-	M=$1
-	P=$2
-    MACHINE=$M REACH_RELEASE=${P} bitbake ${IMG}
-    cp -L ${DEPLOY_DIR}/${M}/${IMG}-${M}${IMG_EXT}${IMG_COMPRESS} .
-	gunzip -d ${IMG}-${M}${IMG_EXT}${IMG_COMPRESS}
-	mv ${IMG}-${M}${IMG_EXT} ${P}.img
-    zip ${P}.img.zip ${P}.img
+    M=$1
+    P=$2
+
+# build image
+    echo MENDER_ARTIFACT_NAME=\"${P}\" > ./conf/site.conf
+    MACHINE=$M bitbake ${IMG}
+    rm ./conf/site.conf
+
+# copy, rename, and compress full image
+    cp -L ${DEPLOY_DIR}/${M}/${IMG}-${M}${IMG_EXT} .
+    mv ${IMG}-${M}${IMG_EXT} ${IMG}-${P}${IMG_EXT}
+    zip ${IMG}-${P}${IMG_EXT}.zip ${IMG}-${P}${IMG_EXT}
+# copy, and rename update image
+# no need to compress since it is already a .gz file
+    cp -L ${DEPLOY_DIR}/${M}/${IMG}-${M}${IMG_EXT2} .
+    mv ${IMG}-${M}${IMG_EXT2} ${IMG}-${P}${IMG_EXT2}
+
 }
 
-rm -f *.img
-rm -f *.zip
+rm -f *.sdimg
+rm -f *.sdimg.zip
+rm -f *.mender
 
 # this matches the list below
 IMG_COUNT=1
 
-#         Machine name      Part number
-build_img "sciton"      	"S046-004A"
+#         Machine name   Release name
+build_img "reach"      	"0.0.0.3"
 
 IMG_BUILT=$(ls -lt *.zip | wc -l)
 

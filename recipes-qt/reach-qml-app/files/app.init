@@ -4,7 +4,7 @@
 #
 
 QML_APP_ARGS="-platform eglfs -plugin tslib"
-QML_APP_PATH="/custom/main.qml"
+QML_APP_PATH="/data/qml-app/main.qml"
 
 source /etc/profile.d/tslib.sh
 

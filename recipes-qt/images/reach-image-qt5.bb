@@ -25,7 +25,8 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     strace \
     packagegroup-fsl-gstreamer1.0-full \
     imx-codec-aac \
-    reach-qml-app \
+    reach-qml-medical \
+    reach-qml-viewer \
     i2c-tools \
     openssh\
     openssh-scp\

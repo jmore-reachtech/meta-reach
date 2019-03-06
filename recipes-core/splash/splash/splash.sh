@@ -7,7 +7,7 @@
 # Default-Stop:
 ### END INIT INFO
 
-SPLASH_BMP=/boot/splash.bmp
+SPLASH_BMP=/data/splash.bmp
 
 if [ ! -e /dev/fb0 ]; then
     echo "Framebuffer /dev/fb0 not detected"

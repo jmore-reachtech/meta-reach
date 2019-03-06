@@ -21,4 +21,4 @@ inherit update-rc.d
 
 INITSCRIPT_PACKAGES = "${PN}"
 INITSCRIPT_NAME = "splash.sh"
-INITSCRIPT_PARAMS = "start 0 S ."
+INITSCRIPT_PARAMS = "start 04 S ."

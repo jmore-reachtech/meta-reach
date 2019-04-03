@@ -9,7 +9,7 @@ Rectangle {
 
     SoundEffect {
         id: beep
-        source: "/custom/audio/beep.wav"
+        source: "/application/src/audio/beep.wav"
     }
 
     Image {
@@ -17,7 +17,7 @@ Rectangle {
         width: 600
         height: 400
         anchors.centerIn: parent
-        source: "/custom/images/qt_logo.png"
+        source: "/application/src/images/qt_logo.png"
 
         MouseArea {
             id: playArea

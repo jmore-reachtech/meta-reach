@@ -11,7 +11,7 @@ SRC_URI = "file://main.qml \
     file://beep.wav \
 "
 
-APP_DIR = "/custom"
+APP_DIR = "/application/src"
 
 do_install() {
     install -d ${D}${APP_DIR}

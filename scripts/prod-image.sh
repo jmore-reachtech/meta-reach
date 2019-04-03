@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # we need this in order to set /etc/reach-release
-export BB_ENV_EXTRAWHITE="$BB_ENV_EXTRAWHITE REACH_PN"
+export BB_ENV_EXTRAWHITE="$BB_ENV_EXTRAWHITE REACH_RELEASE"
 
 clear
 

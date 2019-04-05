@@ -1,1 +1,1 @@
-PACKAGECONFIG_append = " sql-sqlite tslib widgets dbus"
+PACKAGECONFIG_append = " sql-sqlite tslib widgets dbus fontconfig"

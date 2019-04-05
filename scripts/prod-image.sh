@@ -5,8 +5,9 @@ export BB_ENV_EXTRAWHITE="$BB_ENV_EXTRAWHITE REACH_RELEASE"
 
 clear
 
+NAME="reach"
 DEPLOY_DIR="./tmp/deploy/images"
-IMG="sciton-image-qt5"
+IMG="${NAME}-image-qt5"
 IMG_EXT=".wic"
 IMG_COMPRESS=".gz"
 
@@ -27,7 +28,7 @@ rm -f *.zip
 IMG_COUNT=1
 
 #         Machine name      Part number
-build_img "sciton"      	"S046-004A"
+build_img ${NAME}         	"S022-007RC1"
 
 IMG_BUILT=$(ls -lt *.zip | wc -l)
 

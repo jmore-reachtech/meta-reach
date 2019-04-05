@@ -30,6 +30,7 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     openssh\
     openssh-scp\
     openssh-sftp-server \
+    reach-qml-viewer \
 "
 
 def get_layers(bb, d):

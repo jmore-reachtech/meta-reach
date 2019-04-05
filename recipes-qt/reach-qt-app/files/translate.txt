@@ -1,0 +1,20 @@
+# Translate file for I/O Demo
+#
+# When button1 is pushed, b=1 is sent to the serial port
+# When button2 is pushed, b=2 is sent to the serial port
+# When
+#   tc=32<return>
+# is received on the serial port, the Celsius temperature display is updated to read 32
+#
+# When
+#   tf=70<return>
+# is received on the serial port, the Fahrenheit temperature display is updated to read 70
+#
+# this line says translate "button_push=<digit>" from the GUI to "b=<number>" to the serial port
+G:button_click=%s,T:b=%s
+#
+# this line translates "tc=<number>" from the serial port into the QML objectName setting celsius_input.text=<number>
+M:tc=%s,T:celsius_input.text=%s
+# this line translates "tf=<number>" from the serial port into the QML objectName setting fahrenheit_input.text=<number>
+M:tf=%s,T:fahrenheit_input.text=%s
+

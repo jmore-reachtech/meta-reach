@@ -33,6 +33,7 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     reach-qml-viewer \
     reach-tio-agent \
     reach-sio-agent \
+    reach-qml-plugins \
 "
 
 def get_layers(bb, d):

@@ -37,6 +37,9 @@ Rectangle {
             onReleased: {
                 box1.color = "#729fcf"
             }
+            onClicked: {
+                connection.sendMessage("button1.value=1")
+            }
         }
     }
     
@@ -66,6 +69,9 @@ Rectangle {
             }
             onReleased: {
                 box3.color = "#729fcf"
+            }
+            onClicked: {
+                connection.sendMessage("button3.value=3")
             }
         }
     }
@@ -97,6 +103,9 @@ Rectangle {
             onReleased: {
                 box2.color = "#729fcf"
             }
+            onClicked: {
+                connection.sendMessage("button2.value=1")
+            }
         }
     }
 
@@ -113,6 +122,7 @@ Rectangle {
 
     Text {
         id: element1
+        objectName: "reading1"
         x: 257
         y: 476
         width: 125
@@ -136,6 +146,7 @@ Rectangle {
 
     Text {
         id: element3
+        objectName: "reading2"
         x: 257
         y: 524
         width: 125
@@ -159,6 +170,7 @@ Rectangle {
 
     Text {
         id: element5
+        objectName: "reading3"
         x: 257
         y: 571
         width: 125
@@ -169,4 +181,3 @@ Rectangle {
         font.pixelSize: 24
     }
 }
-

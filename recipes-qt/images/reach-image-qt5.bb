@@ -31,6 +31,8 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     openssh-scp\
     openssh-sftp-server \
     reach-qml-viewer \
+    reach-tio-agent \
+    reach-sio-agent \
 "
 
 def get_layers(bb, d):

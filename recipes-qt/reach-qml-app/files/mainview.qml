@@ -1,5 +1,7 @@
 import QtQuick 2.9
 
+import com.reachtech.systemplugin 1.0
+
 Rectangle {
     color: "#222222"
     width: 1024

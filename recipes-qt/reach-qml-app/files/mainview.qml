@@ -4,8 +4,8 @@ import com.reachtech.systemplugin 1.0
 
 Rectangle {
     color: "#222222"
-    width: 1024
-    height: 768
+    width: 1280
+    height: 800
 
     Component.onCompleted: {
         beeper.init();

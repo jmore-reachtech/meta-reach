@@ -13,6 +13,6 @@ KBUILD_DEFCONFIG = "imx_g2h_defconfig"
 LOCALVERSION = "-2.0.0-ga+yocto"
 
 SRCBRANCH = "reach-imx_4.9.x_1.0_ga"
-SRCREV = "da5e382e4bb1336f41cda196141043022751c906"
+SRCREV = "29cb6d37f1d4b441696bde88f900eae481887ece"
 DEPENDS += "lzop-native bc-native"
 COMPATIBLE_MACHINE = "(reach)"

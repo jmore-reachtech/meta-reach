@@ -32,6 +32,7 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     openssh-scp\
     openssh-sftp-server \
     splash \
+    udev-extraconf \
 "
 
 def get_layers(bb, d):

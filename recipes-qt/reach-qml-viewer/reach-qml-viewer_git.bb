@@ -3,9 +3,9 @@ LICENSE = "CLOSED"
 
 inherit update-rc.d
 
-DEPENDS =+ "qtbase qtquickcontrols2 qtserialport"
+DEPENDS =+ "qtbase qtquickcontrols2 qtserialport alsa-lib"
 
-SRCREV = "fb9f726a1e0040fb391821675c38adbc053dc88b"
+SRCREV = "62fa6ecc09410e7bc286e3b80bf206e6a7c8b14f"
 SRC_URI = "git://github.com/jmore-reachtech/reach-qml-viewer-g3.git \
 	   file://qmlapp \
 "

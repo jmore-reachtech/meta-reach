@@ -33,6 +33,7 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     openssh-sftp-server \
     splash \
     udev-extraconf \
+    python3-pyqt5 \
 "
 
 def get_layers(bb, d):

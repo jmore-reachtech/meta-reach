@@ -5,9 +5,10 @@ inherit update-rc.d
 
 DEPENDS =+ "qtbase qtquickcontrols2 qtserialport alsa-lib"
 
-SRCREV = "62fa6ecc09410e7bc286e3b80bf206e6a7c8b14f"
+SRCREV = "2d678ece8b5047be1964f1624324c32b4ba72c62"
 SRC_URI = "git://github.com/jmore-reachtech/reach-qml-viewer-g3.git \
 	   file://qmlapp \
+       file://qml-upgrade-helper.sh \
 "
 
 S = "${WORKDIR}/git"
@@ -23,6 +24,8 @@ do_install_append () {
 
 	install -d ${D}${sysconfdir}/init.d
 	install -m 0755 ${WORKDIR}/qmlapp ${D}${sysconfdir}/init.d/qmlapp
+
+    install -m 0755 ${WORKDIR}/qml-upgrade-helper.sh ${D}${bindir}
 }
 
 FILES_${PN} += "${APP_DIR}/* \

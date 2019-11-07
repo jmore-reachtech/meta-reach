@@ -1,4 +1,4 @@
-require recipes-bsp/u-boot/u-boot.inc
+require u-boot.inc
 require recipes-bsp/u-boot/u-boot-mender.inc
 
 DESCRIPTION = "U-Boot for Reach Technology boards"
@@ -11,8 +11,8 @@ RPROVIDES_${PN} += "u-boot"
 
 PV = "v2019.01+git${SRCPV}"
 
-SRCREV = "ad2503e0a1cf5f525e70424c031c1bf8f2c166f9"
-SRCBRANCH = "2019.01+reach-thud"
+SRCREV = "6bf096724e53e12c8e66894fea858ea2af8280f3"
+SRCBRANCH = "2019.01+reach-warrior"
 SRC_URI = "git://github.com/jmore-reachtech/reach-imx-u-boot.git;branch=${SRCBRANCH} \
 "
 

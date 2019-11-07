@@ -9,11 +9,15 @@ BBLAYERS = " \
   ${BSPDIR}/sources/poky/meta-poky \
   \
   ${BSPDIR}/sources/meta-openembedded/meta-oe \
+  ${BSPDIR}/sources/meta-openembedded/meta-filesystems \
   ${BSPDIR}/sources/meta-openembedded/meta-multimedia \
+  ${BSPDIR}/sources/meta-openembedded/meta-networking \
+  ${BSPDIR}/sources/meta-openembedded/meta-python \
   \
   ${BSPDIR}/sources/meta-freescale \
   ${BSPDIR}/sources/meta-freescale-distro \
   ${BSPDIR}/sources/meta-reach \
   ${BSPDIR}/sources/meta-qt5 \
   ${BSPDIR}/sources/meta-mender/meta-mender-core \
+  ${BSPDIR}/sources/meta-virtualization \
 "

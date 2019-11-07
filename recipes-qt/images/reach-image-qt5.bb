@@ -38,6 +38,8 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     mmc-utils \
     u-boot-reach \
     mksdcard \
+    e2fsprogs \
+    dosfstools \
 "
 
 

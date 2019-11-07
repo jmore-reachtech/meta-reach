@@ -34,7 +34,9 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     splash \
     udev-extraconf \
     python3-pyqt5 \
+    docker docker-contrib \
 "
+
 
 def get_layers(bb, d):
         layers = (d.getVar("BBLAYERS", d, 1) or "").split()

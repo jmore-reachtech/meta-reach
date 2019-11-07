@@ -35,6 +35,7 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     udev-extraconf \
     python3-pyqt5 \
     docker docker-contrib \
+    mmc-utils \
 "
 
 

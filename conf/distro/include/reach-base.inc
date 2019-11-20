@@ -2,7 +2,6 @@ require conf/distro/poky.conf
 
 DISTRO = "reach-base"
 DISTRO_NAME = "Reach Technology Distro Base"
-DISTRO_VERSION = "2.4"
 
 SDKPATH = "/opt/reach/sdk/${SDK_VERSION}"
 

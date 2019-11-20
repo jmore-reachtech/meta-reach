@@ -3,6 +3,7 @@ DESCRIPTION = "A qt5 image"
 LICENSE = "CLOSED"
 
 inherit core-image
+inherit populate_sdk_qt5
 
 TOUCH = "tslib tslib-calibrate tslib-tests"
 

@@ -1,4 +1,4 @@
-MACHINE ??= 'reach'
+MACHINE ??= 'imx6dl-g3-sd'
 DISTRO ?= 'reach-framebuffer'
 PACKAGE_CLASSES ?= "package_rpm"
 EXTRA_IMAGE_FEATURES ?= "debug-tweaks"

@@ -42,6 +42,7 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     dosfstools \
     bash \
     file \
+    gdbserver \
 "
 
 

@@ -11,7 +11,7 @@ RPROVIDES_${PN} += "u-boot"
 
 PV = "v2019.01+git${SRCPV}"
 
-SRCREV = "6bf096724e53e12c8e66894fea858ea2af8280f3"
+SRCREV = "e09b7cd65e7de89d204a4ef74ddbd94dac27d5ac"
 SRCBRANCH = "2019.01+reach-warrior"
 SRC_URI = "git://github.com/jmore-reachtech/reach-imx-u-boot.git;branch=${SRCBRANCH} \
 "
@@ -22,6 +22,6 @@ S = "${WORKDIR}/git"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-COMPATIBLE_MACHINE = "(reach)"
+COMPATIBLE_MACHINE = "(imx6dl-g3)"
 
 BOOTENV_SIZE = "8192"

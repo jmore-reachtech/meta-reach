@@ -20,8 +20,10 @@ KERNEL_IMAGETYPE = "zImage"
 
 PREFERRED_PROVIDER_u-boot ?= "u-boot-reach"
 PREFERRED_PROVIDER_virtual/bootloader ?= "u-boot-reach"
+
 PREFERRED_PROVIDER_virtual/kernel ??= "linux-reach"
 PREFERRED_PROVIDER_virtual/kernel_use-mainline-bsp ??= "linux-fslc"
+PREFERRED_VERSION_linux-reach ??= "4.9"
 
 UBOOT_MACHINE ?= "reach_imx6dl_g3_defconfig"
 

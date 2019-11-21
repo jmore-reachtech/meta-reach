@@ -40,6 +40,7 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     mksdcard \
     e2fsprogs \
     dosfstools \
+    bash \
 "
 
 

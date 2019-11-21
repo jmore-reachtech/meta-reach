@@ -41,6 +41,7 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     e2fsprogs \
     dosfstools \
     bash \
+    file \
 "
 
 

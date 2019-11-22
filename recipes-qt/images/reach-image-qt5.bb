@@ -44,6 +44,7 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     file \
     gdbserver \
     devregs \
+    can-utils libsocketcan \
 "
 
 

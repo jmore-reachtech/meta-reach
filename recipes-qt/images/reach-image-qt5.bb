@@ -14,15 +14,31 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     ttf-dejavu-sans \
     ttf-dejavu-serif \
     ttf-dejavu-common \
+    qt3d \
     qtcanvas3d \
+    qtcharts \
+    qtconnectivity \
+    qtdatavis3d \
     qtdeclarative \
     qtdeclarative-tools \
+    qtgraphicaleffects \
+    qtimageformats \
+    qtlocation \
     qtmultimedia \
+    qtnetworkauth \
     qtquickcontrols \
     qtquickcontrols2 \
-    qtsvg \
-    qtxmlpatterns \
+    qtremoteobjects \
+    qtscxml \
+    qtsensors \
+    qtserialbus \
     qtserialport \
+    qttools \
+    qtsvg \
+    qtvirtualkeyboard \
+    qtwebsockets \
+    qtwebview \
+    qtxmlpatterns \
     strace \
     packagegroup-fsl-gstreamer1.0-full \
     imx-codec-aac \

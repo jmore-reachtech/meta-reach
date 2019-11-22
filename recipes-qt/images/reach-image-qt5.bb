@@ -61,6 +61,7 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     gdbserver \
     devregs \
     can-utils libsocketcan \
+    libmodbus \
 "
 
 

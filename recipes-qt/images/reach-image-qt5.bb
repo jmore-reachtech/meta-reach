@@ -62,6 +62,7 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     devregs \
     can-utils libsocketcan \
     libmodbus \
+    dhcp-client \
 "
 
 

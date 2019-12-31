@@ -64,6 +64,7 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     libmodbus \
     dhcp-client \
     coreutils \
+    net-tools \
 "
 
 

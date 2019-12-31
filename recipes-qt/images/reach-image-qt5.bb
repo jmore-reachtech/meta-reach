@@ -65,6 +65,7 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     dhcp-client \
     coreutils \
     net-tools \
+    picocom \
 "
 
 

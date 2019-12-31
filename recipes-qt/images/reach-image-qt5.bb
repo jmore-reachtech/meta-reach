@@ -63,6 +63,7 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     can-utils libsocketcan \
     libmodbus \
     dhcp-client \
+    coreutils \
 "
 
 

@@ -66,6 +66,7 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     coreutils \
     net-tools \
     picocom \
+    ethtool \
 "
 
 

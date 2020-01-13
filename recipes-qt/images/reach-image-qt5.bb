@@ -67,6 +67,7 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     net-tools \
     picocom \
     ethtool \
+    nfs-utils \
 "
 
 

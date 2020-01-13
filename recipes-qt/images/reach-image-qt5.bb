@@ -68,6 +68,7 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     picocom \
     ethtool \
     nfs-utils \
+    rsync \
 "
 
 

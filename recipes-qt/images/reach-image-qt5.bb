@@ -69,6 +69,7 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     ethtool \
     nfs-utils \
     rsync \
+    lrzsz \
 "
 
 

@@ -53,7 +53,6 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     python3-pyqt5 \
     docker docker-contrib \
     mmc-utils \
-    mksdcard \
     e2fsprogs \
     dosfstools \
     bash \

@@ -1,8 +1,8 @@
 DESCRIPTION = "Reach QML medical demo"
 LICENSE = "CLOSED"
 
-SRCREV = "44f61058624a6f85fcb5087bd1e0cc52a296a985"
-SRC_URI = "git://github.com/jmore-reachtech/reach-qml-medical.git"
+SRCREV = "8c7e80891178c02492aa23695f13c0c8ed8dcd6a"
+SRC_URI = "git://github.com/jmore-reachtech/viewer-medical.git"
 
 S = "${WORKDIR}/git"
 
@@ -10,13 +10,16 @@ APP_DIR = "/data/app"
 
 do_install_append () {
 	install -d ${D}${APP_DIR}
-	install -m 0644 ${S}/*.qml ${D}${APP_DIR}
+	install -m 0644 ${S}/*.* ${D}${APP_DIR}
 
-	install -d ${D}${APP_DIR}/audio
-	install -m 0644 ${S}/audio/*.wav ${D}${APP_DIR}/audio
+	install -d ${D}${APP_DIR}/medical
+	install -m 0644 ${S}/medical/*.* ${D}${APP_DIR}/medical
 
-	install -d ${D}${APP_DIR}/images
-	install -m 0644 ${S}/images/*.png ${D}${APP_DIR}/images
+	install -d ${D}${APP_DIR}/medical/Fonts
+	install -m 0644 ${S}/medical/Fonts/*.* ${D}${APP_DIR}/medical/Fonts
+
+	install -d ${D}${APP_DIR}/medical/Images
+	install -m 0644 ${S}/medical/Images/*.* ${D}${APP_DIR}/medical/Images
 }
 
 FILES_${PN} += "${APP_DIR}/*"

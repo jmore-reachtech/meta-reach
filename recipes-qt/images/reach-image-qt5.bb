@@ -72,6 +72,7 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     mkemmc \
     ifplugd \
     procps \
+    pulseaudio-server pulseaudio-misc \
 "
 
 

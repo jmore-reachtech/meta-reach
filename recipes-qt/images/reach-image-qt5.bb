@@ -66,7 +66,7 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     net-tools \
     picocom \
     ethtool \
-    nfs-utils \
+    nfs-utils-client \
     rsync \
     lrzsz \
     mkemmc \

@@ -70,6 +70,7 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     rsync \
     lrzsz \
     mkemmc \
+    ifplugd \
 "
 
 

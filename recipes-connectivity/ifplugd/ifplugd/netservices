@@ -1,0 +1,46 @@
+#!/bin/bash
+
+# simple script to start/stop services dependent on eth? interface being up
+
+if [ -z "$1" ] || [ -z "$2" ] ; then
+	echo "Wrong arguments" > /dev/stderr
+	exit 1
+fi
+
+if [ `id -u` != "0" ] && [ "$2" = "start" -o "$2" = "stop" ] ; then
+  echo "You must be root to start, stop or restart netservices."
+  exit 1
+fi
+
+IFACE="$1"
+VERB="$2"
+
+START_SERVICES="sshd rpcbind nfscommon mountnfs.sh"
+
+STOP_SERVICES="umountnfs.sh nfscommon rpcbind sshd"
+
+case "$VERB" in
+    start)
+        echo "Starting Network Services:"
+        /sbin/ifup $IFACE || exit 1
+        for SVC in $START_SERVICES ; do
+            echo -n "  "
+            /etc/init.d/$SVC start
+        done
+        echo "Network Services Started"
+        ;;
+    stop)
+        echo "Stopping Network Services:"
+        for SVC in $STOP_SERVICES ; do 
+            echo -n "  "
+            /etc/init.d/$SVC stop
+        done
+        /sbin/ifdown $IFACE || exit 1
+        echo "Network Services Stopped"
+        ;;
+    *)
+        echo "Usage: $0 {start|stop|restart}"
+        exit 1
+esac
+
+exit 0

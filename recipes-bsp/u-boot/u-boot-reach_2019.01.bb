@@ -11,7 +11,7 @@ RPROVIDES_${PN} += "u-boot"
 
 PV = "v2019.01+git${SRCPV}"
 
-SRCREV = "2e56197b3f1cdd6012310ca504f7a764fd8b6b0c"
+SRCREV = "483267d34c9d1e6b619a55290f2fa8e1c442fcb6"
 SRCBRANCH = "2019.01+reach-warrior"
 SRC_URI = "git://github.com/jmore-reachtech/reach-imx-u-boot.git;branch=${SRCBRANCH} \
 "

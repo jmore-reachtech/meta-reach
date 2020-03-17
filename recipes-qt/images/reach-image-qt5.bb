@@ -74,6 +74,7 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     procps \
     pulseaudio-server pulseaudio-misc \
     chkconfig  \
+    mosquitto \
 "
 
 

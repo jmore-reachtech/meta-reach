@@ -76,6 +76,7 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     chkconfig  \
     mosquitto \
     jsoncpp \
+    redis hiredis \
 "
 
 

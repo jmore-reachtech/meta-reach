@@ -75,6 +75,7 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     pulseaudio-server pulseaudio-misc \
     chkconfig  \
     mosquitto \
+    jsoncpp \
 "
 
 

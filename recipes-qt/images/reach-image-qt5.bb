@@ -77,6 +77,7 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     mosquitto \
     jsoncpp \
     redis hiredis \
+    ppp \
 "
 
 

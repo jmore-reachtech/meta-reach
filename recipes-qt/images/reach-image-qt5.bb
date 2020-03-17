@@ -73,6 +73,7 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     ifplugd \
     procps \
     pulseaudio-server pulseaudio-misc \
+    chkconfig  \
 "
 
 

@@ -82,6 +82,7 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     ppp \
     libusb1 \
     libftdi \
+    vim \
 "
 
 

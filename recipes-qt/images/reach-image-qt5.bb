@@ -84,6 +84,7 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     libftdi \
     vim \
     nodejs nodejs-npm \
+    nginx \
 "
 
 

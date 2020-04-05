@@ -80,6 +80,7 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     jsoncpp \
     redis hiredis \
     ppp \
+    libusb1 \
 "
 
 

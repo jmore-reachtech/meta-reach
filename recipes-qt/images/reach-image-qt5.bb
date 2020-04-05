@@ -81,6 +81,7 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     redis hiredis \
     ppp \
     libusb1 \
+    libftdi \
 "
 
 

@@ -85,6 +85,7 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     vim \
     nodejs nodejs-npm \
     nginx \
+    lighttpd \
 "
 
 

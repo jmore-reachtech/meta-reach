@@ -48,6 +48,7 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     openssh\
     openssh-scp\
     openssh-sftp-server \
+    openssl-bin \
     splash \
     udev-extraconf \
     python3-modules \

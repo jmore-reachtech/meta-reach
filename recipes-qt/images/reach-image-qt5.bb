@@ -87,6 +87,7 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     nodejs nodejs-npm \
     nginx \
     lighttpd \
+    firehol \
 "
 
 

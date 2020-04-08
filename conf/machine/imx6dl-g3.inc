@@ -14,6 +14,7 @@ KERNEL_DEVICETREE = " \
 	imx6dl-g3-10p1-wxga-ldb-focaltech.dtb \
 	imx6dl-g3-10p1-wxga-ldb-tsc2046.dtb \
 	imx6dl-g3-10p4-xga-ldb-egalax.dtb \
+	imx6dl-g3-12p1-wxga-ldb-amtouch.dtb \
 	imx6dl-g3-none.dtb \
 "
 

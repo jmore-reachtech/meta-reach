@@ -1,0 +1,79 @@
+#!/bin/sh
+#		levels	start	kill
+#===================================
+# chkconfig:	345	30	85
+# description: Loads the iptables ruleset
+
+# Source function library.
+. /etc/init.d/functions
+
+FIREHOL_CONF=/etc/firehol/firehol.conf
+
+checkrules() {
+	if [ ! -f ${FIREHOL_CONF} ]; then
+		echo "Not starting FireHOL. Create ${FIREHOL_CONF}"
+		echo "and fill it with some rules."
+		echo "man firehol.conf for more info."
+		return 1
+	fi
+}
+
+start() {
+	checkrules || return 1
+	echo "Starting FireHOL"
+	/usr/sbin/firehol ${FIREHOL_CONF} start > /dev/null
+}
+
+stop() {
+	echo "Stopping FireHOL"
+	/usr/sbin/firehol stop > /dev/null
+}
+
+restart() {
+        echo "Restarting Firewall"
+        stop;
+        start;
+}
+
+try() {
+	echo "Trying FireHOL configuration"
+	/usr/sbin/firehol ${FIREHOL_CONF} try
+}
+
+status() {
+	echo "Showing FireHOL status"
+	/usr/sbin/firehol status
+}
+
+panic() {
+	echo "FireHOL PANIC"
+	/usr/sbin/firehol panic
+}
+
+save() {
+	echo "Saving FireHOL configuration"
+	/usr/sbin/firehol save
+}
+
+
+case "$1" in
+  start)
+    start
+  ;;
+  stop)
+    stop
+  ;;
+  status)
+    status
+    exit $?
+  ;;
+  restart)
+    restart
+  ;;
+  *)
+    echo "Usage: /etc/init.d/$NAME {start|stop|status|restart|}" >&2
+    exit 1
+  ;;
+esac
+
+exit 0

@@ -23,7 +23,7 @@ inherit update-rc.d
 
 INITSCRIPT_PACKAGES = "${PN}-server"
 INITSCRIPT_NAME = "pulseaudio.sh"
-INITSCRIPT_PARAMS = "start 55 2 3 4 5 . stop 65 0 1 6 ."
+INITSCRIPT_PARAMS = "start 30 3 4 5 . stop 30 0 1 2 6 ."
 
 FILES_${PN}-server += " \
 	${sysconfdir}/init.d \

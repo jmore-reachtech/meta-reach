@@ -1,15 +1,9 @@
 #! /bin/sh
-### BEGIN INIT INFO
-# Provides:          dbus
-# Required-Start:    $dbus $syslog
-# Required-Stop:     $dbus $syslog
-# Default-Start:     2 3 4 5
-# Default-Stop:      0 1 6
-# Short-Description: pulseaudio sound server
-# Description:       pulseaudio sound server
-### END INIT INFO
-#
-# -*- coding: utf-8 -*-
+#		levels	start	kill
+#===================================
+# chkconfig:	345	30	30
+# description:	pulseaudio sound mixing daemon
+
 # Yocto init.d script for pulseaudio
 # Copyright © 2020 Reach Technology
 
@@ -30,7 +24,7 @@ light_it_off()
 {
   if [ -e $PIDFILE ]; then
     PIDDIR=/proc/$(cat $PIDFILE)
-    if [ -d ${PIDDIR} -a  "$(readlink -f ${PIDDIR}/exe)" = "${DAEMON}" ]; then 
+    if [ -d ${PIDDIR} -a  "$(readlink -f ${PIDDIR}/exe)" = "${DAEMON}" ]; then
       echo "$DESC already started; not starting."
     else
       echo "Removing stale PID file $PIDFILE."

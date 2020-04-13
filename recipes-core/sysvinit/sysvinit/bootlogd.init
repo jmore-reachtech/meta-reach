@@ -1,0 +1,94 @@
+#! /bin/sh
+#==================================================
+#
+# updated: 03/22/20 Reach Technology
+#
+# this script controls a system critical function
+# and must not be put under control of chkconfig
+#
+#==================================================
+
+PATH=/sbin:/bin:/usr/sbin:/usr/bin
+DAEMON=/sbin/bootlogd
+NAME=bootlogd
+DESC="Bootlog daemon"
+
+# source function library
+. /etc/init.d/functions
+
+test -f $DAEMON || exit 0
+
+[ -r /etc/default/bootlogd ] && . /etc/default/bootlogd
+
+## set -e # not needed
+
+case "$BOOTLOGD_ENABLE" in
+	[Nn]*)
+		exit 0
+		;;
+esac
+
+STOPPER=
+ACTION="$1"
+case "$0" in
+	*stop-bootlog*)
+		STOPPER=Y
+		if [ "$ACTION" = start ]
+		then
+			ACTION=stop
+		fi
+		;;
+esac
+
+case "$ACTION" in
+	start)
+		[ "${VERBOSE}" != "no" ] && echo -n "Starting $DESC: "
+		if [ -d /proc/1/. ]
+		then
+			umask 027
+			start-stop-daemon --start --quiet \
+				--exec $DAEMON -- -r -c
+		else
+			$DAEMON -r -c
+		fi
+		[ "${VERBOSE}" != "no" ] && echo "$NAME."
+		;;
+	stop)
+		# stop may get called during bootup, so let it honor
+		# rcS VERBOSE setting
+		[ "${VERBOSE}" != "no" ] && echo -n "Stopping $DESC: "
+		start-stop-daemon --stop --quiet --exec $DAEMON
+
+		if [ "$STOPPER" ] && [ "$(which savelog 2>/dev/null)" ] && \
+		   [ -f /var/log/boot ] && [ -f /var/log/boot~ ]
+		then
+			cd /var/log
+			chgrp adm boot
+			savelog -p -c 5 boot > /dev/null 2>&1
+			mv boot.0 boot
+			mv boot~ boot.0
+		fi
+
+		[ "${VERBOSE}" != "no" ] && echo "$NAME."
+		;;
+	 restart|force-reload)
+		echo -n "Restarting $DESC: "
+		start-stop-daemon --stop --quiet --exec $DAEMON
+		sleep 1
+		start-stop-daemon --start --quiet --exec $DAEMON
+		echo "$NAME."
+		;;
+	status)
+		status $DAEMON
+		exit $?
+		;;
+	*)
+		N=${0##*/}
+		N=${N#[SK]??}
+		echo "Usage: $N {start|stop|status|restart|force-reload}" >&2
+		exit 1
+		;;
+esac
+
+exit 0
+

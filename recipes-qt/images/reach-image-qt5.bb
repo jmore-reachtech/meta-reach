@@ -88,6 +88,7 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     nginx \
     lighttpd \
     firehol \
+    open62541 \
 "
 
 

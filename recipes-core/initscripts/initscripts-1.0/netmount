@@ -1,0 +1,116 @@
+#! /bin/sh
+#		levels	start	kill
+#===================================
+# chkconfig:	345	50	25
+# description:	mount/unmount NFS file systems
+
+# Source function library.
+. /etc/init.d/functions
+
+mount_nfs()
+{
+    #
+    #	Run in a subshell because of I/O redirection.
+    #
+    test -f /etc/fstab && (
+
+    #
+    #	Read through fstab line by line. If it is NFS, set the flag
+    #	for mounting NFS filesystems. If any NFS partition is found and it
+    #	not mounted with the nolock option, we start the rpcbind (if not already running).
+    #
+    rpcbind=no
+    mount_nfs=no
+    while read device mountpt fstype options
+    do
+        case "$device" in
+            ""|\#*)
+                continue
+                ;;
+        esac
+
+        case "$options" in
+            *noauto*)
+                continue
+                ;;
+        esac
+
+        if test "$fstype" = nfs
+        then
+            mount_nfs=yes
+            case "$options" in
+                *nolock*)
+                    ;;
+                *)
+                    rpcbind=yes
+                    ;;
+            esac
+        fi
+    done
+
+    exec 0>&1
+
+    if test "$rpcbind" = yes
+    then
+        if test -x /usr/sbin/rpcbind
+        then
+            service rpcbind status > /dev/null
+            if [ $? != 0 ]; then
+                echo -n "Starting rpcbind..."
+                start-stop-daemon --start --quiet --exec /usr/sbin/rpcbind
+                sleep 2
+            fi
+        fi
+    fi
+
+    if test "$mount_nfs" = yes
+    then
+        echo "Mounting NFS filesystems..."
+        mount -a -t nfs
+    fi
+
+    ) < /etc/fstab
+}
+
+umount_nfs()
+{
+    echo "Unmounting NFS filesystems..."
+
+    test -f /etc/fstab && (
+
+    #
+    #	Read through fstab line by line and unount network file systems
+    #
+    while read device mountpt fstype options
+    do
+        if test "$fstype" = nfs
+        then
+            umount -f $mountpt
+        fi
+    done
+    ) < /etc/fstab
+}
+
+case "$1" in
+  start)
+    mount_nfs
+  ;;
+  stop)
+    umount_nfs
+  ;;
+  status)
+    status $DAEMON
+    exit $?
+  ;;
+  restart)
+    umount_nfs
+    sleep 1
+    mount_nfs
+  ;;
+  *)
+    echo "Usage: /etc/init.d/$NAME {start|stop|status|restart|}" >&2
+    exit 1
+  ;;
+esac
+
+exit 0

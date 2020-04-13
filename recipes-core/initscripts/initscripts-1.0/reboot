@@ -1,0 +1,14 @@
+#!/bin/sh
+#==================================================
+#
+# updated: 03/22/20 Reach Technology
+#
+# this script controls a system critical function
+# and must not be put under control of chkconfig
+#
+#==================================================
+
+PATH=/sbin:/bin:/usr/sbin:/usr/bin
+
+echo -n "Rebooting... "
+reboot -d -f

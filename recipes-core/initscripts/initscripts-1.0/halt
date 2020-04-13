@@ -1,0 +1,28 @@
+#!/bin/sh
+#==================================================
+#
+# updated: 03/22/20 Reach Technology
+#
+# this script controls a system critical function
+# and must not be put under control of chkconfig
+#
+#==================================================
+
+PATH=/sbin:/bin:/usr/sbin:/usr/bin
+
+# See if we need to cut the power.
+if test -x /etc/init.d/ups-monitor
+then
+	/etc/init.d/ups-monitor poweroff
+fi
+
+# Don't shut down drives if we're using RAID.
+hddown="-h"
+if grep -qs '^md.*active' /proc/mdstat
+then
+	hddown=""
+fi
+
+halt -d -f -p $hddown
+
+: exit 0

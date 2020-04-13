@@ -39,7 +39,7 @@ PACKAGECONFIG[subscription_events] = "-DUA_ENABLE_SUBSCRIPTIONS_EVENTS=1,-DUA_EN
 PACKAGECONFIG[certificate] = "-DUA_BUILD_SELFSIGNED_CERTIFICATE=1,-DUA_BUILD_SELFSIGNED_CERTIFICATE=0,,"
 
 PACKAGECONFIG ?= "pubsub  pubsub_uadp pubsub_delta_frames pubsub_informationmodel \
-                  pubsub_informationmodel_methods sharedlibs"
+                  pubsub_informationmodel_methods"
 
 # Install examples
 do_install_append() {

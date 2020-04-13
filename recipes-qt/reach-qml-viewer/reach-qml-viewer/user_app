@@ -1,16 +1,10 @@
 #!/bin/sh
-#
-# Start Qml Application
-#
-### BEGIN INIT INFO
-# Provides:          qml-viewer
-# Required-Start:    $syslog
-# Required-Stop:     $syslog
-# Default-Start:     2 3 4 5
-# Default-Stop:      0 1 6
-# Short-Description: qml-viewer
-# Description:       Reach qml-viewer
-### END INIT INFO
+#		levels	start	kill
+#===================================
+# chkconfig:	5	99	10
+# description:	run the user application \
+#		as shipped, this will start \
+#		the Reach qml-viewer
 
 QML_APP_BIN="/usr/bin/qml-viewer"
 QML_APP_ARGS="-platform eglfs -plugin tslib"

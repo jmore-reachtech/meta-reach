@@ -1,0 +1,34 @@
+#!/bin/sh
+#		levels	start	kill
+#===================================
+# chkconfig:	45	65	25
+# description:	Redis is an open source, advanced key-value store. \
+#		http://redis.io
+
+test -f /usr/bin/redis-server || exit 0
+
+ARGS="/etc/redis/redis.conf"
+
+case "$1" in
+    start)
+	echo "Starting redis-server..."
+        start-stop-daemon --start --quiet --exec /usr/bin/redis-server -- $ARGS
+	;;
+    stop)
+        echo "Stopping redis-server..."
+        start-stop-daemon --stop --quiet --exec /usr/bin/redis-server
+	;;
+    restart)
+        echo "Stopping redis-server..."
+        start-stop-daemon --stop --quiet --exec /usr/bin/redis-server
+	echo "Starting redis-server..."
+        start-stop-daemon --start --quiet --exec /usr/bin/redis-server -- $ARGS
+	;;
+    *)
+	echo "Usage: /etc/init.d/redis-server {start|stop|restart}"
+	exit 1
+	;;
+esac
+
+exit 0
+

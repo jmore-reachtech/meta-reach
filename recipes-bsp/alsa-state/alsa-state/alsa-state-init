@@ -5,15 +5,14 @@
 #
 # Filename: alsa-state
 # Date: 20070308 (YMD)
-### BEGIN INIT INFO
-# Provides:          alsa-state
-# Required-Start:    $dmesg.sh
-# Required-Stop:     $dbus-1
-# Default-Start:     S 
-# Default-Stop:      0 6
-# Short-Description: alsa-state
-# Description:       alsa-state
-### END INIT INFO
+#==================================================
+#
+# updated: 03/22/20 Reach Technology
+#
+# this script controls a system critical function
+# and must not be put under control of chkconfig
+#
+#==================================================
 
 
 # source function library

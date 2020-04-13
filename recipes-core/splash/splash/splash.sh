@@ -1,11 +1,12 @@
 #!/bin/sh 
-### BEGIN INIT INFO
-# Provides:             splash
-# Required-Start:
-# Required-Stop:
-# Default-Start:        S
-# Default-Stop:
-### END INIT INFO
+#==================================================
+#
+# updated: 03/22/20 Reach Technology
+#
+# this script controls a system critical function
+# and must not be put under control of chkconfig
+#
+#==================================================
 
 SPLASH_BMP=/data/splash.bmp
 

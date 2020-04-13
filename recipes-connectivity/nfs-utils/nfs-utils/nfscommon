@@ -1,0 +1,50 @@
+#!/bin/sh
+#		levels	start	kill
+#===================================
+# chkconfig:	345	45	30
+# description:	NFS support for both client and server
+
+# Source function library.
+. /etc/init.d/functions
+
+test -x "$NFS_STATD" || NFS_STATD=/usr/sbin/rpc.statd
+test -z "$STATD_PID" && STATD_PID=/var/run/rpc.statd.pid
+#
+# The default state directory is /var/lib/nfs
+test -n "$NFS_STATEDIR" || NFS_STATEDIR=/var/lib/nfs
+#
+#----------------------------------------------------------------------
+# Startup and shutdown functions.
+#  Actual startup/shutdown is at the end of this file.
+
+start_statd(){
+	echo -n "starting statd: "
+	start-stop-daemon --start --exec "$NFS_STATD" --pidfile "$STATD_PID"
+	echo done
+}
+stop_statd(){
+	echo -n 'stopping statd: '
+	start-stop-daemon --stop --quiet --signal 1 --pidfile "$STATD_PID"
+	echo done
+}
+#----------------------------------------------------------------------
+#
+# supported options:
+#  start
+#  stop
+#  restart: stops and starts statd
+case "$1" in
+  start)
+	start_statd;;
+  stop)
+	stop_statd;;
+  status)
+	status $NFS_STATD
+	exit $?;;
+  restart)
+	$0 stop
+	$0 start;;
+  *)
+	echo "Usage: $0 {start|stop|status|restart}"
+	exit 1;;
+esac

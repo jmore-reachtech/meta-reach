@@ -1,0 +1,23 @@
+#!/bin/sh
+#		levels	start	kill
+#===================================
+# chkconfig:	2345	15	40
+# description:	mount/unmount kernel cgroups
+
+# must start before libvirtd is run
+case "$1" in
+  start)
+        echo -n "Mounting cgroups..."
+		/bin/cgroups-mount
+        echo "Done"
+        ;;
+  stop)
+        echo -n "Unmounting cgroups..."
+		/bin/cgroups-umount
+        echo "Done"
+        ;;
+  *)
+        echo "Usage: /etc/init.d/cgroups-init {start|stop}"
+        exit 1
+        ;;
+esac

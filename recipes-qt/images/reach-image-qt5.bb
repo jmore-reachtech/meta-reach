@@ -57,6 +57,7 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     python3-jinja2 \
     python3-pillow \
     python3-pyqt5 \
+    python3-pyserial \
     docker docker-contrib \
     mmc-utils \
     e2fsprogs \

@@ -60,6 +60,7 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     python3-pyserial \
     python3-pyusb \
     python3-requests \
+    python3-smbus2 \
     python3-tornado \
     docker docker-contrib \
     mmc-utils \

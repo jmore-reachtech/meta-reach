@@ -99,6 +99,7 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     firehol \
     open62541 \
     htop \
+    libgpiod libgpiod-python libgpiod-tools \
 "
 
 

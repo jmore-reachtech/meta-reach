@@ -54,6 +54,7 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     python3-modules \
     python3-pip \
     python3-can \
+    python3-jinja2 \
     python3-pyqt5 \
     docker docker-contrib \
     mmc-utils \

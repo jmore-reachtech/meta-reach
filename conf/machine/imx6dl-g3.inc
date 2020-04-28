@@ -9,6 +9,7 @@ include conf/machine/include/imx-base.inc
 include conf/machine/include/tune-cortexa9.inc
 
 KERNEL_DEVICETREE = " \
+	imx6dl-g3-5p7-vga-lcd-tsc2046.dtb \
 	imx6dl-g3-7-wvga-lcd-focaltech.dtb \
 	imx6dl-g3-7-wvga-lcd-tsc2046.dtb \
 	imx6dl-g3-10p1-wxga-ldb-focaltech.dtb \

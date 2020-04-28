@@ -100,6 +100,7 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     open62541 \
     htop \
     libgpiod libgpiod-python libgpiod-tools \
+    iproute2 iproute2-genl iproute2-lnstat iproute2-ss \
 "
 
 

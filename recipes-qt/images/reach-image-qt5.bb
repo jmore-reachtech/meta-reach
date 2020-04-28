@@ -59,6 +59,7 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     python3-pyqt5 \
     python3-pyserial \
     python3-pyusb \
+    python3-requests \
     docker docker-contrib \
     mmc-utils \
     e2fsprogs \

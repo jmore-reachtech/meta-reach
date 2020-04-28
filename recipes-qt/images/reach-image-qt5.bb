@@ -55,6 +55,7 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     python3-pip \
     python3-can \
     python3-jinja2 \
+    python3-modbus \
     python3-pillow \
     python3-pyqt5 \
     python3-pyserial \

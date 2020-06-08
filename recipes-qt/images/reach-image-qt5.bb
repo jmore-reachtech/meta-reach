@@ -104,6 +104,7 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     ntp ntp-utils ntpdate \
     cronie \
     bind-utils \
+    syslog-ng \
 "
 
 

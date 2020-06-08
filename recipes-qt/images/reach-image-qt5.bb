@@ -66,6 +66,7 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     docker docker-contrib \
     mmc-utils \
     e2fsprogs e2fsprogs-mke2fs e2fsprogs-resize2fs e2fsprogs-tune2fs e2fsprogs-resize2fs \
+    parted \
     dosfstools \
     bash \
     file \

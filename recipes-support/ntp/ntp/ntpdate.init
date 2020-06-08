@@ -1,0 +1,37 @@
+#!/bin/sh
+#		levels	start	kill
+#===================================
+# chkconfig:	345	35	65
+# description:	update the clock from network
+
+# Options to pass to ntpdate.
+#
+# This default setting should work fine but you should
+# change the default 'pool.ntp.org' to something closer
+# to your machine.  See http://www.pool.ntp.org/ or
+# try running `netselect -s 3 pool.ntp.org`.
+NTPDATE_OPTS="-s -b -u pool.ntp.org"
+
+start() {
+    printf "Setting system time and date "
+    # give ifplugd and/or networking and/or pppd time to connect
+    sleep 5
+    /usr/sbin/ntpdate $NTPDATE_OPTS
+    echo "OK"
+}
+
+case "$1" in
+  start)
+	start
+	;;
+  stop)
+	;;
+  restart|reload)
+	start
+	;;
+  *)
+	echo "Usage: $0 {start|stop|restart}"
+	exit 1
+esac
+
+exit $?

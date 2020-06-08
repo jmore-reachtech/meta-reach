@@ -65,7 +65,7 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     python3-tornado \
     docker docker-contrib \
     mmc-utils \
-    e2fsprogs \
+    e2fsprogs e2fsprogs-mke2fs e2fsprogs-resize2fs e2fsprogs-tune2fs e2fsprogs-resize2fs \
     dosfstools \
     bash \
     file \

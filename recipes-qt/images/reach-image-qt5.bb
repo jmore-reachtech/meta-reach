@@ -103,6 +103,7 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     iproute2 iproute2-genl iproute2-lnstat iproute2-ss \
     ntp ntp-utils ntpdate \
     cronie \
+    bind-utils \
 "
 
 

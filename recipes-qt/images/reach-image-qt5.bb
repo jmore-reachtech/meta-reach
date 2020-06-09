@@ -84,6 +84,7 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     lrzsz \
     mkemmc \
     busybox-ifplugd \
+    busybox-hwclock \
     procps \
     pulseaudio-server pulseaudio-misc \
     chkconfig  \

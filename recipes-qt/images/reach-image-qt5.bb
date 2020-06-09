@@ -83,7 +83,7 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     rsync \
     lrzsz \
     mkemmc \
-    ifplugd \
+    busybox-ifplugd \
     procps \
     pulseaudio-server pulseaudio-misc \
     chkconfig  \

@@ -43,7 +43,7 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     packagegroup-fsl-gstreamer1.0-full \
     imx-codec-aac \
     reach-qml-medical \
-    reach-qml-viewer \
+    reach-qml-viewer reach-qml-viewer-tscal \
     i2c-tools \
     openssh\
     openssh-scp\

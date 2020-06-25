@@ -5,9 +5,21 @@ LICENSE = "CLOSED"
 inherit core-image
 inherit populate_sdk_qt5
 
+FIRMWARE = " \
+    linux-firmware-iwlwifi \
+    linux-firmware-mt7601u \
+    linux-firmware-rtl8188 \
+    linux-firmware-rtl8192cu \
+    linux-firmware-rtl8192ce \
+    linux-firmware-rtl8192su \
+    linux-firmware-rtl8723 \
+    linux-firmware-rtl8821 \
+"
+
 TOUCH = "tslib tslib-calibrate tslib-tests"
 
 CORE_IMAGE_EXTRA_INSTALL += " \
+    ${FIRMWARE} \
     ${TOUCH} \
     alsa-utils \
     liberation-fonts \

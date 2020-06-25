@@ -10,11 +10,14 @@ include conf/machine/include/tune-cortexa9.inc
 
 KERNEL_DEVICETREE = " \
 	imx6dl-g3-5p7-vga-lcd-tsc2046.dtb \
+	imx6dl-g3-5p7-vga-ldb-tsc2046.dtb \
+	imx6dl-g3-5p7-vga-ldb-none.dtb \
 	imx6dl-g3-7-wvga-lcd-focaltech.dtb \
 	imx6dl-g3-7-wvga-lcd-tsc2046.dtb \
-	imx6dl-g3-7-wvga-ldb-tsc2046.dtb \
+	imx6dl-g3-7-wvga-ldb-tsc2046-inv.dtb \
 	imx6dl-g3-10p1-wxga-ldb-focaltech.dtb \
 	imx6dl-g3-10p1-wxga-ldb-tsc2046.dtb \
+	imx6dl-g3-10p1-wxga-ldb-usb.dtb \
 	imx6dl-g3-10p4-xga-ldb-egalax.dtb \
 	imx6dl-g3-12p1-wxga-ldb-amtouch.dtb \
 	imx6dl-g3-none.dtb \

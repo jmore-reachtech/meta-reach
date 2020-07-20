@@ -6,6 +6,7 @@ inherit core-image
 inherit populate_sdk_qt5
 
 FIRMWARE = " \
+    linux-firmware-ibt \
     linux-firmware-iwlwifi \
     linux-firmware-mt7601u \
     linux-firmware-rtl8188 \

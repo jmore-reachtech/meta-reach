@@ -17,16 +17,20 @@ FIRMWARE = " \
     linux-firmware-rtl8821 \
 "
 
-TOUCH = "tslib tslib-calibrate tslib-tests"
-
-CORE_IMAGE_EXTRA_INSTALL += " \
-    ${FIRMWARE} \
-    ${TOUCH} \
-    alsa-utils \
+FONTS = " \
     liberation-fonts \
     ttf-dejavu-sans \
     ttf-dejavu-serif \
     ttf-dejavu-common \
+"
+
+TOUCH = "tslib tslib-calibrate tslib-tests"
+
+CORE_IMAGE_EXTRA_INSTALL += " \
+    ${FIRMWARE} \
+    ${FONTS} \
+    ${TOUCH} \
+    alsa-utils \
     qt3d \
     qtcanvas3d \
     qtcharts \

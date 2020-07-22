@@ -82,6 +82,49 @@ REACH = " \
     reach-qml-viewer-tscal \
 "
 
+SYS_TOOLS = " \
+    bash \
+    bind-utils \
+    busybox-ifplugd \
+    busybox-hwclock \
+    chkconfig  \
+    coreutils \
+    cronie \
+    devregs \
+    dhcp-client \
+    ethtool \
+    file \
+    firehol \
+    gdbserver \
+    htop \
+    i2c-tools \
+    iproute2 \
+    iproute2-genl \
+    iproute2-lnstat \
+    iproute2-ss \
+    lighttpd \
+    lrzsz \
+    mmc-utils \
+    net-tools \
+    nfs-utils-client \
+    nginx \
+    ntp \
+    ntp-utils \
+    ntpdate \
+    openssh\
+    openssh-scp\
+    openssh-sftp-server \
+    openssl-bin \
+    picocom \
+    ppp \
+    procps \
+    rsync \
+    strace \
+    syslog-ng \
+    udev-extraconf \
+    vim \
+"
+
 TOUCH = " \
     tslib \
     tslib-calibrate \
@@ -95,59 +138,25 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     ${PYTHON3} \
     ${QT5} \
     ${REACH} \
+    ${SYS_TOOLS} \
     ${TOUCH} \
     alsa-utils \
-    strace \
     packagegroup-fsl-gstreamer1.0-full \
     imx-codec-aac \
-    i2c-tools \
-    openssh\
-    openssh-scp\
-    openssh-sftp-server \
-    openssl-bin \
     splash \
-    udev-extraconf \
     docker docker-contrib \
-    mmc-utils \
-    bash \
-    file \
-    gdbserver \
-    devregs \
     can-utils libsocketcan \
     libmodbus \
-    dhcp-client \
-    coreutils \
-    net-tools \
-    picocom \
-    ethtool \
-    nfs-utils-client \
-    rsync \
-    lrzsz \
     mkemmc \
-    busybox-ifplugd \
-    busybox-hwclock \
-    procps \
     pulseaudio-server pulseaudio-misc \
-    chkconfig  \
     mosquitto \
     jsoncpp \
     redis hiredis \
-    ppp \
     libusb1 \
     libftdi \
-    vim \
     nodejs nodejs-npm \
-    nginx \
-    lighttpd \
-    firehol \
     open62541 \
-    htop \
     libgpiod libgpiod-python libgpiod-tools \
-    iproute2 iproute2-genl iproute2-lnstat iproute2-ss \
-    ntp ntp-utils ntpdate \
-    cronie \
-    bind-utils \
-    syslog-ng \
 "
 
 

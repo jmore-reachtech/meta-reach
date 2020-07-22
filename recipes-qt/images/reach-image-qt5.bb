@@ -24,6 +24,15 @@ FONTS = " \
     ttf-dejavu-common \
 "
 
+FS_TOOLS = " \
+    dosfstools \
+    e2fsprogs \
+    e2fsprogs-mke2fs \
+    e2fsprogs-resize2fs \
+    e2fsprogs-tune2fs \
+    parted \
+"
+
 PYTHON3 = " \
     python3-modules \
     python3-pip \
@@ -76,6 +85,7 @@ TOUCH = " \
 CORE_IMAGE_EXTRA_INSTALL += " \
     ${FIRMWARE} \
     ${FONTS} \
+    ${FS_TOOLS} \
     ${PYTHON3} \
     ${QT5} \
     ${TOUCH} \
@@ -94,9 +104,6 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     udev-extraconf \
     docker docker-contrib \
     mmc-utils \
-    e2fsprogs e2fsprogs-mke2fs e2fsprogs-resize2fs e2fsprogs-tune2fs e2fsprogs-resize2fs \
-    parted \
-    dosfstools \
     bash \
     file \
     gdbserver \

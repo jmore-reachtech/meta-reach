@@ -85,9 +85,11 @@ QT5 = " \
 "
 
 REACH = " \
+    mkemmc \
     reach-qml-medical \
     reach-qml-viewer \
     reach-qml-viewer-tscal \
+    splash \
 "
 
 SYS_TOOLS = " \
@@ -149,11 +151,9 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     ${REACH} \
     ${SYS_TOOLS} \
     ${TOUCH} \
-    splash \
     docker docker-contrib \
     can-utils libsocketcan \
     libmodbus \
-    mkemmc \
     mosquitto \
     jsoncpp \
     redis hiredis \

@@ -33,6 +33,16 @@ FS_TOOLS = " \
     parted \
 "
 
+LIBRARIES = " \
+    libftdi \
+    libgpiod \
+    libgpiod-python \
+    libgpiod-tools \
+    libmodbus \
+    libsocketcan \
+    libusb1 \
+"
+
 MEDIA = " \
     alsa-utils \
     imx-codec-aac \
@@ -146,22 +156,19 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     ${FONTS} \
     ${FS_TOOLS} \
     ${PYTHON3} \
+    ${LIBRARIES} \
     ${MEDIA} \
     ${QT5} \
     ${REACH} \
     ${SYS_TOOLS} \
     ${TOUCH} \
     docker docker-contrib \
-    can-utils libsocketcan \
-    libmodbus \
+    can-utils \
     mosquitto \
     jsoncpp \
     redis hiredis \
-    libusb1 \
-    libftdi \
     nodejs nodejs-npm \
     open62541 \
-    libgpiod libgpiod-python libgpiod-tools \
 "
 
 

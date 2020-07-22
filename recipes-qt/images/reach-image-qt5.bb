@@ -33,6 +33,14 @@ FS_TOOLS = " \
     parted \
 "
 
+MEDIA = " \
+    alsa-utils \
+    imx-codec-aac \
+    packagegroup-fsl-gstreamer1.0-full \
+    pulseaudio-server \
+    pulseaudio-misc \
+"
+
 PYTHON3 = " \
     python3-modules \
     python3-pip \
@@ -136,19 +144,16 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     ${FONTS} \
     ${FS_TOOLS} \
     ${PYTHON3} \
+    ${MEDIA} \
     ${QT5} \
     ${REACH} \
     ${SYS_TOOLS} \
     ${TOUCH} \
-    alsa-utils \
-    packagegroup-fsl-gstreamer1.0-full \
-    imx-codec-aac \
     splash \
     docker docker-contrib \
     can-utils libsocketcan \
     libmodbus \
     mkemmc \
-    pulseaudio-server pulseaudio-misc \
     mosquitto \
     jsoncpp \
     redis hiredis \

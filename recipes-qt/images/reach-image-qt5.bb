@@ -107,6 +107,7 @@ SYS_TOOLS = " \
     bind-utils \
     busybox-ifplugd \
     busybox-hwclock \
+    can-utils \
     chkconfig  \
     coreutils \
     cronie \
@@ -122,15 +123,20 @@ SYS_TOOLS = " \
     iproute2-genl \
     iproute2-lnstat \
     iproute2-ss \
+    jsoncpp \
     lighttpd \
     lrzsz \
     mmc-utils \
+    mosquitto \
     net-tools \
     nfs-utils-client \
     nginx \
+    nodejs \
+    nodejs-npm \
     ntp \
     ntp-utils \
     ntpdate \
+    open62541 \
     openssh\
     openssh-scp\
     openssh-sftp-server \
@@ -138,6 +144,7 @@ SYS_TOOLS = " \
     picocom \
     ppp \
     procps \
+    redis hiredis \
     rsync \
     strace \
     syslog-ng \
@@ -163,12 +170,6 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     ${SYS_TOOLS} \
     ${TOUCH} \
     docker docker-contrib \
-    can-utils \
-    mosquitto \
-    jsoncpp \
-    redis hiredis \
-    nodejs nodejs-npm \
-    open62541 \
 "
 
 

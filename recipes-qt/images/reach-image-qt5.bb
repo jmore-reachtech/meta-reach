@@ -76,6 +76,12 @@ QT5 = " \
     qtxmlpatterns \
 "
 
+REACH = " \
+    reach-qml-medical \
+    reach-qml-viewer \
+    reach-qml-viewer-tscal \
+"
+
 TOUCH = " \
     tslib \
     tslib-calibrate \
@@ -88,13 +94,12 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     ${FS_TOOLS} \
     ${PYTHON3} \
     ${QT5} \
+    ${REACH} \
     ${TOUCH} \
     alsa-utils \
     strace \
     packagegroup-fsl-gstreamer1.0-full \
     imx-codec-aac \
-    reach-qml-medical \
-    reach-qml-viewer reach-qml-viewer-tscal \
     i2c-tools \
     openssh\
     openssh-scp\

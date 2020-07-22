@@ -24,17 +24,7 @@ FONTS = " \
     ttf-dejavu-common \
 "
 
-TOUCH = " \
-    tslib \
-    tslib-calibrate \
-    tslib-tests \
-"
-
-CORE_IMAGE_EXTRA_INSTALL += " \
-    ${FIRMWARE} \
-    ${FONTS} \
-    ${TOUCH} \
-    alsa-utils \
+QT5 = " \
     qt3d \
     qtcanvas3d \
     qtcharts \
@@ -60,6 +50,20 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     qtwebsockets \
     qtwebview \
     qtxmlpatterns \
+"
+
+TOUCH = " \
+    tslib \
+    tslib-calibrate \
+    tslib-tests \
+"
+
+CORE_IMAGE_EXTRA_INSTALL += " \
+    ${FIRMWARE} \
+    ${FONTS} \
+    ${QT5} \
+    ${TOUCH} \
+    alsa-utils \
     strace \
     packagegroup-fsl-gstreamer1.0-full \
     imx-codec-aac \

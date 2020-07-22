@@ -24,7 +24,11 @@ FONTS = " \
     ttf-dejavu-common \
 "
 
-TOUCH = "tslib tslib-calibrate tslib-tests"
+TOUCH = " \
+    tslib \
+    tslib-calibrate \
+    tslib-tests \
+"
 
 CORE_IMAGE_EXTRA_INSTALL += " \
     ${FIRMWARE} \

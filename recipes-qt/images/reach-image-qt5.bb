@@ -24,6 +24,21 @@ FONTS = " \
     ttf-dejavu-common \
 "
 
+PYTHON3 = " \
+    python3-modules \
+    python3-pip \
+    python3-can \
+    python3-jinja2 \
+    python3-modbus \
+    python3-pillow \
+    python3-pyqt5 \
+    python3-pyserial \
+    python3-pyusb \
+    python3-requests \
+    python3-smbus2 \
+    python3-tornado \
+"
+
 QT5 = " \
     qt3d \
     qtcanvas3d \
@@ -61,6 +76,7 @@ TOUCH = " \
 CORE_IMAGE_EXTRA_INSTALL += " \
     ${FIRMWARE} \
     ${FONTS} \
+    ${PYTHON3} \
     ${QT5} \
     ${TOUCH} \
     alsa-utils \
@@ -76,18 +92,6 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     openssl-bin \
     splash \
     udev-extraconf \
-    python3-modules \
-    python3-pip \
-    python3-can \
-    python3-jinja2 \
-    python3-modbus \
-    python3-pillow \
-    python3-pyqt5 \
-    python3-pyserial \
-    python3-pyusb \
-    python3-requests \
-    python3-smbus2 \
-    python3-tornado \
     docker docker-contrib \
     mmc-utils \
     e2fsprogs e2fsprogs-mke2fs e2fsprogs-resize2fs e2fsprogs-tune2fs e2fsprogs-resize2fs \

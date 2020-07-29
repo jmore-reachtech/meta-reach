@@ -81,20 +81,3 @@ then
 		test -x /etc/init.d/hwclock.sh && /etc/init.d/hwclock.sh stop
 	fi
 fi
-
-#
-# resize the EXT4 filesystem in eMMC partition 4
-# if the semaphore file exists
-#
-if [ -e /.resize_emmc_part4 ]; then
-	EMMC_PART4=/dev/mmcblk3p4
-	if [ -e "${EMMC_PART4}" ]; then
-		printf "\nresizing EXT4 filesystem in \"%s\"\n" "${EMMC_PART4}"
-		resize2fs -f "${EMMC_PART4}"
-	else
-		printf "\neMMC partition 4 (%s) not found\n\nNOT resizing!\n\n" "${EMMC_PART4}"
-	fi
-	rm -f /.resize_emmc_part4
-fi
-
-: exit 0

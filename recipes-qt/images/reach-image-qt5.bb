@@ -99,6 +99,7 @@ REACH = " \
     reach-qml-medical \
     reach-qml-viewer \
     reach-qml-viewer-tscal \
+    reach-resize \
     splash \
 "
 

@@ -32,24 +32,40 @@ do
 	printf "waiting for \"%s\" to appear...\n" "${EMMC_DEV}"
 done
 
-# the eMMC comes from the factory with a single VFAT partition which will be automounted
-# make sure it's not mounted, otherwise the kernel will not see the updated partition
-# table after the image is falshed to the eMMC
+# if the eMMC is being reflashed, there are likely VFAT/EXT4 partitions automounted
+# under /run/media... the kernel does not like it if the partition sizes change
+# so we zero eMMC and force a reboot
 
-EMMC_PART1=/run/media/mmcblk3p1
+EMMC_PART_BASE=/run/media/mmcblk3
+EMMC_PART_FOUND="false"
 
-if [ -e "${EMMC_PART1}" ]; then
-	printf "\nunmounting eMMC default VFAT partition at \"%s\"\n" "${EMMC_PART1}"
-	umount "${EMMC_PART1}"
+for part_num in 1 2 3 4
+do
+	PART_DEV=${EMMC_PART_BASE}p${part_num}
+	printf "\nchecking for eMMC partition at \"%s\"\n" "${PART_DEV}"
+	if [ -e "${PART_DEV}" ]; then
+		EMMC_PART_FOUND="true"
+		umount -f ${PART_DEV} > /dev/null 2>&1
+	fi
+done
+
+if [ "${EMMC_PART_FOUND}" != "false" ]; then
+	printf "\nfound existing eMMC partitions...\nzeroing out eMMC\n"
+	dd if=/dev/zero of=${EMMC_DEV} bs=8M count=932 conv=fdatasync status=progress
+	sync
+	sync
+	printf "\nrebooting...\nrerun mkemmc.sh after the reboot\n\n"
+	reboot
+	exit 0
 fi
- 
+
 # write 4 emmc paritions
 #	p1 - VFAT - /uboot
 #	p2 - EXT4 - rootfs A
 #	p3 - EXT4 - rootfs B
 #	p4 - EXT4 - /data
 printf "\nflashing eMMC SD image \"%s\" to \"%s\"\n" "${EMMC_SDIMG}" "${EMMC_DEV}"
-dd if="${EMMC_SDIMG}" of="${EMMC_DEV}"
+dd if="${EMMC_SDIMG}" of="${EMMC_DEV}" bs=8M conv=fdatasync status=progress
 
 # write u-boot image (after clearing read only flag for boot0 partition
 echo 0 > "${EMMC_RO_FLAG}"
@@ -61,32 +77,7 @@ printf "\nsetting up eMMC boot\n"
 mmc bootpart enable 1 1 "${EMMC_DEV}"
 mmc bootbus set single_backward x1 x4 "${EMMC_DEV}"
 
-# expand p4 to use the rest of eMMC
-EMMC_PART4="${EMMC_DEV}p4"
-
-printf "\nexpanding eMMC partition 4 (/data)\n"
-parted "${EMMC_DEV}" << EOF
-print
-resizepart 4
--1s
-print
-EOF
-
-# we have to reboot to see the new partitions... partprobe can't update the kernel
-# even though nothing is mounted from eMMC because something in the kernel is
-# holding a reference to at least one eMMC resource
-
-# this is similar to how Raspian expands its rootfs on first boot
-
-printf "\nsetting up resize of EXT4 filesystem in \"%s\" at next reboot\n" "${EMMC_PART4}"
-touch /.resize_emmc_part4
-
-printf "\nThe system must reboot to use the new eMMC partitions.\n\n"
-
-printf "Rebooting in 5 seconds.. press ^C to cancel\n\n"
-
-sleep 5
-
 sync
 sync
-reboot
+
+printf "\nThe image has been flashed to eMMC.\nInsert the boot jumper, then reboot.\n\n"

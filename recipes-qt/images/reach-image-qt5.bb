@@ -126,6 +126,7 @@ SYS_TOOLS = " \
     jsoncpp \
     lighttpd \
     lrzsz \
+    lsof \
     mmc-utils \
     mosquitto \
     net-tools \
@@ -162,9 +163,9 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     ${FIRMWARE} \
     ${FONTS} \
     ${FS_TOOLS} \
-    ${PYTHON3} \
     ${LIBRARIES} \
     ${MEDIA} \
+    ${PYTHON3} \
     ${QT5} \
     ${REACH} \
     ${SYS_TOOLS} \

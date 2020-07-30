@@ -80,4 +80,4 @@ mmc bootbus set single_backward x1 x4 "${EMMC_DEV}"
 sync
 sync
 
-printf "\nThe image has been flashed to eMMC.\nInsert the boot jumper, then reboot.\n\n"
+printf "\nThe image has been flashed to eMMC.\n1) Run \"halt\"\n2) Power down the board\n3) Insert the eMMC boot jumper\n4) Power up the board\n\n"

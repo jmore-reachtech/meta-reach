@@ -3,7 +3,7 @@ require conf/distro/poky.conf
 DISTRO = "reach-base"
 DISTRO_NAME = "Reach Technology Distro Base"
 
-SDKPATH = "/opt/reach/sdk/${SDK_VERSION}"
+SDKPATH = "/opt/reach/sdk/${MACHINE}/${SDK_VERSION}"
 
 SDK_VENDOR = "-reachsdk"
 

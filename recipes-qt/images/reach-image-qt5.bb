@@ -5,6 +5,10 @@ LICENSE = "CLOSED"
 inherit core-image
 inherit populate_sdk_qt5
 
+# include build tools on sd images
+BUILD_TOOLS = ""
+BUILD_TOOLS_imx6dl-g3-sd = "packagegroup-core-buildessential"
+
 FIRMWARE = " \
     linux-firmware-ibt \
     linux-firmware-iwlwifi \
@@ -162,6 +166,7 @@ TOUCH = " \
 "
 
 CORE_IMAGE_EXTRA_INSTALL += " \
+    ${BUILD_TOOLS} \
     ${FIRMWARE} \
     ${FONTS} \
     ${FS_TOOLS} \
@@ -174,7 +179,6 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     ${TOUCH} \
     docker docker-contrib \
 "
-
 
 def get_layers(bb, d):
         layers = (d.getVar("BBLAYERS", d, 1) or "").split()

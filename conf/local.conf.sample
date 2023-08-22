@@ -21,6 +21,6 @@ ACCEPT_FSL_EULA = "1"
 #file://.* http://someserver.tld/share/sstate/PATH \n \
 #file://.* file:///some/local/dir/sstate/PATH"
 INHERIT += "own-mirrors"
-SOURCE_MIRROR_URL = "http://git.reachtech.com/downloads"
+SOURCE_MIRROR_URL = "https://reach-g2c-yocto-dylan.s3.us-west-2.amazonaws.com/downloads"
 
 #SDKMACHINE ?= "i686"

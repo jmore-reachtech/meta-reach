@@ -16,6 +16,7 @@ SCMVERSION ?= "y"
 SRC_URI = "git://github.com/jmore-reachtech/reach-imx-linux.git;branch=imx-2.6.35-mx28-master;protocol=ssh \
                    file://defconfig \
                    file://0001-update-linux-kernel-logo.patch \
+                   file://0002-drivers-touchscreen-evervision-Swap-X-and-Y.patch \
 "
 
 S = "${WORKDIR}/git"

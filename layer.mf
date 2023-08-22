@@ -49,8 +49,19 @@
   "conf": "TEMPLATECONF=meta-reach/conf",
   "machines":[
     {
-	  "name": "g2c-43-24",
-	  "images":[
+        "name": "g2c-43-24",
+        "images":[
+        {
+          "name": "reach-image-tiny"
+        },
+        {
+          "name": "reach-image-qt4e"
+        }
+      ]
+    },
+    {
+        "name": "g2c-lite",
+        "images":[
         {
           "name": "reach-image-tiny"
         },

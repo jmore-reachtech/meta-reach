@@ -7,8 +7,8 @@ PATCHRESOLVE = "noop"
 CONF_VERSION = "1"
 
 # These are optional based on host computer
-BB_NUMBER_THREADS = "4"
-PARALLEL_MAKE = "-j 4"
+BB_NUMBER_THREADS = "8"
+PARALLEL_MAKE = "-j 8"
 
 # These can be share on a per developer workstation like /opt
 DL_DIR ?= "/opt/yocto/downloads"

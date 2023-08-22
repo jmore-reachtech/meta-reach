@@ -7,7 +7,7 @@ PR = "r1"
 inherit qt4e
 
 SRCREV ="3e94ae7fcdb81b4c7cb111a1bc847932396a1b28" 
-SRC_URI = "git://github.com/jmore-reachtech/reach-html-viewer.git;protocol=git \
+SRC_URI = "git://github.com/jmore-reachtech/reach-html-viewer.git;protocol=ssh \
         file://html-viewer-qt4e \
         file://settings.conf \
 "

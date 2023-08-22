@@ -6,7 +6,7 @@ inherit qt4e
 
 PR = "r2"
 
-SRC_URI = "git://github.com/jmore-reachtech/reach-qml-plugins-mxs.git;branch=master;protocol=git \
+SRC_URI = "git://github.com/jmore-reachtech/reach-qml-plugins-mxs.git;branch=master;protocol=ssh \
     file://qmldir \
 "
 SRCREV = "05794819b8fb2a0ae039684373ac366f97589a24" 

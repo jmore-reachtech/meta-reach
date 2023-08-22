@@ -52,7 +52,7 @@
 	  "name": "g2c-43-24",
 	  "images":[
         {
-          "name": "reach-image-minimal"
+          "name": "reach-image-tiny"
         },
         {
           "name": "reach-image-qt4e"

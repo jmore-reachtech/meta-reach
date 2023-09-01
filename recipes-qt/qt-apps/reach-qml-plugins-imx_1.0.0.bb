@@ -7,7 +7,7 @@ DEPENDS += "qtbase qtdeclarative"
 
 PR = "r1"
 
-SRC_URI = "git://github.com/jmore-reachtech/reach-qml-plugins-imx.git;branch=master;protocol=git \
+SRC_URI = "git://git@github.com/jmore-reachtech/reach-qml-plugins-imx.git;branch=master;protocol=ssh \
 "
 SRCREV = "e9f21c5f58307489dc9e1eacac04a75c46b0a44e" 
 

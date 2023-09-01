@@ -12,7 +12,7 @@ SRC_URI[sha256sum] = "710269ce456597628b990b90d65ab335bfe4e3cd3741471c5333053b84
 
 SRCREV = "9207512c4747410b6d74f1c2e6c2af30a36290a2"
 
-SRC_URI = "git://github.com/jmore-reachtech/reach-imx-u-boot.git;branch=2016.03+reach-dizzy;protocol=git \
+SRC_URI = "git://git@github.com/jmore-reachtech/reach-imx-u-boot.git;branch=2016.03+reach-dizzy;protocol=ssh \
 	file://env.txt \
 	file://fw_env.config \
 "

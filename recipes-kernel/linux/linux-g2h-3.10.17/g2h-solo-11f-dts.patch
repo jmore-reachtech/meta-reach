@@ -1,0 +1,43 @@
+From f30f213647091d224971f1039c0621f40e4be2ab Mon Sep 17 00:00:00 2001
+From: Tom Salata <toms@tpi.com>
+Date: Fri, 1 Sep 2023 16:05:47 -0700
+Subject: [PATCH 1/1] ARM: dts: g2h-solo-11f: Change touchscreen node
+
+Use drivers/input/touchscreen/focaltech_touch for the new Focal Tech
+Use drivers/input/touchscreen/focaltech_touch for the new Focal Tech
+FT7811 touch controller in place of the evervision driver.
+
+Signed-off-by: Tom Salata <toms@tpi.com>
+---
+ arch/arm/boot/dts/imx6dl-g2h-11f.dts | 15 +++++++++++++--
+ 1 file changed, 13 insertions(+), 2 deletions(-)
+
+diff --git a/arch/arm/boot/dts/imx6dl-g2h-11f.dts b/arch/arm/boot/dts/imx6dl-g2h-11f.dts
+index 2baad782ec71..3c4d3ce4eba9 100644
+--- a/arch/arm/boot/dts/imx6dl-g2h-11f.dts
++++ b/arch/arm/boot/dts/imx6dl-g2h-11f.dts
+@@ -67,8 +67,19 @@
+ 	status = "disabled";
+ };
+ 
+-&evervision_ts {
+-    status = "okay";
++&i2c1 {
++	focaltech_ts: fts_ts@38 {
++		compatible = "focaltech,fts";
++		reg = <0x38>;
++		interrupt-parent = <&gpio4>;
++		interrupts = <5 0>;
++		focaltech,reset-gpio = <&gpio7 8 0>;
++		focaltech,irq-gpio = <&gpio4 5 0>;
++		focaltech,max-touch-number = <5>;
++		focaltech,display-coords = <0 0 2047 2047>;
++		focaltech,swap-x-y;
++		status = "okay";
++	};
+ };
+ 
+ &spiflash {
+-- 
+2.25.1
+

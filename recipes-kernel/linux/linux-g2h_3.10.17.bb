@@ -5,6 +5,8 @@ require recipes-kernel/linux/linux-imx.inc
 require recipes-kernel/linux/linux-dtb.inc
 
 SRC_URI = "git://git@github.com/jmore-reachtech/reach-imx-linux.git;branch=reach-imx_3.10.17_1.0.2_ga;protocol=ssh \
+           file://focaltech-touch.patch \
+           file://g2h-solo-11f-dts.patch \
            file://defconfig \
 "
 

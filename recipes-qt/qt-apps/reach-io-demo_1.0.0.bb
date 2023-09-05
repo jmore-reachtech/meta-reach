@@ -5,7 +5,7 @@ LIC_FILES_CHKSUM = "file://${COREBASE}/LICENSE;md5=3f40d7994397109285ec7b81fdeb3
 PR = "r1"
 
 SRCREV = "dab0582465231115f23e8f057e4df2919d4fcbc5"
-SRC_URI = "git://github.com/jmore-reachtech/reach-io-demo.git;protocol=git \
+SRC_URI = "git://github.com/jmore-reachtech/reach-io-demo.git;protocol=ssh \
                    file://io-demo \
           "
           

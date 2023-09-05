@@ -2,7 +2,7 @@ require barebox.inc
 
 PR = "r5"
 
-SRC_URI = "git://github.com/jmore-reachtech/reach-barebox.git;branch=reach-2012-11.0;protocol=git \
+SRC_URI = "git://github.com/jmore-reachtech/reach-barebox.git;branch=reach-2012-11.0;protocol=ssh \
 	file://defconfig \
 	file://config \
 	"

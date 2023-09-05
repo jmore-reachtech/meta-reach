@@ -2,7 +2,7 @@ PRINC := "${@int(PRINC) + 3}"
 
 FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
 
-SRC_URI = "git://github.com/jmore-reachtech/reach-imx-bootlets.git \
+SRC_URI = "git://github.com/jmore-reachtech/reach-imx-bootlets.git;protocol=ssh \
 	file://linux-fix-paths.patch \
 	file://linux-fix-paths-ivt.patch \
 "
